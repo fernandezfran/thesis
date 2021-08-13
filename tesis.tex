@@ -1,0 +1,57 @@
+\documentclass[12pt,spanish]{book}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{graphicx}
+\graphicspath{ {imagenes/} }
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{parskip}
+\usepackage{listings}
+\usepackage[obeyspaces]{url}
+\usepackage{caption}
+\usepackage{subcaption}
+\addto\captionsspanish{
+    \def\listtablename{\'Indice de tablas}%
+    \def\tablename{Tabla}
+}
+\usepackage{multirow}
+\usepackage{textcomp} % ° symbol
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[breaklinks=true,hidelinks]{hyperref} 
+
+
+\begin{document}
+
+% Carátula
+
+% Dedicatoria
+
+% Índice
+
+% Resumen
+
+% Abstract
+
+% Capítulos...
+% \chapter[Capítulo X]{Capítulo X}
+% \input{corpus/capitulox.tex}
+\chapter[Métodos teóricos y computacionales]{Métodos teóricos y computacionales}
+\input{corpus/metodos.tex}
+
+% \appendix
+% Apéndices
+% \chapter[Apéndice X]{Apéndice X}
+% \input{corpus/apendicex.tex}
+
+\bibliography{citas}
+
+\end{document}
