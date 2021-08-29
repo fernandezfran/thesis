@@ -11,6 +11,7 @@ Director: Daniel Eugenio Barraco Díaz
 
 Codirector: Ezequiel Pedro Marcos Leiva
 
+
 ## Publicaciones
 
 1. <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva.
@@ -18,16 +19,16 @@ Codirector: Ezequiel Pedro Marcos Leiva
    accelerated exploration of local minima". _Physical Chemistry Chemical Physics_
    (2021). https://doi.org/10.1039/D1CP02216D
 
+
 ## Instrucciones para generar la tesis
 
-> En Linux, `xdg-open` abre el lector de pdf predeterminado. 
+Para compilar la tesis en Linux a través del `Makefile` es necario tener instalado
+`LaTeX` y `pdflatex`.
+    
+```bash
+make
+xdg-open tesis.pdf
+make clean
+```
 
-+ Para compilar y ver la tesis:
-    ```bash
-    make
-    xdg-open tesis.pdf
-    ```
-+ Para borrar archivos de compilación:
-    ```bash
-    make clean
-    ```
+> En Linux, `xdg-open` abre el lector de pdf predeterminado. 
