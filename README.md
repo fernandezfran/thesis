@@ -9,6 +9,13 @@ Director: Daniel Eugenio Barraco Díaz
 
 Codirector: Ezequiel Pedro Marcos Leiva
 
+**Publicaciones**
+
+1. <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva.
+   "Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via
+   accelerated exploration of local minima". _Physical Chemistry Chemical Physics_
+   (2021). https://doi.org/10.1039/D1CP02216D
+
 **Instrucciones para generar la tesis**
 
 + Para compilar y ver la tesis:
