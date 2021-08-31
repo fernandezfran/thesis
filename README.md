@@ -23,7 +23,7 @@ Codirector: Ezequiel Pedro Marcos Leiva
 ## Instrucciones para generar la tesis
 
 Para compilar la tesis en Linux a través del `Makefile` es necario tener instalado
-`LaTeX` y `pdflatex`.
+`LaTeX`, `pdflatex` y `latexmk`.
     
 ```bash
 make

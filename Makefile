@@ -1,14 +1,16 @@
-COMPILER = pdflatex
-CFLAGS = 
+COMPILER = latexmk
+tesis_flags = -pdf -quiet 
+clean_flags = -c
 
 TARGETS = tesis
 
 all: $(TARGETS)
 
 tesis: tesis.tex
-	$(COMPILER) $(CFLAGS) $<
+	$(COMPILER) $(tesis_flags) $<
 
 clean:
-	rm -f *.aux *.log *.out $(TARGETS)
+	$(COMPILER) $(clean_flags)
+	rm *.bbl
 
 .PHONY: clean all

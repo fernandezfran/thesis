@@ -1,14 +1,48 @@
 \section{Dinámica molecular}
 
-Intro y algoritmo general.
+La dinámica molecular (MD, de sus siglas en inglés, \textit{molecular dynamics})
+es una técnica de simulación computacional que considera un sistema de $N$
+partículas atómicas, que interactúan a través de un campo de fuerzas newtoniano,
+de las cuales se obtiene su evolución temporal. La misma permite obtener
+propiedades termodinámicas macroscópicas (temperatura, presión) de un sistema en 
+equilibro a partir de cantidades microscopicas (posiciones, velocidades, fuerzas)
+~\cite{frenkel2001, allen2017}.
+
+Para entender mejor como trabaja esta técnica de simulación es conveniente ver
+como funciona su código fuente, el mismo sigue, en la mayoria de los casos, la
+siguiente forma:
+\begin{enumerate}
+    \item \underline{Inicialización del sistema}: se especifican las posiciones y
+        velocidades iniciales de los átomos. También se elije un paso temporal, 
+        un radio de corte para las interacciones y las condiciones de contorno que
+        se van a respetar a lo largo de la simulación. 
+    \item \underline{Cálculo de fuerzas}: con las posiciones específicadas se
+        calcula la fuerza sobre cada uno de los átomos a través del campo de 
+        fuerzas elegido.
+    \item \underline{Integración de las ecuaciones de movimiento}: se integran las
+        ecuaciones de Newton mediante algún integrador que obtiene las posiciones
+        y velocidades del paso temporal siguiente a partir del actual.
+    \item \underline{Computo de propiedades termodinámicas}: se realizan los
+        cálculos de distintas cantidades de interés, como las energías potencial
+        y cinéctica, la presión y la temperatura.
+    \item De ser necesario, se aplica algún \underline{termostato o barostato}
+        para realizar simulaciones en el ensamble termodinámico deseado.
+    \item \underline{Evolución temporal}: se incrementa el tiempo adhiriendo un
+        paso temporal y se vuelve al cálculo de las fuerzas con las nuevas 
+        configuraciones.
+\end{enumerate}
+
+Estos pasos pueden verse en la figura \textcolor{red}{HACER UN DIAGRAMA DEL PSEUDO 
+CÓDIGO PROPIO}. Veamos a continuación cada una de las partes en detalle.
 
 \subsection{Configuraciones iniciales}
 
 Mencionar algo sobre materials project.
+Velocidades aleatorias.
 
-\subsection{Integradores}
+\subsection{Condiciones de contorno}
 
-\subsection{Termostatos y barostatos}
+Periódicas - Fijas
 
 \subsection{Potenciales interatómicos}
 
@@ -16,7 +50,13 @@ Mencionar algo sobre materials project.
 
 \subsubsection{DFTB}
 
+\subsection{Integradores}
+
+\subsection{Termostatos y barostatos}
+
 \subsection{Métodos de exploración de la superficie energía-potencial}
+
+\subsubsection{Minimizaciones locales}
 
 \subsubsection{Templado simulado}
 
