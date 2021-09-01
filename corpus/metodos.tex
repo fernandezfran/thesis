@@ -12,22 +12,22 @@ Para entender mejor como trabaja esta técnica de simulación es conveniente ver
 como funciona su código fuente, el mismo sigue, en la mayoria de los casos, la
 siguiente forma:
 \begin{enumerate}
-    \item \underline{Inicialización del sistema}: se especifican las posiciones y
+    \item \textbf{Inicialización del sistema}: se especifican las posiciones y
         velocidades iniciales de los átomos. También se elije un paso temporal, 
         un radio de corte para las interacciones y las condiciones de contorno que
         se van a respetar a lo largo de la simulación. 
-    \item \underline{Cálculo de fuerzas}: con las posiciones específicadas se
+    \item \textbf{Cálculo de fuerzas}: con las posiciones específicadas se
         calcula la fuerza sobre cada uno de los átomos a través del campo de 
         fuerzas elegido.
-    \item \underline{Integración de las ecuaciones de movimiento}: se integran las
+    \item \textbf{Integración de las ecuaciones de movimiento}: se integran las
         ecuaciones de Newton mediante algún integrador que obtiene las posiciones
         y velocidades del paso temporal siguiente a partir del actual.
-    \item \underline{Computo de propiedades termodinámicas}: se realizan los
+    \item \textbf{Computo de propiedades termodinámicas}: se realizan los
         cálculos de distintas cantidades de interés, como las energías potencial
         y cinéctica, la presión y la temperatura.
-    \item De ser necesario, se aplica algún \underline{termostato o barostato}
+    \item De ser necesario, se aplica algún \textbf{termostato o barostato}
         para realizar simulaciones en el ensamble termodinámico deseado.
-    \item \underline{Evolución temporal}: se incrementa el tiempo adhiriendo un
+    \item \textbf{Evolución temporal}: se incrementa el tiempo adhiriendo un
         paso temporal y se vuelve al cálculo de las fuerzas con las nuevas 
         configuraciones.
 \end{enumerate}
@@ -37,12 +37,49 @@ CÓDIGO PROPIO}. Veamos a continuación cada una de las partes en detalle.
 
 \subsection{Configuraciones iniciales}
 
-Mencionar algo sobre materials project.
-Velocidades aleatorias.
+Si bien las posiciones inicialesde algunos sistemas pueden reproducirse a partir
+de los vectores de red de estructuras cristalinas (\textit{simple cubic}, 
+\textit{body-centered cubic}, \textit{face-centered cubic}), otros casos de
+interés, en los cuales hay más de un elemento involucrado, involucran celdas 
+unidad más complicadas que han sido calculadas y optimizadas mediente la Teoría
+del funcional de la densidad (DFT, de sus siglas en inglés, density functional
+theory). Realizar estos calculos suele ser una tarea computacionalmente costosa 
+y que requiere interevención de científicos especializados, para evitar esto
+existe una base de datos ampliamente utilizada en el ámbito académico y en
+la industria, Materials Project \cite{materials_project}, que recopila los datos
+que existen sobre estas estructuras cristalinas, realiza nuevos cálculos y está 
+abierta a la comunidad para su uso y colaboración. Antes de que los datos se
+cargen en la página, los mismos son comparados con resultados experimentales 
+para determinar si están dentro de un rango de validez definido. En esta tesis
+en particular, fueron utilizadas distintas estructuras cristalinas de esta base de
+datos como condiciones iniciales para las posiciones y el tamaño de la celda de 
+simulación.
+
+Las velocidades de los átomos suelen ser generadas de manera aleatoria, a través
+de un generador de números pseudo-aleatorio, tomando como argumento una semilla 
+para la reproducibilidad de la simulación y una temperatura deseada para el
+sistema. Estos números suelen ser generados de una distribución gaussiana, donde
+el centro se lo fija a cero para que no haya una velocidad en el centro de masa
+y el ancho está relacionado a la temperatura.
 
 \subsection{Condiciones de contorno}
 
-Periódicas - Fijas
+Además de dar la configuración inicial de los átomos, es necesario especificar si
+los mismos se encuentran dentro de una celda de simulación con un largo tamaño en
+particular para cada una de las direcciones del sistema o si no interactúan fuera
+del borde de la estructura que conforman los mismos. En el primero de los casos
+se tienen condiciones periódicas de contorno (PBC, \textit{periodic boundary 
+conditions}), lo que se busca con ellas es reproducir un sistema infinito, para
+que no existan efectos de borde, y consiste en considerar que los átomos se 
+encuentran dentro de una celda unidad de una red infinita de celdas idénticas; en
+donde si un átomo sale por un extremo de la celda, ingresa por el opuesto. Una
+condición que debe cumplir esta celda es que su tamaño en cada una de las 
+direcciones debe ser mayor al radio de corte de las interacciones entre los átomos. 
+\textcolor{red}{agregar figura para explicar un poco mejor y hablar de la imagen
+minima.} Por otro lado, el segundo de los casos es útil considerarlo cuando se 
+tienen nanoestructuras en las cuales los átomos están ordenados de cierta forma 
+que globalmente representan una forma definida y no pueden ser consideradas como
+una red inifinita.
 
 \subsection{Potenciales interatómicos}
 
@@ -54,13 +91,19 @@ Periódicas - Fijas
 
 \subsection{Termostatos y barostatos}
 
-\subsection{Métodos de exploración de la superficie energía-potencial}
+
+\section{Métodos de exploración de la superficie energía-potencial}
+
+\subsection{Métodos locales}
 
 \subsubsection{Minimizaciones locales}
+\subsubsection{NEB}
+
+\subsection{Métodos globale}
 
 \subsubsection{Templado simulado}
-
 \subsubsection{Dinámica acelerada}
+
 
 \section{Experimentos computacionales}
 
