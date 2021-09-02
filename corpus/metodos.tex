@@ -83,6 +83,48 @@ una red inifinita.
 
 \subsection{Potenciales interatómicos}
 
+Existen una gran variedad de potenciales interatómicos para utilizar en dinámicas
+moleculares. La elección de cada uno de ellos depende del sistema de estudio ya
+que algunos potenciales representan de mejor manera gases y otros metales. A pesar
+de esto, un potencial interatómico suele tener contribuciones atractivas y
+repulsivas, según la distancia, con un mínimo que se encuentra a la distancia del
+enlace entre dos átomos. Como ejemplo se toma un potencial interatómico de 
+Lennard-Jones (12-6), dado por la siguiente expresión
+$$
+V_{LJ} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - 
+                             \left( \frac{\sigma}{r} \right)^{6} \right],
+$$
+donde $r$ es la distancia entre dos átomos, $\varepsilon$ indica la profundidad 
+del pozo del potencial que se encuentra en $r_m = 2^{1/6} \sigma$, $\sigma$ es el
+radio del átomo. En la figura \textcolor{red}{X (agregar figura de un potencial 
+de LJ)} se muestra el comportamiento de este potencial, si la distancia entre dos
+átomos es menor a $r_m$ entonces se repelen, si es mayor a dicha distancia, se 
+atraen. Cuando la distancia entre dos átomos es infinita, los mismos no 
+interactúan, en el caso práctico se define una distancia de corte, conocida como
+el \textit{radio de corte}, $r_{cut}$, a partir de la cual se considera que el 
+potencial es nulo. Para evitar discontinuidades en este punto se suelen utilizar 
+distintas técnicas como el truncado y desplazado o se multiplica al potencial 
+al rededor de dicho punto por una función \textit{smooth}, que hace que el 
+potencial se iguale suavemente a cero.
+
+Una vez que el potencial interatómico está bien definido, para calcular la fuerza
+que actúa sobre el átomo $i$ es necesario computar la fuerza de a pares con todos
+los átomos $j$ del sistema. Para esto es necesario calcular las distancias,
+considerando la imagen mínima si las condiciones de contorno son PBC, y ver si
+las mismas son mayores o menores a $r_{cut}$, si la distancia es mayor entonces
+la contribución de esa interacción es igual a cero y si es menor se computa la 
+fuerza a través del potencial de la siguiente manera
+$$
+f_x(r) = - \frac{\partial V(r)}{\partial x}
+       = - \left( \frac{x}{r_{ij}} \right) \cdot \left( \frac{
+                                       \partial V(r)}{\partial r} \right)
+$$
+donde $r$ es la distancia entre los átomos, $x$ la componente en alguna de
+las direcciones definidas para el sistema.
+
+A continuación se presentan dos potenciales interatómicos del estado del arte que
+fueron utilizados a lo largo de esta tesis.
+
 \subsubsection{ReaxFF}
 
 \subsubsection{DFTB}

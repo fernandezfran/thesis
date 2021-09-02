@@ -1,5 +1,6 @@
+# https://mg.readthedocs.io/latexmk.html
 COMPILER = latexmk
-tesis_flags = -pdf -quiet 
+tesis_flags = -pdf # -quiet 
 clean_flags = -c
 
 TARGETS = tesis

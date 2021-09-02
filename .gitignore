@@ -1,2 +1,11 @@
-tesis.pdf
+instructivos/
 inspiracion/
+*/*.aux
+tesis.pdf
+tesis.aux
+tesis.bbl
+tesis.blg
+tesis.fdb_latexmk
+tesis.fls
+tesis.log
+tesis.out
