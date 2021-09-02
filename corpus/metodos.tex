@@ -1,3 +1,14 @@
+\section{Teoría}
+
+\subsection{Termodinámica}
+
+Algo de ensambles
+
+\subsection{RMN}
+
+Si agrego algo de RMN.
+
+
 \section{Dinámica molecular}
 
 La dinámica molecular (MD, de sus siglas en inglés, \textit{molecular dynamics})
@@ -131,6 +142,48 @@ fueron utilizados a lo largo de esta tesis.
 
 \subsection{Integradores}
 
+\subsection{Computo de propiedades termodinámicas}
+
+Una vez que ya se conocen las posiciones, velocidades y fuerzas de todos los 
+átomos se tiene toda la información necesaria para para computar distintas
+cantidades de interés, el computo de cada una de ellas dependera del ensamble en
+el cual se están realizando las simulaciones.
+
+Las energías que contribuyen a la energía total son dos, la potencial y la
+cinética. La primera de ellas viene dada por por distintas contribuciones de
+pares, ángulos, enlaces, etc, dependiendo de que tan complejo sea el campo de 
+fuerzas utilizado. En el caso de que la interacción sea solo de a pares, la
+energía potencial puede calcularse de la siguiente forma
+$$
+E_{pot} = \sum_{i < j} u(r_{ij}),
+$$
+donde $u(r_{ij})$ es la contribución proveniente de la interacción entre los 
+átomos $i$ y $j$.
+
+Por otro lado, la energía cinética traslacional puede calcularse a partir de las
+velocidades de cada uno de los átomos como
+$$
+E_{cin} = \frac{1}{2} \sum_{i=1}^{N} m_i v_i^2, 
+$$
+donde $m_i$ es la masa del átomo $i$ y $v_i^2$ el módulo de su velocidad. 
+
+También suele ser de interés obtener el valor de la temperatura y de la presión
+del sistema. La temperatura en un paso de la simulación puede calcularse 
+utilizando que
+$$
+k_B T = \sum_{i=1}^N \frac{m_i v_i^2}{N_f},
+$$
+donde $k_B$ es la constante del Boltzmann y $N_f$ los grados de libertad,
+aproximados usualmente por $3N$ para sistemas lo suficientemente grandes. Por 
+último, la presión puede calcularse como 
+$$
+P = \rho k_B T + \frac{1}{d V} \left\langle \sum_{i<j} \mathbf{f}(\mathbf{r}_{ij}) 
+                                              \cdot \mathbf{r}_{ij} \right\rangle,
+$$
+donde $\rho$ es la densidad, $d$ la dimensión y $V$ el volumen del sistema. El
+segundo término es conocido como el virial, donde $r_{ij}$ y $f(r_{ij})$ son las 
+distancias y las fuerzas entre los átomos $i$ y $j$.
+
 \subsection{Termostatos y barostatos}
 
 
@@ -141,7 +194,7 @@ fueron utilizados a lo largo de esta tesis.
 \subsubsection{Minimizaciones locales}
 \subsubsection{NEB}
 
-\subsection{Métodos globale}
+\subsection{Métodos globales}
 
 \subsubsection{Templado simulado}
 \subsubsection{Dinámica acelerada}
