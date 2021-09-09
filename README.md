@@ -19,24 +19,18 @@ Codirector: Ezequiel Pedro Marcos Leiva
    accelerated exploration of local minima". _Physical Chemistry Chemical Physics_
    (2021). https://doi.org/10.1039/D1CP02216D
 
+
 ## Presentaciones en congresos
 
-2. Un viaje por el Nanomundo de las baterias de Li.
++ E. P. M. Leiva, <ins>F. Fernandez</ins>. "Un viaje por el Nanomundo de las 
+  baterias de Li". _XXII Congreso Argentino de Fisicoquímica y Química Inorganica_
+  19--29 de Abr, 2021. _La Plata, Argentina._
 
-   E. P. M. Leiva, <ins>F. Fernandez</ins>
++ <ins>F. Fernandez</ins>, M. Otero, S. A. Paz, D. E. Barraco Dı́az, E. P. M. Leiva.
+  "First steps towards reproducing chemical shifts spectra of c-LiSi alloys using 
+  a semi-empirical force field". _7 th International Workshop on Lithium, 
+  Industrial Minerals and Energy (IWLiME)_ 9--11 de Nov, 2020. _Antofagasta, Chile._
 
-   XXII Congreso Argentino de Fisicoquímica y Química Inorganica. 19--29 de 
-   Abr, 2021
-   _La Plata, Argentina._
-
-1. First steps towards reproducing chemical shifts spectra of c-LiSi alloys using 
-   a semi-empirical force field.
-   
-   <ins>F. Fernandez</ins>, M. Otero, S. A. Paz, D. E. Barraco Dı́az, E. P. M. Leiva.
-
-   7 th International Workshop on Lithium, Industrial Minerals and Energy 
-   (IWLiME). 9–11 de Nov, 2020
-   _Antofagasta, Chile._
 
 ## Instrucciones para generar la tesis
 

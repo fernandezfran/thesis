@@ -212,6 +212,120 @@ distancias y las fuerzas entre los átomos $i$ y $j$.
 
 \subsection{Termostatos y barostatos}
 
+Debido a que la dinámica molecular usual se realiza en el ensamble NVE y la 
+mayoria de los experimentos con los cuales se pueden comparar resultados se 
+realizan a temperatura y/o presión constante, es necesario introducir distintos
+termostatos y barostatos que permitan controlar la temperatura y la presión,
+respectivamente, de las simulaciones realizadas. 
+
+Desde el punto de vista de la mecánica estadística a un sistema se le puede 
+imponer una temperatura si se lo pone en contacto con un baño térmico lo 
+suficientemente grande. En dicho caso la probabilidad de encontrar al sistema en
+un estado de energía viene dada por la distribución de Maxwell-Boltzmann,
+\begin{equation}\label{eq:mb}
+P(v) = \left( \frac{\beta}{2\pi m} \right)^{3/2} exp(-\beta v^2 / (2m)),
+\end{equation}
+donde $\beta$ es la energía térmica $k_BT$. Esto quiere decir que la velocidad de
+un átomo no se mantiene constante cuando está en contacto con un baño térmico, si 
+no que la misma puede fluctuar y la fluctuación va a depender de dicha temperatura
+de la siguiente forma
+$$
+\sigma_T^2 = \frac{2}{3 N} \langle T \rangle_{NVT}^2,
+$$
+que proviene de calcular el segundo y el cuarto momento de la ecuación \ref{eq:mb}.
+
+De manera análoga puede dejar de pensarse al volumen como constante y empezar a
+pensar que el mismo es una variable cuando el sistema está acoplado a un pistón.
+
+Distintos termostatos y barostatos fueron utilizados durante esta tesis, los mismos 
+se introducen a continuación.
+
+\subsubsection{Langevin}
+
+Si se considera la ecuación de Langevin \cite{schneider1978}
+\begin{equation}\label{eq:langevin}
+    m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
+\end{equation}
+donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, $\gamma$ la
+constante de fricción y $R_i(t)$ es una variable estócastica con media cero 
+y que cumple
+$$
+\left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij}.
+$$
+Para aplicar este termostato, y simular a temperatura constante, en conjunto con 
+el integrador velocity Verlet se tienen que considerar tres parametros \cite{kroger2005}
+a la hora de actualizar las velocidades y las posiciones como
+$$
+a = \frac{2 - \xi dt}{2 + \xi dt},
+$$
+$$
+b= \sqrt{k_B T_0 \xi \frac{dt}{2}},
+$$
+$$
+c= \frac{2 dt}{2 + \xi dt}
+$$
+donde $\xi$ es el factor de fricción, es decir, con qué intensidad interacciona 
+el sistema con el baño térmico. Se tiene entonces una actualización se la siguiente
+manera
+$$
+v(t+dt) = a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt,
+$$
+$$
+r(t+dt) = r(t) + c v(t) dt
+$$
+donde $\eta$ es una distribución gaussiana de números aleatorios con media 0 y
+varianza 1. 
+
+\subsubsection{Berendsen}
+
+El termostato de Berendsen \cite{berendsen1984} puede derivarse si se considera 
+la ecuación \ref{eq:langevin} sin el término estocástico y se hace una elección
+en particular de la constante de fricción. Dicha ecuación de movimiento modificada
+representa un escaleo de velocidades, 
+$$
+v(t) = \lambda v(t),
+$$
+por paso temporal, donde
+$$
+\lambda = \sqrt{1 + \frac{dt}{\tau_T} \left( \frac{T_0}{T} - 1 \right)}
+$$
+produce un cambio de temperatura igual a
+$$
+\frac{dT}{dt} = \frac{1}{\tau_T} (T_0 - T)
+$$
+donde $T_0$ es la temperatura de referencia y  $\tau_T$ es la constante de
+acoplamiento con el baño térmico y tiene las mismas unidades que el paso temporal.
+
+Para considerar un acoplamiento con un baño de presión contante, Berendsen 
+\cite{berendsen1984} agrega un término extra a las ecuaciones de movimiento que
+consideran el cambio de presión
+$$
+\frac{dP}{dt} = \frac{P_0 - P}{\tau_P},
+$$
+donde $P_0$ es la presión de referencia, $P$ la instantanea y $\tau_P$ la 
+constante de acoplamiento. Este comportamiento puede producirse si se realiza un
+cambio en el virial, escaleando las distancias entre las partículas. Si el 
+volumen ahora cambia como 
+$$
+\frac{dV}{dt} = 3 \alpha V,
+$$
+y se usa que
+$$
+\frac{dP}{dt} = - \frac{1}{\beta V} \frac{dV}{dt} = -\frac{3\alpha}{\beta},
+$$
+donde $\beta$ es la compresibilidad isotérmica y $\alpha = - \beta (P_0 - P) / (3 \tau_P)$.
+Por lo cual las posiciones de los átomos dentro de la caja de simulación en cada
+dirección pueden escalearse como
+$$
+x = \mu x,
+$$
+donde
+$$
+\mu = \sqrt[3]{1 - \frac{dt}{\tau_P} (P_0 - P)}.
+$$
+
+\subsubsection{Nosé-Hoover}
+
 
 \section{Métodos de exploración de la superficie energía-potencial}
 
