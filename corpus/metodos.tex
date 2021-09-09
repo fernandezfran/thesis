@@ -140,7 +140,33 @@ fueron utilizados a lo largo de esta tesis.
 
 \subsubsection{DFTB}
 
-\subsection{Integradores}
+\subsection{Integrador}
+
+La funcionalidad que cumple un integrador en un código de dinámica molecular es
+la de evolucionar las velocidades y las posiciones de los átomos una vez que 
+ya se conocen las fuerzas que se aplican sobre cada una de ellas. Un integrador
+estándar, utilizado en esta tesis, fue el \textit{velocity Verlet}. El mismo 
+conserva la energía total del sistema si no está siendo aplicado ningún termostato
+o barostato que altere el ensamble. Para las posiciones se tiene una
+actualización de las mismas, a partir del paso anterior, como un desarrollo de
+Taylor
+$$
+r(t+dt) = r(t) + v(t) dt + \frac{f(t)}{2m} dt^2,
+$$
+donde $dt$ es el paso temporal y $m$ la masa en cuestión. Para las velocidades se
+tiene
+$$
+v(t+dt) = v(t) + \frac{f(t+dt)+f(t)}{2m} dt,
+$$
+es importante notar que para calcular la velocidad del paso temporal siguiente se
+necesita tener computadas las fuerzas anteriores y posteriores, por lo cual
+primero se calculan las posiciones y, a partir de ellas, las fuerzas.
+
+Una caracteristica a destacar de este integrador, además de conservar la energía
+total del sistema, es que soporta una elección de pasos temporales más grandes
+que integradores anteriores, esto hace que se simule el mismo tiempo real con 
+menos pasos y por lo tanto menos computo de fuerzas, que es la parte, 
+computacionalmente hablando, más costosa del código.
 
 \subsection{Computo de propiedades termodinámicas}
 

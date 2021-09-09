@@ -1,4 +1,4 @@
-# Título de la tesis
+# Simulaciones computacionales para el desarrollo de electrodos de baterias de ion-litio de próxima generación
 
 Tesis doctoral realizada en el Laboratorio de Energías Sustentables
 ([LaES](http://www.laesunc.com/laes/)), que es parte de la Facultad de Matemática, 
