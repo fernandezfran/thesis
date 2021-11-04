@@ -22,6 +22,11 @@ Codirector: Ezequiel Pedro Marcos Leiva
 
 ## Presentaciones en congresos
 
++ <ins>F. Fernandez</ins>, M. Otero, S. A. Paz, D. E. Barraco Dı́az, E. P. M. Leiva.
+  "Amorphous Li-Si structures found via a novel simulation method using a reactive 
+  force field". _8 th International Workshop on Lithium,Industrial Minerals and 
+  Energy (IWLiME)_ 8--10 de Nov, 2021. _Cochabamba, Bolivia._
+
 + E. P. M. Leiva, <ins>F. Fernandez</ins>. "Un viaje por el Nanomundo de las 
   baterias de Li". _XXII Congreso Argentino de Fisicoquímica y Química Inorganica_
   19--29 de Abr, 2021. _La Plata, Argentina._
