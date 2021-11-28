@@ -22,15 +22,20 @@ Codirector: Ezequiel Pedro Marcos Leiva
 
 ## Presentaciones en congresos
 
-+ <ins>F. Fernandez</ins>, M. Otero, S. A. Paz, D. E. Barraco Dı́az, E. P. M. Leiva.
++ <ins>F. Fernandez</ins>, S. A. Paz, M. Otero, D. E. Barraco Dı́az, E. P. M. Leiva.
   "Comportamiento electroquímico y estructural de ánodos de Silicio a partir de
   simulaciones computacionalesmorphous". _1 er Encuentro Nacional sobre Litio_
   1--3 de Dic, 2021. _Buenos Aires, Argentina._
 
-+ <ins>F. Fernandez</ins>, M. Otero, S. A. Paz, D. E. Barraco Dı́az, E. P. M. Leiva.
++ <ins>F. Fernandez</ins>, S. A. Paz, M. Otero, D. E. Barraco Dı́az, E. P. M. Leiva.
   "Amorphous Li-Si structures found via a novel simulation method using a reactive 
   force field". _8 th International Workshop on Lithium, Industrial Minerals and 
   Energy (IWLiME)_ 8--10 de Nov, 2021. _Cochabamba, Bolivia._
+
++ E. P. M. Leiva, M. Gavilán-Arriazu, <ins>F. Fernandez</ins>, D. E. Barraco Díaz.
+"Kinectic Modeling on Lithium-ion Instertion in Prototypical Systems". _72 nd 
+Annual Meeting of the International Society of Electrochemistry_ 29 de Ago--3 de
+Sep, 2021. _Jeju Island, Korea/Online (Hybrid)._
 
 + E. P. M. Leiva, <ins>F. Fernandez</ins>. "Un viaje por el Nanomundo de las 
   baterias de Li". _XXII Congreso Argentino de Fisicoquímica y Química Inorganica_
