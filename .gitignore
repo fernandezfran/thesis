@@ -8,3 +8,7 @@ tesis.fdb_latexmk
 tesis.fls
 tesis.log
 tesis.out
+tesis.idx
+tesis.ilg
+tesis.ind
+tesis.toc

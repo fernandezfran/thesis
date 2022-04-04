@@ -15,13 +15,13 @@ La dinámica molecular (MD, de sus siglas en inglés, \textit{molecular dynamics
 es una técnica de simulación computacional que considera un sistema de $N$
 partículas atómicas, que interactúan a través de un campo de fuerzas newtoniano,
 de las cuales se obtiene su evolución temporal. La misma permite obtener
-propiedades termodinámicas macroscópicas (temperatura, presión) de un sistema en 
-equilibro a partir de cantidades microscópicas (posiciones, velocidades, fuerzas)
-~\cite{frenkel2001, allen2017}.
+propiedades termodinámicas macroscópicas de un sistema en equilibro a partir de 
+cantidades microscópicas ~\cite{frenkel2001, allen2017}.
 
 Para entender mejor como trabaja esta técnica de simulación es conveniente ver
-como funciona su código fuente, el mismo sigue, en la mayoría de los casos, la
-siguiente forma:
+cómo funciona su código fuente, un diagrama de flujo del mismo es presentado en 
+la figura \ref{fig:esquema_md}, donde cada una de sus partes se amplía en la 
+siguiente enumeración:
 \begin{enumerate}
     \item \textbf{Inicialización del sistema}: se especifican las posiciones y
         velocidades iniciales de los átomos. También se elije un paso temporal, 
@@ -43,8 +43,14 @@ siguiente forma:
         configuraciones.
 \end{enumerate}
 
-Estos pasos pueden verse en la figura \textcolor{red}{HACER UN DIAGRAMA DEL PSEUDO 
-CÓDIGO PROPIO}. Veamos a continuación cada una de las partes en detalle.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{metodos/esquema_de_dinamica_molecular.pdf}
+    \caption{Esquema de un diagrama de flujo de una dinámica molecular usual.}
+    \label{fig:esquema_md}
+\end{figure}
+
+A continuación se especifican cada una de dichas partes con mayor detenimiento.
 
 \subsection{Configuraciones iniciales}
 
@@ -86,8 +92,7 @@ encuentran dentro de una celda unidad de una red infinita de celdas idénticas; 
 donde si un átomo sale por un extremo de la celda, ingresa por el opuesto. Una
 condición que debe cumplir esta celda es que su tamaño en cada una de las 
 direcciones debe ser mayor al radio de corte de las interacciones entre los átomos. 
-\textcolor{red}{agregar figura para explicar un poco mejor y hablar de la imagen
-minima.} Por otro lado, el segundo de los casos es útil considerarlo cuando se 
+Por otro lado, el segundo de los casos es útil considerarlo cuando se 
 tienen nanoestructuras en las cuales los átomos están ordenados de cierta forma 
 que globalmente representan una forma definida y no pueden ser consideradas como
 una red infinita.
@@ -107,8 +112,14 @@ V_{LJ} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} -
 $$
 donde $r$ es la distancia entre dos átomos, $\varepsilon$ indica la profundidad 
 del pozo del potencial que se encuentra en $r_m = 2^{1/6} \sigma$, $\sigma$ es el
-radio del átomo. En la figura \textcolor{red}{X (agregar figura de un potencial 
-de LJ)} se muestra el comportamiento de este potencial, si la distancia entre dos
+radio del átomo. En la figura \ref{fig:lj} 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{metodos/lj.png}
+    \caption{Gráfico de un potencial de Lennard-Jones.}
+    \label{fig:lj}
+\end{figure}
+se muestra el comportamiento de este potencial, si la distancia entre dos
 átomos es menor a $r_m$ entonces se repelen, si es mayor a dicha distancia, se 
 atraen. Cuando la distancia entre dos átomos es infinita, los mismos no 
 interactúan, en el caso práctico se define una distancia de corte, conocida como
