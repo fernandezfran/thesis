@@ -1,33 +1,33 @@
-\section{Teoría}
+\section{Mecánica estadística}
 
-\subsection{Termodinámica}
+En la mayoría de los experimentos que se realizan en un laboratorio se obtiene 
+una serie de mediciones durante un período de tiempo a las cuales luego se les
+realiza un promedio. En la dinámica molecular, técnica de simulación computacional
+que se introduce a continuación en la sección \ref{md}, podemos estudiar el 
+comportamiento promedio de un sistema de muchas partículas al computar la 
+evolución temporal del sistema de manera numérica y promediando alguna cantidad 
+de interés durante un tiempo lo suficientemente largo.
 
-Algo de ensambles
 
-\subsection{RMN}
-
-Si agrego algo de RMN.
-
-
-\section{Dinámica molecular}
+\section{Dinámica molecular}\label{md}
 
 La dinámica molecular (MD, de sus siglas en inglés, \textit{molecular dynamics})
 es una técnica de simulación computacional que considera un sistema de $N$
 partículas atómicas, que interactúan a través de un campo de fuerzas newtoniano,
 de las cuales se obtiene su evolución temporal. La misma permite obtener
 propiedades termodinámicas macroscópicas (temperatura, presión) de un sistema en 
-equilibro a partir de cantidades microscopicas (posiciones, velocidades, fuerzas)
+equilibro a partir de cantidades microscópicas (posiciones, velocidades, fuerzas)
 ~\cite{frenkel2001, allen2017}.
 
 Para entender mejor como trabaja esta técnica de simulación es conveniente ver
-como funciona su código fuente, el mismo sigue, en la mayoria de los casos, la
+como funciona su código fuente, el mismo sigue, en la mayoría de los casos, la
 siguiente forma:
 \begin{enumerate}
     \item \textbf{Inicialización del sistema}: se especifican las posiciones y
         velocidades iniciales de los átomos. También se elije un paso temporal, 
         un radio de corte para las interacciones y las condiciones de contorno que
         se van a respetar a lo largo de la simulación. 
-    \item \textbf{Cálculo de fuerzas}: con las posiciones específicadas se
+    \item \textbf{Cálculo de fuerzas}: con las posiciones especificadas se
         calcula la fuerza sobre cada uno de los átomos a través del campo de 
         fuerzas elegido.
     \item \textbf{Integración de las ecuaciones de movimiento}: se integran las
@@ -35,7 +35,7 @@ siguiente forma:
         y velocidades del paso temporal siguiente a partir del actual.
     \item \textbf{Computo de propiedades termodinámicas}: se realizan los
         cálculos de distintas cantidades de interés, como las energías potencial
-        y cinéctica, la presión y la temperatura.
+        y cinética, la presión y la temperatura.
     \item De ser necesario, se aplica algún \textbf{termostato o barostato}
         para realizar simulaciones en el ensamble termodinámico deseado.
     \item \textbf{Evolución temporal}: se incrementa el tiempo adhiriendo un
@@ -48,14 +48,14 @@ CÓDIGO PROPIO}. Veamos a continuación cada una de las partes en detalle.
 
 \subsection{Configuraciones iniciales}
 
-Si bien las posiciones inicialesde algunos sistemas pueden reproducirse a partir
+Si bien las posiciones iniciales de algunos sistemas pueden reproducirse a partir
 de los vectores de red de estructuras cristalinas (\textit{simple cubic}, 
 \textit{body-centered cubic}, \textit{face-centered cubic}), otros casos de
 interés, en los cuales hay más de un elemento involucrado, involucran celdas 
 unidad más complicadas que han sido calculadas y optimizadas mediente la Teoría
 del funcional de la densidad (DFT, de sus siglas en inglés, density functional
-theory). Realizar estos calculos suele ser una tarea computacionalmente costosa 
-y que requiere interevención de científicos especializados, para evitar esto
+theory). Realizar estos cálculos suele ser una tarea computacionalmente costosa 
+y que requiere intervención de científicos especializados, para evitar esto
 existe una base de datos ampliamente utilizada en el ámbito académico y en
 la industria, Materials Project \cite{materials_project}, que recopila los datos
 que existen sobre estas estructuras cristalinas, realiza nuevos cálculos y está 
@@ -90,7 +90,7 @@ direcciones debe ser mayor al radio de corte de las interacciones entre los áto
 minima.} Por otro lado, el segundo de los casos es útil considerarlo cuando se 
 tienen nanoestructuras en las cuales los átomos están ordenados de cierta forma 
 que globalmente representan una forma definida y no pueden ser consideradas como
-una red inifinita.
+una red infinita.
 
 \subsection{Potenciales interatómicos}
 
@@ -162,7 +162,7 @@ es importante notar que para calcular la velocidad del paso temporal siguiente s
 necesita tener computadas las fuerzas anteriores y posteriores, por lo cual
 primero se calculan las posiciones y, a partir de ellas, las fuerzas.
 
-Una caracteristica a destacar de este integrador, además de conservar la energía
+Una característica a destacar de este integrador, además de conservar la energía
 total del sistema, es que soporta una elección de pasos temporales más grandes
 que integradores anteriores, esto hace que se simule el mismo tiempo real con 
 menos pasos y por lo tanto menos computo de fuerzas, que es la parte, 
@@ -172,7 +172,7 @@ computacionalmente hablando, más costosa del código.
 
 Una vez que ya se conocen las posiciones, velocidades y fuerzas de todos los 
 átomos se tiene toda la información necesaria para para computar distintas
-cantidades de interés, el computo de cada una de ellas dependera del ensamble en
+cantidades de interés, el computo de cada una de ellas dependerá del ensamble en
 el cual se están realizando las simulaciones.
 
 Las energías que contribuyen a la energía total son dos, la potencial y la
@@ -213,7 +213,7 @@ distancias y las fuerzas entre los átomos $i$ y $j$.
 \subsection{Termostatos y barostatos}
 
 Debido a que la dinámica molecular usual se realiza en el ensamble NVE y la 
-mayoria de los experimentos con los cuales se pueden comparar resultados se 
+mayoría de los experimentos con los cuales se pueden comparar resultados se 
 realizan a temperatura y/o presión constante, es necesario introducir distintos
 termostatos y barostatos que permitan controlar la temperatura y la presión,
 respectivamente, de las simulaciones realizadas. 
@@ -247,14 +247,14 @@ Si se considera la ecuación de Langevin \cite{schneider1978}
     m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
 \end{equation}
 donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, $\gamma$ la
-constante de fricción y $R_i(t)$ es una variable estócastica con media cero 
+constante de fricción y $R_i(t)$ es una variable estocástica con media cero 
 y que cumple
 $$
 \left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij}.
 $$
 Para aplicar este termostato, y simular a temperatura constante, en conjunto con 
-el integrador velocity Verlet se tienen que considerar tres parametros \cite{kroger2005}
-a la hora de actualizar las velocidades y las posiciones como
+el integrador \textit{velocity Verlet} se tienen que considerar tres parametros
+\cite{kroger2005} a la hora de actualizar las velocidades y las posiciones como
 $$
 a = \frac{2 - \xi dt}{2 + \xi dt},
 $$
@@ -302,7 +302,7 @@ consideran el cambio de presión
 $$
 \frac{dP}{dt} = \frac{P_0 - P}{\tau_P},
 $$
-donde $P_0$ es la presión de referencia, $P$ la instantanea y $\tau_P$ la 
+donde $P_0$ es la presión de referencia, $P$ la instantánea y $\tau_P$ la 
 constante de acoplamiento. Este comportamiento puede producirse si se realiza un
 cambio en el virial, escaleando las distancias entre las partículas. Si el 
 volumen ahora cambia como 
@@ -327,23 +327,10 @@ $$
 \subsubsection{Nosé-Hoover}
 
 
-\section{Métodos de exploración de la superficie energía-potencial}
+\subsection{Observables}
 
-\subsection{Métodos locales}
+\subsubsection{Distribución radial de a pares}
 
-\subsubsection{Minimizaciones locales}
-\subsubsection{NEB}
+\subsubsection{Número de coordinación}
 
-\subsection{Métodos globales}
-
-\subsubsection{Templado simulado}
-\subsubsection{Dinámica acelerada}
-
-
-\section{Experimentos computacionales}
-
-\subsection{Distribución radial de a pares}
-
-\subsection{Número de coordinación}
-
-\subsection{Difusión}
+\subsubsection{Difusión}

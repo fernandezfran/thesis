@@ -37,8 +37,44 @@
     \addtocounter{page}{-1}%
     \newpage}
 
+% Palatino font type
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+
+% Interlineado
+\usepackage{setspace}
+\onehalfspacing
+
+% Sangría
+\setlength\parindent{12pt}
+
+% colores nord blues
+\definecolor{mycolor}{RGB}{94, 129, 172} % nord blue
+\definecolor{mylcolor}{RGB}{129, 161, 193} % nord lighter blue
+
+% color de las secciones
+\usepackage{sectsty}
+\chapterfont{\color{mycolor}}
+\sectionfont{\color{mycolor}}
+\subsectionfont{\color{mycolor}}
+\subsubsectionfont{\color{mycolor}}
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{\textcolor{mycolor}{\oldtextbf{#1}}}
+
+% línea horizontal debajo de las secciones
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{mycolor}}
+  {\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+% index
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+
 
 \begin{document}
+
+\frontmatter % enumeración de las páginas con números romanos
 
 \blankpage
 \blankpage
@@ -93,15 +129,19 @@
 % Dedicatoria
 
 % Índice
+\tableofcontents
 
 % Resumen
 
 % Abstract
 
 % Capítulos...
+
+\mainmatter % a partir de acá se cuentan los números de las páginas en formato arabico
+
 % \chapter[Capítulo X]{Capítulo X}
 % \input{corpus/capitulox.tex}
-\chapter[Métodos teóricos y computacionales]{Métodos teóricos y computacionales}
+\chapter[Teoría y métodos computacionales]{Teoría y métodos computacionales}
 \input{corpus/metodos.tex}
 
 % Apéndices

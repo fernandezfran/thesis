@@ -24,7 +24,7 @@ Codirector: Ezequiel Pedro Marcos Leiva
 
 + <ins>F. Fernandez</ins>, S. A. Paz, M. Otero, D. E. Barraco Dı́az, E. P. M. Leiva.
   "Comportamiento electroquímico y estructural de ánodos de Silicio a partir de
-  simulaciones computacionalesmorphous". _1 er Encuentro Nacional sobre Litio_
+  simulaciones computacionales". _1 er Encuentro Nacional sobre Litio_
   1--3 de Dic, 2021. _Buenos Aires, Argentina._
 
 + <ins>F. Fernandez</ins>, S. A. Paz, M. Otero, D. E. Barraco Dı́az, E. P. M. Leiva.
