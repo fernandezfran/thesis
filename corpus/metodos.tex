@@ -446,8 +446,81 @@ $$
 
 \subsection{Observables}
 
+Existen distintos observables que pueden calcularse a partir de las posiciones o
+de las velocidades a lo largo de una trayectoria proveniente de una dinámica 
+molecular, algunos de ellos dan información de cáracter estructural, como puede 
+ser la distribución radial de a pares, y otras de dinámico, como el desplazamiento 
+cuadrático medio que puede ser utilizado para estimar coeficientes de difusión.
+
 \subsubsection{Distribución radial de a pares}
+
+La función de distribución radial de a pares (RDF, de sus siglas en inglés
+\textit{radial distribution function}), usualmente referida como $g(r)$, permite 
+caracterizar la estructura local de un fluido describiendo la probabilidad de 
+encontrar un átomo en una cáscara a una distancia $r$ de un átomo de referencia,
+$$
+g(r) = \frac{V}{N^2} \left\langle \sum_{i=1, i\neq j}^N \delta(\vec{r} - \vec{r}_{ij}) \right\rangle,
+$$
+donde $\langle \cdot \rangle$ indica el promedio temporal, $V$ el volumen, $N$ el
+número de partículas y $\vec{r}_{ij}$ la distancia entra la partícula $i$ y la $j$.
+Esta cantidad puede calcularse como la razón entre la densidad media $\rho$ a
+una distancia $r$ del átomo de referencia y la densidad a esa misma distancia de 
+un gas ideal.
+
+Una característica importante de la RDF es que si sus picos están bien definidos
+entonces la estructura se corresponde con un sólido, si sus picos están ensanchados
+con respecto a estos y, a medida que la distancia aumenta, la $g(r)$ empieza a 
+oscilar alrededor de la unidad, entonces se corresponde con un liquido.
 
 \subsubsection{Número de coordinación}
 
+El número de coordinación (CN, de sus siglás en inglés, \textit{coordination 
+number}), también llamado ligancia, de un átomo dado en un sistema químico, se 
+define como el número de átomos, moléculas o iones unidos a él. Para definir esta 
+pueden tomarse dos alternativas, la primera de ellas contando el número de 
+vecinos que rodean a un determinado tipo de átomo en promedio hasta un cierto
+radio de corte $r_e$, definido por el mínimo en la RDF después de su primer pico; 
+la segunda de ellas a partir de la integral de la RDF,
+$$
+\int_0^{r_e} g(r) dV.
+$$
+De manera análoga pueden definirse el número de coordinación para segundos vecinos
+y así sucesivamente.
+
 \subsubsection{Difusión}
+
+Si una partícula permanece en un sitio por un periodo de tiempo lo suficientemente 
+largo, comparado al tiempo que demora en dar un salto hacia otro sitio, entonces 
+pierde memoria de donde vino y el próximo salto se dará hacia una dirección 
+aleatoria, se dice entonces que el movimiento de la partícula es estocástico y 
+que sigue una caminata aleatoria. Si esto se cumple, entonces, el desplazamiento 
+cuadrático medio es proporcional al tiempo, donde la constante de proporcionalidad 
+es el coeficiente de difusión de traza
+\begin{equation}
+    D^{*} = \frac{\langle \Delta r^2 \rangle}{2d\cdot t},
+\end{equation}
+donde $d$ es la dimensión del problema, $t$ el tiempo y 
+$\langle \Delta r^2 \rangle$ el desplazamiento cuadrático medio, que en un sistema 
+de $N$ partículas puede calcularse de la siguiente manera
+$$
+\langle \Delta r^2 \rangle = \frac{1}{N} \sum_{i=1}^{N} \langle |\vec{r_i}(t) - \vec{r_i}(t_0)|^2 \rangle.
+$$
+
+Si se conoce el coeficiente de difusión de traza, entonces el coeficiente de 
+difusión químico puede obtenerse de la siguiente relación ~\cite{gomer1990}
+\begin{equation}
+    D = \left( \frac{\partial (\mu / k_BT)}{\partial ln \theta} \right)_T D^{*},
+\end{equation}
+donde $\mu$ es el potencial químico y $\theta$ es la concentración.
+
+Usualmente, el tiempo que demora un átomo en dar un salto en una dinámica 
+molecular a temperatura ambiente es muy largo, lo que impide tener una buena 
+estadística en un tiempo de simulación razonable, por lo que es usual calcular 
+el desplazamiento cuadrático medio a distintas temperaturas altas y extrapolar
+el valor que se obtendría a temperatura ambiente mediante una equación de tipo 
+Arrhenius, en la cual el coeficiente de difusión puede separarse en un 
+prefactor $D_0$ y un término tipo Boltzmann,
+$$
+D = D_0 e^{-E / k_BT},
+$$
+donde $E$ es la energía de activación del proceso. 
