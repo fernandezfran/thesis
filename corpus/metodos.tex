@@ -2,7 +2,7 @@
 
 En la mayoría de los experimentos que se realizan en un laboratorio se obtiene 
 una serie de mediciones sobre sistemas macroscópicos, usualmente constituidos por 
-más de 10$^{20}$ moléculas, durante un período de tiempo a las cuales luego se 
+más de 10$^{20}$ moléculas, durante un período de tiempo, a las cuales luego se 
 les realiza un promedio. La mecánica estadística ofrece una interpretación de 
 las propiedades del equilibrio de sistemas macroscópicos a partir de una teoría 
 molecular aplicada a su configuración microscópica ~\cite{hill1986}.
@@ -113,15 +113,15 @@ Si bien las posiciones iniciales de algunos sistemas pueden reproducirse a parti
 de los vectores de red de estructuras cristalinas (\textit{simple cubic}, 
 \textit{body-centered cubic}, \textit{face-centered cubic}), otros casos de
 interés, en los cuales hay más de un elemento involucrado, involucran celdas 
-unidad más complicadas que han sido calculadas y optimizadas mediente la Teoría
-del funcional de la densidad (DFT, de sus siglas en inglés, density functional
-theory). Realizar estos cálculos suele ser una tarea computacionalmente costosa 
-y que requiere intervención de científicos especializados, para evitar esto
+unidad más complicadas que han sido calculadas y optimizadas mediante la Teoría
+del funcional de la densidad electrónica (DFT, de sus siglas en inglés, density 
+functional theory). Realizar estos cálculos suele ser una tarea computacionalmente 
+costosa y que requiere intervención de científicos especializados, para evitar esto
 existe una base de datos ampliamente utilizada en el ámbito académico y en
 la industria, Materials Project \cite{materials_project}, que recopila los datos
 que existen sobre estas estructuras cristalinas, realiza nuevos cálculos y está 
 abierta a la comunidad para su uso y colaboración. Antes de que los datos se
-cargen en la página, los mismos son comparados con resultados experimentales 
+carguen en la página, los mismos son comparados con resultados experimentales 
 para determinar si están dentro de un rango de validez definido. En esta tesis
 en particular, fueron utilizadas distintas estructuras cristalinas de esta base de
 datos como condiciones iniciales para las posiciones y el tamaño de la celda de 
@@ -154,13 +154,29 @@ una red infinita.
 
 \subsection{Potenciales interatómicos}
 
-Existen una gran variedad de potenciales interatómicos para utilizar en dinámicas
-moleculares. La elección de cada uno de ellos depende del sistema de estudio ya
-que algunos potenciales representan de mejor manera gases y otros metales. A pesar
-de esto, un potencial interatómico suele tener contribuciones atractivas y
-repulsivas, según la distancia, con un mínimo que se encuentra a la distancia del
-enlace entre dos átomos. Como ejemplo se toma un potencial interatómico de 
-Lennard-Jones (12-6), dado por la siguiente expresión
+Los potenciales interatómicos empíricos o semi-empíricos que se utilizan en las
+dinámicas moleculares relacionan la fuerza sobre un átomo con el entorno químico 
+del mismo a través de una forma funcional conocida. Existe una gran 
+variedad de estos potenciales y la elección de uno de ellos depende del sistema 
+de estudio, ya que algunos potenciales representan de mejor manera gases y otros 
+metales, por ejemplo. Algunos de los potenciales interatómicos más utilizados
+son mencionados brevemente a continuación. El potencial de Coulomb ~\cite{coulomb}
+considera las partículas como cargas puntuales que interactúan electrostáticamente. 
+El potencial de Tersoff ~\cite{tersoff} o el de Stillinger-Weber 
+~\cite{stillinger-weber} fueron especialmente desarrollados para el modelado de 
+materiales con enlaces covalentes fuertes, como es el caso del carbono o del 
+silicio. El método del átomo embebido (EAM, de sus siglas en inglés) ~\cite{eam} 
+y el EAM modificado (MEAM) ~\cite{meam} están diseñados para simular sistemas 
+metálicos. Otros potenciales, como el COMB (\textit{charge-optimized many-body}) 
+~\cite{comb}, que incorporan una equilibración de las cargas en el modelo, o el 
+ReaxFF (\textit{reactive force fields}) ~\cite{reaxff}, que combina en un solo 
+modelo distintas componentes de las que fueron mencionadas, con enfoques más 
+avanzados permiten simular reacciones químicas en algunos sistemas.
+
+Sólo a fines explicativos consideremos un potencial interatómico de Lennard-Jones
+~\cite{lennard-jones}, que reproduce el decaimiento de $r^{-6}$ a distancias 
+largas
+dado por la siguiente expresión
 $$
 V_{LJ} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - 
                              \left( \frac{\sigma}{r} \right)^{6} \right],
@@ -203,6 +219,41 @@ A continuación se presentan dos potenciales interatómicos del estado del arte 
 fueron utilizados a lo largo de esta tesis.
 
 \subsubsection{ReaxFF}
+
+El campo de fuerza reactivo, ReaxFF ~\cite{reaxff}, representa adecuadamente la
+asociación y disociación de enlaces de átomos al considerar la energía del sistema
+($E_{system}$) de manera tal que se encuentra dividida en varias contribuciones 
+de energía parciales,
+$$
+E_{system} = E_{bond} + E_{over} + E_{under} + E_{val} + E_{pen} + E_{tors} + 
+E_{conj} + E_{vdWaals} + E_{Coulomb}.
+$$
+
+Una de las suposiciones fundamentales del ReaxFF es que el orden de enlace entre
+un par de átomos puede obtenerse directamente de la distancia que los separa, 
+esto es asegurado por el término $E_{bond}$.
+
+$E_{over}$ y $E_{under}$ son términos agregados para agregar penalidades a los
+átomos sobre-coordinados o sub-coordinados, utilizando la teoría de la valencia del
+enlace.
+
+$E_{val}$ considera la contribución a la energía por el ángulo de valencia, 
+mientras que $E_{pen}$ penaliza sistemas para reproducir la estabilidad de 
+sistemas con dos dobles enlaces que comparten un átomo en un ángulo de valencia.
+
+Las contribuciones a la energía de los ángulos de torsión y de los efectos de 
+conjugación están dados por $E_{tors}$ y $E_{conj}$, respectivamente.
+
+Por último, las interacciones repulsivas a distancias interatómicas cortas y 
+las atractivas a distancias largas son incluidas para todos los pares de átomos
+mediante un término de van der Waals, $E_{vdWaals}$, utilizando un potencial de 
+Morse, y uno de Coulomb, donde las cargas de los átomos se aproximan a través de 
+un método de equilibración.
+
+Los parámetros ajustables de los potenciales ReaxFF se obtienen a partir de 
+cálculos de química cuántica sobre la disociación de enlaces, reacciones de 
+moléculas pequeñas, calores de formación y geometrías de distintos compuestos.
+
 
 \subsubsection{DFTB}
 
