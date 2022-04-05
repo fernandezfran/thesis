@@ -13,7 +13,7 @@ plt.ylim((-1.5, 3.5))
 plt.xlabel(r"r/$\sigma$")
 plt.ylabel(r"V$_{LJ}$/$\varepsilon$")
 
-plt.axhline(y=0, color="k", linestyle='--', linewidth=1)
+plt.axhline(y=0, color="k", linestyle="--", linewidth=1)
 plt.plot(x, lj, color="#5E81AC", linewidth=2)
 
 plt.savefig("lj.png", dpi=600)

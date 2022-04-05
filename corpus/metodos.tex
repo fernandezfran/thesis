@@ -1,12 +1,67 @@
-\section{Mecánica estadística}
+\section{Breve introducción a la mecánica estadística}
 
 En la mayoría de los experimentos que se realizan en un laboratorio se obtiene 
-una serie de mediciones durante un período de tiempo a las cuales luego se les
-realiza un promedio. En la dinámica molecular, técnica de simulación computacional
-que se introduce a continuación en la sección \ref{md}, podemos estudiar el 
-comportamiento promedio de un sistema de muchas partículas al computar la 
-evolución temporal del sistema de manera numérica y promediando alguna cantidad 
-de interés durante un tiempo lo suficientemente largo.
+una serie de mediciones sobre sistemas macroscópicos, usualmente constituidos por 
+más de 10$^{20}$ moléculas, durante un período de tiempo a las cuales luego se 
+les realiza un promedio. La mecánica estadística ofrece una interpretación de 
+las propiedades del equilibrio de sistemas macroscópicos a partir de una teoría 
+molecular aplicada a su configuración microscópica ~\cite{hill1986}.
+
+Si se quisiera calcular alguna variable mecánica de un sistema termodinámico a
+partir de consideraciones moleculares tendríamos que hacerlo durante un período
+de tiempo largo para suavizar las fluctuaciones y para que fuera independiente
+del paso inicial a la hora de realizar el promedio. Dado el gran número de 
+moléculas interactuantes entre sí en estos sistemas, este cálculo está fuera de
+alcance tanto en una consideración cuántica como en una clásica. Una alternativa
+para solucionar esto es conectar el promedio temporal de la variable mecánica de
+interés con el promedio de ensambles, donde un ensamble es simplemente una 
+colección de un número muy largo de sistemas construidos de manera tal que 
+reproducen las propiedades termodinámicas del sistema en cuestión. Si bien todos
+los sistemas en el ensamble son idénticos desde el punto de vista termodinámico,
+no lo son en sus configuraciones moleculares. De esta manera ahora se tiene
+que el valor promedio de la variable mecánica en estudio se realiza sobre estas 
+replicas del sistema en vez de sobre su evolución temporal.
+
+\subsection{Ensambles}
+
+Algunos de los ensambles termodinámicos más relevantes son:
+\begin{enumerate}
+    \item \textit{Ensamble microcanónico (NVE)}, un sistema aislado en el cual el 
+        número de partículas, el volumen y la energía permanecen constantes.
+    \item \textit{Ensamble canónico (NVT)}, un sistema cerrado, con una cantidad
+        fija de partículas y volumen constante, en contacto con un baño de 
+        temperatura lo suficientemente grande de manera tal que la misma permanece 
+        constante.
+    \item \textit{Ensamble gran canónico ($\mu$VT)}, un sistema abierto en el que
+        el volumen está fijo, se está en contacto con un baño de temperatura y
+        además se permite el intercambio de partículas con un reservorio.
+    \item \textit{Ensamble isotérmico-isobárico (NPT)}, en este sistema el número
+        de partículas está fijo y en contacto con un baño de temperatura y un
+        pistón que permite variar el volumen para mantener la presión constante.
+\end{enumerate}
+
+\subsection{Hipótesis ergódica}
+
+El primer postulado de la Mecánica estadística presentado en esta tesis es 
+referido como la \textbf{hipótesis ergódica} y nos dice que \textit{El promedio 
+temporal de una variable mecánica $M$ en el sistema termodinámico de interés es 
+igual al promedio de ensambles de M, en el límite del conjunto de ensambles que 
+tiende a infinito, siempre que los sistemas del conjunto de ensambles reproduzcan 
+el estado termodinámico y el entorno del sistema real de interés}. Es decir que
+es lo mismo calcular el promedio en la evolución temporal que en una cantidad 
+grande estructuras instantáneas representativas del sistema. Para poder aplicar
+este postulado se necesita conocer la probabilidad relativa de cada uno de los 
+estados presentes en el ensamble.
+
+\subsection{Postulado de igual probabilidad a priori}
+
+El segundo postulado de la Mecánica estadística presentado se refiere a esto
+último y establece que \textit{En un conjunto de ensambles representativo de un 
+sistema termodinámico aislado, los sistemas del conjunto de ensambles se distribuyen 
+uniformemente, es decir, con igual probabilidad o frecuencia, sobre los posibles 
+estados con los valores especificados de dicho sistema termodinámico aislado}.
+En otras palabras, cada estado esta representado por la misma cantidad de sistemas
+en el ensamble.
 
 
 \section{Dinámica molecular}\label{md}
@@ -33,7 +88,7 @@ siguiente enumeración:
     \item \textbf{Integración de las ecuaciones de movimiento}: se integran las
         ecuaciones de Newton mediante algún integrador que obtiene las posiciones
         y velocidades del paso temporal siguiente a partir del actual.
-    \item \textbf{Computo de propiedades termodinámicas}: se realizan los
+    \item \textbf{Cómputo de propiedades termodinámicas}: se realizan los
         cálculos de distintas cantidades de interés, como las energías potencial
         y cinética, la presión y la temperatura.
     \item De ser necesario, se aplica algún \textbf{termostato o barostato}
@@ -176,14 +231,14 @@ primero se calculan las posiciones y, a partir de ellas, las fuerzas.
 Una característica a destacar de este integrador, además de conservar la energía
 total del sistema, es que soporta una elección de pasos temporales más grandes
 que integradores anteriores, esto hace que se simule el mismo tiempo real con 
-menos pasos y por lo tanto menos computo de fuerzas, que es la parte, 
+menos pasos y por lo tanto menos cómputo de fuerzas, que es la parte, 
 computacionalmente hablando, más costosa del código.
 
-\subsection{Computo de propiedades termodinámicas}
+\subsection{Cómputo de propiedades termodinámicas}
 
 Una vez que ya se conocen las posiciones, velocidades y fuerzas de todos los 
-átomos se tiene toda la información necesaria para para computar distintas
-cantidades de interés, el computo de cada una de ellas dependerá del ensamble en
+átomos se tiene toda la información necesaria para computar distintas
+cantidades de interés, el cómputo de cada una de ellas dependerá del ensamble en
 el cual se están realizando las simulaciones.
 
 Las energías que contribuyen a la energía total son dos, la potencial y la
@@ -226,8 +281,8 @@ distancias y las fuerzas entre los átomos $i$ y $j$.
 Debido a que la dinámica molecular usual se realiza en el ensamble NVE y la 
 mayoría de los experimentos con los cuales se pueden comparar resultados se 
 realizan a temperatura y/o presión constante, es necesario introducir distintos
-termostatos y barostatos que permitan controlar la temperatura y la presión,
-respectivamente, de las simulaciones realizadas. 
+termostatos y barostatos que permitan controlar estos parámetros en las 
+simulaciones realizadas. 
 
 Desde el punto de vista de la mecánica estadística a un sistema se le puede 
 imponer una temperatura si se lo pone en contacto con un baño térmico lo 
