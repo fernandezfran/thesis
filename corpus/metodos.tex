@@ -63,6 +63,62 @@ estados con los valores especificados de dicho sistema termodinámico aislado}.
 En otras palabras, cada estado esta representado por la misma cantidad de sistemas
 en el ensamble.
 
+\subsection{Fluctuaciones}
+
+Para definir el valor medio (o examinar la amplitud de las fluctuaciones en torno 
+al valor medio) de una propiedad de un sistema que puede existir en varios estados
+$j$ con probabilidades $P_j$, la propiedad misma debe definirse en cada estado 
+$j$. Una propiedad que cumpla estos criterios es \say{mecánica} por definición.
+
+Tomemos el ejemplo de la fluctuación de la energía de un sistema cerrado en 
+contacto con un reservorio de temperatura lo suficientemente grande (NVT) donde 
+las fluctuaciones de energía deben estar asociadas al intercambio de calor entre 
+el sistema y el reservorio. Estas fluctuaciones de energía resultan ser muy 
+pequeñas, por lo que la función de distribución de probabilidad para las 
+diferentes energías tiene forma gaussiana en torno al valor medio $\overline{E}$. 
+La dispersión en esta distribución de probabilidad puede, por lo tanto,
+caracterizarse completamente por la desviación estándar $\sigma_E$, es decir, 
+$$
+\sigma_E = \sqrt{\overline{(E - \overline{E})^2}}.
+$$
+
+Si diferenciamos
+$$
+\overline{E} \sum_j e^{-E_j(N,V)/kT} = \sum_j E_j(N,V) e^{-E_j(N,V)/kT}
+$$
+con respecto a $T$, y luego dividimos por $Q$, la función de partición, encontramos
+$$
+\left(\frac{\partial\overline{E}}{\partial T}\right)_{V,N} + \frac{\overline{E}}{Q kT^2} \sum_j E_j e^{-E_j / kT} = \frac{1}{Q kT^2} \sum_j E_j^2 e^{-E_j/kT},
+$$
+o
+$$
+\overline{E^2} - (\overline{E})^2 = \overline{(E-\overline{E})^2} = \sigma_E^2 = k T^2 C_V,
+$$
+de la termodinámica, sabemos que en general $C_V \approx \mathcal{O}(Nk)$ and $\overline{E} \approx \mathcal{O}(NkT)$. Por lo tanto
+\begin{equation}\label{eq:fluctuaciones}
+    \frac{\sigma_E}{\overline{E}} = \frac{\sqrt{kT^2C_V}}{\overline{E}} \approx \mathcal{O}(N^{-1/2})
+\end{equation}
+Así encontramos en un sistema típico cerrado e isotérmico el comportamiento de la
+desviación estándar de la distribución de probabilidad de la energía.
+
+Las variables que fluctúan son diferentes en cada ensamble, aunque las funciones 
+termodinámicas calculadas en mecánica estadística resultan ser independientes del 
+ensamble utilizado en el cálculo, por lo cual, pueden realizarse análisis 
+similares en las distintas cantidades que pueden variar en cada uno de ellos.
+
+En el límite termodinámico, en el cual la cantidad de moléculas en un sistema es 
+del orden de $10^{23}$, la relación obtenida en la ecuación \ref{eq:fluctuaciones} 
+muestra que las fluctuaciones son muy pequeñas y pueden ser ignoradas. Esto hace 
+que los ensambles sean termodinámicamente equivalentes entre sí.
+
+En termodinámica, las relaciones funcionales entre las variables termodinámicas 
+de un sistema son independientes del entorno. Otra forma de decir esto es que la 
+elección de las variables termodinámicas independientes es arbitraria y no está 
+prescrita por el entorno. En la mecánica estadística llegamos a la misma 
+conclusión: independientemente del entorno, podemos seleccionar cualquier ensambles
+o función de partición que deseemos para calcular las propiedades termodinámicas; 
+los resultados deben ser independientes de la elección.
+
 
 \section{Dinámica molecular}\label{md}
 
