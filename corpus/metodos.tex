@@ -178,8 +178,7 @@ Sólo a fines explicativos consideremos un potencial interatómico de Lennard-Jo
 largas
 dado por la siguiente expresión
 $$
-V_{LJ} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - 
-                             \left( \frac{\sigma}{r} \right)^{6} \right],
+V_{LJ} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \frac{\sigma}{r} \right)^{6} \right],
 $$
 donde $r$ es la distancia entre dos átomos, $\varepsilon$ indica la profundidad 
 del pozo del potencial que se encuentra en $r_m = 2^{1/6} \sigma$, $\sigma$ es el
@@ -209,8 +208,7 @@ la contribución de esa interacción es igual a cero y si es menor se computa la
 fuerza a través del potencial de la siguiente manera
 $$
 f_x(r) = - \frac{\partial V(r)}{\partial x}
-       = - \left( \frac{x}{r_{ij}} \right) \cdot \left( \frac{
-                                       \partial V(r)}{\partial r} \right)
+       = - \left( \frac{x}{r_{ij}} \right) \cdot \left( \frac{\partial V(r)}{\partial r} \right)
 $$
 donde $r$ es la distancia entre los átomos, $x$ la componente en alguna de
 las direcciones definidas para el sistema.
@@ -225,8 +223,7 @@ asociación y disociación de enlaces de átomos al considerar la energía del s
 ($E_{system}$) de manera tal que se encuentra dividida en varias contribuciones 
 de energía parciales,
 $$
-E_{system} = E_{bond} + E_{over} + E_{under} + E_{val} + E_{pen} + E_{tors} + 
-E_{conj} + E_{vdWaals} + E_{Coulomb}.
+E_{system} = E_{bond} + E_{over} + E_{under} + E_{val} + E_{pen} + E_{tors} + E_{conj} + E_{vdWaals} + E_{Coulomb}.
 $$
 
 Una de las suposiciones fundamentales del ReaxFF es que el orden de enlace entre
@@ -313,15 +310,14 @@ donde $m_i$ es la masa del átomo $i$ y $v_i^2$ el módulo de su velocidad.
 También suele ser de interés obtener el valor de la temperatura y de la presión
 del sistema. La temperatura en un paso de la simulación puede calcularse 
 utilizando que
-$$
-k_B T = \sum_{i=1}^N \frac{m_i v_i^2}{N_f},
-$$
+\begin{equation}\label{eq:tempvel}
+    k_B T = \sum_{i=1}^N \frac{m_i v_i^2}{N_f},
+\end{equation}
 donde $k_B$ es la constante del Boltzmann y $N_f$ los grados de libertad,
 aproximados usualmente por $3N$ para sistemas lo suficientemente grandes. Por 
 último, la presión puede calcularse como 
 $$
-P = \rho k_B T + \frac{1}{d V} \left\langle \sum_{i<j} \mathbf{f}(\mathbf{r}_{ij}) 
-                                              \cdot \mathbf{r}_{ij} \right\rangle,
+P = \rho k_B T + \frac{1}{d V} \left\langle \sum_{i<j} \mathbf{f}(\mathbf{r}_{ij}) \cdot \mathbf{r}_{ij} \right\rangle,
 $$
 donde $\rho$ es la densidad, $d$ la dimensión y $V$ el volumen del sistema. El
 segundo término es conocido como el virial, donde $r_{ij}$ y $f(r_{ij})$ son las 
@@ -333,7 +329,10 @@ Debido a que la dinámica molecular usual se realiza en el ensamble NVE y la
 mayoría de los experimentos con los cuales se pueden comparar resultados se 
 realizan a temperatura y/o presión constante, es necesario introducir distintos
 termostatos y barostatos que permitan controlar estos parámetros en las 
-simulaciones realizadas. 
+simulaciones realizadas. Para modelar el comportamiento directamente de estados
+de equilibrio en estos ensambles, se puede modificar la dinámica molecular. Donde
+estas modificaciones son meramente de convenciencia computacional y pueden producir 
+desviaciones del movimiento newtoniano real, aunque extremadamente pequeñas.
 
 Desde el punto de vista de la mecánica estadística a un sistema se le puede 
 imponer una temperatura si se lo pone en contacto con un baño térmico lo 
@@ -357,43 +356,8 @@ pensar que el mismo es una variable cuando el sistema está acoplado a un pistó
 Distintos termostatos y barostatos fueron utilizados durante esta tesis, los mismos 
 se introducen a continuación.
 
-\subsubsection{Langevin}
-
-Si se considera la ecuación de Langevin \cite{schneider1978}
-\begin{equation}\label{eq:langevin}
-    m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
-\end{equation}
-donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, $\gamma$ la
-constante de fricción y $R_i(t)$ es una variable estocástica con media cero 
-y que cumple
-$$
-\left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij}.
-$$
-Para aplicar este termostato, y simular a temperatura constante, en conjunto con 
-el integrador \textit{velocity Verlet} se tienen que considerar tres parametros
-\cite{kroger2005} a la hora de actualizar las velocidades y las posiciones como
-$$
-a = \frac{2 - \xi dt}{2 + \xi dt},
-$$
-$$
-b= \sqrt{k_B T_0 \xi \frac{dt}{2}},
-$$
-$$
-c= \frac{2 dt}{2 + \xi dt}
-$$
-donde $\xi$ es el factor de fricción, es decir, con qué intensidad interacciona 
-el sistema con el baño térmico. Se tiene entonces una actualización se la siguiente
-manera
-$$
-v(t+dt) = a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt,
-$$
-$$
-r(t+dt) = r(t) + c v(t) dt
-$$
-donde $\eta$ es una distribución gaussiana de números aleatorios con media 0 y
-varianza 1. 
-
-\subsubsection{Berendsen}
+\subsubsection{MD a temperatura y/o presión constante: Termostato y Barostato 
+de Berendsen}
 
 El termostato de Berendsen \cite{berendsen1984} puede derivarse si se considera 
 la ecuación \ref{eq:langevin} sin el término estocástico y se hace una elección
@@ -441,7 +405,125 @@ $$
 \mu = \sqrt[3]{1 - \frac{dt}{\tau_P} (P_0 - P)}.
 $$
 
-\subsubsection{Nosé-Hoover}
+\subsubsection{MD a temperatura constante: Termostato de Langevin}
+
+Si se considera la ecuación de Langevin \cite{schneider1978}
+\begin{equation}\label{eq:langevin}
+    m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
+\end{equation}
+donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, $\gamma$ la
+constante de fricción y $R_i(t)$ es una variable estocástica con media cero 
+y que cumple
+$$
+\left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij}.
+$$
+Para aplicar este termostato, y simular a temperatura constante, en conjunto con 
+el integrador \textit{velocity Verlet} se tienen que considerar tres parametros
+\cite{kroger2005} a la hora de actualizar las velocidades y las posiciones como
+$$
+a = \frac{2 - \xi dt}{2 + \xi dt},
+$$
+$$
+b= \sqrt{k_B T_0 \xi \frac{dt}{2}},
+$$
+$$
+c= \frac{2 dt}{2 + \xi dt}
+$$
+donde $\xi$ es el factor de fricción, es decir, con qué intensidad interacciona 
+el sistema con el baño térmico. Se tiene entonces una actualización se la siguiente
+manera
+$$
+v(t+dt) = a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt,
+$$
+$$
+r(t+dt) = r(t) + c v(t) dt
+$$
+donde $\eta$ es una distribución gaussiana de números aleatorios con media 0 y
+varianza 1. 
+
+\subsubsection{MD a temperatura constante: Termostato de Nosé-Hoover}
+
+Debido a que la temperatura es proporcional al promedio de las velocidades al 
+cuadrado, como puede verse en la ecuación \ref{eq:tempvel}, es posible variar
+la temperatura al ajustar la razón a la cual el tiempo progresa 
+~\cite{nose1984a}. Por lo cual puede introducirse una nueva variable dinámica
+$s$ en el Lagrangiano que reescalee la unidad de tiempo, y se añaden términos 
+adicionales para obtener el comportamiento deseado ~\cite{rapaport2004}. Lo que 
+que provoca que haya dos variables temporales distintas: el tiempo real, o físico, 
+$t'$, y un tiempo escalado, o virtual, $t$; que están relacionados a través de 
+sus diferenciales,
+$$
+dt = s(t') dt'.
+$$
+El Lagrangiano de este sistema extendido se escribe como
+$$
+\mathcal{L} = \frac{1}{2} m s^2 \sum_i \dot{\mathbf{r}}_i^2 - \sum_{i<j} u(\mathbf{r}_{ij}) + \frac{1}{2} M_s \dot{s}^2 - n_f T \log s,
+$$
+donde $T$ es la temperatura deseada, $n_f = 3N_m + 1$ el número de grados de 
+libertad, $M_s$ es una masa que se necesita para construir la ecuación de 
+movimiento de la nueva \say{coordenada} $s$ y el punto representa la derivada
+con respecto al tiempo virtual. Las ecuaciones de movimiento de Lagrange pueden 
+obtenerse de la forma usual y son
+$$
+\ddot{\mathbf{r}}_i = \frac{1}{m s^2} \mathbf{f}_i - \frac{2 \dot{s}}{s} \dot{\mathbf{r}}_i
+$$
+$$
+M_s \ddot{s} = m s \sum_i \dot{\mathbf{r}}_i^2 - \frac{n_f T}{s}
+$$
+
+Ya que la relación entre t y t' depende de toda la historia del sistema, es decir,
+$$
+t = \int s(t') dt'
+$$
+es más conveniente si las ecuaciones se transforman a las unidades del tiempo
+físico ~\cite{nose1984b, hoover85}, ahora el punto pasa a representar la derivada
+con respecto al tiempo real, y las ecuaciones de movimiento pueden reescribirse 
+como
+$$
+\ddot{\mathbf{r}}_i = \frac{1}{m} \mathbf{f}_i - \frac{\dot{s}}{s} \dot{\mathbf{r}}_i
+$$
+$$
+\ddot{s} = \frac{\dot{s}^2}{s} + \frac{G_1 s}{M_s} 
+$$
+donde $G_1 = m \sum_i \dot{\mathbf{r}}_i^2 - n_f T$. La primera de estas 
+ecuaciones de movimiento se asemeja a la ecuación newtoniana convencional con un 
+término adicional similar al de la fricción, aunque no se trata de una fricción 
+verdadera ya que el coeficiente puede ser de cualquier signo. La segunda ecuación 
+define el mecanismo de retroalimentación por el que $s$ varía para regular la 
+temperatura.
+
+Si se integra la función partición microcanónica del sistema extendido sobre la
+variable $s$ se obtiene la función de partición canónica, lo cual demuestra que
+los promedios de equilibrio del sistema físico son los del ensamble canónico a
+temperatura $T$ ~\cite{nose1984a}. Sin embargo, la temperatura en sí no es 
+constante, pero la retroalimentación negativa que actúa a través de $s$ garantiza
+que las fluctuaciones sean limitadas y el valor medio sea igual a $T$.
+
+El Hamiltoniano del sistema extendido
+$$
+\mathcal{H} = \frac{1}{2} m \sum_i \dot{\mathbf{r}}_i^2 + \sum_{i<j} u(\mathbf{r}_{ij}) + \frac{1}{2} M_s \left(\frac{\dot{s}}{s}\right)^2 + n_f T \log s
+$$
+se conserva debido a que no hay fuerzas externas que dependan del tiempo, lo cual 
+proporciona una comprobación útil de la precisión de la solución numérica. El 
+Hamiltoniano no tiene significado físico, sus dos primeros términos representan 
+la energía del sistema físico, pero su suma es libre de fluctuar.
+
+La $M_s$ no tiene ningún significado físico en particular, simplemente es una 
+parte de la técnica computacional de cálculo y su valor debe determinarse 
+empíricamente, que, en principio, no afecta a los resultados de equilibrio final, 
+pero sí influye en su precisión y confiabilidad. Para variaciones pequeñas de $s$, 
+el período característico de las fluctuaciones es ~\cite{nose1984a}
+$$
+\tau_s = 2 \pi \sqrt{\frac{M_s <s>^2}{2 n_f T}}
+$$
+y la simulación debe extenderse a lo largo de muchos de estos períodos para evitar 
+que estas fluctuaciones influyan negativamente en los resultados.
+
+De una manera similar a la realizada en el algoritmo de Nosé-Hoover para el 
+control de la temperatura, el algoritmo de \textbf{Parrinello-Rahman} permite
+obtener una representación correcta del ensamble al realizar un \textbf{control
+de la presión}, donde se permite una evolución temporal del volumen de la caja
+~\cite{parrinello-rahman}.
 
 
 \subsection{Observables}
