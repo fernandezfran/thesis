@@ -307,8 +307,114 @@ Los parámetros ajustables de los potenciales ReaxFF se obtienen a partir de
 cálculos de química cuántica sobre la disociación de enlaces, reacciones de 
 moléculas pequeñas, calores de formación y geometrías de distintos compuestos.
 
-
 \subsubsection{DFTB}
+
+Un método alternativo para obtener las fuerzas en dinámica molecular es a través
+de la utilización de un modelo \say{híbrido} entre los métodos \textit{ab-initio},
+basados en DFT, y el uso de potenciales completamente empíricos, DFTB (de sus 
+siglas en inglés, \textit{Density Functional based Tight Binding}), que tiene
+la ventaja de ser más transferibles que estos últimos y requiere menos costo
+computacional que los primeros.
+
+El método de DFTB se basa en una expansión de segundo orden de la energía total 
+de Kohn-Sham ~\cite{dft1, dft2} en la DFT con respecto a las fluctuaciones de la 
+densidad de carga. El enfoque de orden cero es equivalente a un esquema estándar 
+no auto-consistente (TB), mientras que en el segundo orden se puede derivar una 
+expresión transparente, libre de parámetros y fácilmente calculable para los 
+elementos matriciales hamiltonianos generalizados. Estos se modifican mediante 
+una redistribución auto-consistente de las cargas de Mulliken (SCC).
+
+\begin{enumerate}
+    \item \textbf{Enforque de orden cero}
+
+        El método de DFTB de orden cero calcula los elementos de la matriz 
+        Hamiltoniana y de solapamiento a partir de una base orbital local con la
+        ayuda de DFT-LDA (DFT-\textit{Local density approximation}) y algunas
+        aproximaciones en las integrales. Puede verse como una aproximación de 
+        una combinación lineal de los orbitales atómicos (LCAO, de sus siglas en 
+        ingles, \textit{linear-combination-of-atomic-orbitals}). De esta forma se
+        busca evitar las dificultades que surgen a la hora de parametrizar un 
+        potencial empírico ~\cite{dftb1, dftb2}.
+
+        En esta aproximación, los orbitales de Kohn-Sham $\psi_i$ del sistema
+        son expandidos en términos de las funciones de la base localizadas 
+        centradas en el átomo,
+        $$
+        \psi_i = \sum_{\nu} C_{\nu i} \phi_{\nu}(\mathbf{r}-\mathbf{R}_k),
+        $$
+        resolviendo las ecuaciones de Kohn-Sham para un potencial efectivo de una
+        partícula $V_{eff}(\mathbf{r})$,
+        \begin{equation}\label{eq:kohn-sham-mod}
+            \hat{H} \psi_i(\mathbf{r}) = \varepsilon_i \psi_i(\mathbf{r}), \quad \hat{H} = \hat{T} + V_{eff}(\mathbf{r}),
+        \end{equation}
+        se tiene como resultado un conjunto de ecuaciones algebraicas,
+        $$
+        \sum_{\nu} C_{\nu i} (H_{\mu \nu} - \varepsilon S_{\mu \nu}) = 0, \quad \forall \mu, i,
+        $$
+        donde
+        $$
+        H_{\mu \nu} = \langle \phi_{\mu}|\hat{H}|\phi_{\nu} \rangle, \quad S_{\mu \nu} = \langle\phi_{\mu}|\phi_{\nu}\rangle.
+        $$
+
+        La energía total del sistema puede ser aproximada como una suma sobre la
+        energía de la estructura de bandas y un potencial repulsivo de dos cuerpos
+        de corto alcance,
+        \begin{equation*}
+            \begin{aligned}
+                   E_{tot}(\{\mathbf{R}_k\}) &= E_{BS}(\{\mathbf{R}_k\}) + E_{rep}(\{|\mathbf{R}_k - \mathbf{R}_l|\}) \\
+                    &= \sum_i n_i \varepsilon_i(\{\mathbf{R}_k\}) + \sum_k \sum_{<l} V_{rep}(|\mathbf{R}_l - \mathbf{R}_k|),
+            \end{aligned}
+        \end{equation*}
+        donde $n_i$ es el número de ocupación del orbital $i$.
+        
+        Las funciones de onda pseudoatómicas pueden escribirse en términos de los
+        orbitales tipo Slater y armónicos esféricos,
+        $$
+        \phi_{\nu}(\mathbf{r}) = \sum_{n,\alpha,l_{\nu},m_{\nu}} a_{n\alpha} r^{l_{\nu}+n} e^{-\alpha r} Y_{l_{\nu}m_{\nu}}\left(\frac{\mathbf{r}}{r}\right),
+        $$
+        a la hora de realizar una solución auto-consistente a las ecuaciones
+        modificadas de Kohn-Sham \ref{eq:kohn-sham-mod}. Estas soluciones son
+        utilizadas como funciones de la base LCAO a la hora de tratar el sistema
+        sólo considerando los orbitales de valencia.
+        
+        Como una aproximación, se escribe el potencial de un electrón de una 
+        estructura con muchos átomos como una suma de contribuciones atómicas
+        esféricas,
+        $$
+        V_{eff}(\mathbf{r}) = \sum_k V_0^k(|\mathbf{r} - \mathbf{R}_k|),
+        $$
+        donde $V_0$ es el potencial de Kohn-Sham de un pseudo-átomo neutral.
+
+        La matriz de solapamiento consiste solamente de dos elementos centrales
+        y puede ser calculada de una forma sencilla
+        \begin{equation*}
+            H_{\mu\nu} = 
+            \begin{cases*}
+                \varepsilon_{\mu}^{atomo\ libre} & si $\mu = \nu$ \\
+                \langle \phi_{\mu}^{\alpha} | \hat{T} + V_0^{\alpha} + V_0^{\beta} | \phi_{\nu}^{\beta} \rangle & si $\alpha \neq \beta$ \\
+                0 & para el resto de los casos,
+            \end{cases*}
+        \end{equation*}
+        donde los índices $\alpha$ y $\beta$ indican el átomo sobre el cual la
+        función de onda y el potencial están centrados. Como puede notarse, sólo
+        dos elementos centrados de la matriz Hamiltoniana son tratados. Debido a
+        que todos los elementos de la matriz dependen sólo de las distancias 
+        interatómicas, sólo se necesita calcularlos una vez para cada par de tipo
+        de átomo y guardar los valores definiendo un ancho de paso. Luego, los 
+        elementos para distancias intermedias pueden ser interpolados entre los
+        valores guardados.
+
+        La repulsión a corto alcance $V_{rep}(R)$ puede ser determinada a partir
+        de la diferencia en la energía total resultante de un cálculo 
+        auto-consistente, $E_{LDA}^{sc}$, y $E_{BS}$ para distintos valores de 
+        distancia $R$,
+        $$
+        V_{rep}(R) = E_{LDA}^{sc}(R) - E_{BS}(R).
+        $$
+
+    \item \textbf{Enfoque de segundo orden}
+
+\end{enumerate}
 
 \subsection{Integrador}
 
@@ -570,7 +676,7 @@ empíricamente, que, en principio, no afecta a los resultados de equilibrio fina
 pero sí influye en su precisión y confiabilidad. Para variaciones pequeñas de $s$, 
 el período característico de las fluctuaciones es ~\cite{nose1984a}
 $$
-\tau_s = 2 \pi \sqrt{\frac{M_s <s>^2}{2 n_f T}}
+\tau_s = 2 \pi \sqrt{\frac{M_s \langle s \rangle^2}{2 n_f T}}
 $$
 y la simulación debe extenderse a lo largo de muchos de estos períodos para evitar 
 que estas fluctuaciones influyan negativamente en los resultados.
