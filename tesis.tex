@@ -54,6 +54,13 @@
 % Sangría
 \setlength\parindent{12pt}
 
+% show subsubsections in TOC
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+% Indice de cada capítulo
+\usepackage{minitoc}
+
 % colores nord blues
 \definecolor{mycolor}{RGB}{94, 129, 172} % nord blue
 \definecolor{mylcolor}{RGB}{129, 161, 193} % nord lighter blue
@@ -135,6 +142,7 @@
 % Dedicatoria
 
 % Índice
+\dominitoc
 \tableofcontents
 
 % Resumen
@@ -148,6 +156,7 @@
 % \chapter[Capítulo X]{Capítulo X}
 % \input{corpus/capitulox.tex}
 \chapter[Teoría y métodos computacionales]{Teoría y métodos computacionales}
+\minitoc
 \input{corpus/metodos.tex}
 
 % Apéndices
