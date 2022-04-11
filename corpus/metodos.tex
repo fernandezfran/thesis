@@ -1,4 +1,10 @@
-El resumen del capítulo puede ir acá.
+\begin{adjustwidth}{50pt}{50pt}
+    En este capítulo se revisan nociones básicas de mecánica estadística, se 
+    introduce la técnica de simulación de dinámica molecular, se presentan los 
+    campos de fuerzas utilizados en esta tesis y los observables que se pueden 
+    obtener una vez realizadas las simulaciones. Por último se mencionan los 
+    softwares que se usaron/implementaron en esta tesis.
+\end{adjustwidth}
 
 \section{Breve introducción a la mecánica estadística}
 
@@ -27,20 +33,17 @@ replicas del sistema en vez de sobre su evolución temporal.
 \subsection{Ensambles}
 
 Algunos de los ensambles termodinámicos más relevantes son:
-\begin{enumerate}
+\begin{itemize}
     \item \textit{Ensamble microcanónico (NVE)}, un sistema aislado en el cual el 
         número de partículas, el volumen y la energía permanecen constantes.
     \item \textit{Ensamble canónico (NVT)}, un sistema cerrado, con una cantidad
         fija de partículas y volumen constante, en contacto con un baño de 
         temperatura lo suficientemente grande de manera tal que la misma permanece 
         constante.
-    \item \textit{Ensamble gran canónico ($\mu$VT)}, un sistema abierto en el que
-        el volumen está fijo, se está en contacto con un baño de temperatura y
-        además se permite el intercambio de partículas con un reservorio.
     \item \textit{Ensamble isotérmico-isobárico (NPT)}, en este sistema el número
         de partículas está fijo y en contacto con un baño de temperatura y un
         pistón que permite variar el volumen para mantener la presión constante.
-\end{enumerate}
+\end{itemize}
 
 \subsection{Hipótesis ergódica}
 
@@ -133,7 +136,7 @@ posible, sin embargo, sólo puede ser resuelta en un tiempo razonable para unos
 pocos átomos. En cierto punto necesitamos realizar aproximaciones, una de las más
 utilizadas es la dinámica molecular (MD, de sus siglas en inglés, 
 \textit{molecular dynamics}) que considera un sistema de $N$ partículas 
-interactúantes en un campo de fuerzas newtoniano. Dada la configuración de los 
+interactuantes en un campo de fuerzas newtoniano. Dada la configuración de los 
 átomos se tiene el siguiente sistema de ecuaciones
 $$
 m_i \frac{\partial^2 \mathbf{r}_i}{\partial t^2} = \mathbf{F}_i, \quad i = 1,..., N,
@@ -492,15 +495,12 @@ fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de referencia:
         aproximación simple y muy utilizada en métodos de química cuántica 
         semi-empíricos es aproximar el valor de $\gamma_{\alpha\alpha}$ por la 
         diferencia potencial de ionización atómica y la afinidad electrónica, que
-        está relacionada al parámetro de Hubbard $U_{\alpha}$,
-        $$
-        \gamma_{\alpha\alpha} \approx I_{\alpha} - A_{\alpha} \approx 2 \eta \alpha \approx U_{\alpha};
-        $$
-        luego, $\gamma_{\alpha\beta}$ sólo depende de la distancia entre los 
-        átomos $\alpha$ y $\beta$ y los parámetros $U_{\alpha}$ y $U_{\beta}$,
-        que pueden ser calculados a partir de la segunda derivada de la energía
-        total de un solo átomo con respecto al número de ocupación del último 
-        orbital atómico ocupado en LDA-DFT.
+        está relacionada al parámetro de Hubbard $U_{\alpha}$, 
+        $\gamma_{\alpha\alpha} \approx U_{\alpha};$ luego, $\gamma_{\alpha\beta}$ 
+        sólo depende de la distancia entre los átomos $\alpha$ y $\beta$ y los 
+        parámetros $U_{\alpha}$ y $U_{\beta}$, que pueden ser calculados a partir 
+        de la segunda derivada de la energía total de un solo átomo con respecto 
+        al número de ocupación del último orbital atómico ocupado en LDA-DFT.
 
         Por último, en este enfoque de segundo orden, la ecuación \ref{eq:dft-fluc}
         puede escribirse como
