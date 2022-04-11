@@ -124,12 +124,25 @@ los resultados deben ser independientes de la elección.
 
 \section{Dinámica molecular}\label{md}
 
-La dinámica molecular (MD, de sus siglas en inglés, \textit{molecular dynamics})
-es una técnica de simulación computacional que considera un sistema de $N$
-partículas atómicas, que interactúan a través de un campo de fuerzas newtoniano,
-de las cuales se obtiene su evolución temporal. La misma permite obtener
-propiedades termodinámicas macroscópicas de un sistema en equilibro a partir de 
-cantidades microscópicas ~\cite{frenkel2001, allen2017}.
+Dentro de lo que son las simulaciones computacionales en física, química y
+ciencias de los materiales, existen distintas técnicas para realizar modelados
+moleculares numéricos para predecir y entender propiedades macroscópicas a partir
+de un conocimiento detallado a escala atómica. Sería conveniente utilizar la 
+ecuación de Schrödinger dependiente del tiempo para obtener la mayor precisión 
+posible, sin embargo, sólo puede ser resuelta en un tiempo razonable para unos 
+pocos átomos. En cierto punto necesitamos realizar aproximaciones, una de las más
+utilizadas es la dinámica molecular (MD, de sus siglas en inglés, 
+\textit{molecular dynamics}) que considera un sistema de $N$ partículas 
+interactúantes en un campo de fuerzas newtoniano. Dada la configuración de los 
+átomos se tiene el siguiente sistema de ecuaciones
+$$
+m_i \frac{\partial^2 \mathbf{r}_i}{\partial t^2} = \mathbf{F}_i, \quad i = 1,..., N,
+$$
+donde $m_i$ es la masa del átomo $i$, $\mathbf{r}_i$ su posición y $\mathbf{F}_i$
+la fuerza. Estas ecuaciones de movimiento son integradas en intervalos de tiempo
+pequeños que permiten obtener la evolución temporal del sistema, es decir, su
+trayectoria. De esta se pueden extraer propiedades macroscópicas del sistema en
+equilibro a partir de su descripción microscópica ~\cite{frenkel2001, allen2017}.
 
 Para entender mejor como trabaja esta técnica de simulación es conveniente ver
 cómo funciona su código fuente, un diagrama de flujo del mismo es presentado en 
@@ -870,3 +883,21 @@ $$
 D = D_0 e^{-E / k_BT},
 $$
 donde $E$ es la energía de activación del proceso. 
+
+
+\section{Software}
+
+En la actualidad existe una gran cantidad de códigos que permiten realizar 
+simulaciones de dinámica molecular de manera eficiente aprovechando la estructura
+paralela de los procesadores. En esta tesis se utilizó principalmente \path{LAMMPS} 
+(\textit{Large-scale Atomic/Molecular Massively Parallel Simulator}, sus siglas
+en inglés) ~\cite{lammps1, lammps2}, un código centrado en el modelado de 
+materiales que permite simular con distintos campos de fuerzas, ensambles y 
+condiciones de contorno. También se realizaron simulaciones con versiones 
+modificadas de \path{GEMS} ~\cite{gems}, código del Dr. Sergio Alexis Paz 
+(FCQ-UNC), que permiten utilizar a \path{DFTB+} ~\cite{dftb+} como una librería.
+
+Para la visualización de las trayectorias y la obtención de gráficos de 
+estructuras representativas se utilizó \path{VMD} (\textit{Visual Molecular 
+Dynamics}) ~\cite{vmd}. Para el post-procesamiento de datos de las simulaciones
+se escribieron distintos programas en Python ~\cite{exma, sierras}.

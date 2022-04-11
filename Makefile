@@ -12,6 +12,6 @@ tesis: tesis.tex
 
 clean:
 	$(COMPILER) $(clean_flags)
-	rm *.bbl
+	rm *.bbl *.maf *.mtc* 
 
 .PHONY: clean all
