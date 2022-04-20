@@ -16,9 +16,9 @@ las propiedades del equilibrio de sistemas macroscópicos a partir de una teorí
 molecular aplicada a su configuración microscópica ~\cite{hill1986}.
 
 Si se quisiera calcular alguna variable mecánica de un sistema termodinámico a
-partir de consideraciones moleculares tendríamos que hacerlo durante un período
+partir de consideraciones moleculares tendría que realizarse durante un período
 de tiempo largo para suavizar las fluctuaciones y para que fuera independiente
-del paso inicial a la hora de realizar el promedio. Dado el gran número de 
+del paso inicial a la hora de computar el promedio. Dado el gran número de 
 moléculas interactuantes entre sí en estos sistemas, este cálculo está fuera de
 alcance tanto en una consideración cuántica como en una clásica. Una alternativa
 para solucionar esto es conectar el promedio temporal de la variable mecánica de
@@ -70,15 +70,15 @@ en el ensamble.
 
 \subsection{Fluctuaciones}
 
-Para definir el valor medio (o examinar la amplitud de las fluctuaciones en torno 
-al valor medio) de una propiedad de un sistema que puede existir en varios estados
+Para definir el valor medio, o examinar la amplitud de las fluctuaciones en torno 
+al valor medio, de una propiedad de un sistema que puede existir en varios estados
 $j$ con probabilidades $P_j$, la propiedad misma debe definirse en cada estado 
 $j$. Una propiedad que cumpla estos criterios es \say{mecánica} por definición.
 
-Tomemos el ejemplo de la fluctuación de la energía de un sistema cerrado en 
-contacto con un reservorio de temperatura lo suficientemente grande (NVT) donde 
-las fluctuaciones de energía deben estar asociadas al intercambio de calor entre 
-el sistema y el reservorio. Estas fluctuaciones de energía resultan ser muy 
+Si se considera el ejemplo de la fluctuación de la energía de un sistema cerrado 
+en  contacto con un reservorio de temperatura lo suficientemente grande (NVT) 
+donde las fluctuaciones de energía están asociadas al intercambio de calor entre 
+el sistema y el reservorio, dichas fluctuaciones de energía resultan ser muy 
 pequeñas, por lo que la función de distribución de probabilidad para las 
 diferentes energías tiene forma gaussiana en torno al valor medio $\overline{E}$. 
 La dispersión en esta distribución de probabilidad puede, por lo tanto,
@@ -87,42 +87,50 @@ $$
 \sigma_E = \sqrt{\overline{(E - \overline{E})^2}}.
 $$
 
-Si diferenciamos
-$$
-\overline{E} \sum_j e^{-E_j(N,V)/kT} = \sum_j E_j(N,V) e^{-E_j(N,V)/kT}
-$$
-con respecto a $T$, y luego dividimos por $Q$, la función de partición, encontramos
-$$
-\left(\frac{\partial\overline{E}}{\partial T}\right)_{V,N} + \frac{\overline{E}}{Q kT^2} \sum_j E_j e^{-E_j / kT} = \frac{1}{Q kT^2} \sum_j E_j^2 e^{-E_j/kT},
-$$
-o
-$$
-\overline{E^2} - (\overline{E})^2 = \overline{(E-\overline{E})^2} = \sigma_E^2 = k T^2 C_V,
-$$
-de la termodinámica, sabemos que en general $C_V \approx \mathcal{O}(Nk)$ and $\overline{E} \approx \mathcal{O}(NkT)$. Por lo tanto
+% Si se diferencia
+% $$
+% \overline{E} \sum_j e^{-E_j(N,V)/kT} = \sum_j E_j(N,V) e^{-E_j(N,V)/kT}
+% $$
+% con respecto a $T$, y luego se divide por $Q$, la función de partición, se tiene
+% que
+% $$
+% \left(\frac{\partial\overline{E}}{\partial T}\right)_{V,N} + \frac{\overline{E}}{Q kT^2} \sum_j E_j e^{-E_j / kT} = \frac{1}{Q kT^2} \sum_j E_j^2 e^{-E_j/kT},
+% $$
+% o
+% $$
+% \overline{E^2} - (\overline{E})^2 = \overline{(E-\overline{E})^2} = \sigma_E^2 = k T^2 C_V,
+% $$
+% de la termodinámica, en general $C_V \approx \mathcal{O}(Nk)$ y $\overline{E} \approx \mathcal{O}(NkT)$. Por lo tanto
+% Así encontramos en un sistema típico cerrado e isotérmico el comportamiento de la
+% desviación estándar de la distribución de probabilidad de la energía.
+
+Puede encontrarse que el comportamiento de la desviación estándar de la 
+distribución de la probabilidad de la energía decrece a medida que aumenta el 
+número de moleculas presentes en el sistema de forma proporcional a la inversa
+de la raíz de esta cantidad,
 \begin{equation}\label{eq:fluctuaciones}
-    \frac{\sigma_E}{\overline{E}} = \frac{\sqrt{kT^2C_V}}{\overline{E}} \approx \mathcal{O}(N^{-1/2})
+    \frac{\sigma_E}{\overline{E}} = \frac{\sqrt{kT^2C_V}}{\overline{E}} \approx \mathcal{O}(N^{-1/2}).
 \end{equation}
-Así encontramos en un sistema típico cerrado e isotérmico el comportamiento de la
-desviación estándar de la distribución de probabilidad de la energía.
 
-Las variables que fluctúan son diferentes en cada ensamble, aunque las funciones 
-termodinámicas calculadas en mecánica estadística resultan ser independientes del 
-ensamble utilizado en el cálculo, por lo cual, pueden realizarse análisis 
-similares en las distintas cantidades que pueden variar en cada uno de ellos.
+% Las variables que fluctúan son diferentes en cada ensamble, aunque las funciones 
+% termodinámicas calculadas en mecánica estadística resultan ser independientes del 
+% ensamble utilizado en el cálculo, por lo cual, pueden realizarse análisis 
+% similares en las distintas cantidades que pueden variar en cada uno de ellos.
 
-En el límite termodinámico, en el cual la cantidad de moléculas en un sistema es 
-del orden de $10^{23}$, la relación obtenida en la ecuación \ref{eq:fluctuaciones} 
-muestra que las fluctuaciones son muy pequeñas y pueden ser ignoradas. Esto hace 
-que los ensambles sean termodinámicamente equivalentes entre sí.
+A pesar de que las variables que fluctúan son diferentes en cada ensamble, en el 
+límite termodinámico, en el cual la cantidad de moléculas en un sistema es 
+del orden de $10^{23}$, la relación que se presenta en la ecuación 
+\ref{eq:fluctuaciones} muestra que las fluctuaciones son muy pequeñas y pueden 
+ser ignoradas. Esto hace que los ensambles sean termodinámicamente equivalentes 
+entre sí.
 
 En termodinámica, las relaciones funcionales entre las variables termodinámicas 
 de un sistema son independientes del entorno. Otra forma de decir esto es que la 
 elección de las variables termodinámicas independientes es arbitraria y no está 
-prescrita por el entorno. En la mecánica estadística llegamos a la misma 
-conclusión: independientemente del entorno, podemos seleccionar cualquier ensambles
-o función de partición que deseemos para calcular las propiedades termodinámicas; 
-los resultados deben ser independientes de la elección.
+prescrita por el entorno. En la mecánica estadística se llega a la misma 
+conclusión: independientemente del entorno, se puede seleccionar cualquier 
+ensamble o función de partición para calcular las propiedades termodinámicas; 
+los resultados serán independientes de dicha elección.
 
 
 \section{Dinámica molecular}\label{md}
@@ -144,11 +152,13 @@ $$
 donde $m_i$ es la masa del átomo $i$, $\mathbf{r}_i$ su posición y $\mathbf{F}_i$
 la fuerza. Estas ecuaciones de movimiento son integradas en intervalos de tiempo
 pequeños que permiten obtener la evolución temporal del sistema, es decir, su
-trayectoria. De esta se pueden extraer propiedades macroscópicas del sistema en
-equilibro a partir de su descripción microscópica ~\cite{frenkel2001, allen2017}.
+trayectoria. Ya introducida la mecánica estadística, pueden extraerse propiedades
+macroscópicas del sistema en equilibro al considerar configuraciones microscópicas
+representativas a distintos instantes de tiempo de la trayectoria
+~\cite{frenkel2001, allen2017}.
 
 Para entender mejor como trabaja esta técnica de simulación es conveniente ver
-cómo funciona su código fuente, un diagrama de flujo del mismo es presentado en 
+cómo funciona su código fuente, un diagrama de flujo del mismo se presenta en 
 la figura \ref{fig:esquema_md}, donde cada una de sus partes se amplía en la 
 siguiente enumeración:
 \begin{enumerate}
@@ -164,12 +174,12 @@ siguiente enumeración:
         y velocidades del paso temporal siguiente a partir del actual.
     \item \textbf{Cómputo de propiedades termodinámicas}: se realizan los
         cálculos de distintas cantidades de interés, como las energías potencial
-        y cinética, la presión y la temperatura.
+        y cinética, la presión y la temperatura, etc.
     \item De ser necesario, se aplica algún \textbf{termostato o barostato}
         para realizar simulaciones en el ensamble termodinámico deseado.
     \item \textbf{Evolución temporal}: se incrementa el tiempo adhiriendo un
-        paso temporal y se vuelve al cálculo de las fuerzas con las nuevas 
-        configuraciones.
+        paso temporal y se vuelve a realizar el cálculo de las fuerzas sobre las 
+        nuevas configuraciones.
 \end{enumerate}
 
 \begin{figure}
@@ -179,49 +189,47 @@ siguiente enumeración:
     \label{fig:esquema_md}
 \end{figure}
 
-A continuación se especifican cada una de dichas partes con mayor detenimiento.
-
 \subsection{Configuraciones iniciales}
 
 Si bien las posiciones iniciales de algunos sistemas pueden reproducirse a partir
-de los vectores de red de estructuras cristalinas (\textit{simple cubic}, 
-\textit{body-centered cubic}, \textit{face-centered cubic}), otros casos de
-interés, en los cuales hay más de un elemento involucrado, involucran celdas 
-unidad más complicadas que han sido calculadas y optimizadas mediante la Teoría
+de los vectores de red de estructuras cristalinas, en otros casos de interés, en 
+los cuales hay más de un elemento involucrado, las celdas unidad de mínimos 
+locales son más complejas y han sido calculadas y optimizadas mediante la Teoría 
 del funcional de la densidad electrónica (DFT, de sus siglas en inglés, density 
-functional theory). Realizar estos cálculos suele ser una tarea computacionalmente 
-costosa y que requiere intervención de científicos especializados, para evitar esto
-existe una base de datos ampliamente utilizada en el ámbito académico y en
-la industria, Materials Project \cite{materials_project}, que recopila los datos
-que existen sobre estas estructuras cristalinas, realiza nuevos cálculos y está 
-abierta a la comunidad para su uso y colaboración. Antes de que los datos se
-carguen en la página, los mismos son comparados con resultados experimentales 
-para determinar si están dentro de un rango de validez definido. En esta tesis
-en particular, fueron utilizadas distintas estructuras cristalinas de esta base de
-datos como condiciones iniciales para las posiciones y el tamaño de la celda de 
+functional theory). Realizar estos cálculos suele ser una tarea
+computacionalmente costosa y que requiere intervención de científicos 
+especializados, para evitar este paso existe una base de datos ampliamente 
+utilizada en el ámbito académico y en la industria, Materials Project 
+~\cite{materials_project}, que recopila los datos que existen sobre estas 
+estructuras cristalinas, realiza nuevos cálculos y está abierta a la comunidad 
+para su uso y colaboración. Antes de que los datos se carguen en la página, los 
+mismos son comparados con resultados experimentales para determinar si están 
+dentro de un rango de validez definido. En esta tesis en particular, fueron 
+utilizadas distintas estructuras cristalinas de esta base de datos como 
+condiciones iniciales para las posiciones y los tamaños de las celdas de 
 simulación.
 
 Las velocidades de los átomos suelen ser generadas de manera aleatoria, a través
 de un generador de números pseudo-aleatorio, tomando como argumento una semilla 
 para la reproducibilidad de la simulación y una temperatura deseada para el
-sistema. Estos números suelen ser generados de una distribución gaussiana, donde
-el centro se lo fija a cero para que no haya una velocidad en el centro de masa
-y el ancho está relacionado a la temperatura.
+sistema. Estos números son generados con una distribución gaussiana, donde el 
+centro se lo fija a cero para que no haya una velocidad en el centro de masa y 
+el ancho está relacionado a la temperatura seleccionada.
 
 \subsection{Condiciones de contorno}
 
 Además de dar la configuración inicial de los átomos, es necesario especificar si
-los mismos se encuentran dentro de una celda de simulación con un largo tamaño en
+los mismos se encuentran dentro de una celda de simulación con un tamaño en
 particular para cada una de las direcciones del sistema o si no interactúan fuera
 del borde de la estructura que conforman los mismos. En el primero de los casos
-se tienen condiciones periódicas de contorno (PBC, \textit{periodic boundary 
-conditions}), lo que se busca con ellas es reproducir un sistema infinito, para
-que no existan efectos de borde, y consiste en considerar que los átomos se 
+se tienen condiciones periódicas de contorno (PBC, por sus siglas en inglés, 
+\textit{periodic boundary conditions}), que busca reproducir un sistema infinito,
+para que no existan efectos de borde, y consiste en considerar que los átomos se 
 encuentran dentro de una celda unidad de una red infinita de celdas idénticas; en
 donde si un átomo sale por un extremo de la celda, ingresa por el opuesto. Una
 condición que debe cumplir esta celda es que su tamaño en cada una de las 
-direcciones debe ser mayor al radio de corte de las interacciones entre los átomos. 
-Por otro lado, el segundo de los casos es útil considerarlo cuando se 
+direcciones debe ser mayor al radio de corte de las interacciones entre los 
+átomos. Por otro lado, el segundo de los casos es útil considerarlo cuando se 
 tienen nanoestructuras en las cuales los átomos están ordenados de cierta forma 
 que globalmente representan una forma definida y no pueden ser consideradas como
 una red infinita.
@@ -233,24 +241,24 @@ dinámicas moleculares relacionan la fuerza sobre un átomo con el entorno quím
 del mismo a través de una forma funcional conocida. Existe una gran 
 variedad de estos potenciales y la elección de uno de ellos depende del sistema 
 de estudio, ya que algunos potenciales representan de mejor manera gases y otros 
-metales, por ejemplo. Algunos de los potenciales interatómicos más utilizados
-son mencionados brevemente a continuación. El potencial de Coulomb ~\cite{coulomb}
-considera las partículas como cargas puntuales que interactúan electrostáticamente. 
-El potencial de Tersoff ~\cite{tersoff} o el de Stillinger-Weber 
+metales, por ejemplo. El potencial de Coulomb ~\cite{coulomb} considera las 
+partículas como cargas puntuales que interactúan electrostáticamente. Los 
+potenciales de Tersoff ~\cite{tersoff} o de Stillinger-Weber 
 ~\cite{stillinger-weber} fueron especialmente desarrollados para el modelado de 
 materiales con enlaces covalentes fuertes, como es el caso del carbono o del 
 silicio. El método del átomo embebido (EAM, de sus siglas en inglés) ~\cite{eam} 
 y el EAM modificado (MEAM) ~\cite{meam} están diseñados para simular sistemas 
-metálicos. Otros potenciales, como el COMB (\textit{charge-optimized many-body}) 
-~\cite{comb}, que incorporan una equilibración de las cargas en el modelo, o el 
-ReaxFF (\textit{reactive force fields}) ~\cite{reaxff}, que combina en un solo 
-modelo distintas componentes de las que fueron mencionadas, con enfoques más 
-avanzados permiten simular reacciones químicas en algunos sistemas.
+metálicos. Otros potenciales con enfoques más avanzados permiten simular
+reacciones químicas en algunos sistemas, como es el caso de el COMB 
+(\textit{charge-optimized many-body}) ~\cite{comb}, que incorpora una 
+equilibración de las cargas en el modelo, o el del ReaxFF (\textit{reactive 
+force fields}) ~\cite{reaxff}, que combina en un solo modelo distintas componentes
+de las que fueron mencionadas.
 
-Sólo a fines explicativos consideremos un potencial interatómico de Lennard-Jones
-~\cite{lennard-jones}, que reproduce el decaimiento de $r^{-6}$ a distancias 
-largas
-dado por la siguiente expresión
+Uno de los primeros potenciales utilizados en simulaciones computacionales fue 
+el potencial interatómico de Lennard-Jones ~\cite{lennard-jones}, que reproduce 
+el decaimiento de $r^{-6}$ a distancias largas y viene dado por la siguiente 
+expresión
 $$
 V_{LJ} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \frac{\sigma}{r} \right)^{6} \right],
 $$
@@ -270,8 +278,8 @@ interactúan, en el caso práctico se define una distancia de corte, conocida co
 el \textit{radio de corte}, $r_{cut}$, a partir de la cual se considera que el 
 potencial es nulo. Para evitar discontinuidades en este punto se suelen utilizar 
 distintas técnicas como el truncado y desplazado o se multiplica al potencial 
-al rededor de dicho punto por una función \textit{smooth}, que hace que el 
-potencial se iguale suavemente a cero.
+alrededor de dicho punto por una función suave, que hace que el potencial se 
+iguale suavemente a cero.
 
 Una vez que el potencial interatómico está bien definido, para calcular la fuerza
 que actúa sobre el átomo $i$ es necesario computar la fuerza de a pares con todos
@@ -282,20 +290,18 @@ la contribución de esa interacción es igual a cero y si es menor se computa la
 fuerza a través del potencial de la siguiente manera
 $$
 f_x(r) = - \frac{\partial V(r)}{\partial x}
-       = - \left( \frac{x}{r_{ij}} \right) \cdot \left( \frac{\partial V(r)}{\partial r} \right)
 $$
-donde $r$ es la distancia entre los átomos, $x$ la componente en alguna de
-las direcciones definidas para el sistema.
+donde $x$ es la componente en alguna de las direcciones definidas para el sistema.
 
 A continuación se presentan dos potenciales interatómicos del estado del arte que
-fueron utilizados a lo largo de esta tesis.
+fueron utilizados en esta tesis.
 
 \subsubsection{ReaxFF}
 
 El campo de fuerza reactivo, ReaxFF ~\cite{reaxff}, representa adecuadamente la
-asociación y disociación de enlaces de átomos al considerar la energía del sistema
-($E_{system}$) de manera tal que se encuentra dividida en varias contribuciones 
-de energía parciales,
+asociación y disociación de enlaces de átomos al considerar que la energía del 
+sistema, $E_{system}$, se encuentra dividida en varias contribuciones de energías
+parciales,
 $$
 E_{system} = E_{bond} + E_{over} + E_{under} + E_{val} + E_{pen} + E_{tors} + E_{conj} + E_{vdWaals} + E_{Coulomb}.
 $$
@@ -304,9 +310,9 @@ Una de las suposiciones fundamentales del ReaxFF es que el orden de enlace entre
 un par de átomos puede obtenerse directamente de la distancia que los separa, 
 esto es asegurado por el término $E_{bond}$.
 
-$E_{over}$ y $E_{under}$ son términos agregados para agregar penalidades a los
-átomos sobre-coordinados o sub-coordinados, utilizando la teoría de la valencia del
-enlace.
+$E_{over}$ y $E_{under}$ son términos agregados para imponer penalidades a los
+átomos sobre-coordinados o sub-coordinados, utilizando la teoría de la valencia 
+del enlace.
 
 $E_{val}$ considera la contribución a la energía por el ángulo de valencia, 
 mientras que $E_{pen}$ penaliza sistemas para reproducir la estabilidad de 
@@ -328,7 +334,7 @@ moléculas pequeñas, calores de formación y geometrías de distintos compuesto
 \subsubsection{DFTB}
 
 Un método alternativo para obtener las fuerzas en dinámica molecular es a través
-de la utilización de un modelo \say{híbrido} entre los métodos \textit{ab-initio},
+de la utilización de un modelo híbrido entre los métodos \textit{ab-initio},
 basados en DFT, y el uso de potenciales completamente empíricos, DFTB (de sus 
 siglas en inglés, \textit{Density Functional based Tight Binding}), que tiene
 la ventaja de ser más transferibles que estos últimos y requiere menos costo
@@ -347,11 +353,12 @@ las posiciones $\mathbf{R}$ puede escribirse a través de DFT como
 $$
 E = \sum_i^{occ} \langle \psi_i | - \frac{\Delta}{2} + V_{ext} + \frac{1}{2} \int' \frac{n(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} | \psi_i \rangle + E_{XC}(n(\mathbf{r})) + \frac{1}{2} \sum_{\alpha, \beta}^N \frac{Z_{\alpha}Z_{\beta}}{|\mathbf{R}_{\alpha} - \mathbf{R}_{\beta}|},
 $$
-donde la primera suma es sobre los autoestados $psi_i$ ocupados de Kohn-Sham,
+donde la primera suma es sobre los autoestados $\psi_i$ ocupados de Kohn-Sham,
 $n(\mathbf{r})$ es la densidad electrónica, el segundo término es la contribución
 de la correlación de intercambio (XC), y el último término considera la repulsión
-de ion-ion. Usando una densidad de referencia $n_0$ más un término de pequeño de
-fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de referencia:
+de ion-ion. Si se utiliza una densidad de referencia $n_0$ más un término 
+pequeño de fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de 
+referencia:
 \begin{equation}\label{eq:dft-fluc}
     \begin{aligned}
         E =& \sum_i^{occ} \langle \psi_i | \hat{H}_0 | \psi_i \rangle - \frac{1}{2} \int \int' \frac{n_0' n_0}{|\mathbf{r} - \mathbf{r}'|} + E_{XC}(n_0) - \int V_{XC}(n_0)n_0 + E_{ii} \\
@@ -433,13 +440,12 @@ fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de referencia:
             \end{cases*}
         \end{equation*}
         donde los índices $\alpha$ y $\beta$ indican el átomo sobre el cual la
-        función de onda y el potencial están centrados. Como puede notarse, sólo
-        dos elementos centrados de la matriz Hamiltoniana son tratados. Debido a
-        que todos los elementos de la matriz dependen sólo de las distancias 
-        interatómicas, sólo se necesita calcularlos una vez para cada par de tipo
-        de átomo y guardar los valores definiendo un ancho de paso. Luego, los 
-        elementos para distancias intermedias pueden ser interpolados entre los
-        valores guardados.
+        función de onda y el potencial están centrados, sólo dos elementos de la 
+        matriz Hamiltoniana son tratados. Debido a que todos los elementos de la 
+        matriz dependen sólo de las distancias interatómicas, sólo es necesario
+        calcularlos una vez para cada par de tipo de átomo y guardar los valores
+        definiendo un ancho de paso. Luego, los elementos para distancias 
+        intermedias pueden ser interpolados entre los valores guardados.
 
         La repulsión a corto alcance $V_{rep}(R)$ puede ser determinada a partir
         de la diferencia en la energía total resultante de un cálculo 
@@ -470,7 +476,7 @@ fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de referencia:
         \begin{equation}\label{eq:q1}
         E_{2nd} = \frac{1}{2} \sum_{\alpha, \beta}^N \int \int' \Gamma(\mathbf{r}, \mathbf{r}', n_0) \delta n_{\alpha}(\mathbf{r}) \delta n_{\beta}(\mathbf{r}'),
         \end{equation}
-        donde $Gamma$ denota los coeficiente Hartree y XC. $\delta n_{\alpha}$
+        donde $\Gamma$ denota los coeficiente Hartree y XC. $\delta n_{\alpha}$
         puede ser extendida en una serie de funciones radiales y angulares,
         \begin{equation*}
             \begin{aligned}
@@ -502,8 +508,8 @@ fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de referencia:
         de la segunda derivada de la energía total de un solo átomo con respecto 
         al número de ocupación del último orbital atómico ocupado en LDA-DFT.
 
-        Por último, en este enfoque de segundo orden, la ecuación \ref{eq:dft-fluc}
-        puede escribirse como
+        Por último, en este enfoque de segundo orden, la ecuación 
+        \ref{eq:dft-fluc} puede escribirse como
         $$
         E_2^{TB} = \sum_i^{occ} \langle \psi_i | \hat{H}_0 | \psi_i \rangle + \frac{1}{2} \sum_{\alpha, \beta}^N \gamma_{\alpha\beta} \Delta q_{\alpha} q_{\beta} + E_{rep}.
         $$
@@ -513,7 +519,7 @@ fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de referencia:
         $$
         q_{\alpha} = \frac{1}{2} \sum_i^{occ} n_i \sum_{\mu \in \alpha} \sum_{\nu}^N (C_{\mu i}^{*} C_{\nu i} S_{\mu nu} + C_{\nu i}^{*} C_{\mu i} S_{\nu mu})
         $$
-        y obtener un sistema de ecuaciones algebraicas como en la ecuación
+        y se obtiene un sistema de ecuaciones algebraicas como en la ecuación
         \ref{eq:alg-eq} pero donde el Hamiltoniano ahora considera una 
         corrección debido a la fluctuación de las cargas $H_{\mu \nu}^1$,
         \begin{equation*}
@@ -535,7 +541,7 @@ fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de referencia:
 
 La funcionalidad que cumple un integrador en un código de dinámica molecular es
 la de evolucionar las velocidades y las posiciones de los átomos una vez que 
-ya se conocen las fuerzas que se aplican sobre cada una de ellas. Un integrador
+ya se conocen las fuerzas que se aplican sobre cada uno de ellos. Un integrador
 estándar, utilizado en esta tesis, fue el \textit{velocity Verlet}. El mismo 
 conserva la energía total del sistema si no está siendo aplicado ningún termostato
 o barostato que altere el ensamble. Para las posiciones se tiene una
@@ -544,7 +550,7 @@ Taylor
 $$
 r(t+dt) = r(t) + v(t) dt + \frac{f(t)}{2m} dt^2,
 $$
-donde $dt$ es el paso temporal y $m$ la masa en cuestión. Para las velocidades se
+donde $dt$ es el paso temporal y $m$ la masa del átomo. Para las velocidades se
 tiene
 $$
 v(t+dt) = v(t) + \frac{f(t+dt)+f(t)}{2m} dt,
@@ -556,8 +562,8 @@ primero se calculan las posiciones y, a partir de ellas, las fuerzas.
 Una característica a destacar de este integrador, además de conservar la energía
 total del sistema, es que soporta una elección de pasos temporales más grandes
 que integradores anteriores, esto hace que se simule el mismo tiempo real con 
-menos pasos y por lo tanto menos cómputo de fuerzas, que es la parte, 
-computacionalmente hablando, más costosa del código.
+menos pasos y por lo tanto menos cómputo de fuerzas, que es la parte 
+computacionalmente más costosa del código.
 
 \subsection{Cómputo de propiedades termodinámicas}
 
@@ -567,10 +573,10 @@ cantidades de interés, el cómputo de cada una de ellas dependerá del ensamble
 el cual se están realizando las simulaciones.
 
 Las energías que contribuyen a la energía total son dos, la potencial y la
-cinética. La primera de ellas viene dada por por distintas contribuciones de
-pares, ángulos, enlaces, etc, dependiendo de que tan complejo sea el campo de 
-fuerzas utilizado. En el caso de que la interacción sea solo de a pares, la
-energía potencial puede calcularse de la siguiente forma
+cinética. La primera de ellas viene dada por distintas contribuciones de pares, 
+ángulos, enlaces, etc, dependiendo de que tan complejo sea el campo de fuerzas 
+utilizado. En el caso de que la interacción sea solo de a pares, la energía 
+potencial puede calcularse de la siguiente forma
 $$
 E_{pot} = \sum_{i < j} u(r_{ij}),
 $$
@@ -608,7 +614,7 @@ realizan a temperatura y/o presión constante, es necesario introducir distintos
 termostatos y barostatos que permitan controlar estos parámetros en las 
 simulaciones realizadas. Para modelar el comportamiento directamente de estados
 de equilibrio en estos ensambles, se puede modificar la dinámica molecular. Donde
-estas modificaciones son meramente de convenciencia computacional y pueden producir 
+estas modificaciones son meramente de conveniencia computacional y pueden producir 
 desviaciones del movimiento newtoniano real, aunque extremadamente pequeñas.
 
 Desde el punto de vista de la mecánica estadística a un sistema se le puede 
@@ -632,6 +638,42 @@ pensar que el mismo es una variable cuando el sistema está acoplado a un pistó
 
 Distintos termostatos y barostatos fueron utilizados durante esta tesis, los mismos 
 se introducen a continuación.
+
+\subsubsection{MD a temperatura constante: Termostato de Langevin}
+
+Si se considera la ecuación de Langevin \cite{schneider1978}
+\begin{equation}\label{eq:langevin}
+    m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
+\end{equation}
+donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, $\gamma$ la
+constante de fricción y $R_i(t)$ es una variable estocástica con media cero 
+y que cumple
+$$
+\left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij}.
+$$
+Para aplicar este termostato, y simular a temperatura constante, en conjunto con 
+el integrador \textit{velocity Verlet} se tienen que considerar tres parametros
+\cite{kroger2005} a la hora de actualizar las velocidades y las posiciones como
+$$
+a = \frac{2 - \xi dt}{2 + \xi dt},
+$$
+$$
+b= \sqrt{k_B T_0 \xi \frac{dt}{2}},
+$$
+$$
+c= \frac{2 dt}{2 + \xi dt}
+$$
+donde $\xi$ es el factor de fricción, es decir, con qué intensidad interacciona 
+el sistema con el baño térmico. Se tiene entonces una actualización se la siguiente
+manera
+$$
+v(t+dt) = a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt,
+$$
+$$
+r(t+dt) = r(t) + c v(t) dt
+$$
+donde $\eta$ es una distribución gaussiana de números aleatorios con media 0 y
+varianza 1. 
 
 \subsubsection{MD a temperatura y/o presión constante: Termostato y Barostato 
 de Berendsen}
@@ -681,42 +723,6 @@ donde
 $$
 \mu = \sqrt[3]{1 - \frac{dt}{\tau_P} (P_0 - P)}.
 $$
-
-\subsubsection{MD a temperatura constante: Termostato de Langevin}
-
-Si se considera la ecuación de Langevin \cite{schneider1978}
-\begin{equation}\label{eq:langevin}
-    m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
-\end{equation}
-donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, $\gamma$ la
-constante de fricción y $R_i(t)$ es una variable estocástica con media cero 
-y que cumple
-$$
-\left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij}.
-$$
-Para aplicar este termostato, y simular a temperatura constante, en conjunto con 
-el integrador \textit{velocity Verlet} se tienen que considerar tres parametros
-\cite{kroger2005} a la hora de actualizar las velocidades y las posiciones como
-$$
-a = \frac{2 - \xi dt}{2 + \xi dt},
-$$
-$$
-b= \sqrt{k_B T_0 \xi \frac{dt}{2}},
-$$
-$$
-c= \frac{2 dt}{2 + \xi dt}
-$$
-donde $\xi$ es el factor de fricción, es decir, con qué intensidad interacciona 
-el sistema con el baño térmico. Se tiene entonces una actualización se la siguiente
-manera
-$$
-v(t+dt) = a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt,
-$$
-$$
-r(t+dt) = r(t) + c v(t) dt
-$$
-donde $\eta$ es una distribución gaussiana de números aleatorios con media 0 y
-varianza 1. 
 
 \subsubsection{MD a temperatura constante: Termostato de Nosé-Hoover}
 
@@ -798,18 +804,19 @@ que estas fluctuaciones influyan negativamente en los resultados.
 
 De una manera similar a la realizada en el algoritmo de Nosé-Hoover para el 
 control de la temperatura, el algoritmo de \textbf{Parrinello-Rahman} permite
-obtener una representación correcta del ensamble al realizar un \textbf{control
-de la presión}, donde se permite una evolución temporal del volumen de la caja
-~\cite{parrinello-rahman}.
+obtener una representación correcta del ensamble isotérmico-isobárico al 
+realizar un \textbf{control de la presión}, donde se permite una evolución 
+temporal del volumen de la caja ~\cite{parrinello-rahman}.
 
 
 \subsection{Observables}
 
 Existen distintos observables que pueden calcularse a partir de las posiciones o
 de las velocidades a lo largo de una trayectoria proveniente de una dinámica 
-molecular, algunos de ellos dan información de cáracter estructural, como puede 
-ser la distribución radial de a pares, y otras de dinámico, como el desplazamiento 
-cuadrático medio que puede ser utilizado para estimar coeficientes de difusión.
+molecular, algunos de ellos dan información de carácter estructural, como puede 
+ser la distribución radial de a pares, y otros de dinámico, como el 
+desplazamiento cuadrático medio que puede ser utilizado para estimar 
+coeficientes de difusión.
 
 \subsubsection{Distribución radial de a pares}
 
@@ -835,16 +842,16 @@ oscilar alrededor de la unidad, entonces se corresponde con un liquido.
 
 El número de coordinación (CN, de sus siglás en inglés, \textit{coordination 
 number}), también llamado ligancia, de un átomo dado en un sistema químico, se 
-define como el número de átomos, moléculas o iones unidos a él. Para definir esta 
+define como el número de átomos, moléculas o iones unidos a él. Para definirlo 
 pueden tomarse dos alternativas, la primera de ellas contando el número de 
 vecinos que rodean a un determinado tipo de átomo en promedio hasta un cierto
-radio de corte $r_e$, definido por el mínimo en la RDF después de su primer pico; 
-la segunda de ellas a partir de la integral de la RDF,
+radio de corte $r_e$, definido por el mínimo en la RDF después de su primer 
+pico; la segunda de ellas a partir de la integral de la RDF,
 $$
 \int_0^{r_e} g(r) dV.
 $$
-De manera análoga pueden definirse el número de coordinación para segundos vecinos
-y así sucesivamente.
+De manera análoga pueden definirse el número de coordinación para segundos 
+vecinos y así sucesivamente.
 
 \subsubsection{Difusión}
 
@@ -876,7 +883,7 @@ Usualmente, el tiempo que demora un átomo en dar un salto en una dinámica
 molecular a temperatura ambiente es muy largo, lo que impide tener una buena 
 estadística en un tiempo de simulación razonable, por lo que es usual calcular 
 el desplazamiento cuadrático medio a distintas temperaturas altas y extrapolar
-el valor que se obtendría a temperatura ambiente mediante una equación de tipo 
+el valor que se obtendría a temperatura ambiente mediante una ecuación de tipo 
 Arrhenius, en la cual el coeficiente de difusión puede separarse en un 
 prefactor $D_0$ y un término tipo Boltzmann,
 $$
@@ -895,9 +902,11 @@ en inglés) ~\cite{lammps1, lammps2}, un código centrado en el modelado de
 materiales que permite simular con distintos campos de fuerzas, ensambles y 
 condiciones de contorno. También se realizaron simulaciones con versiones 
 modificadas de \path{GEMS} ~\cite{gems}, código del Dr. Sergio Alexis Paz 
-(FCQ-UNC), que permiten utilizar a \path{DFTB+} ~\cite{dftb+} como una librería.
+(FCQ-UNC), que permiten utilizar a \path{DFTB+} ~\cite{dftb+} como una librería
+y realizar distintos métodos de aceleración de simulaciones que no se encuentran
+en los programas usuales como \path{LAMMPS}.
 
-Para la visualización de las trayectorias y la obtención de gráficos de 
+Para la visualización de las trayectorias y la obtención de imágenes de 
 estructuras representativas se utilizó \path{VMD} (\textit{Visual Molecular 
 Dynamics}) ~\cite{vmd}. Para el post-procesamiento de datos de las simulaciones
 se escribieron distintos programas en Python ~\cite{exma, sierras}.

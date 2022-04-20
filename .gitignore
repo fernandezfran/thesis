@@ -1,4 +1,6 @@
 ins*/
+correcciones/
+_*
 */*.aux
 tesis.pdf
 tesis.aux
