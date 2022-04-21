@@ -1,0 +1,104 @@
+La información experimental que puede obtenerse de la estructuras de las 
+distintas fases amorfas que se forman durante el ciclado de los electrodos de 
+silicio es bastante limitada. Las estructuras de la red o de la interfase son 
+inestables y amorfas, lo cual dificulta su caracterización mediante técnicas
+experimentales tradicionales. Por ejemplo, la difracción de rayos x permitió
+caracterizar la fase cristalina Li$_{15}$Si$_4$ que está presente en el electrodo
+cuando este se encuentra completamente cargado ~\cite{obrovac2004}, pero esta 
+técnica tiene ciertas limitaciones a la hora de estudiar estructuras amorfas 
+que se encuentran en los procesos de carga y descarga. Por otro lado, el análisis
+de la función distribución de a pares de Si \textit{ex-situ} de datos de rayos x
+hizo posible investigar el orden a corto alcance de las estructuras amorfas
+Li$_x$Si ~\cite{key2011} y proponer una explicación al mecanismo de litiación.
+Sin embargo, como los elementos livianos como el Li tienen baja sensibilidad a 
+los rayos x, las conclusiones están simplificadas a la formación de pequeños 
+clusters de Si o de átomos de Si aislados durante la litación, lo cual limita la 
+descripción de la estructura a una escala mayor.
+
+Dentro de este contexto, las simulaciones computacionales se posicionan como una
+herramienta poderosa para acceder al comportamiento microscópico de las 
+estructuras de Li$_x$Si y los cambios que sufren durante la litiación. Actualmente
+no existe un único modelo computacional robusto que permita estudiar todos los
+diferentes procesos presentes en los electrodos de silicio, por lo que se han 
+llevado a cabo distintos esfuerzos en los últimos años para estudiar este sistema.
+Donde el mayor obstáculo está relacionado con la naturaleza intrínseca de 
+multi-escala del silicio. A pesar de la gran precisión, los estudios de DFT se
+encuentran drásticamente limitados en el número de átomos que se pueden utilizar
+para modelar las estructuras complejas de las fases litiadas. Una solución a este
+problema es utilizar potenciales interatómicos semi-empíricos, para los cuales 
+se necesita una parametrización que se robusta y transferible. Como esta 
+parametrización esta fuera de los objetivos que plantea esta tesis, en este 
+capítulo se utiliza una realizada para un potencial reactivo, introducido en 
+la sección \ref{s:reaxff}, para sistemas de Li-Si previamente realizada por Fan 
+\textit{et al.} ~\cite{fan2013}, en la cual optimizaron el campo de fuerzas usando 
+cálculos de DFT, considerando datos de las energías, distintas geometrías y cargas
+de las fases cristalinas de Li, Si y aleaciones de Li-Si. En su trabajo también
+utilizaron simulaciones de MD para caracterizar las propiedades mecánicas de
+las estructuras amorfas de Li$_x$Si, incluyendo litiación de capa fina, compresión
+biaxial, tensión y compresión uniaxial y la tensión que puede soportar el sistema 
+antes de deformarse.
+
+\section{Campo de fuerzas}
+
+El campo de fuerzas de Fan \textit{et al.} ha sido ampliamente utilizado en 
+simulaciones de MD para estudiar el proceso de litiación de distintas estructuras
+de silicio, desde estructuras periódicas a nanoestructuras. Previo a la 
+realización del trabajo de este capítulo, se consultó la bibliografía para 
+verificar esto y asegurarnos de la transferibilidad del potencial. 
+
+Además de los resultados reportados por Fan \textit{et al.} ~\cite{fan2013}, 
+la estructura, el estrés y la difusividad fue estudiada durante la litiación de 
+silicio amorfo (a-Si) y silicio cristalino (c-Si) en diferentes orientaciones 
+cristalográficas ~\cite{chen2020, kim2015}. Ding \textit{et al.} ~\cite{ding2017} 
+reportó la variación de la velocidad de migración en la frontera de fases y la 
+difusividad de Li en función del estrés externo aplicado, exponiendo que la 
+tensión acelera la razón de litiación, mientras que la compresión la retarda. Kim 
+\textit{et al.} ~\cite{kim2014} realizó simulaciones de MD para caracterizar la 
+evolución estructural de la frontera de fases entre c-Si, con diferentes planos 
+de orientación, con una fase amorfa de litiación máxima. Posteriormente, Fan 
+\textit{et al.} ~\cite{fan2018} estudió nanoestructuras, computando la respuesta
+mecánica de nanopilares de c-Si en la orientación (111) durante la litiación.
+Un trabajo similar, pero para la orientación (100), fue realizado por Cao 
+\textit{et al.} ~\cite{cao2019}. Tang \textit{et al.} ~\cite{tang2019} investigó
+la evolución y la permanencia de la porosidad de nanocapas de Si durante los 
+procesos de litiación y delitiación. Ostadhossein \textit{et al.} 
+~\cite{ostadhossein2015} caracterizó la litiación de nanohilos de c-Si y mostró
+que este potencial ReaxFF reproduce precisamente las barreras de energía de la
+migración de Li obtenidas por DFT, tanto en c-Si como en a-Si.
+
+Este potencial no estuvo sólo limitado al uso en MD, sino que fue aplicado a otros
+métodos de simulación, por ejemplo, simulaciones de Monte Carlo en el ensamble
+gran canónico fueron realizadas para estudiar un ciclo de litiación y delitiación
+de un electrodo de a-Si ~\cite{basu2019}. Trochet y Mousseau ~\cite{trochet2017}
+caracterizaron el paisaje energético a concentraciones relativamente bajas de 
+impurezas de Li en c-Si, usando una técnica de activación-relajación cinética. 
+Kim \textit{et al.} ~\cite{kim2017} desarrolló un algoritmo para investigar la 
+respuesta a la delitiación de una capa delgada de silicio recubierta de óxido de 
+aluminio. El ReaxFF también fue combinado con otros campos de fuerza, como los
+potenciales de Tersoff y Lennard-Jones, para simular la litiación de 
+nanopartículas de Si recubiertas con carbono, que permitieron observar una 
+correlación entre el crecimiento del estrés y la densidad de carga 
+~\cite{zheng2019,zheng2020}. Propiedades mecánicas de interfase Si/SiO$_2$ litiada 
+fueron reportadas por Verners y Simone ~\cite{verners2019}. 
+
+El estudio de las propiedades electrónicas no es posible con el uso del ReaxFF ya
+que es una de sus limitaciones. Sin embargo, de la discusión previa, puede 
+observarse que ha sido capaz de predecir un número importante de propiedades del 
+sistema Li-Si.
+
+\section{Configuraciones iniciales}
+
+\subsection{Estructuras cristalinas}
+\subsection{Protocolo de delitiación}
+
+\section{Exploración acelerada de mínimos locales}
+
+\section{Resultados}
+
+\subsection{Comportamiento electroquímico}
+\subsection{Distribución radial de a pares}
+\subsection{Número de coordinación}
+\subsection{Interconexión de clusters}
+\subsection{Ordenamiento a corto alcance}
+
+\section{Conclusiones del capítulo}
