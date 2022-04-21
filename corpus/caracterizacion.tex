@@ -38,6 +38,7 @@ las estructuras amorfas de Li$_x$Si, incluyendo litiación de capa fina, compres
 biaxial, tensión y compresión uniaxial y la tensión que puede soportar el sistema 
 antes de deformarse.
 
+
 \section{Campo de fuerzas}
 
 El campo de fuerzas de Fan \textit{et al.} ha sido ampliamente utilizado en 
@@ -86,19 +87,107 @@ que es una de sus limitaciones. Sin embargo, de la discusión previa, puede
 observarse que ha sido capaz de predecir un número importante de propiedades del 
 sistema Li-Si.
 
+
 \section{Configuraciones iniciales}
 
 \subsection{Estructuras cristalinas}
+
 \subsection{Protocolo de delitiación}
 
+\
+
+Information about the size of the system and the number of structures used to 
+obtain the following results can be consulted in Table 1 of the Supporting 
+Information.
+
+
 \section{Exploración acelerada de mínimos locales}
+
+Las simulaciones de MD tienen un gran poder predictivo para el estudio de 
+procesos presentes en las baterías de litio, sin embargo, las escalas de tiempo
+están limitadas de unos pocos $ns$ o $\mu$s. El número de operaciones que se 
+necesita para alcanzar las escalas de tiempo de la operación de una batería 
+experimental son prohibitivos, incluso considerando el uso de potenciales 
+semi-empíricos como el ReaxFF en supercomputadoras. Como consecuencia de esto,
+la MD usual no es suficiente para una exploración del espacio de las fases y las
+estructuras de Li-Si observadas van a estar cercanas a las configuraciones 
+iniciales mientras que en el sistema real probablemente pueden aparecer otras
+configuraciones. Un método simple y poderoso para acelerar la exploración de 
+mínimos locales en sistemas moleculares es el templado simulado 
+~\cite{kirkpatrick1983}, en el cual básicamente se busca mejorar la exploración
+del espacio de las fases en simulaciones de MD utilizando temperaturas altas y
+luego reduciéndola progresivamente hasta encontrar un mínimo de energía a 
+temperatura ambiente. El templado simulado múltiple (MSA, de sus siglas en inglés 
+\textit{Multiple simluated annealing}) fue utilizado para explorar y encontrar
+distintas estructuras mínimas relevantes cercanas al equilibrio ~\cite{hao2015}.
+
+La presente técnica de simulación, exploración acelerada de mínimos locales (AELM,
+de sus siglas en inglés \textit{accelerated exploration of local minima}), es 
+similar a la MSA pero en vez de calentar y enfriar lentamente el sistema, se 
+utiliza un sesgo en la función de energía potencial para sobrepasar las barrearas
+de energía y luego se realiza una minimización local, con algún minimizador local 
+como gradientes conjugados o LBFGS, para encontrar el mínimo. Este método permite 
+obtener muchas estructuras con energías mínimas relevantes, que son de interés a 
+la hora de estudiar electrodos de Li-Si muy ciclados.
+
+Las aleaciones de Li-Si presentan interacciones fuertes entre los átomos que las
+conforman, especialmente en el enlace Si-Si donde la energía de enlace es del
+orden de $\approx$2 eV ~\cite{wypych2018handbook}. Las barreras de energía 
+potencial se espera que sean de ese orden de magnitud, por lo cual un muestreo de 
+una MD a temperatura ambiente parece no tener solución. Para explorar ampliamente
+las distintas configuraciones del sistema, $\mathbf{r}$, se transforma 
+la superficie de energía potencial (PES, de sus siglas en inglés 
+\textit{potencial energy surface}), $V(\mathbf{r})$, usando un potencial sesgado
+\begin{equation}\label{eq:bias}
+    V_b(\mathbf{r}) = V(\mathbf{r}) + (\alpha - 1) V(\mathbf{r}) = \alpha V(\mathbf{r}),
+\end{equation}
+donde $\alpha$ es el factor de compresión. La ecuación \ref{eq:bias} reduce las
+barreras de la PES, por lo cual el tiempo de residencia en estados meta-estables
+es menor que en el sistema sin sesgar y la exploración de configuraciones de 
+sistemas diferentes es más eficiente y alcanzada en un tiempo de simulación 
+razonable. El término $(\alpha - 1) V(\mathbf{r})$ es usualmente referido como 
+la \say{función de sesgo}.
+
+La adición de esta función de sesgo a la PES está en la base del método de 
+hiper-dinámica (HD), desarrollado por Voter ~\cite{voter1997HD,voter1997method} 
+para acelerar la exploración de un sistema sin perder su dinámica. En una 
+simulación típica de HD, para recuperar el promedio de alguna propiedad, la 
+configuración muestreada son repesadas por un factor $w$ que involucra una función
+exponencial y depende del sesgo aplicado. Debido a que este sistema involucra 
+cambios grandes en las energías de interacción, comparado con la energía térmica
+$k_BT$, lo que implica que la función exponencial en $w$ toma valores muy grandes,
+lo que hace que el procedimiento numérico sea inestable y la recuperación de 
+la propiedad de interés, como la energía potencial, no sea posible. Ya que este
+capítulo se centra en un estudio estructural de los sistemas, podemos descartar
+el cálculo del tiempo real evolucionado en la simulación. Además, como el 
+funcionamiento de las baterías luego se da a temperatura ambiente, es de esperar
+que una vez que se alcanza un mínimo local el sistema explore configuraciones
+cercanas a este. Por lo cual se aplica el método de gradientes conjugados (CG)
+a cada configuración de la HD y de esa forma se muestrea la multiplicidad de 
+estructuras.
+
+Este método de exploración introducido en esta tesis se asemeja al templado
+simulado, aunque el objetivo es explorar muchas estructuras diferentes en vez de 
+encontrar el mínimo global. El templado simulado fue utilizado anteriormente
+con este mismo objetivo, Hao \textit{et al.} utilizó la técnica MSA para obtener
+distintas estructuras de mínima energía de péptidos ~\cite{hao2015}. En este 
+método AELM se usa HD en vez de temperaturas altas para favorecer la exploración,
+y se realizan múltiples minimizaciones por CG en vez de simular un enfriado. 
+
 
 \section{Resultados}
 
 \subsection{Comportamiento electroquímico}
+
+shows the histograms of the minimum energy obtained using the CG method after HD 
+simulations with different $\alpha$s for different alloy compositions. From these 
+plots, we selected the most suited acceleration factor leading to the minimum 
+energy values from which we got the structural properties of the present alloys. 
+
 \subsection{Distribución radial de a pares}
 \subsection{Número de coordinación}
 \subsection{Interconexión de clusters}
 \subsection{Ordenamiento a corto alcance}
+
 
 \section{Conclusiones del capítulo}
