@@ -61,9 +61,6 @@
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
-% Indice de cada capítulo
-\usepackage{minitoc}
-
 % Bibliografía por capítulo
 % \usepackage[square,numbers,sort,sectionbib]{natbib}
 % \usepackage{chapterbib}
@@ -74,7 +71,6 @@
 
 % color de las secciones
 \usepackage{sectsty}
-\chapterfont{\color{mycolor}}
 \sectionfont{\color{mycolor}}
 \subsectionfont{\color{mycolor}}
 \subsubsectionfont{\color{mycolor}}
@@ -87,6 +83,14 @@
   {\normalfont\Large\bfseries\color{mycolor}}
   {\thesection}{1em}{}[{\titlerule[0.8pt]}]
 
+% carátula de capítulo
+\titleformat{\chapter}
+    [display]
+    {\centering\Huge\bfseries\color{mycolor}}
+    {\chaptername\ \thechapter}
+    {0pt}
+    {\huge}
+
 % index
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
@@ -94,7 +98,8 @@
 
 \begin{document}
 
-\frontmatter % enumeración de las páginas con números romanos
+% enumeración de las primeras páginas con números romanos
+\frontmatter
 
 \blankpage
 \blankpage
@@ -149,7 +154,6 @@
 % Dedicatoria
 
 % Índice
-\dominitoc
 \tableofcontents
 \listoffigures
 % \listoftables
@@ -158,15 +162,25 @@
 
 % Abstract
 
+% a partir de acá se cuentan los números de las páginas en formato arabico
+\mainmatter
+
 % Capítulos...
 
-\mainmatter % a partir de acá se cuentan los números de las páginas en formato arabico
-
-% \chapter[Capítulo X]{Capítulo X}
-% \minitoc
-% \input{corpus/capitulox.tex}
 \chapter[Teoría y métodos computacionales]{Teoría y métodos computacionales}
-\minitoc
+
+\vspace{50pt}
+
+\begin{adjustwidth}{50pt}{50pt}
+    En este capítulo se revisan nociones básicas de mecánica estadística, se 
+    introduce la técnica de simulación de dinámica molecular, se presentan los 
+    campos de fuerzas utilizados en esta tesis y los observables que se pueden 
+    obtener una vez realizadas las simulaciones. Por último se mencionan los 
+    softwares que se usaron/implementaron en esta tesis.
+\end{adjustwidth}
+
+\clearpage
+
 \input{corpus/metodos.tex}
 
 % Apéndices
