@@ -90,22 +90,55 @@ sistema Li-Si.
 
 \section{Configuraciones iniciales}
 
+En este capítulo se estudian las propiedades de las estructuras amorfas Li$_x$Si
+para distintos valores de $x$ en el rango que va de 0.21 a 4.2.
+
 \subsection{Estructuras cristalinas}
+
+Algunas estructuras cristalinas de LiSi fueron extraídas del Materials Project
+~\cite{materials_project} (mp-1314, mp-672287, mp-569849, mp-29720) y utilizadas 
+como estados iniciales. Las celdas primitivas de las estructuras cristalinas se
+muestran en la figura \ref{fig:cristalinas}, donde están en orden creciente de 
+concentración de Li, las mismas son Si, LiSi, Li$_{12}$Si$_7$, Li$_7$Si$_3$, 
+Li$_{13}$Si$_4$, Li$_{15}$Si$_4$ y Li, los enlaces de Si-Si están graficados
+si la distancia entre dos de estos átomos es menor a 2.6\AA. En la estructura de 
+LiSi se tiene una remanencia del diamante de Si en los enlaces, en Li$_{12}$Si$_7$
+hay dos tipos de clusters de átomos de Si, pentagonos y estrellas, en Li$_7$Si$_3$ 
+los átomos de Si se encuentran en mancuernas, en Li$_{13}$Si$_4$ se tienen las 
+mismas mancuernas más algunos átomos aislados y, por último, en Li$_{15}$Si$_{4}$
+todos los átomos de Si se encuentran aislados. Estas estructuras cristalinas
+fueron observadas a temperaturas altas ~\cite{wen1981}, pero no se presentan en 
+el funcionamiento de una batería ~\cite{obrovac2004}. Sin embargo, sus posiciones 
+pueden tomarse como iniciales para simular a las concentraciones correspondientes.
+\begin{figure}
+    \centering
+    %\includegraphics[width=\textwidth]{caracterizacion/cristalinas.pdf}
+    \caption{Estructuras cristalinas de LiSi. Las estructuras no están a escala 
+    entre sí. Los átomos de Si se muestran en azul y los de Li en verde.}
+    \label{fig:cristalinas}
+\end{figure}
 
 \subsection{Protocolo de delitiación}
 
-\
-
-Information about the size of the system and the number of structures used to 
-obtain the following results can be consulted in Table 1 of the Supporting 
-Information.
+Para obtener configuraciones iniciales para valores de $x$ distintos a los de las 
+cristalinas se siguió un protocolo de delitiación en el cual se selecciona la 
+estructura cristalina más cercana con un valor de $x$ superior al deseado,
+se le extrae un átomo de Li de manera aleatoria y se realiza una dinámica en el 
+ensamble NPT durante 2 ps para relajar el volumen. Para estas simulaciones se 
+utilizó el termostato de Nosé-Hoover ~\cite{nose1984a, nose1984b, hoover1985} a
+300.0 K y un barostato a 0.0 atm con un paso temporal de 1 fs utilizando el
+software \path{LAMMPS} ~\cite{lammps1, lammps2}. La extracción del átomo de Li y
+la simulación en el ensamble NPT fueron repetidas hasta alcanzar una concentración
+deseada. Por último, la estructura con la menor presión absoluta fue seleccionada
+como estado inicial para la exploración acelerada de mínimos locales que se 
+introduce en la siguiente sección.
 
 
 \section{Exploración acelerada de mínimos locales}
 
 Las simulaciones de MD tienen un gran poder predictivo para el estudio de 
 procesos presentes en las baterías de litio, sin embargo, las escalas de tiempo
-están limitadas de unos pocos $ns$ o $\mu$s. El número de operaciones que se 
+están limitadas de unos pocos ns o $\mu$s. El número de operaciones que se 
 necesita para alcanzar las escalas de tiempo de la operación de una batería 
 experimental son prohibitivos, incluso considerando el uso de potenciales 
 semi-empíricos como el ReaxFF en supercomputadoras. Como consecuencia de esto,
@@ -176,6 +209,32 @@ y se realizan múltiples minimizaciones por CG en vez de simular un enfriado.
 
 
 \section{Resultados}
+
+Las simulaciones aceleradas fueron llevadas a cabo en el ensamble NVT a 300.0 K
+con un termostato de Langevin ~\cite{schneider1978} utilizando una versión 
+modificada de \path{GEMS} ~\cite{gems}. El tamaño de los sistemas y la cantidad
+de estructuras utilizadas para obtener los siguiente resultados se presentan
+en la tabla \ref{t:siminfo}.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|r|r|r|r|r|r|r|}
+    \hline
+    Li$_{x}$Si & N$_{Li}$ & N$_{Si}$ & N$_{estructuras}$ & E$_{mean}$ / N$_T$ [eV] & E$_{std}$ / N$_T$ [eV] & $\sqrt{kT}$ / N$_T$ [eV] \\
+    \hline
+    Li$_{0.21}$Si & 140 & 667 & 774 & -4.399 & 0.003 & 0.0002 \\
+    Li$_{0.62}$Si & 416 & 670 & 1665 & -4.002 & 0.005 & 0.0001 \\
+    Li$_{1.25}$Si & 839 & 671 & 1224 & -3.521 & 0.004 & 0.0001 \\
+    Li$_{1.71}$Si & 1152 & 672 & 2132 & -3.286 & 0.002 & 0.0001 \\
+    Li$_{2.17}$Si & 693 & 319 & 1699 & -3.126 & 0.002 & 0.0002 \\
+    Li$_{2.71}$Si & 865 & 319 & 1504 & -2.964 & 0.002 & 0.0001 \\
+    Li$_{3.25}$Si & 1040 & 320 & 1464 & -2.856 & 0.003 & 0.0001 \\
+    Li$_{3.75}$Si & 1080 & 288 & 2660 & -2.777 & 0.002 & 0.0001 \\
+    Li$_{4.20}$Si & 1344 & 320 & 1600 & -2.717 & 0.001 & 0.0001 \\
+    \hline
+    \end{tabular}
+    \caption{Información del conjunto de datos.}
+    \label{t:siminfo}
+\end{table}
 
 \subsection{Comportamiento electroquímico}
 
