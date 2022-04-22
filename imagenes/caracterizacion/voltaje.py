@@ -5,7 +5,6 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 
 nordred = "#BF616A"
 nordblue = "#5E81AC"
@@ -16,8 +15,6 @@ x, fes, v = np.loadtxt("_data/voltaje/fe-spline.dat", unpack=True)
 xdft, vdft = np.loadtxt("_data/voltaje/v-chev.dat", delimiter=",", unpack=True)
 xexp1, vexp1 = np.loadtxt("_data/voltaje/v1-exp.dat", delimiter=",", unpack=True)
 xexp2, vexp2 = np.loadtxt("_data/voltaje/v2-exp.dat", delimiter=",", unpack=True)
-# df = pd.read_csv("_data/fvc/afm.csv")
-# xdft = np.array([0, 4.25])
 
 fig, ax = plt.subplots()
 
