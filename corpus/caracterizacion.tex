@@ -517,6 +517,36 @@ FCC.
 
 \subsection{Formación de clusters}
 
+Del gráfico a: This is defined as the percentage of Si atoms that lay at at 
+distance from other Si atom larger that $r_{cut}$. When the cutoff radius is 
+higher that the distance at which the first peak of the RDF$_{Si-Si}$ finishes, 
+there are no isolated Si atoms, rather an a-Si network where all atoms are 
+interconnected.
+
+Del gráfico b: When the cutoff radius is lower than the first RDF$_{Si-Si}$ peak, 
+the number of clusters is equal to the number of Si atoms, and when the cutoff 
+radius is larger than the first RDF$_{Si-Si}$ peak, there is only one cluster.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{caracterizacion/cluster-isolated.png}
+        \caption{Porcentaje de átomos de Si aislados en función de la elección del
+        radio de corte.}
+        \label{fig:clusters-isolated}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{caracterizacion/cluster-nclusters.png}
+        \caption{Número de clusters de Si sobre el número total de átomos de Si.}
+        \label{fig:clusters-nclusters}
+    \end{subfigure}
+    \caption{Formación de clusters indicando una red amorfa de silicio.}
+    \label{fig:clusters}
+\end{figure}
+
 \subsection{Interconexión de clusters}\label{s:intercionexion}
 
 \subsection{Ordenamiento a corto alcance}
