@@ -21,16 +21,14 @@ anchos = np.array(
 
 fig, axes = plt.subplots(3, 3, sharey="row")
 
-fig.text(0.5, 0.025, "E / N [eV]", ha="center")
-fig.text(0.025, 0.5, "frecuencias", va="center", rotation="vertical")
+fig.text(0.5, 0.005, "E / N [eV]", ha="center")
+fig.text(0.005, 0.5, "frecuencias", va="center", rotation="vertical")
 
 for conc, axis, anch in zip(concentraciones, axes, anchos):
     for x, ax, w in zip(conc, axis, anch):
 
         ax.grid(axis="x", linestyle=":")
         ax.set_ylim((0.0, 0.3))
-
-        ax.legend(title=f"{x}", loc=2, prop={"size": 6})
 
         if x in [0.21, 2.17, 4.2]:
             xx, yy = np.loadtxt(f"_data/energias/md/{x}.dat", unpack=True)
@@ -44,7 +42,7 @@ for conc, axis, anch in zip(concentraciones, axes, anchos):
             )
 
         histo = np.loadtxt(f"_data/energias/{x}-histo.dat", unpack=True)
-        for i, (c, h, alfa) in enumerate(zip(nordcolors[1:], histo[1:], alfas[1:])):
+        for c, h, alfa in zip(nordcolors[1:], histo[1:], alfas[1:]):
             ax.bar(
                 histo[0],
                 h,
@@ -54,10 +52,12 @@ for conc, axis, anch in zip(concentraciones, axes, anchos):
                 label=rf"$\alpha$ = {alfa}",
             )
 
-        if x == 4.2:
-            ax.legend(title=f"{x}", loc=0, prop={"size": 6})
+        ax.text(0.1, 1.02, f"x = {x}", transform=ax.transAxes)
+
+        if x == 1.25:
+            ax.legend(bbox_to_anchor=(1.04, 1), loc="upper left", prop={"size": 8})
 
 fig.subplots_adjust(wspace=0.05, hspace=0.25)
-# fig.tight_layout()
+fig.tight_layout()
 
 fig.savefig("energias.png", dpi=600)
