@@ -111,7 +111,7 @@ al igual que en la Li$_{21}$Si$_5$. Estas estructuras cristalinas fueron
 observadas a temperaturas altas ~\cite{wen1981}, pero no se encuentran en el 
 funcionamiento de una batería ~\cite{obrovac2004}. Sin embargo, sus posiciones 
 pueden tomarse como iniciales para simular a las concentraciones correspondientes.
-\begin{figure}[th]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{caracterizacion/cristalinas.png}
     \caption{Estructuras cristalinas de LiSi. Las estructuras no están a escala 
@@ -274,7 +274,7 @@ concentración más alta, correspondiente a un valor de $x = 4.2$, las simulacio
 de AELM con un valor de $\alpha = 0.2$ son capaces de encontrar estructuras que 
 reducen fuertemente la energía potencial del sistema. 
 
-\begin{figure}[th]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{caracterizacion/amorfas.png}
     \caption{Configuración amorfa representativa de cada valor de $x$. Los átomos
@@ -360,6 +360,16 @@ potencial \textit{versus} Li metálico de Li$_x$Si puede obtenerse a partir de
 \begin{equation}\label{eq:voltaje}
     V(x) = - \frac{dE_f(x)}{dx},
 \end{equation}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{caracterizacion/voltaje.png}
+    \caption{Curvas potencial-concentración de la litiación de ánodos de Si.
+    La línea negra se corresponde con cálculos de DFT, las líneas azules con 
+    curvas medidas experimentalmente en la litiación de Si amorfo y la línea 
+    roja es la derivada del \textit{spline} ajustado a los datos de la energía 
+    de formación obtenidos con el ReaxFF, mostrados en el recuadro.}
+    \label{fig:voltaje}
+\end{figure}
 donde $V$ es el potencial. Los datos obtenidos así pueden compararse con valores
 experimentales y computacionales previos. Las energías de formación calculadas
 a partir de la ecuación \ref{eq:fe} se muestran en la tabla \ref{t:fe}. 
@@ -371,16 +381,6 @@ las curvas experimentales medidas para la litiación y la delitiación de silici
 amorfo ~\cite{hatchard2004} y la curva teórica de cálculos de primeros principios 
 ~\cite{chevrier2009}. Se puede afirmar que los resultados obtenidos con el ReaxFF 
 son bastante satisfactorios.
-\begin{figure}[th]
-    \centering
-    \includegraphics[width=0.8\textwidth]{caracterizacion/voltaje.png}
-    \caption{Curvas potencial-concentración de la litiación de ánodos de Si.
-    La línea negra se corresponde con cálculos de DFT, las líneas azules con 
-    curvas medidas experimentalmente en la litiación de Si amorfo y la línea 
-    roja es la derivada del \textit{spline} ajustado a los datos de la energía 
-    de formación obtenidos con el ReaxFF, mostrados en el recuadro.}
-    \label{fig:voltaje}
-\end{figure}
 
 \subsection{Distribución radial de a pares}
 
@@ -520,7 +520,7 @@ de empaquetamiento compacto, que es 6 para la estructura cristalina FCC. Incluso
 es mayor a la suma del segundo (6) y del tercer vecino (24) esperado para la red 
 FCC.
 
-\subsection{Formación de clusters}
+\subsection{Formación de clusters}\label{s:clusters}
 
 Analizando la formación de clusters por medio del algoritmo DBSCAN 
 ~\cite{ester1996}, en el cual puede definirse un radio de corte para el cual se 
@@ -725,4 +725,29 @@ Si-Si dadas por las cadenas previamente mencionadas.
 
 \section{Conclusiones del capítulo}
 
-Conclusiones...
+Con el fin de emular las estructuras amorfas encontradas en muchos experimentos 
+electroquímicos, en este capítulo se generaron estructuras desordenadas de 
+aleaciones de Li$_x$Si para varios valores de $x$ utilizando un algoritmo de 
+dinámica acelerada y un campo de fuerzas reactivo. La exploración acelerada de 
+mínimos locales (AELM) permitió la caracterización de una amplia gama de 
+estructuras amorfas. El cambio de volumen de las estructuras litiadas en relación 
+con el Si está en concordancia con los resultados experimentales de AFM. Las
+energías de las estructuras obtenidas representan bien el comportamiento 
+electroquímico de la curva de potencial en función de la concetración de Li. Se 
+analizó la función de distribución radial de a pares para los diferentes tipos de 
+pares atómicos y se dilucidó la estructura compleja del segundo pico del RDF 
+Si-Li mediante un análisis de interconexión de clusters. Además, haciendo un 
+análisis de la formación de clústeres en función del radio de corte, se demostró 
+que las estructuras amorfas no presentan diferentes enlaces de Si ni átomos de Si 
+aislados. En su lugar, se encontró que el sistema se comporta como una red amorfa. 
+Estudiando los números de coordinación de primeros y segundos vecinos para las 
+diferentes concentraciones, se mostró que esta red amorfa mantiene las conexiones 
+tetraédricas para bajas concentraciones de Li y que tiende a formar cadenas para 
+altas concentraciones de Li. Por último, la definición de un nuevo parámetro 
+permitió determinar el orden de corto alcance de las estructuras amorfas, definido 
+por interacciones débiles Li-Li y fuertes Li-Si y Si-Si. El método propuesto AELM 
+resulta ser un método rápido y eficaz para obtener mínimos energéticamente 
+relevantes. Se hizo una analogía con el templado simulado múltiple. Un análisis 
+detallado de la eficiencia de AELM en comparación con otros métodos eficientes 
+como el templado simulado múltiple o los métodos de Monte Carlo es una motivación 
+para trabajos futuros.
