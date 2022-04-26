@@ -480,9 +480,14 @@ Para el caso del CN$_{Si-Si}$, se tiene que esta cantidad decrece de 4 a 2, a
 medida que la concentración de Li aumenta. Esto indica que a valores pequeños de 
 $x$ la estructura de Si mantiene sus conexiones tetraédricas, mientras que para
 valores grandes de $x$ el Si tiende a formar cadenas periódicas unidimensionales.
-El CN de Si-Li y Li-Li presenta valores pequeños para concentraciones bajas y 
-aumenta monótonamente hasta alcanzar valores de 10 y 12, respectivamente, que se
-asemejan al valor de una estructura de empaquetamiento compacto.
+En la red de silicio amorfa, analizada con más detalle en la sección 
+\ref{s:clusters}, una estructura 3-periódica se presenta para valores bajos de 
+$x$, donde el CN se encuentra alrededor de 4. Luego, una estructura 1-periódica se
+alcanza para valores grandes de $x$, donde los enlaces Si-Si tienden a formar 
+cadenas, que pueden verse para una para $x = 3.75$ donde se tiene $CN = 2.05$, por 
+ejemplo. El CN de Si-Li y Li-Li presenta valores pequeños para concentraciones 
+bajas y aumenta monótonamente hasta alcanzar valores de 10 y 12, respectivamente, 
+que se asemejan al valor de una estructura de empaquetamiento compacto.
 
 \begin{figure}[th]
     \centering
@@ -517,15 +522,26 @@ FCC.
 
 \subsection{Formación de clusters}
 
-Del gráfico a: This is defined as the percentage of Si atoms that lay at at 
-distance from other Si atom larger that $r_{cut}$. When the cutoff radius is 
-higher that the distance at which the first peak of the RDF$_{Si-Si}$ finishes, 
-there are no isolated Si atoms, rather an a-Si network where all atoms are 
-interconnected.
+Analizando la formación de clusters por medio del algoritmo DBSCAN 
+~\cite{ester1996}, en el cual puede definirse un radio de corte para el cual se 
+deja de considerar que los átomos están enlazados entre sí (es decir, formando 
+clusters), se encuentra que las estructuras amorfas de silicio no pueden ser 
+clasificadas en diferentes tipos de clusters, las mismas reflejan más bien 
+una red amorfa. Esto viene de interpretar los gráficos que se presentan en la 
+figura \ref{fig:clusters}. 
 
-Del gráfico b: When the cutoff radius is lower than the first RDF$_{Si-Si}$ peak, 
-the number of clusters is equal to the number of Si atoms, and when the cutoff 
-radius is larger than the first RDF$_{Si-Si}$ peak, there is only one cluster.
+En particular, en la figura \ref{fig:clusters-isolated} se define el porcentaje 
+de átomos de Si que están a una distancia mayor que $r_{cut}$ de otros átomos de 
+Si, cuando el radio de corte es mayor que la distancia a la cual termina el 
+primer pico de la RDF$_{Si-Si}$, no se tienen átomos de Si que cumplan esta 
+propiedad, es decir, no hay átomos de Si que se encuentren aislados en el sistema, 
+incluso a concentraciones altas de Li. Esto refleja que el a-Si se comporta como 
+una red en la cual todos los átomos de silicio están interconectados entre sí, 
+que también puede deducirse de la figura \ref{fig:clusters-nclusters} en la cual 
+se tiene que cuando el radio de corte es menor al primer pico de la RDF$_{Si-Si}$ 
+el número de clusters es igual al número de átomos de Si, pero que cuando este 
+radio es más grande que la distancia a la cual termina el primer pico, hay un 
+solo cluster.
 
 \begin{figure}[h]
     \centering
