@@ -40,7 +40,8 @@ un código de dinámica molecular que escribí para la materia.
 ### Seminarios dictados
 
 1. "Potenciales interatómicos de aprendizaje automático y su aplicación a 
-baterías de litio". 22 de Abr, 2022. _Aula Magna, FAMAF._
+baterías de litio". 22 de Abr, 2022. _Aula Magna, FAMAF._ 
+([slides, biblografía, grabación](https://github.com/fernandezfran/MLPotentials))
 
 
 ----------------------------------------------------------------------------------
