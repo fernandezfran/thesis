@@ -99,12 +99,19 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{\color{mycolor}\bfseries\thepage}
+
 \fancyhead[RE]{\color{mycolor}\normalfont\bfseries\itshape\nouppercase{\textsc{\leftmark}}}
 \fancyhead[LO]{\color{mycolor}\normalfont\bfseries\itshape\nouppercase{\textsc{\rightmark}}}
+
+\fancyfoot[LE,RO]{\color{mycolor}\bfseries\thepage}
+
 \let\oldheadrule\headrule
 \renewcommand{\headrule}{\color{mycolor}\oldheadrule}
-\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrulewidth}{0.8pt}
+
+\let\oldfootrule\footrule
+\renewcommand{\footrule}{\color{mycolor}\oldfootrule}
+\renewcommand{\footrulewidth}{0.8pt}
 
 
 \begin{document}
