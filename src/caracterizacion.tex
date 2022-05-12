@@ -224,21 +224,29 @@ utilizadas para obtener los siguiente resultados se presentan en la tabla
 \begin{table}[h]
     \centering
     \caption{Información del conjunto de datos.}
-    \begin{tabular}{cccccccc}
-    \hline
-    $x$ en Li$_{x}$Si & N$_{Li}$ & N$_{Si}$ & N$_{estructuras}$ & E$_{mean}$ / N$_T$ [eV] & E$_{std}$ / N$_T$ [eV] & $\sqrt{kT}$ / N$_T$ [eV] \\
-    \hline
-    0.21 & 140 & 667 & 774 & -4.399 & 0.003 & 0.0002 \\
-    0.62 & 416 & 670 & 1665 & -4.002 & 0.005 & 0.0001 \\
-    1.25 & 839 & 671 & 1224 & -3.521 & 0.004 & 0.0001 \\
-    1.71 & 1152 & 672 & 2132 & -3.286 & 0.002 & 0.0001 \\
-    2.17 & 693 & 319 & 1699 & -3.126 & 0.002 & 0.0002 \\
-    2.71 & 865 & 319 & 1504 & -2.964 & 0.002 & 0.0001 \\
-    3.25 & 1040 & 320 & 1464 & -2.856 & 0.003 & 0.0001 \\
-    3.75 & 1080 & 288 & 2660 & -2.777 & 0.002 & 0.0001 \\
-    4.20 & 1344 & 320 & 1600 & -2.717 & 0.001 & 0.0001 \\
-    \hline
+    \setlength\extrarowheight{2pt}\stackon{%
+    \begin{tabular}{c c c c c c c c}
+        \toprule
+        \thead{\normalsize\bfseries $x$ en Li$_{x}$Si} & 
+        \thead{\normalsize\bfseries N$_{Li}$} & 
+        \thead{\normalsize\bfseries N$_{Si}$} &
+        \thead{\normalsize\bfseries N$_{estructuras}$} & 
+        \thead{\normalsize\bfseries E$_{mean}$ / N$_T$ [eV]} & 
+        \thead{\normalsize\bfseries E$_{std}$ / N$_T$ [eV]} & 
+        \thead{\normalsize\bfseries $\sqrt{kT}$ / N$_T$ [eV]} \\
+        \midrule
+        0.21 & 140 & 667 & 774 & -4.399 & 0.003 & 0.0002 \\
+        0.62 & 416 & 670 & 1665 & -4.002 & 0.005 & 0.0001 \\
+        1.25 & 839 & 671 & 1224 & -3.521 & 0.004 & 0.0001 \\
+        1.71 & 1152 & 672 & 2132 & -3.286 & 0.002 & 0.0001 \\
+        2.17 & 693 & 319 & 1699 & -3.126 & 0.002 & 0.0002 \\
+        2.71 & 865 & 319 & 1504 & -2.964 & 0.002 & 0.0001 \\
+        3.25 & 1040 & 320 & 1464 & -2.856 & 0.003 & 0.0001 \\
+        3.75 & 1080 & 288 & 2660 & -2.777 & 0.002 & 0.0001 \\
+        4.20 & 1344 & 320 & 1600 & -2.717 & 0.001 & 0.0001 \\
+        \bottomrule
     \end{tabular}
+    }{}
     \label{t:siminfo}
 \end{table}
 
@@ -331,21 +339,25 @@ cuantitativamente.
 \begin{table}[h]
     \centering
     \caption{Energías de formación obtenidas a través de la ecuación \ref{eq:fe}}
-    \begin{tabular}{ccc}
-    \hline
-    x en Li$_x$Si & Energía de formación [eV] & Desviación estándar [eV]\\
-    \hline
-    0.21  &  0.5027  &  0.0037 \\
-    0.62  &  0.1206  &  0.0074 \\
-    1.25  & -0.1160  &  0.0096 \\
-    1.71  & -0.2358  &  0.0065 \\
-    2.17  & -0.3551  &  0.0075 \\
-    2.71  & -0.4098  &  0.0072 \\
-    3.25  & -0.5187  &  0.0126 \\
-    3.75  & -0.6202  &  0.0097 \\
-    4.20  & -0.6995  &  0.0075 \\
-    \hline
+    \setlength\extrarowheight{2pt}\stackon{%
+    \begin{tabular}{c c c}
+        \toprule
+        \thead{\normalsize\bfseries x en Li$_x$Si} & 
+        \thead{\normalsize\bfseries Energía de\\\normalsize\bfseries formación [eV]} & 
+        \thead{\normalsize\bfseries Desviación\\\normalsize\bfseries estándar [eV]} \\
+        \midrule
+        0.21  &  0.5027  &  0.0037 \\
+        0.62  &  0.1206  &  0.0074 \\
+        1.25  & -0.1160  &  0.0096 \\
+        1.71  & -0.2358  &  0.0065 \\
+        2.17  & -0.3551  &  0.0075 \\
+        2.71  & -0.4098  &  0.0072 \\
+        3.25  & -0.5187  &  0.0126 \\
+        3.75  & -0.6202  &  0.0097 \\
+        4.20  & -0.6995  &  0.0075 \\
+        \bottomrule
     \end{tabular}
+    }{}
     \label{t:fe}
 \end{table}
 Las energías obtenidas pueden ser utilizadas para testear el funcionamiento del 

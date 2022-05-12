@@ -123,6 +123,13 @@
     \def\listtablename{\'Indice de tablas}%
     \def\tablename{Tabla}
 }
+%
+%% para poder separar los títulos en dos renglones
+\usepackage{adjustbox}\usepackage{mathtools}
+\usepackage{array}
+\usepackage{makecell,booktabs}
+\usepackage{stackengine}
+\setstackEOL{\cr} %EOL is abbreviation for "end of line."
 
 % para acomodar mejor las posiciones de figuras/tablas
 \usepackage{float}
@@ -208,11 +215,6 @@
 \chapter[Introducción]{Introducción}
 \thispagestyle{empty}
 
-\vspace{50pt}
-
-\begin{adjustwidth}{50pt}{50pt}
-\end{adjustwidth}
-
 \clearpage
 \newpage
 \thispagestyle{empty}
@@ -220,6 +222,7 @@
 \newpage
 
 \input{src/introduccion.tex}
+
 
 \chapter[Teoría y métodos computacionales]{Teoría y métodos computacionales}
 \thispagestyle{empty}
@@ -241,6 +244,7 @@
 \newpage
 
 \input{src/metodos.tex}
+
 
 \chapter[Estructuras amorfas en ánodos de Silicio]{Caracterización de estructuras
 amorfas en ánodos de Silicio}
@@ -266,6 +270,7 @@ amorfas en ánodos de Silicio}
 \newpage
 
 \input{src/caracterizacion.tex}
+
 
 % Apéndices
 % \appendix
