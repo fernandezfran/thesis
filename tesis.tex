@@ -1,4 +1,17 @@
+% 202? - Francisco Fernandez tesis template
+%
+% https://github.com/fernandezfran/tesis
 \documentclass[12pt,spanish,a4paper,twoside]{book}
+\usepackage[spanish,es-nodecimaldot]{babel}
+
+% colores nord blues
+\usepackage{xcolor}
+\definecolor{mycolor}{RGB}{94, 129, 172} % nord blue
+\definecolor{mylcolor}{RGB}{129, 161, 193} % nord lighter blue
+
+% estilo de pagina
+%
+%% margenes
 \usepackage{geometry}
 \geometry{
 	a4paper,
@@ -6,112 +19,119 @@
 	left=20mm,
 	top=20mm,
 }
-\usepackage[utf8]{inputenc}
-\usepackage[spanish,es-nodecimaldot]{babel}
-\usepackage{graphicx}
-\graphicspath{ {imagenes/} }
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage{parskip}
-\usepackage{listings}
-\usepackage[obeyspaces]{url}
-\usepackage[tableposition=top]{caption}
-\usepackage{subcaption}
-\addto\captionsspanish{
-    \def\listtablename{\'Indice de tablas}%
-    \def\tablename{Tabla}
-}
-\usepackage{multirow}
-\usepackage{textcomp} % ° symbol
-\usepackage{amsmath}
-\usepackage{float}
-\usepackage[breaklinks=true,hidelinks]{hyperref} 
-
-% \say para las comillas
-\usepackage{dirtytalk}
-
-% cases
-\usepackage{mathtools}
-
-% debug packages
-\usepackage{xcolor}
-\usepackage{afterpage}
-\newcommand\blankpage{%
-    \null
-    \thispagestyle{empty}%
-    \addtocounter{page}{-1}%
-    \newpage}
-
-% Palatino font type
-\usepackage[T1]{fontenc}
-\usepackage{mathpazo}
-
-% Interlineado
+%
+%% Sangría
+\setlength\parindent{12pt}
+%
+%% Interlineado
 \usepackage{setspace}
 \onehalfspacing
-
-% Sangría
-\setlength\parindent{12pt}
-
-% margenes de un parrafo
+%
+%% Palatino font type
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+%
+%% poder definir margenes de un parrafo (adjustwidth)
 \usepackage{changepage}
-
-% show subsubsections in TOC
-\setcounter{tocdepth}{4}
-\setcounter{secnumdepth}{4}
-
-% Bibliografía por capítulo
-% \usepackage[square,numbers,sort,sectionbib]{natbib}
-% \usepackage{chapterbib}
-
-% colores nord blues
-\definecolor{mycolor}{RGB}{94, 129, 172} % nord blue
-\definecolor{mylcolor}{RGB}{129, 161, 193} % nord lighter blue
-
-% color de las secciones
+%% encabezados de las páginas
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+%
+%%% línea horizontal superior
+\let\oldheadrule\headrule
+\renewcommand{\headrule}{\color{mycolor}\oldheadrule}
+\renewcommand{\headrulewidth}{0.8pt}
+%
+%%% línea horizonal inferior
+%\let\oldfootrule\footrule
+%\renewcommand{\footrule}{\color{mycolor}\oldfootrule}
+%\renewcommand{\footrulewidth}{0.8pt}
+%
+%%% header
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[CE]{\footnotesize\color{mycolor}\normalfont\bfseries\itshape\nouppercase{
+    \textsc{\leftmark}}
+}
+\fancyhead[CO]{\footnotesize\color{mycolor}\normalfont\bfseries\itshape\nouppercase{
+    \textsc{\rightmark}}
+}
+%
+%%% footer
+\fancyfoot[CE,CO]{\color{mycolor}\bfseries\thepage}
+%
+%% carátula de capítulo
 \usepackage{sectsty}
-\sectionfont{\color{mycolor}}
-\subsectionfont{\color{mycolor}}
-\subsubsectionfont{\color{mycolor}}
-\let\oldtextbf\textbf
-\renewcommand{\textbf}[1]{\textcolor{mycolor}{\oldtextbf{#1}}}
-
-% línea horizontal debajo de las secciones
 \usepackage{titlesec}
-\titleformat{\section}
-  {\normalfont\Large\bfseries\color{mycolor}}
-  {\thesection}{1em}{}[{\titlerule[0.8pt]}]
-
-% carátula de capítulo
 \titleformat{\chapter}
     [display]
     {\centering\Huge\bfseries\color{mycolor}}
     {\chaptername\ \thechapter}
     {0pt}
     {\huge}
-
-% index
+%
+%% color de las secciones
+\sectionfont{\color{mycolor}}
+\subsectionfont{\color{mycolor}}
+\subsubsectionfont{\color{mycolor}}
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{\textcolor{mycolor}{\oldtextbf{#1}}}
+%
+%% línea horizontal debajo de las secciones
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{mycolor}}
+  {\thesection}{1em}{}[{\titlerule[0.8pt]}]
+%
+%% index
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
+%
+%% show subsubsections in TOC
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+%
+%% Bibliografía por capítulo
+% \usepackage[square,numbers,sort,sectionbib]{natbib}
+% \usepackage{chapterbib}
+%
+%% defino pagina en blanco
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage
+}
 
-% encabezados de las páginas
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
+% para, desde el índice, poder clickear a que página ir
+%\usepackage[obeyspaces]{url}
+\usepackage[breaklinks=true,hidelinks]{hyperref} 
 
-\fancyhead[RE]{\color{mycolor}\normalfont\bfseries\itshape\nouppercase{\textsc{\leftmark}}}
-\fancyhead[LO]{\color{mycolor}\normalfont\bfseries\itshape\nouppercase{\textsc{\rightmark}}}
+% \say para las comillas
+\usepackage{dirtytalk}
 
-\fancyfoot[LE,RO]{\color{mycolor}\bfseries\thepage}
+% para agregar imagenes (includegraphics)
+\usepackage{graphicx}
+% espeficicando el path imagenes/ que se repetiría en todas las entradas
+\graphicspath{{src/imagenes/}}
+% subfiguras, definidas en columnas, por ej
+\usepackage{subcaption}
 
-\let\oldheadrule\headrule
-\renewcommand{\headrule}{\color{mycolor}\oldheadrule}
-\renewcommand{\headrulewidth}{0.8pt}
+% tabla en vez de cuadro
+\usepackage[tableposition=top]{caption}
+\addto\captionsspanish{
+    \def\listtablename{\'Indice de tablas}%
+    \def\tablename{Tabla}
+}
 
-\let\oldfootrule\footrule
-\renewcommand{\footrule}{\color{mycolor}\oldfootrule}
-\renewcommand{\footrulewidth}{0.8pt}
+% para acomodar mejor las posiciones de figuras/tablas
+\usepackage{float}
+
+% para algunos símbolos en las ecuaciones
+\usepackage{amsmath}
+\usepackage{mathtools}  % cases
+
+
 
 
 \begin{document}
@@ -199,7 +219,7 @@
 \mbox{}
 \newpage
 
-\input{corpus/introduccion.tex}
+\input{src/introduccion.tex}
 
 \chapter[Teoría y métodos computacionales]{Teoría y métodos computacionales}
 \thispagestyle{empty}
@@ -220,7 +240,7 @@
 \mbox{}
 \newpage
 
-\input{corpus/metodos.tex}
+\input{src/metodos.tex}
 
 \chapter[Estructuras amorfas en ánodos de Silicio]{Caracterización de estructuras
 amorfas en ánodos de Silicio}
@@ -245,12 +265,12 @@ amorfas en ánodos de Silicio}
 \mbox{}
 \newpage
 
-\input{corpus/caracterizacion.tex}
+\input{src/caracterizacion.tex}
 
 % Apéndices
 % \appendix
 % \chapter[Apéndice X]{Apéndice X}
-% \input{corpus/apendicex.tex}
+% \input{src/apendicex.tex}
 
 \bibliographystyle{ieeetr}
 \bibliography{citas.bib}
