@@ -121,10 +121,13 @@ y se transportan para luego volver a combinarse y liberar la energía almacenada
 Por último, dentro de los sistemas de almacenamiento de energía electroquímicos 
 se encuentran las baterías y los capacitores. En las baterías, tanto a la entrada 
 como la salida de energía la misma se encuentra en forma de energía eléctrica 
-mientras que la electricidad se almacena en energía química. Las mismas pueden 
-ser primarias (no recargables) o secundarias (recargables). 
+mientras que la electricidad se almacena en energía química. 
 
 \section{Baterías}
+
+TODO: Clasificación de baterías en primarias (no recargables) o secundarias 
+(recargables). Funcionamiento de una batería, sus partes. Gráfico de densidad
+de energía volumétrica vs densidad de energía gravimétrica.
 
 La primera batería concebida fue inventada por Alessandro Volta en 1800 para 
 estudiar los descubrimientos de Luigi Galvani, la misma basa su funcionamiento 
@@ -157,16 +160,26 @@ eléctricos y el almacenamiento de energía de fuentes alternativas. % schipper2
 
 Las baterías de litio son dispositivos electroquímicos ampliamente utilizados 
 como fuentes de energía. Entre las propiedades físicas del litio destacan su 
-densidad baja (0.534 cm$^3$), su capacidad específica alta (3860 mAh g$^{-1}$) y
-su potencial de reducción bajo (-3.04 V vs. SHE), estas propiedades lo convierten
-en un material que puede servir como ánodo para baterías. A finales de la década
-del '50 del siglo XX se observó que el litio metálico formaba una capa de 
-pasivación con distintos electrolitos no-acuosos permitiendo prevenir una 
+peso molecular bajo (7 g mol$^{-1}$), su densidad baja (0.534 cm$^3$), su 
+capacidad específica alta (3860 mAh g$^{-1}$) y su potencial de reducción bajo 
+(-3.04 V vs. SHE), estas propiedades lo convirtieron en un material que puede 
+ser utilizado como ánodo para baterías. A finales de la década del 1950 se 
+observó que el litio metálico formaba una capa de pasivación, llamada interfaz de
+electrolito sólido (SEI, de sus siglás en inglés, \textit{solid electrolyte 
+interface}), con distintos electrolitos no-acuosos permitiendo prevenir una 
 reacción química directa entre estas dos componentes, pero dejando que los iones 
 de litio la atraviesen. Esto generó un interés que llevó a la fabricación de 
-baterías primarias de litio en la década del '60 utilizando distintos tipos de 
+baterías primarias de litio en la década del 1960 utilizando distintos tipos de 
 cátodos incluyendo dióxido de sulfuro de litio (LiSO$_2$), óxido de manganeso de 
-litio (LiMnO$_2$) y óxido de cobre de litio (LiCuO), entre otros. Avances 
+litio (LiMnO$_2$) y óxido de cobre de litio (LiCuO), entre otros. 
+Desafortunadamente, la formación de la SEI no es estable durante ciclos 
+prolongados y se agrieta, lo que lleva a un consumo continuo de electrolito y 
+litio para la reformación continua de la SEI. Y lo que es aún peor, la deposición 
+desigual de litio en la SEI agrietada conduce al crecimiento de dendritas de 
+litio, que terminan rompiéndose y formando islas de tamaño nanométrico de litio 
+altamente reactivo, lo que reduce la estabilidad térmica de la célula. Las 
+dendritas también pueden crecer lo suficiente como para generar un contacto entre
+el ánodo y el cátodo, provocando un cortocircuito en la celda. Avances 
 posteriores en la comprensión de la intercalación de litio en diferentes 
 materiales dio origen a las baterías recargables de ion-litio. En la tabla 
 \ref{t:historia} se presentan las primeras baterías secundarias de litio 
@@ -175,9 +188,7 @@ comercializadas hasta 1991, año en el que se dejó de utilizar litio metálico 
 con los años de la densidad de energía, sin embargo este no es el único parámetro 
 a tener en cuenta en el progreso ya que también tienen que considerarse la 
 cantidad de ciclos que se pueden realizar, el tiempo de carga, la razón de 
-descarga y el precio de producción. En la actualidad podemos encontrarlas en una 
-gran variedad de dispositivos que va desde los celulares hasta vehículos 
-eléctricos ~\cite{reddy2020}. 
+descarga y el precio de producción ~\cite{reddy2020}. 
 \begin{table}[h]
     \centering
     \caption{Primeras baterías de litio recargables comercializadas.}
@@ -204,6 +215,18 @@ eléctricos ~\cite{reddy2020}.
     }{}
     \label{t:historia}
 \end{table}
+
+La necesidad de un material catódico de intercalación de litio de alto voltaje 
+que se presentaba en la época fue resuelta por el compuesto laminar LiCoO$_2$ 
+(LCO) que fue desarrollado por el grupo de investigación de Goodenough en 1980.
+Sin embargo, se necesitaba un material anódico estable que permitiera intercalar
+los iones de litio. No fue hasta el 1990 que esto se cumplió, año en el que Dahn 
+descubrió dicha estabilidad en los ánodos de grafito en soluciones electrolíticas
+no acuosas al estudiar la intercalación de forma reversible en los primeros 19 
+ciclos utilizando como electrolito una mezcla de disolvente de carbonato de 
+propileno y carbonato de etileno. Esto se da gracias a la formación de una 
+SEI estable durante  el primer ciclo de intercalación. La batería basada en este 
+funcionamiento fue comercializada por Sony en 1991 y ha tenido un gran éxito. 
 
 \section{Objetivos y estructura de tesis}
 
