@@ -1,3 +1,27 @@
+\chapter[Caracterización de estructuras amorfas en ánodos de Silicio]{
+    Caracterización de estructuras amorfas en ánodos de Silicio}
+\thispagestyle{empty}
+
+\vspace{50pt}
+
+\begin{adjustwidth}{50pt}{50pt}
+    En este capítulo se caracterizan estructuralmente las aleaciones amorfas de
+    Li$_x$Si a distintas concentraciones, mediante simulaciones computacionales,
+    utilizando un campo de fuerzas reactivo y una exploración acelerada de mínimos
+    locales propuesta aquí para encontrar estructuras cercanas al equilibrio. Se
+    analiza la distribución radial de a pares, los números de coordinación de los
+    primeros y segundos vecinos más cercanos y el ordenamiento a corto alcance.
+    Además, la estructura compleja del segundo pico de la $g(r)$ de Si-Li es 
+    dilucidada a partir de un análisis de interconexión de clusters.
+\end{adjustwidth}
+
+\clearpage
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+
 La información experimental que puede obtenerse de la estructuras de las 
 distintas fases amorfas que se forman durante el ciclado de los electrodos de 
 silicio es bastante limitada. Las estructuras de la red o de la interfase son 
@@ -30,7 +54,7 @@ se necesita una parametrización que se robusta y transferible. Como esta
 parametrización esta fuera de los objetivos que plantea esta tesis, en este 
 capítulo se utiliza una realizada para un potencial reactivo, introducido en 
 la sección \ref{s:reaxff}, para sistemas de Li-Si previamente realizada por Fan 
-\textit{et al.} ~\cite{fan2013}, en la cual optimizaron el campo de fuerzas usando 
+\textit{et al.} ~\cite{fan2013}, en la cual optimizaron el campo de fuerzas usando
 cálculos de DFT, considerando datos de las energías, distintas geometrías y cargas
 de las fases cristalinas de Li, Si y aleaciones de Li-Si. En su trabajo lo 
 utilizaron en simulaciones de MD para caracterizar las propiedades mecánicas de
@@ -79,7 +103,7 @@ aluminio. El ReaxFF también fue combinado con otros campos de fuerza, como los
 potenciales de Tersoff y Lennard-Jones, para simular la litiación de 
 nanopartículas de Si recubiertas con carbono, que permitieron observar una 
 correlación entre el crecimiento del estrés y la densidad de carga 
-~\cite{zheng2019,zheng2020}. Propiedades mecánicas de interfase Si/SiO$_2$ litiada 
+~\cite{zheng2019,zheng2020}. Propiedades mecánicas de interfase Si/SiO$_2$ litiada
 fueron reportadas por Verners y Simone ~\cite{verners2019}. 
 
 No es posible llevar a cabo un estudio sobre las propiedades electrónicas con el 
@@ -420,7 +444,7 @@ distintos valores de $x$ en Li$_x$Si estudiados, las curvas se calculan sobre lo
 \end{figure}
 Lo más relevante a destacar de la RDF$_{Li-Li}$ es que su primer pico comienza 
 centrado en 2.45 \AA\ para las concentraciones de iones de Li más bajas y que 
-luego dicho pico aumenta su posición a distancias más grandes a medida que aumenta 
+luego dicho pico aumenta su posición a distancias más grandes a medida que aumenta
 $x$ hasta permanecer en 2.95 \AA\ para $x$ mayores a 1.71. La altura de este pico
 aumenta en un 50\% luego de la litiación completa, relativa a la menor 
 concentración.
@@ -466,7 +490,7 @@ es analizado con mayor detalle en la sección \ref{s:intercionexion}.
 
 De la misma manera que se definió la distribuciones radiales de a pares parciales,
 se pueden obtener los números de coordinación a un dado tipo de átomos. CN$_{ij}$
-se corresponde con la cantidad de átomos vecinos de tipo $j$ para un átomo central 
+se corresponde con la cantidad de átomos vecinos de tipo $j$ para un átomo central
 de tipo $i$ hasta una cierta distancia de corte. Para la elección de dicho valor 
 se considera hasta el primer pico de la $g_{ij}(r)$ correspondiente. Debido a que 
 en los materiales amorfos la primera y la segunda esfera de coordinación pueden 
@@ -548,7 +572,7 @@ En particular, en la figura \ref{fig:clusters-isolated} se define el porcentaje
 de átomos de Si que están a una distancia mayor que $r_{cut}$ de otros átomos de 
 Si, cuando el radio de corte es mayor que la distancia a la cual termina el 
 primer pico de la RDF$_{Si-Si}$, no se tienen átomos de Si que cumplan esta 
-propiedad, es decir, no hay átomos de Si que se encuentren aislados en el sistema, 
+propiedad, es decir, no hay átomos de Si que se encuentren aislados en el sistema,
 incluso a concentraciones altas de Li. Esto refleja que el a-Si se comporta como 
 una red en la cual todos los átomos de silicio están interconectados entre sí, 
 que también se puede deducir de la figura \ref{fig:clusters-nclusters} en la cual 
@@ -639,12 +663,12 @@ estas categorías en función de la concentración de litio.
 El término orden de corto alcance (SRO, de sus siglas en inglés 
 \textit{short-range order}) se utiliza para denotar el ordenamiento de los átomos
 que rodean a uno específico en una cáscara. Del mismo modo, el término 
-\textit{clustering} se ha se ha definido como la tendencia de los átomos 
-similares a estar cerca unos de otros. Ambos conceptos se refieren a un orden 
-estructural entre átomos vecinos, pero no son necesariamente persistentes a 
-distancias más largas. Warren ~\cite{warren69} y Cowley ~\cite{cowley1950} 
-definieron un parámetro (WCP) para caracterizar estos tipos de ordenamientos de 
-la siguiente manera:
+\textit{clustering} se ha definido como la tendencia de los átomos similares a 
+estar cerca unos de otros. Ambos conceptos se refieren a un orden estructural 
+entre átomos vecinos, pero no son necesariamente persistentes a distancias más 
+largas. Warren ~\cite{warren69} y Cowley ~\cite{cowley1950} definieron un 
+parámetro (WCP) para caracterizar estos tipos de ordenamientos de la siguiente 
+manera:
 \begin{equation}
     WCP = 1 - \frac{p_{A-B}}{m_B} = 1 - \frac{p_{B-A}}{m_A},
 \end{equation}
@@ -753,12 +777,12 @@ pares atómicos y se dilucidó la estructura compleja del segundo pico del RDF
 Si-Li mediante un análisis de interconexión de clusters. Además, haciendo un 
 análisis de la formación de clústeres en función del radio de corte, se demostró 
 que las estructuras amorfas no presentan diferentes enlaces de Si ni átomos de Si 
-aislados. En su lugar, se encontró que el sistema se comporta como una red amorfa. 
+aislados. En su lugar, se encontró que el sistema se comporta como una red amorfa.
 Estudiando los números de coordinación de primeros y segundos vecinos para las 
 diferentes concentraciones, se mostró que esta red amorfa mantiene las conexiones 
 tetraédricas para bajas concentraciones de Li y que tiende a formar cadenas para 
 altas concentraciones de Li. Por último, la definición de un nuevo parámetro 
-permitió determinar el orden de corto alcance de las estructuras amorfas, definido 
+permitió determinar el orden de corto alcance de las estructuras amorfas, definido
 por interacciones débiles Li-Li y fuertes Li-Si y Si-Si. El método propuesto AELM 
 resulta ser un método rápido y eficaz para obtener mínimos energéticamente 
 relevantes. Se hizo una analogía con el templado simulado múltiple. Un análisis 
