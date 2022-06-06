@@ -184,7 +184,59 @@ utilizar baterías más chicas y más livianas.
     \label{fig:densidad}
 \end{figure}
 
-TODO: Funcionamiento de una batería, sus partes. 
+Una batería recargable es un conjunto de unidades fundamentales de almacenamiento
+de energía que pueden estar conectadas en serie o en paralelo definiendo las 
+caracteristicas como el voltaje o la capacidad de carga de la misma. En nuestro 
+caso estas unidades fundamentales son celdas electroquímicas que permiten 
+transformar la energía química almacenada en energía eléctrica mediante alguna 
+reacción química. La reacción que gobierna este comportamiento es la reacción 
+redox, reducción-oxidación, donde uno de los componentes pierde electrones, se 
+oxida, y el otro gana electrones, se reduce. En la descarga de la celda esta 
+reacción es espontánea provocando una migración de iones positivos entre los 
+componentes de la misma, obteniendose una corriente eléctrica en un circuito 
+externo, mientras que en la carga se debe aplicar una corrienta eléctrica externa
+para tener la reacción inversa.
+
+En la figura \ref{fig:bateria} se muestra un esquma general del funcionamiento 
+que presenta una celda electroquímica recargable y se destacan sus componentes 
+más relevantes.
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{introduccion/bateria-carga.png}
+        \caption{Carga de la celda.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{introduccion/bateria-descarga.png}
+        \caption{Desarga de la celda.}
+    \end{subfigure}
+    \caption{Esquema general del funcionamiento de una celda electroquímica 
+    recargable.}
+    \label{fig:bateria}
+\end{figure}
+
+Una celda electroquímica está formada, principalmente, por las siguientes 
+componentes:
+\begin{itemize}
+    \item \textbf{Ánodo}, o electrodo negativo, donde se produce la oxidación,
+        es decir, donde se pierden los electrones durante la descarga de la 
+        celda y donde debe aplicarse la corriente a la hora de cargarla.
+    \item \textbf{Cátodo}, o electrodo positivo, donde se produce la reducción,
+        es decir, donde se ganan electrones durante de la descarga de la celda y
+        se los pierde en la carga.
+    \item \textbf{Electrolito}, un aislante eléctrico que permite el transporte 
+        de iones, el mismo puede ser líquido o solido, por esta componente es 
+        por la cual migran los iones de litio en los procesos de carga y descarga
+        de la celda.
+    \item \textbf{Separador}, material poroso que es permeable al electrolito y
+        se encarga de que los electrones circulen por el circuito externo al 
+        colocarse entre medio de los electrodos y separarlos físicamente.
+    \item \textbf{Colector de carga} conectado a cada uno de los electrodos para
+        cerrar el circuito.
+\end{itemize}
 
 \subsection{Baterías de ion litio}
 
