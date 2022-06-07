@@ -95,9 +95,9 @@ pequeñas, por lo que la función de distribución de probabilidad para las
 diferentes energías tiene forma gaussiana en torno al valor medio $\overline{E}$. 
 La dispersión en esta distribución de probabilidad puede, por lo tanto,
 caracterizarse completamente por la desviación estándar $\sigma_E$, es decir, 
-$$
+\begin{equation*}
 \sigma_E = \sqrt{\overline{(E - \overline{E})^2}}.
-$$
+\end{equation*}
 
 % Si se diferencia
 % $$
@@ -158,9 +158,9 @@ utilizadas es la dinámica molecular (MD, de sus siglas en inglés,
 \textit{molecular dynamics}) que considera un sistema de $N$ partículas 
 interactuantes en un campo de fuerzas newtoniano. Dada la configuración de los 
 átomos se tiene el siguiente sistema de ecuaciones
-$$
+\begin{equation*}
 m_i \frac{\partial^2 \mathbf{r}_i}{\partial t^2} = \mathbf{F}_i, \quad i = 1,..., N,
-$$
+\end{equation*}
 donde $m_i$ es la masa del átomo $i$, $\mathbf{r}_i$ su posición y $\mathbf{F}_i$
 la fuerza. Estas ecuaciones de movimiento son integradas en intervalos de tiempo
 pequeños que permiten obtener la evolución temporal del sistema, es decir, su
@@ -271,9 +271,9 @@ Uno de los primeros potenciales utilizados en simulaciones computacionales fue
 el potencial interatómico de Lennard-Jones ~\cite{lennard-jones}, que reproduce 
 el decaimiento de $r^{-6}$ a distancias largas y viene dado por la siguiente 
 expresión
-$$
+\begin{equation*}
 V_{LJ} = 4\varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \frac{\sigma}{r} \right)^{6} \right],
-$$
+\end{equation*}
 donde $r$ es la distancia entre dos átomos, $\varepsilon$ indica la profundidad 
 del pozo del potencial que se encuentra en $r_m = 2^{1/6} \sigma$, $\sigma$ es el
 radio del átomo. En la figura \ref{fig:lj} 
@@ -300,9 +300,9 @@ considerando la imagen mínima si las condiciones de contorno son PBC, y ver si
 las mismas son mayores o menores a $r_{cut}$, si la distancia es mayor entonces
 la contribución de esa interacción es igual a cero y si es menor se computa la 
 fuerza a través del potencial de la siguiente manera
-$$
+\begin{equation*}
 f_x(r) = - \frac{\partial V(r)}{\partial x}
-$$
+\end{equation*}
 donde $x$ es la componente en alguna de las direcciones definidas para el sistema.
 
 A continuación se presentan dos potenciales interatómicos del estado del arte que
@@ -314,16 +314,16 @@ El campo de fuerza reactivo, ReaxFF ~\cite{reaxff}, representa adecuadamente la
 asociación y disociación de enlaces de átomos al considerar que la energía del 
 sistema, $E_{system}$, se encuentra dividida en varias contribuciones de energías
 parciales,
-$$
+\begin{equation*}
 E_{system} = E_{bond} + E_{over} + E_{under} + E_{val} + E_{pen} + E_{tors} + E_{conj} + E_{vdWaals} + E_{Coulomb}.
-$$
+\end{equation*}
 
 Una de las suposiciones fundamentales del ReaxFF es que el orden de enlace entre
 un par de átomos puede obtenerse directamente de la distancia que los separa, 
 esto es asegurado por el término $E_{bond}$.
 
 $E_{over}$ y $E_{under}$ son términos agregados para imponer penalidades a los
-átomos sobre-coordinados o sub-coordinados, utilizando la teoría de la valencia 
+átomos sobrecoordinados o subcoordinados, utilizando la teoría de la valencia 
 del enlace.
 
 $E_{val}$ considera la contribución a la energía por el ángulo de valencia, 
@@ -362,9 +362,9 @@ una redistribución auto-consistente de las cargas de Mulliken (SCC).
 
 La energía total de un sistema de $M$ electrones en el campo de $N$ núcleos en
 las posiciones $\mathbf{R}$ puede escribirse a través de DFT como
-$$
+\begin{equation*}
 E = \sum_i^{occ} \langle \psi_i | - \frac{\Delta}{2} + V_{ext} + \frac{1}{2} \int' \frac{n(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} | \psi_i \rangle + E_{XC}(n(\mathbf{r})) + \frac{1}{2} \sum_{\alpha, \beta}^N \frac{Z_{\alpha}Z_{\beta}}{|\mathbf{R}_{\alpha} - \mathbf{R}_{\beta}|},
-$$
+\end{equation*}
 donde la primera suma es sobre los autoestados $\psi_i$ ocupados de Kohn-Sham,
 $n(\mathbf{r})$ es la densidad electrónica, el segundo término es la contribución
 de la correlación de intercambio (XC), y el último término considera la repulsión
@@ -395,9 +395,9 @@ referencia:
         \ref{eq:dft-fluc} y expandiendo los orbitales de Kohn-Sham $\psi_i$ del 
         sistema en términos de las funciones de la base localizadas centradas en 
         el átomo,
-        $$
+        \begin{equation*}
         \psi_i = \sum_{\nu} C_{\nu i} \phi_{\nu}(\mathbf{r}-\mathbf{R}_k),
-        $$
+        \end{equation*}
         resolviendo las ecuaciones de Kohn-Sham para un potencial efectivo de una
         partícula $V_{eff}(\mathbf{r})$,
         \begin{equation}\label{eq:kohn-sham-mod}
@@ -408,9 +408,9 @@ referencia:
         \sum_{\nu} C_{\nu i} (H_{\mu \nu} - \varepsilon S_{\mu \nu}) = 0, \quad \forall \mu, i,
         \end{equation}
         donde
-        $$
+        \begin{equation*}
         H_{\mu \nu} = \langle \phi_{\mu}|\hat{H}_0|\phi_{\nu} \rangle, \quad S_{\mu \nu} = \langle\phi_{\mu}|\phi_{\nu}\rangle.
-        $$
+        \end{equation*}
 
         La energía total del sistema puede ser aproximada como una suma sobre la
         energía de la estructura de bandas y un potencial repulsivo de dos cuerpos
@@ -425,9 +425,9 @@ referencia:
         
         Las funciones de onda pseudoatómicas pueden escribirse en términos de los
         orbitales tipo Slater y armónicos esféricos,
-        $$
+        \begin{equation*}
         \phi_{\nu}(\mathbf{r}) = \sum_{n,\alpha,l_{\nu},m_{\nu}} a_{n\alpha} r^{l_{\nu}+n} e^{-\alpha r} Y_{l_{\nu}m_{\nu}}\left(\frac{\mathbf{r}}{r}\right),
-        $$
+        \end{equation*}
         a la hora de realizar una solución auto-consistente a las ecuaciones
         modificadas de Kohn-Sham \ref{eq:kohn-sham-mod}. Estas soluciones son
         utilizadas como funciones de la base LCAO a la hora de tratar el sistema
@@ -436,9 +436,9 @@ referencia:
         Como una aproximación, se escribe el potencial de un electrón de una 
         estructura con muchos átomos como una suma de contribuciones atómicas
         esféricas,
-        $$
+        \begin{equation*}
         V_{eff}(\mathbf{r}) = \sum_k V_0^k(|\mathbf{r} - \mathbf{R}_k|),
-        $$
+        \end{equation*}
         donde $V_0$ es el potencial de Kohn-Sham de un pseudo-átomo neutral.
 
         La matriz de solapamiento consiste solamente de dos elementos centrales
@@ -463,15 +463,15 @@ referencia:
         de la diferencia en la energía total resultante de un cálculo 
         auto-consistente, $E_{LDA}^{sc}$, y $E_{BS}$ para distintos valores de 
         distancia $R$,
-        $$
+        \begin{equation*}
         V_{rep}(R) = E_{LDA}^{sc}(R) - E_{BS}(R).
-        $$
+        \end{equation*}
 
         Por último, las fuerzas interatómicas pueden ser derivadas de manera
         explícita para utilizarlas en dinámica molecular de la siguiente forma
-        $$
+        \begin{equation*}
         \mathbf{F}_{\alpha} = - \sum_i n_i \sum_{\mu} \sum_{\nu} C_{\mu i} C_{\nu i} \left(\frac{\partial H_{\mu \nu}^0}{\partial \mathbf{r}_{\alpha}} - \varepsilon \frac{\partial S_{\mu \nu}}{\partial \mathbf{r}_{\alpha}}\right) - \sum_{\beta \neq \alpha} \frac{\partial E_{rep}(|\mathbf{r_{\alpha} - \mathbf{r}_{\beta}|)}}{\partial \mathbf{r}_{\alpha}}.
-        $$
+        \end{equation*}
 
     \item \textbf{Enfoque de segundo orden}
 
@@ -500,13 +500,13 @@ referencia:
         fluctuación de la densidad en el átomo $\alpha$ para el momento angular
         correspondiente. Esta expresión preserva la carga total del sistema.
         Si a la misma se la sustituye en la ecuación \ref{eq:q1},
-        $$
+        \begin{equation*}
         E_{2nd} = \frac{1}{2} \sum_{\alpha,\beta}^N \Delta q_{\alpha} \Delta q_{\beta} \gamma_{\alpha\beta},
-        $$
+        \end{equation*}
         donde
-        $$
+        \begin{equation*}
         \gamma_{\alpha\beta} = \int \int' \Gamma(\mathbf{r},\mathbf{r}',n_0)\frac{F_{00}^{\alpha}(|\mathbf{r} - \mathbf{R}_{\alpha}|)F_{00}^{\beta}(|\mathbf{r} - \mathbf{R}_{\beta}|)}{4 \pi}
-        $$
+        \end{equation*}
         se introduce como abreviatura. En el límite de distancias interatómicas
         grandes, $E_{2nd}$ puede ser vista como una interacción de Coulomb pura
         entre dos cargas puntuales $\Delta q_{\alpha}$ y $\Delta q_{\beta}$. Una
@@ -522,15 +522,15 @@ referencia:
 
         Por último, en este enfoque de segundo orden, la ecuación 
         \ref{eq:dft-fluc} puede escribirse como
-        $$
+        \begin{equation*}
         E_2^{TB} = \sum_i^{occ} \langle \psi_i | \hat{H}_0 | \psi_i \rangle + \frac{1}{2} \sum_{\alpha, \beta}^N \gamma_{\alpha\beta} \Delta q_{\alpha} q_{\beta} + E_{rep}.
-        $$
+        \end{equation*}
 
         Para estimar las fluctuaciones de la carga se implementa el análisis de
         Mulliken
-        $$
+        \begin{equation*}
         q_{\alpha} = \frac{1}{2} \sum_i^{occ} n_i \sum_{\mu \in \alpha} \sum_{\nu}^N (C_{\mu i}^{*} C_{\nu i} S_{\mu nu} + C_{\nu i}^{*} C_{\mu i} S_{\nu mu})
-        $$
+        \end{equation*}
         y se obtiene un sistema de ecuaciones algebraicas como en la ecuación
         \ref{eq:alg-eq} pero donde el Hamiltoniano ahora considera una 
         corrección debido a la fluctuación de las cargas $H_{\mu \nu}^1$,
@@ -543,9 +543,9 @@ referencia:
 
         En este nuevo enfoque las fuerzas interatómicas para utilizar en 
         simulaciones de dinámica molecular vienen dadas por
-        $$
+        \begin{equation*}
         \mathbf{F}_{\alpha} = - \sum_i^{occ} n_i \sum_{\mu\nu} C_{\mu i} C_{\nu i} \left[\frac{\partial H_{\mu\nu}^0}{\partial \mathbf{r}_{\alpha}} - \left(\varepsilon_i - \frac{H_{\mu\nu}^1}{S_{\mu\nu}}\right) \frac{\partial S_{\mu\nu}}{\partial \mathbf{r}_{\alpha}} \right] - \Delta q_{\alpha} \sum_{\xi}^N \frac{\partial \gamma_{\alpha\xi}}{\partial \mathbf{r}_{\alpha}} \Delta q_{\xi} - \frac{\partial E_{rep}}{\partial \mathbf{r}_{\alpha}}.
-        $$
+        \end{equation*}
  
 \end{enumerate}
 
@@ -559,14 +559,14 @@ conserva la energía total del sistema si no está siendo aplicado ningún termo
 o barostato que altere el ensamble. Para las posiciones se tiene una
 actualización de las mismas, a partir del paso anterior, como un desarrollo de
 Taylor
-$$
+\begin{equation*}
 r(t+dt) = r(t) + v(t) dt + \frac{f(t)}{2m} dt^2,
-$$
+\end{equation*}
 donde $dt$ es el paso temporal y $m$ la masa del átomo. Para las velocidades se
 tiene
-$$
+\begin{equation*}
 v(t+dt) = v(t) + \frac{f(t+dt)+f(t)}{2m} dt,
-$$
+\end{equation*}
 es importante notar que para calcular la velocidad del paso temporal siguiente se
 necesita tener computadas las fuerzas anteriores y posteriores, por lo cual
 primero se calculan las posiciones y, a partir de ellas, las fuerzas.
@@ -589,17 +589,17 @@ cinética. La primera de ellas viene dada por distintas contribuciones de pares,
 ángulos, enlaces, etc, dependiendo de que tan complejo sea el campo de fuerzas 
 utilizado. En el caso de que la interacción sea solo de a pares, la energía 
 potencial puede calcularse de la siguiente forma
-$$
+\begin{equation*}
 E_{pot} = \sum_{i < j} u(r_{ij}),
-$$
+\end{equation*}
 donde $u(r_{ij})$ es la contribución proveniente de la interacción entre los 
 átomos $i$ y $j$.
 
 Por otro lado, la energía cinética traslacional puede calcularse a partir de las
 velocidades de cada uno de los átomos como
-$$
+\begin{equation*}
 E_{cin} = \frac{1}{2} \sum_{i=1}^{N} m_i v_i^2, 
-$$
+\end{equation*}
 donde $m_i$ es la masa del átomo $i$ y $v_i^2$ el módulo de su velocidad. 
 
 También suele ser de interés obtener el valor de la temperatura y de la presión
@@ -611,9 +611,9 @@ utilizando que
 donde $k_B$ es la constante del Boltzmann y $N_f$ los grados de libertad,
 aproximados usualmente por $3N$ para sistemas lo suficientemente grandes. Por 
 último, la presión puede calcularse como 
-$$
+\begin{equation*}
 P = \rho k_B T + \frac{1}{d V} \left\langle \sum_{i<j} \mathbf{f}(\mathbf{r}_{ij}) \cdot \mathbf{r}_{ij} \right\rangle,
-$$
+\end{equation*}
 donde $\rho$ es la densidad, $d$ la dimensión y $V$ el volumen del sistema. El
 segundo término es conocido como el virial, donde $r_{ij}$ y $f(r_{ij})$ son las 
 distancias y las fuerzas entre los átomos $i$ y $j$.
@@ -640,9 +640,9 @@ donde $\beta$ es la energía térmica $k_BT$. Esto quiere decir que la velocidad
 un átomo no se mantiene constante cuando está en contacto con un baño térmico, si 
 no que la misma puede fluctuar y la fluctuación va a depender de dicha temperatura
 de la siguiente forma
-$$
+\begin{equation*}
 \sigma_T^2 = \frac{2}{3 N} \langle T \rangle_{NVT}^2,
-$$
+\end{equation*}
 que proviene de calcular el segundo y el cuarto momento de la ecuación \ref{eq:mb}.
 
 De manera análoga puede dejar de pensarse al volumen como constante y empezar a
@@ -660,30 +660,30 @@ Si se considera la ecuación de Langevin \cite{schneider1978}
 donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, $\gamma$ la
 constante de fricción y $R_i(t)$ es una variable estocástica con media cero 
 y que cumple
-$$
+\begin{equation*}
 \left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij}.
-$$
+\end{equation*}
 Para aplicar este termostato, y simular a temperatura constante, en conjunto con 
 el integrador \textit{velocity Verlet} se tienen que considerar tres parametros
 \cite{kroger2005} a la hora de actualizar las velocidades y las posiciones como
-$$
+\begin{equation*}
 a = \frac{2 - \xi dt}{2 + \xi dt},
-$$
-$$
+\end{equation*}
+\begin{equation*}
 b= \sqrt{k_B T_0 \xi \frac{dt}{2}},
-$$
-$$
+\end{equation*}
+\begin{equation*}
 c= \frac{2 dt}{2 + \xi dt}
-$$
+\end{equation*}
 donde $\xi$ es el factor de fricción, es decir, con qué intensidad interacciona 
 el sistema con el baño térmico. Se tiene entonces una actualización se la siguiente
 manera
-$$
+\begin{equation*}
 v(t+dt) = a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt,
-$$
-$$
+\end{equation*}
+\begin{equation*}
 r(t+dt) = r(t) + c v(t) dt
-$$
+\end{equation*}
 donde $\eta$ es una distribución gaussiana de números aleatorios con media 0 y
 varianza 1. 
 
@@ -694,47 +694,47 @@ El termostato de Berendsen \cite{berendsen1984} puede derivarse si se considera
 la ecuación \ref{eq:langevin} sin el término estocástico y se hace una elección
 en particular de la constante de fricción. Dicha ecuación de movimiento modificada
 representa un escaleo de velocidades, 
-$$
+\begin{equation*}
 v(t) = \lambda v(t),
-$$
+\end{equation*}
 por paso temporal, donde
-$$
+\begin{equation*}
 \lambda = \sqrt{1 + \frac{dt}{\tau_T} \left( \frac{T_0}{T} - 1 \right)}
-$$
+\end{equation*}
 produce un cambio de temperatura igual a
-$$
+\begin{equation*}
 \frac{dT}{dt} = \frac{1}{\tau_T} (T_0 - T)
-$$
+\end{equation*}
 donde $T_0$ es la temperatura de referencia y  $\tau_T$ es la constante de
 acoplamiento con el baño térmico y tiene las mismas unidades que el paso temporal.
 
 Para considerar un acoplamiento con un baño de presión contante, Berendsen 
 \cite{berendsen1984} agrega un término extra a las ecuaciones de movimiento que
 consideran el cambio de presión
-$$
+\begin{equation*}
 \frac{dP}{dt} = \frac{P_0 - P}{\tau_P},
-$$
+\end{equation*}
 donde $P_0$ es la presión de referencia, $P$ la instantánea y $\tau_P$ la 
 constante de acoplamiento. Este comportamiento puede producirse si se realiza un
 cambio en el virial, escaleando las distancias entre las partículas. Si el 
 volumen ahora cambia como 
-$$
+\begin{equation*}
 \frac{dV}{dt} = 3 \alpha V,
-$$
+\end{equation*}
 y se usa que
-$$
+\begin{equation*}
 \frac{dP}{dt} = - \frac{1}{\beta V} \frac{dV}{dt} = -\frac{3\alpha}{\beta},
-$$
+\end{equation*}
 donde $\beta$ es la compresibilidad isotérmica y $\alpha = - \beta (P_0 - P) / (3 \tau_P)$.
 Por lo cual las posiciones de los átomos dentro de la caja de simulación en cada
 dirección pueden escalearse como
-$$
+\begin{equation*}
 x = \mu x,
-$$
+\end{equation*}
 donde
-$$
+\begin{equation*}
 \mu = \sqrt[3]{1 - \frac{dt}{\tau_P} (P_0 - P)}.
-$$
+\end{equation*}
 
 \subsubsection{MD a temperatura constante: Termostato de Nosé-Hoover}
 
@@ -747,39 +747,39 @@ adicionales para obtener el comportamiento deseado ~\cite{rapaport2004}. Lo que
 que provoca que haya dos variables temporales distintas: el tiempo real, o físico, 
 $t'$, y un tiempo escalado, o virtual, $t$; que están relacionados a través de 
 sus diferenciales,
-$$
+\begin{equation*}
 dt = s(t') dt'.
-$$
+\end{equation*}
 El Lagrangiano de este sistema extendido se escribe como
-$$
+\begin{equation*}
 \mathcal{L} = \frac{1}{2} m s^2 \sum_i \dot{\mathbf{r}}_i^2 - \sum_{i<j} u(\mathbf{r}_{ij}) + \frac{1}{2} M_s \dot{s}^2 - n_f T \log s,
-$$
+\end{equation*}
 donde $T$ es la temperatura deseada, $n_f = 3N_m + 1$ el número de grados de 
 libertad, $M_s$ es una masa que se necesita para construir la ecuación de 
 movimiento de la nueva \say{coordenada} $s$ y el punto representa la derivada
 con respecto al tiempo virtual. Las ecuaciones de movimiento de Lagrange pueden 
 obtenerse de la forma usual y son
-$$
+\begin{equation*}
 \ddot{\mathbf{r}}_i = \frac{1}{m s^2} \mathbf{f}_i - \frac{2 \dot{s}}{s} \dot{\mathbf{r}}_i
-$$
-$$
+\end{equation*}
+\begin{equation*}
 M_s \ddot{s} = m s \sum_i \dot{\mathbf{r}}_i^2 - \frac{n_f T}{s}
-$$
+\end{equation*}
 
 Ya que la relación entre t y t' depende de toda la historia del sistema, es decir,
-$$
+\begin{equation*}
 t = \int s(t') dt'
-$$
+\end{equation*}
 es más conveniente si las ecuaciones se transforman a las unidades del tiempo
 físico ~\cite{nose1984b, hoover1985}, ahora el punto pasa a representar la 
 derivada con respecto al tiempo real, y las ecuaciones de movimiento pueden 
 reescribirse como
-$$
+\begin{equation*}
 \ddot{\mathbf{r}}_i = \frac{1}{m} \mathbf{f}_i - \frac{\dot{s}}{s} \dot{\mathbf{r}}_i
-$$
-$$
+\end{equation*}
+\begin{equation*}
 \ddot{s} = \frac{\dot{s}^2}{s} + \frac{G_1 s}{M_s} 
-$$
+\end{equation*}
 donde $G_1 = m \sum_i \dot{\mathbf{r}}_i^2 - n_f T$. La primera de estas 
 ecuaciones de movimiento se asemeja a la ecuación newtoniana convencional con un 
 término adicional similar al de la fricción, aunque no se trata de una fricción 
@@ -795,9 +795,9 @@ constante, pero la retroalimentación negativa que actúa a través de $s$ garan
 que las fluctuaciones sean limitadas y el valor medio sea igual a $T$.
 
 El Hamiltoniano del sistema extendido
-$$
+\begin{equation*}
 \mathcal{H} = \frac{1}{2} m \sum_i \dot{\mathbf{r}}_i^2 + \sum_{i<j} u(\mathbf{r}_{ij}) + \frac{1}{2} M_s \left(\frac{\dot{s}}{s}\right)^2 + n_f T \log s
-$$
+\end{equation*}
 se conserva debido a que no hay fuerzas externas que dependan del tiempo, lo cual 
 proporciona una comprobación útil de la precisión de la solución numérica. El 
 Hamiltoniano no tiene significado físico, sus dos primeros términos representan 
@@ -808,9 +808,9 @@ parte de la técnica computacional de cálculo y su valor debe determinarse
 empíricamente, que, en principio, no afecta a los resultados de equilibrio final, 
 pero sí influye en su precisión y confiabilidad. Para variaciones pequeñas de $s$, 
 el período característico de las fluctuaciones es ~\cite{nose1984a}
-$$
+\begin{equation*}
 \tau_s = 2 \pi \sqrt{\frac{M_s \langle s \rangle^2}{2 n_f T}}
-$$
+\end{equation*}
 y la simulación debe extenderse a lo largo de muchos de estos períodos para evitar 
 que estas fluctuaciones influyan negativamente en los resultados.
 
@@ -836,9 +836,9 @@ La función de distribución radial de a pares (RDF, de sus siglas en inglés
 \textit{radial distribution function}), usualmente referida como $g(r)$, permite 
 caracterizar la estructura local de un fluido describiendo la probabilidad de 
 encontrar un átomo en una cáscara a una distancia $r$ de un átomo de referencia,
-$$
+\begin{equation*}
 g(r) = \frac{V}{N^2} \left\langle \sum_{i=1, i\neq j}^N \delta(\vec{r} - \vec{r}_{ij}) \right\rangle,
-$$
+\end{equation*}
 donde $\langle \cdot \rangle$ indica el promedio temporal, $V$ el volumen, $N$ el
 número de partículas y $\vec{r}_{ij}$ la distancia entra la partícula $i$ y la $j$.
 Esta cantidad puede calcularse como la razón entre la densidad media $\rho$ a
@@ -859,9 +859,9 @@ pueden tomarse dos alternativas, la primera de ellas contando el número de
 vecinos que rodean a un determinado tipo de átomo en promedio hasta un cierto
 radio de corte $r_e$, definido por el mínimo en la RDF después de su primer 
 pico; la segunda de ellas a partir de la integral de la RDF,
-$$
+\begin{equation*}
 \int_0^{r_e} g(r) dV.
-$$
+\end{equation*}
 De manera análoga pueden definirse el número de coordinación para segundos 
 vecinos y así sucesivamente.
 
@@ -880,9 +880,9 @@ es el coeficiente de difusión de traza
 donde $d$ es la dimensión del problema, $t$ el tiempo y 
 $\langle \Delta r^2 \rangle$ el desplazamiento cuadrático medio, que en un sistema 
 de $N$ partículas puede calcularse de la siguiente manera
-$$
+\begin{equation*}
 \langle \Delta r^2 \rangle = \frac{1}{N} \sum_{i=1}^{N} \langle |\vec{r_i}(t) - \vec{r_i}(t_0)|^2 \rangle.
-$$
+\end{equation*}
 
 Si se conoce el coeficiente de difusión de traza, entonces el coeficiente de 
 difusión químico puede obtenerse de la siguiente relación ~\cite{gomer1990}
@@ -898,9 +898,9 @@ el desplazamiento cuadrático medio a distintas temperaturas altas y extrapolar
 el valor que se obtendría a temperatura ambiente mediante una ecuación de tipo 
 Arrhenius, en la cual el coeficiente de difusión puede separarse en un 
 prefactor $D_0$ y un término tipo Boltzmann,
-$$
+\begin{equation*}
 D = D_0 e^{-E / k_BT},
-$$
+\end{equation*}
 donde $E$ es la energía de activación del proceso. 
 
 

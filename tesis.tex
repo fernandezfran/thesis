@@ -106,6 +106,15 @@
     \newpage
 }
 
+% para borrar los items de itemize
+\renewenvironment{itemize}{
+\begin{list}{}{
+\setlength{\leftmargin}{1.5em}
+}
+}{
+\end{list}
+}
+
 % para, desde el índice, poder clickear a que página ir
 %\usepackage[obeyspaces]{url}
 \usepackage[breaklinks=true,hidelinks]{hyperref} 
@@ -119,6 +128,10 @@
 \graphicspath{{src/imagenes/}}
 % subfiguras, definidas en columnas, por ej
 \usepackage{subcaption}
+
+% para algunos símbolos en las ecuaciones
+\usepackage[fleqn]{amsmath}  % fleqn = flush left equations
+\setlength{\mathindent}{24pt}
 
 % tabla en vez de cuadro
 \usepackage[tableposition=top]{caption}
@@ -136,10 +149,6 @@
 
 % para acomodar mejor las posiciones de figuras/tablas
 \usepackage{float}
-
-% para algunos símbolos en las ecuaciones
-\usepackage{amsmath}
-\usepackage{mathtools}  % cases
 
 
 
