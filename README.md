@@ -19,7 +19,7 @@ several requirements, some of which are the following
 
 + Machine learning for scarse data, ECI, DC, UBA. 15 hrs, Jul 26--30, 2021.
 
-+ [Software design for scientific computin](https://github.com/leliel12/diseno_sci_sfw), 
++ [Software design for scientific computing](https://github.com/leliel12/diseno_sci_sfw), 
 FAMAF, UNC. 60 hrs, 2021.
 
 + [Python programming](https://github.com/python-unsam/Programacion_en_Python_UNSAM),
@@ -48,9 +48,9 @@ batteries. Apr 22, 2022. _Aula Magna, FAMAF._
 ## Scientific articles
 
 1. Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
-accelerated exploration of local minima. _Physical Chemistry Chemical Physics_,
-202. <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. 
-[https://doi.org/10.1039/D1CP02216D].
+accelerated exploration of local minima. _Physical Chemistry Chemical Physics_, 2021. 
+<ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. 
+https://doi.org/10.1039/D1CP02216D
 
 
 ## Conference presentations
@@ -63,20 +63,19 @@ simulations"
 _Cochabamba, Bolivia/Online_. Nov 8-10, 2021. Poster: "Amorphous Li-Si structures 
 found via a novel simulation method using a reactive force field". 
 
-+ 72 nd Annueal Meeting of the International Society of Electrochemistry. 
++ 72 nd Annual Meeting of the International Society of Electrochemistry. 
 _Jeju Island, Korea/Online_. Aug 29-Sep 3, 2021. Talk: "Kinectic modeling on 
 lithium-ion instertion in prototypical systems", _co-autor_.
 
 + XII Argentina Congress of Physical Chemistry and Inorganic Chemistry. _La 
 Plata, Argentina/Online_. Aug 19-29, 2021. Talk: "A journey through the nanoworld 
-of Li batteries" _co-author_.
+of Li batteries", _co-author_.
 
 + 7 th IWLiME. _Antofagasta, Chile/Online_. Nov 9-11, 2020. Poster: "First steps 
 towards reproducing chemical shifts spectra of c-LiSi alloys using a 
 semi-empirical force field".
 
-+ Workshop on scientific programming techniques. _Córdoba, Argentina_. Jul 15–26, 
-2019.
++ Workshop on scientific programming techniques. _Córdoba, Argentina_. Jul 15–26, 2019.
 
 
 ----------------------------------------------------------------------------------
