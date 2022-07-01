@@ -8,12 +8,14 @@ PhD thesis carried out at [LaES](http://www.laesunc.com/laes/), which is part of
 Advisors: Prof. Dr. Daniel Barraco & Prof. Dr. Ezequiel Leiva
 
 
-----------------------------------------------------------------------------------
-
 ## PhD requirements fulfilled
 
 In order to obtain the PhD in Physics at FAMAF, UNC, it is necessary to fulfill 
 several requirements, some of which are the following
+
+### Dissertation
+
+TODO
 
 ### Postgraduate courses
 
@@ -42,18 +44,25 @@ FAMAF, UNC. 120 hrs, 2020.
 + Machine learning interatomic potentials and their application to lithium 
 batteries. Apr 22, 2022. _Aula Magna, FAMAF._ 
 
++ 2 nd seminar talk: TODO
 
-----------------------------------------------------------------------------------
 
-## Scientific articles
+## Abstract
 
-1. Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
+TODO
+
+
+## Research activity
+
+### Scientific articles
+
++ Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
 accelerated exploration of local minima. _Physical Chemistry Chemical Physics_, 2021. 
 <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. 
 https://doi.org/10.1039/D1CP02216D
 
 
-## Conference presentations
+### Conference presentations
 
 + 1 st National Lithium Meeting. _Argentina/Online_. Dec 1-3, 2021. Poster: 
 "Electrochemical and structural behavior of silicon anodes based on computational 
@@ -77,8 +86,6 @@ semi-empirical force field".
 
 + Workshop on scientific programming techniques. _Córdoba, Argentina_. Jul 15–26, 2019.
 
-
-----------------------------------------------------------------------------------
 
 ## Instructions to generate the thesis
 
