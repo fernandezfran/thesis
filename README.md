@@ -10,12 +10,19 @@ Advisors: Prof. Dr. Daniel Barraco & Prof. Dr. Ezequiel Leiva
 
 ## PhD requirements fulfilled
 
-In order to obtain the PhD in Physics at FAMAF, UNC, it is necessary to fulfill 
-several requirements, some of which are the following
+In order to obtain the [PhD in Physics at UNC (FAMAF)](https://www.famaf.unc.edu.ar/academica/post-grado/doctos/doctorado-en-f%C3%ADsica/), 
+it is necessary to fulfill several requirements, some of which are the following
 
 ### Dissertation
 
 TODO
+
+### PhD seminars
+
++ Machine learning interatomic potentials and their application to lithium 
+batteries. Apr 22, 2022. _Aula Magna, FAMAF._ 
+
++ 2 nd seminar talk: TODO
 
 ### Postgraduate courses
 
@@ -38,13 +45,6 @@ FAMAF, UNC. 120 hrs, 2020.
 + Computer simulations in condensed matter systems, FCQ, UNC. 40 hrs, 2019.
 
 + Electrochemistry, FCQ, UNC. 80 hrs, 2019.
-
-### PhD seminars
-
-+ Machine learning interatomic potentials and their application to lithium 
-batteries. Apr 22, 2022. _Aula Magna, FAMAF._ 
-
-+ 2 nd seminar talk: TODO
 
 
 ## Abstract
