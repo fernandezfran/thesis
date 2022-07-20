@@ -64,9 +64,13 @@ https://doi.org/10.1039/D1CP02216D
 
 ### Conference presentations
 
++ XXI Meeting of surfaces and nanostructured materials. _Río Cuarto, Argentina_. 
+Aug 9--11, 2022. Poster Flash: "Short range order of amorphous structures in
+silicon anodes using a semiempirical reactive potential".
+
 + 1 st National Lithium Meeting. _Argentina/Online_. Dec 1-3, 2021. Poster: 
 "Electrochemical and structural behavior of silicon anodes based on computational 
-simulations"
+simulations".
 
 + 8 th International Workshop on Lithium, Industrial Minerals and Energy (IWLiME).
 _Cochabamba, Bolivia/Online_. Nov 8-10, 2021. Poster: "Amorphous Li-Si structures 
