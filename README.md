@@ -64,6 +64,10 @@ https://doi.org/10.1039/D1CP02216D
 
 ### Conference presentations
 
++ 107th Argentine Physics Association Meeting. _Bariloche, Argentina_. 
+Sep 27--30, 2022. Talk: "Development of lithium-ion battery materials: 
+Computational physics applied to the optimization of silicon anodes".
+
 + XXI Meeting of surfaces and nanostructured materials. _Río Cuarto, Argentina_. 
 Aug 9--11, 2022. Poster Flash: "Short range order of amorphous structures in
 silicon anodes using a semiempirical reactive potential".
