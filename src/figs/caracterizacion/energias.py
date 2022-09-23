@@ -20,7 +20,7 @@ anchos = np.array(
     [[0.002, 0.001, 0.0009], [0.0009, 0.0009, 0.0009], [0.0009, 0.0009, 0.0009]]
 )
 
-plt.rcParams.update({"font.size": 12})
+plt.rcParams.update({"font.size": 10})
 fig, axes = plt.subplots(3, 3, sharey="row")
 
 fig.text(0.5, 0.005, "E / N [eV]", ha="center")
