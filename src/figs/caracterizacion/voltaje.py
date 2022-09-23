@@ -16,6 +16,7 @@ xdft, vdft = np.loadtxt("_data/voltaje/v-chev.dat", delimiter=",", unpack=True)
 xexp1, vexp1 = np.loadtxt("_data/voltaje/v1-exp.dat", delimiter=",", unpack=True)
 xexp2, vexp2 = np.loadtxt("_data/voltaje/v2-exp.dat", delimiter=",", unpack=True)
 
+plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"$x$ en Li$_x$Si")
@@ -37,7 +38,8 @@ ax.legend(loc=3)
 ####################        formation energy inset         #######################
 fontsize = 8
 
-left, bottom, width, height = [0.61, 0.527, 0.35, 0.35]
+# left, bottom, width, height = [0.61, 0.527, 0.35, 0.35]  # font.size default
+left, bottom, width, height = [0.55, 0.529, 0.35, 0.35]  # font.size 12
 ax2 = fig.add_axes([left, bottom, width, height])
 
 ax2.tick_params(axis="both", which="major", labelsize=fontsize)
@@ -54,6 +56,7 @@ ax2.plot(x, fes, color=nordred, label="spline")
 ax2.legend(prop={"size": fontsize})
 ##################################################################################
 
-fig.tight_layout()
+# fig.tight_layout()  # font.size default
 
 fig.savefig("voltaje.png", dpi=600)
+plt.show()

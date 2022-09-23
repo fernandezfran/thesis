@@ -15,6 +15,7 @@ x, fvc = np.loadtxt("_data/fvc/fvc.dat", unpack=True)
 df = pd.read_csv("_data/fvc/afm.csv")
 xdft = np.array([0, 4.25])
 
+plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"$x$ en Li$_x$Si")

@@ -17,7 +17,7 @@ def color_fader(mix):
 concentraciones = [0.21, 0.62, 1.25, 1.71, 2.17, 2.71, 3.25, 3.75, 4.2]
 n = len(concentraciones)
 
-plt.rcParams.update({"font.size": 14})
+plt.rcParams.update({"font.size": 16})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"r$_{cut}$ [$\AA$]")

@@ -15,6 +15,7 @@ nordgreen = "#A3BE8C"
 nordblue = "#5E81AC"
 
 
+plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
 ax.set_xlim((0, 700))
@@ -23,8 +24,8 @@ ax.set_ylim((0, 1100))
 ax.set_xlabel(r"Densidad de energía gravimétrica [Wh/kg]")
 ax.set_ylabel(r"Densidad de energía volumétrica [Wh/L]")
 
-ax.text(500, 25, "Más livianas")
-ax.text(10, 800, "Más chicas", rotation="vertical")
+ax.text(475, 17.5, "Más livianas", fontsize=14)
+ax.text(10, 750, "Más chicas", rotation="vertical", fontsize=14)
 
 ax.arrow(40, 750, 0, 300, width=2, length_includes_head=True, head_length=15, head_width=5, color=nordgray)
 ax.arrow(475, 75, 180, 0, width=2, length_includes_head=True, head_length=10, head_width=10, color=nordgray)

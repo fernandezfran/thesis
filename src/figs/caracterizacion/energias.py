@@ -4,6 +4,7 @@
 """Todos los histogramas de energias potencial."""
 
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FormatStrFormatter
 import numpy as np
 
 nordred = "#BF616A"
@@ -19,6 +20,7 @@ anchos = np.array(
     [[0.002, 0.001, 0.0009], [0.0009, 0.0009, 0.0009], [0.0009, 0.0009, 0.0009]]
 )
 
+plt.rcParams.update({"font.size": 12})
 fig, axes = plt.subplots(3, 3, sharey="row")
 
 fig.text(0.5, 0.005, "E / N [eV]", ha="center")
@@ -29,6 +31,8 @@ for conc, axis, anch in zip(concentraciones, axes, anchos):
 
         ax.grid(axis="x", linestyle=":")
         ax.set_ylim((0.0, 0.3))
+
+        ax.xaxis.set_major_formatter(FormatStrFormatter("%.2f"))
 
         if x in [0.21, 2.17, 4.2]:
             xx, yy = np.loadtxt(f"_data/energias/md/{x}.dat", unpack=True)

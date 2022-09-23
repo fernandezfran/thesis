@@ -18,11 +18,11 @@ concentraciones = [0.21, 0.62, 1.25, 1.71, 2.17, 2.71, 3.25, 3.75, 4.2]
 nsis = [667, 670, 671, 672, 319, 319, 320, 288, 320]
 n = len(concentraciones)
 
-plt.rcParams.update({"font.size": 14})
+plt.rcParams.update({"font.size": 16})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"r$_{cut}$ [$\AA$]")
-ax.set_ylabel(r"Cantidad de clusters de átomos de Si / N$_{Si}$")
+ax.set_ylabel(r"Cantidad de clusters de Si / N$_{Si}$")
 
 ax.grid(axis="both", linestyle=":")
 

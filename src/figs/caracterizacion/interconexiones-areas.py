@@ -9,6 +9,7 @@ import numpy as np
 nordgreen = "#A3BE8C"
 nordpink = "#B48EAD"
 
+plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"$x$ en Li$_x$Si")

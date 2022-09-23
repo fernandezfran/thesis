@@ -10,6 +10,7 @@ nordblue = "#5E81AC"
 nordgreen = "#A3BE8C"
 nordorange = "#D08770"
 
+plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"$x$ en Li$_x$Si")

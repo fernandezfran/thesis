@@ -34,6 +34,7 @@ if sys.argv[1] == "SiSi":
 e1 = sys.argv[1][:2]
 e2 = sys.argv[1][2:]
 
+plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"r [$\AA$]")
