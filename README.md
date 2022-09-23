@@ -26,6 +26,8 @@ batteries. Apr 22, 2022. _Aula Magna, FAMAF._
 
 ### Postgraduate courses
 
++ Machine Learning School for Materials @ Ilum, CNPEM. 20 hrs, Sep 5--7, 2022.
+
 + Machine learning for scarse data, ECI, DC, UBA. 15 hrs, Jul 26--30, 2021.
 
 + [Software design for scientific computing](https://github.com/leliel12/diseno_sci_sfw), 
