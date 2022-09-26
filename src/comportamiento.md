@@ -25,3 +25,8 @@ experimentos).
 ### ReaxFF
 
 ### DFTB
+
+-------------------------------------------
+
+Comentar que el valor del coeficiente de difusión tiende a la autodifusión
+del litio (citar papers de 0926)

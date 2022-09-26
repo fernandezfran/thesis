@@ -23,7 +23,7 @@ ax.set_xlabel(r"$x$ en Li$_x$Si")
 ax.secondary_xaxis(
     "top", functions=(lambda x: 4056.2 * x / 4.25, lambda x: 4056.2 * x / 4.25)
 ).set_xlabel(r"Capacidad [mAhg$^{-1}$]")
-ax.set_ylabel("Voltaje [V]")
+ax.set_ylabel(r"Voltaje [V vs Li/Li$^+$]")
 
 ax.set_ylim((-0.01, 0.8))
 ax.set_xlim((0, 4.25))
