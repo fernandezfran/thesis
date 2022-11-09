@@ -3,17 +3,21 @@
 #
 # https://stackoverflow.com/questions/25668828/how-to-create-colour-gradient-in-python
 
-"""Ejemplo para generar gradiente de colores entre dos extremos nord."""
+"""Ejemplo para generar gradiente de colores y cmap entre dos extremos nord."""
 
 import matplotlib.pyplot as plt
-from matplotlib import colors
+import matplotlib.colors
 import numpy as np
 
 
 def color_fader(c1, c2, mix):
-    c1 = np.array(colors.to_rgb(c1))
-    c2 = np.array(colors.to_rgb(c2))
-    return colors.to_hex((1 - mix) * c1 + mix * c2)
+    c1 = np.array(matplotlib.colors.to_rgb(c1))
+    c2 = np.array(matplotlib.colors.to_rgb(c2))
+    return matplotlib.colors.to_hex((1 - mix) * c1 + mix * c2)
+
+def colormap(c1, c2):
+    colors = [color_fader(c1, c2, v) for v in np.linspace(0, 1, num=100)]
+    return matplotlib.colors.ListedColormap(colors)
 
 
 nordblue = "#5E81AC"
