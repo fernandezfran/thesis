@@ -1,6 +1,6 @@
 # Computational simulations for next-generation lithium-ion battery electrode development
 
-PhD thesis carried out at [LaES](http://www.laesunc.com/laes/), which is part of 
+PhD thesis carried out at [LAES](http://www.laesunc.com/laes/), which is part of 
 [FAMAF](https://www.famaf.unc.edu.ar/), [FCQ](http://www.fcq.unc.edu.ar/) and 
 [FCEFyN](https://fcefyn.unc.edu.ar/) of the 
 [Universidad Nacional de Córdoba](https://www.unc.edu.ar/).
