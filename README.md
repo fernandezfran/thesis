@@ -58,6 +58,10 @@ TODO
 
 ### Scientific articles
 
++ Density Functional Tight-Binding Model for Lithium-Silicon Alloys. _ChemRxiv_, 2022.
+B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. 
+https://doi.org/10.26434/chemrxiv-2022-5s955
+
 + Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
 accelerated exploration of local minima. _Physical Chemistry Chemical Physics_, 2021. 
 <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. 
@@ -101,6 +105,7 @@ semi-empirical force field".
 
 The thesis is compiled using the Makefile:
 ```bash
+cd src/
 make
 xdg-open tesis.pdf
 make clean
