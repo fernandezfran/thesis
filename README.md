@@ -26,15 +26,8 @@ batteries. Apr 22, 2022. _Aula Magna, FAMAF._
 
 ### Postgraduate courses
 
-+ Machine Learning School for Materials @ Ilum, CNPEM. 20 hrs, Sep 5--7, 2022.
-
-+ Machine learning for scarse data, ECI, DC, UBA. 15 hrs, Jul 26--30, 2021.
-
 + [Software design for scientific computing](https://github.com/leliel12/diseno_sci_sfw), 
 FAMAF, UNC. 60 hrs, 2021.
-
-+ [Python programming](https://github.com/python-unsam/Programacion_en_Python_UNSAM),
-ECyT, UNSAM. 96 hrs, 2021.
 
 + [Parallel computing](https://cs.famaf.unc.edu.ar/~nicolasw/Docencia/CP/2020/index.html),
 FAMAF, UNC. 120 hrs, 2020.
@@ -47,6 +40,19 @@ FAMAF, UNC. 120 hrs, 2020.
 + Computer simulations in condensed matter systems, FCQ, UNC. 40 hrs, 2019.
 
 + Electrochemistry, FCQ, UNC. 80 hrs, 2019.
+
+### Extra postgraduate courses
+
+These courses were not part of the formal requirements for the PhD, but they 
+contributed to my training and the concepts covered have been used throughout 
+my research.
+
++ Machine Learning School for Materials @ Ilum, CNPEM. 20 hrs, Sep 5--7, 2022.
+
++ Machine learning for scarse data, ECI, DC, UBA. 15 hrs, Jul 26--30, 2021.
+
++ [Python programming](https://github.com/python-unsam/Programacion_en_Python_UNSAM),
+ECyT, UNSAM. 96 hrs, 2021.
 
 
 ## Abstract
