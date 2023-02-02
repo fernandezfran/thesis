@@ -8,7 +8,7 @@
     En este capítulo se caracterizan estructuralmente las aleaciones amorfas de
     Li$_x$Si a distintas concentraciones, mediante simulaciones computacionales,
     utilizando un campo de fuerzas reactivo y una exploración acelerada de mínimos
-    locales propuesta aquí para encontrar estructuras cercanas al equilibrio. Se
+    locales, propuesta aquí para encontrar estructuras cercanas al equilibrio. Se
     analiza la distribución radial de a pares, los números de coordinación de los
     primeros y segundos vecinos más cercanos y el ordenamiento a corto alcance.
     Además, la estructura compleja del segundo pico de la $g(r)$ de Si-Li es 
@@ -24,7 +24,7 @@
 
 La información experimental que puede obtenerse de la estructuras de las 
 distintas fases amorfas que se forman durante el ciclado de los electrodos de 
-silicio es bastante limitada. Las estructuras de la red o de la interfase son 
+silicio es bastante limitada. Estas estructuras son 
 inestables y amorfas, lo cual dificulta su caracterización mediante técnicas
 experimentales tradicionales. Por ejemplo, la difracción de rayos x permitió
 caracterizar la fase cristalina Li$_{15}$Si$_4$ que está presente en el electrodo
@@ -35,7 +35,7 @@ de la función distribución de a pares de Si \textit{ex-situ} de datos de rayos
 hizo posible investigar el orden a corto alcance de las estructuras amorfas de
 Li$_x$Si ~\cite{key2011} y proponer una explicación al mecanismo de litiación.
 Sin embargo, como los elementos livianos como el Li tienen baja sensibilidad a 
-los rayos x, las conclusiones están simplificadas a la formación de pequeños 
+los rayos x, las conclusiones están restringidas a la formación de pequeños 
 clusters de Si o de átomos de Si aislados durante la litación, lo cual limita la 
 descripción de la estructura a una escala mayor.
 
@@ -44,15 +44,14 @@ herramienta poderosa para acceder al comportamiento microscópico de las
 estructuras de Li$_x$Si y los cambios que sufren durante la litiación. Actualmente
 no existe un único modelo computacional robusto que permita estudiar todos los
 diferentes procesos presentes en los electrodos de silicio, por lo que se han 
-llevado a cabo distintos esfuerzos en los últimos años para estudiar este sistema.
-Donde el mayor obstáculo está relacionado con la naturaleza intrínseca de 
+llevado a cabo distintos esfuerzos en los últimos años para estudiar este sistema,
+donde el mayor obstáculo está relacionado con la naturaleza intrínseca de 
 multi-escala del silicio. A pesar de su gran precisión, los estudios de DFT se
 encuentran drásticamente limitados en el número de átomos que se pueden utilizar
 para modelar las estructuras complejas de las fases litiadas. Una solución a este
 problema es utilizar potenciales interatómicos semi-empíricos, para los cuales 
-se necesita una parametrización que se robusta y transferible. Como esta 
-parametrización esta fuera de los objetivos que plantea esta tesis, en este 
-capítulo se utiliza una realizada para un potencial reactivo, introducido en 
+se necesita una parametrización que se robusta y transferible. En este 
+capítulo se utiliza un potencial reactivo, introducido en 
 la sección \ref{s:reaxff}, para sistemas de Li-Si previamente realizada por Fan 
 \textit{et al.} ~\cite{fan2013}, en la cual optimizaron el campo de fuerzas usando
 cálculos de DFT, considerando datos de las energías, distintas geometrías y cargas
@@ -77,7 +76,7 @@ silicio amorfo (a-Si) y silicio cristalino (c-Si) en diferentes orientaciones
 cristalográficas ~\cite{chen2020, kim2015}. Ding \textit{et al.} ~\cite{ding2017} 
 reportó la variación de la velocidad de migración en la frontera de fases y la 
 difusividad de Li en función del estrés externo aplicado, exponiendo que la 
-tensión acelera la razón de litiación, mientras que la compresión la retarda. Kim 
+tensión acelera la velocidad de litiación, mientras que la compresión la retarda. Kim 
 \textit{et al.} ~\cite{kim2014} realizó simulaciones de MD para caracterizar la 
 evolución estructural de la frontera de fases entre c-Si, con diferentes planos 
 de orientación, con una fase amorfa de litiación máxima. Posteriormente, Fan 
@@ -88,16 +87,16 @@ Un trabajo similar, pero para la orientación (100), fue realizado por Cao
 la evolución y la permanencia de la porosidad de nanocapas de Si durante los 
 procesos de litiación y delitiación. Ostadhossein \textit{et al.} 
 ~\cite{ostadhossein2015} caracterizó la litiación de nanohilos de c-Si y mostró
-que este potencial ReaxFF reproduce precisamente las barreras de energía de la
+que este potencial ReaxFF reproduce en forma precisa las barreras de energía de la
 migración de Li obtenidas por DFT, tanto en c-Si como en a-Si.
 
-Este potencial no estuvo sólo limitado al uso en MD, sino que fue aplicado a otros
+La aplicación de este potencial no estuvo sólo limitada a simulaciones de MD, sino que fue empleado en otros
 métodos de simulación, por ejemplo, simulaciones de Monte Carlo en el ensamble
-gran canónico fueron realizadas para estudiar un ciclo de litiación y delitiación
+gran canónico, que fueron realizadas para estudiar un ciclo de litiación y delitiación
 de un electrodo de a-Si ~\cite{basu2019}. Trochet y Mousseau ~\cite{trochet2017}
 caracterizaron el paisaje energético a concentraciones relativamente bajas de 
 impurezas de Li en c-Si, usando una técnica de activación-relajación cinética. 
-Kim \textit{et al.} ~\cite{kim2017} desarrolló un algoritmo para investigar la 
+Kim \textit{et al.} ~\cite{kim2017} desarrollaron un algoritmo para investigar la 
 respuesta a la delitiación de una capa delgada de silicio recubierta de óxido de 
 aluminio. El ReaxFF también fue combinado con otros campos de fuerza, como los
 potenciales de Tersoff y Lennard-Jones, para simular la litiación de 
@@ -107,7 +106,7 @@ correlación entre el crecimiento del estrés y la densidad de carga
 fueron reportadas por Verners y Simone ~\cite{verners2019}. 
 
 No es posible llevar a cabo un estudio sobre las propiedades electrónicas con el 
-uso del ReaxFF ya que es una de sus limitaciones.  Sin embargo, de la discusión 
+uso del ReaxFF, ya que esta es una de sus limitaciones.  Sin embargo, de la discusión 
 previa, puede observarse que ha sido capaz de predecir un número importante de
 propiedades del sistema Li-Si.
 
@@ -118,15 +117,15 @@ propiedades del sistema Li-Si.
 
 En este capítulo se estudian las propiedades de las estructuras amorfas Li$_x$Si
 para distintos valores de $x$ en un rango que va de 0.21 a 4.2. Para algunas de
-estas concentraciones se encuentran estructuras cristalinas de LiSi, las cuales 
+estas concentraciones se encuentran estructuras cristalinas, las cuales 
 fueron extraídas del Materials Project ~\cite{materials_project} 
 (mp-1314, mp-672287, mp-569849, mp-29720) y sus posiciones utilizadas para definir
 los estados iniciales. Las celdas primitivas de las estructuras cristalinas se
 muestran en la figura \ref{fig:cristalinas}, donde están en orden creciente de 
-concentración de Li, las mismas son Si, LiSi, Li$_{12}$Si$_7$, Li$_7$Si$_3$, 
+concentración de Li. Las mismas son Si, LiSi, Li$_{12}$Si$_7$, Li$_7$Si$_3$, 
 Li$_{13}$Si$_4$, Li$_{15}$Si$_4$, Li$_{21}$Si$_5$ y Li. En la estructura de LiSi
 se tiene una remanencia del diamante de Si en los enlaces, en la Li$_{12}$Si$_7$ 
-hay dos tipos de clusters de átomos de Si, pentagonos y estrellas, en la
+hay dos tipos de clusters de átomos de Si, pentágonos y estrellas, en la
 Li$_7$Si$_3$ los átomos de Si se encuentran en mancuernas, en la Li$_{13}$Si$_4$ 
 se tienen las mismas mancuernas junto a algunos átomos aislados y, por último, 
 todos los átomos de Si se encuentran aislados tanto en la Li$_{15}$Si$_{4}$ como
@@ -137,7 +136,7 @@ iniciales para simular estructuras amorfas a las concentraciones correspondiente
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{caracterizacion/cristalinas.png}
-    \caption{Estructuras cristalinas de LiSi. Las estructuras no están a escala 
+    \caption{Estructuras cristalinas de Li-Si. Las estructuras no están a escala 
     entre sí. Los átomos de Si se muestran en azul y los de Li en verde, mientras
     que la celda periódica en gris. Los enlaces de Si-Si están graficados si la 
     distancia entre dos de estos átomos es menor a 2.5\AA.}
@@ -147,7 +146,7 @@ iniciales para simular estructuras amorfas a las concentraciones correspondiente
 \subsection{Protocolo de delitiación}
 
 Para obtener configuraciones iniciales para valores de $x$ distintos a los de las 
-cristalinas se siguió un protocolo de delitiación en el cual se selecciona la 
+cristalinas se siguió un protocolo de delitiación, en el cual se selecciona la 
 estructura cristalina más cercana con un valor de $x$ superior al deseado,
 se le extrae un átomo de Li de manera aleatoria y se realiza una dinámica en el 
 ensamble NPT durante 2 ps para relajar el volumen. Para estas simulaciones se 
@@ -164,7 +163,7 @@ acelerada de mínimos locales que se introduce en la siguiente sección.
 
 Las simulaciones de MD tienen un gran poder predictivo para el estudio de 
 procesos presentes en las baterías de litio, sin embargo, las escalas de tiempo
-están limitadas de unos pocos ns o $\mu$s. El número de operaciones que se 
+están limitadas a unos pocos ns o $\mu$s. El número de operaciones que se 
 necesita para alcanzar las escalas de tiempo de la operación de una batería 
 experimental son prohibitivos, incluso considerando el uso de potenciales 
 semi-empíricos como el ReaxFF en supercomputadoras. Como consecuencia de esto,
@@ -184,7 +183,7 @@ relevantes cercanas al equilibrio ~\cite{hao2015}.
 La presente técnica de simulación, exploración acelerada de mínimos locales (AELM,
 de sus siglas en inglés \textit{accelerated exploration of local minima}), es 
 similar a la MSA pero en vez de calentar y enfriar lentamente el sistema, se 
-utiliza un sesgo en la función de energía potencial para sobrepasar las barrearas
+utiliza un sesgo en la función de energía potencial para sobrepasar las barreras
 de energía y luego se realiza una minimización local, con algún minimizador local 
 como gradientes conjugados o LBFGS, para encontrar el mínimo. Este método permite 
 obtener muchas estructuras con energías mínimas relevantes, que son de interés a 
@@ -192,9 +191,9 @@ la hora de estudiar electrodos de Li-Si muy ciclados.
 
 Las aleaciones de Li-Si presentan interacciones fuertes entre los átomos que las
 conforman, especialmente en el enlace Si-Si donde la energía de enlace es del
-orden de $\approx$2 eV ~\cite{wypych2018handbook}. Las barreras de 
-energía potencial se espera que sean de ese orden de magnitud, por lo cual un 
-muestreo de una MD a temperatura ambiente parece no tener solución. Para explorar 
+orden de $\approx$2 eV ~\cite{wypych2018handbook}. Se espera que las barreras de 
+energía potencial sean de ese orden de magnitud, por lo cual un 
+muestreo de una MD a temperatura ambiente parece no ser viable. Para explorar 
 ampliamente las distintas configuraciones del sistema, $\mathbf{r}$, se 
 transforma la superficie de energía potencial (PES, de sus siglas en inglés 
 \textit{potencial energy surface}), $V(\mathbf{r})$, usando un potencial sesgado
@@ -219,11 +218,11 @@ cambios grandes en las energías de interacción, comparado con la energía tér
 $k_BT$, lo que implica que la función exponencial en $w$ toma valores muy grandes,
 esto provoca que el procedimiento numérico sea inestable y la recuperación de 
 la propiedad de interés, como la energía potencial, no sea posible. Ya que este
-capítulo se centra en un estudio estructural de los sistemas, podemos descartar
+capítulo se centra en un estudio estructural de los sistemas, podemos ignorar
 el cálculo del tiempo real evolucionado en la simulación. Además, como el 
 funcionamiento de las baterías luego se da a temperatura ambiente, es de esperar
 que una vez que se alcanza un mínimo local el sistema explore configuraciones
-cercanas a este. Por lo cual se aplica el método de gradientes conjugados (CG)
+cercanas a este. Por este motivo se aplica el método de gradientes conjugados (CG)
 a cada una de las configuraciones de la HD y de esa forma se muestrea la 
 multiplicidad de estructuras.
 
@@ -346,7 +345,7 @@ se comparan los valores obtenidos con datos experimentales de AFM (\textit{atomi
 force microscopy}, sus siglas en inglés) medidos por Beaulieu \textit{et al.} 
 ~\cite{beaulieu2003} y con predicciones de DFT con un cambio volumétrico fijo 
 utilizado por Chevrier y Dahn ~\cite{chevrier2009}. Los mismos muestran que el
-potencial ReaxFF proporciona una tendencia correcta tanto cualitativa como 
+potencial ReaxFF proporciona una tendencia correcta, tanto cualitativa como 
 cuantitativamente.
 \begin{figure}[th]
     \centering
@@ -384,7 +383,7 @@ cuantitativamente.
     }{}
     \label{t:fe}
 \end{table}
-Las energías obtenidas pueden ser utilizadas para testear el funcionamiento del 
+Las energías obtenidas pueden ser utilizadas para evaluar el funcionamiento del 
 modelo para predecir propiedades electroquímicas, como fue sugerido por Chevrier
 y Dahn ~\cite{chevrier2009}. Primero, se define la energía de formación de las 
 distintas estructuras amorfas como
@@ -401,19 +400,19 @@ potencial \textit{versus} Li metálico de Li$_x$Si puede obtenerse a partir de
 donde $V$ es el potencial. Los datos obtenidos así pueden compararse con valores
 experimentales y computacionales previos. Las energías de formación calculadas
 a partir de la ecuación \ref{eq:fe} se muestran en la tabla \ref{t:fe}. 
-Realizándoles un \textit{spline} a estos valores, mostrados en el recuadro de la
-figura \ref{fig:voltaje}, los valores de $V(x)$ son obtenidos de la ecuación
-\ref{eq:voltaje} y son graficados en función de la composición en la figura 
+Si se realiza un \textit{spline} a estos valores, mostrados en el recuadro de la
+figura \ref{fig:voltaje}, se obtienen los valores de $V(x)$ a partir de la ecuación
+\ref{eq:voltaje}, que se grafican en función de la composición en la figura 
 \ref{fig:voltaje} con una línea roja. Para comparar, se incluye en la misma figura
 las curvas experimentales medidas para la litiación y la delitiación de silicio
 amorfo ~\cite{hatchard2004} y la curva teórica de cálculos de primeros principios 
 ~\cite{chevrier2009}. Se puede afirmar que los resultados obtenidos con el ReaxFF 
-son bastante satisfactorios.
+son satisfactorios.
 \begin{figure}[th]
     \centering
     \includegraphics[width=0.8\textwidth]{caracterizacion/voltaje.png}
-    \caption{Curvas potencial-concentración de la litiación de ánodos de Si.
-    La línea negra se corresponde con cálculos de DFT, las líneas azules con 
+    \caption{Curvas potencial-concentración para la litiación de ánodos de Si.
+    La línea negra corresponde a cálculos de DFT, las líneas azules a 
     curvas medidas experimentalmente en la litiación de Si amorfo y la línea 
     roja es la derivada del \textit{spline} ajustado a los datos de la energía 
     de formación obtenidos con el ReaxFF, presentados en el recuadro.}
@@ -431,8 +430,8 @@ los átomos centrales $i$, y que es lo mismo que considerar $g_{ji}(r)$. Las
 figuras \ref{fig:rdf-LiLi}, \ref{fig:rdf-SiSi}, \ref{fig:rdf-SiLi} muestran los
 resultados obtenidos para las RDF de Li-Li, Si-Si y Si-Li, respectivamente. En
 cada una de ellas se analizan los cambios en la estructura que se dan para los
-distintos valores de $x$ en Li$_x$Si estudiados, las curvas se calculan sobre los
-\textit{frames} minimizados de la HD.
+distintos valores de $x$ en Li$_x$Si estudiados, las curvas se calculan sobre las
+estructuras minimizadas de la HD.
 
 \begin{figure}[h!]
     \centering
@@ -466,7 +465,7 @@ $x = 3.75$, respectivamente. Por otro lado, el segundo pico de la RDF$_{Si-Si}$
 también se desplaza hacia distancias mayores, se divide en dos picos para valores 
 de $x$ entre 0.62 y 1.71 y vuelve a comportarse como un sólo pico para para 
 concentraciones mayores. Entre el primer y el segundo pico se observa un hombro,
-como señaló previamente Fan \textit{et al.} ~\cite{fan2013}. Los resultados 
+como señalaron previamente Fan \textit{et al.} ~\cite{fan2013}. Los resultados 
 obtenidos para la RDF$_{Si-Si}$ están en concordancia con las mediciones 
 experimentales reportadas por Key \textit{et al.} ~\cite{key2011}.
 
@@ -488,7 +487,7 @@ es analizado con mayor detalle en la sección \ref{s:intercionexion}.
 
 \subsection{Número de coordinación}
 
-De la misma manera que se definió la distribuciones radiales de a pares parciales,
+De la misma manera que se definieron la distribuciones radiales de a pares parciales,
 se pueden obtener los números de coordinación a un dado tipo de átomos. CN$_{ij}$
 se corresponde con la cantidad de átomos vecinos de tipo $j$ para un átomo central
 de tipo $i$ hasta una cierta distancia de corte. Para la elección de dicho valor 
@@ -509,7 +508,7 @@ a primeros y segundo vecinos. Los resultados se muestran en la figura
     \caption{Promedio del primer número de coordinación en función de la 
     concentración de litio para Li-Li, Si-Si y Si-Li. Como radio de corte se 
     utilizó la distancia posterior al primer pico de la RDF correspondiente. En 
-    los casos que no se aprecia la barra de error, es porque la misma es menor 
+    los casos en que no se aprecia la barra de error, es porque la misma es menor 
     que el tamaño de los puntos.}
     \label{fig:cn1}
 \end{figure}
@@ -520,8 +519,8 @@ $x$ la estructura de Si mantiene sus conexiones tetraédricas, mientras que para
 valores grandes de $x$ el Si tiende a formar cadenas periódicas unidimensionales.
 En la red de silicio amorfa, analizada con más detalle en la sección 
 \ref{s:clusters}, una estructura 3-periódica se presenta para valores bajos de 
-$x$, donde el CN se encuentra alrededor de 4. Luego, una estructura 1-periódica se
-alcanza para valores grandes de $x$, donde los enlaces Si-Si tienden a formar 
+$x$, donde el CN se encuentra alrededor de 4. Luego, se alcanza una estructura 1-periódica 
+para valores grandes de $x$, donde los enlaces Si-Si tienden a formar 
 cadenas, que pueden verse para $x = 3.75$ donde se tiene $CN = 2.05$, por ejemplo.
 El CN de Si-Li y Li-Li presenta valores pequeños para concentraciones 
 bajas y aumenta monótonamente hasta alcanzar valores de 10 y 12, respectivamente, 
@@ -558,9 +557,9 @@ de empaquetamiento compacto, que es 6 para la estructura cristalina FCC. Incluso
 es mayor a la suma del segundo (6) y del tercer vecino (24) esperado para la red 
 FCC.
 
-\subsection{Formación de clusters}\label{s:clusters}
+\subsection{Formación de conglomerados (clusters)}\label{s:clusters}
 
-Analizando la formación de clusters por medio del algoritmo DBSCAN 
+Analizando la formación de conglomerados (clusters) por medio del algoritmo DBSCAN 
 ~\cite{ester1996}, en el cual puede definirse un radio de corte para el cual se 
 deja de considerar que los átomos están enlazados entre sí (es decir, formando 
 clusters), se encuentra que las estructuras amorfas de silicio no pueden ser 
@@ -575,8 +574,8 @@ primer pico de la RDF$_{Si-Si}$, no se tienen átomos de Si que cumplan esta
 propiedad, es decir, no hay átomos de Si que se encuentren aislados en el sistema,
 incluso a concentraciones altas de Li. Esto refleja que el a-Si se comporta como 
 una red en la cual todos los átomos de silicio están interconectados entre sí, 
-que también se puede deducir de la figura \ref{fig:clusters-nclusters} en la cual 
-se tiene que cuando el radio de corte es menor al primer pico de la RDF$_{Si-Si}$ 
+cosa que también se puede deducir de la figura \ref{fig:clusters-nclusters}, en la cual 
+se tiene que cuando el radio de corte es menor que el primer pico de la RDF$_{Si-Si}$ 
 el número de clusters es igual al número de átomos de Si, pero que cuando este 
 radio es más grande que la distancia a la cual termina el primer pico, hay un 
 solo cluster.
@@ -603,7 +602,7 @@ solo cluster.
 
 \subsection{Interconexión de clusters}\label{s:intercionexion}
 
-Para determinar que es lo que causa la división en el segundo pico de la 
+Para determinar qué es lo que causa la división en el segundo pico de la 
 RDF$_{Si-Li}$ se realizó un análisis similar al reportado por Ding \textit{et al.}
 ~\cite{ding2015}. Estos autores analizaron la correlación en la distancia de a
 pares de los segundos vecinos más cercanos en términos de las conexiones entre
@@ -704,7 +703,7 @@ donde $r_{cut}$ y $V(r_{cut})$ son el radio de corte y el volumen de la esfera
 considerada. Ya que en $g_{A-B}(r)$ no hay dependencia angular, $dV$ puede 
 escribirse como $4 \pi r^2 dr$. Esta cantidad puede pensarse como la 
 concentración promedio dentro de la esfera relativa a la del material 
-\textit{bulk}. Así, de forma análoga al parámetro de WCP, $\theta_{A-B}$ indica 
+masivo. Así, de forma análoga al parámetro de WCP, $\theta_{A-B}$ indica 
 la tendencia SRO o el \textit{clustering} para cualquier tipo de átomo dado.
 Si $\theta$ es positivo, indica una acumulación de átomos relativa al 
 \textit{bulk}, mientras que si es negativo indica una disminución. Si es igual a 
@@ -748,7 +747,7 @@ es el caso para concentraciones bajas de litio.
 $\theta_{Si-Li}$ presenta variaciones pequeñas y un valor positivo para todo 
 $x > 0.5$, mostrando una acumulación constante de Li al rededor del Si, o, 
 análogamente, una acumulación de Si alrededor del Li. Este comportamiento se le 
-puede atribuir a la interacción atractiva fuerte entre Si-Li. En el caso de 
+puede atribuir a la interacción atractiva fuerte en los pares Si-Li. En el caso de 
 $\theta_{Li-Li}$, este parámetro es siempre negativo, lo que indica una 
 interacción débil Li-Li y la correspondiente disminución de vecinos Li-Li. Por
 último, el parámetro $\theta_{Si-Si}$ tiene un valor negativo para $x < 1.0$, 
