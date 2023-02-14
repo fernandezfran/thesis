@@ -1,0 +1,91 @@
+\subsection{Comportamiento electroquímico}
+
+\subsubsection{Cambio de volumen fraccionario}
+
+El cambio de volumen fraccionario puede definirse utilizando una normalización 
+relativa al número de átomos de Si en la estructura de acuerdo a
+\begin{equation}\label{eq:fvc}
+    fvc = \frac{N_{Si}}{V_{Si}} \left( \frac{V_{Si,x}}{N_{Si,x}} - \frac{V_{Si}}{N_{Si}} \right),
+\end{equation}
+donde $V_{Si}$ y $N_{Si}$ son el volumen y el número de átomos de Si en la celda
+unidad de c-Si, $V_{Si,x}$ y $N_{Si,x}$ son el volumen y el número de átomos de Si
+en la celda de simulación para el valor correspondiente de $x$. En la figura
+\ref{fig:fvc} se muestran los valores calculados a partir de la ecuación 
+\ref{eq:fvc} para las distintas estructuras de Li$_x$Si estudiadas. En la misma 
+se comparan los valores obtenidos con datos experimentales de AFM (\textit{atomic 
+force microscopy}, sus siglas en inglés) medidos por Beaulieu \textit{et al.} 
+~\cite{beaulieu2003} y con predicciones de DFT con un cambio volumétrico fijo 
+utilizado por Chevrier y Dahn ~\cite{chevrier2009}. Los mismos muestran que el
+potencial ReaxFF proporciona una tendencia correcta, tanto cualitativa como 
+cuantitativamente.
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.8\textwidth]{caracterizacion/resultados/electroquimica/fvc.png}
+    \caption{Cambio de volumen fraccionario en función de la composición de la 
+    aleación. Los valores experimentales de AFM se muestran con cuadrados azules, 
+    la línea recta se corresponde con cálculos de DFT y los círculos rojos son 
+    resultados de este trabajo.}
+    \label{fig:fvc}
+\end{figure}
+
+\subsubsection{Voltaje}
+
+\begin{table}[h]
+    \centering
+    \caption{Energías de formación obtenidas a través de la ecuación \ref{eq:fe}}
+    \setlength\extrarowheight{2pt}\stackon{%
+    \begin{tabular}{c c c}
+        \toprule
+        \thead{\normalsize\bfseries x en Li$_x$Si} & 
+        \thead{\normalsize\bfseries Energía de\\\normalsize\bfseries formación [eV]} & 
+        \thead{\normalsize\bfseries Desviación\\\normalsize\bfseries estándar [eV]} \\
+        \midrule
+        0.21  &  0.5027  &  0.0037 \\
+        0.62  &  0.1206  &  0.0074 \\
+        1.25  & -0.1160  &  0.0096 \\
+        1.71  & -0.2358  &  0.0065 \\
+        2.17  & -0.3551  &  0.0075 \\
+        2.71  & -0.4098  &  0.0072 \\
+        3.25  & -0.5187  &  0.0126 \\
+        3.75  & -0.6202  &  0.0097 \\
+        4.20  & -0.6995  &  0.0075 \\
+        \bottomrule
+    \end{tabular}
+    }{}
+    \label{t:fe}
+\end{table}
+Las energías obtenidas pueden ser utilizadas para evaluar el funcionamiento del 
+modelo para predecir propiedades electroquímicas, como fue sugerido por Chevrier
+y Dahn ~\cite{chevrier2009}. Primero, se define la energía de formación de las 
+distintas estructuras amorfas como
+\begin{equation}\label{eq:fe}
+    E_f(x) = E_{Li_xSi} - (x E_{Li} + E_{Si}),
+\end{equation}
+donde $E_{Li_xSi}$ es la energía de la aleación Li$_x$Si por átomo de Si, E$_{Li}$
+y E$_{Si}$ son las energías cohesivas de Li y Si en sus fases cristalinas. Usando
+la ecuación \ref{eq:fe} como aproximación a la energía de formación de Gibbs, el 
+potencial \textit{versus} Li metálico de Li$_x$Si puede obtenerse a partir de
+\begin{equation}\label{eq:voltaje}
+    V(x) = - \frac{dE_f(x)}{dx},
+\end{equation}
+donde $V$ es el potencial. Los datos obtenidos así pueden compararse con valores
+experimentales y computacionales previos. Las energías de formación calculadas
+a partir de la ecuación \ref{eq:fe} se muestran en la tabla \ref{t:fe}. 
+Si se realiza un \textit{spline} a estos valores, mostrados en el recuadro de la
+figura \ref{fig:voltaje}, se obtienen los valores de $V(x)$ a partir de la ecuación
+\ref{eq:voltaje}, que se grafican en función de la composición en la figura 
+\ref{fig:voltaje} con una línea roja. Para comparar, se incluye en la misma figura
+las curvas experimentales medidas para la litiación y la delitiación de silicio
+amorfo ~\cite{hatchard2004} y la curva teórica de cálculos de primeros principios 
+~\cite{chevrier2009}. Se puede afirmar que los resultados obtenidos con el ReaxFF 
+son satisfactorios.
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=0.8\textwidth]{caracterizacion/resultados/electroquimica/voltaje.png}
+    \caption{Curvas potencial-concentración para la litiación de ánodos de Si.
+    La línea negra corresponde a cálculos de DFT, las líneas azules a 
+    curvas medidas experimentalmente en la litiación de Si amorfo y la línea 
+    roja es la derivada del \textit{spline} ajustado a los datos de la energía 
+    de formación obtenidos con el ReaxFF, presentados en el recuadro.}
+    \label{fig:voltaje}
+\end{figure}

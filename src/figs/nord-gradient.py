@@ -15,6 +15,7 @@ def color_fader(c1, c2, mix):
     c2 = np.array(matplotlib.colors.to_rgb(c2))
     return matplotlib.colors.to_hex((1 - mix) * c1 + mix * c2)
 
+
 def colormap(c1, c2):
     colors = [color_fader(c1, c2, v) for v in np.linspace(0, 1, num=100)]
     return matplotlib.colors.ListedColormap(colors)

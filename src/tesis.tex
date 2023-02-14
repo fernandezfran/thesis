@@ -125,7 +125,8 @@
 % para agregar imagenes (includegraphics)
 \usepackage{graphicx}
 % espeficicando el path de las imagenes, que se repetiría en todas las entradas
-\graphicspath{{figs/}}
+% especifico paths desde acá
+\graphicspath{{./}}
 % subfiguras, definidas en columnas, por ej
 \usepackage{subcaption}
 
@@ -223,11 +224,11 @@
 \mainmatter
 
 % Capítulos...
-\input{introduccion.tex}
+\input{introduccion/introduccion.tex}
 
-\input{metodos.tex}
+\input{metodos/metodos.tex}
 
-\input{caracterizacion.tex}
+\input{caracterizacion/caracterizacion.tex}
 
 
 % Apéndices

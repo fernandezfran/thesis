@@ -1,0 +1,38 @@
+La información experimental que puede obtenerse de la estructuras de las 
+distintas fases amorfas que se forman durante el ciclado de los electrodos de 
+silicio es bastante limitada. Estas estructuras son 
+inestables y amorfas, lo cual dificulta su caracterización mediante técnicas
+experimentales tradicionales. Por ejemplo, la difracción de rayos x permitió
+caracterizar la fase cristalina Li$_{15}$Si$_4$ que está presente en el electrodo
+cuando este se encuentra completamente cargado ~\cite{obrovac2004}, pero esta 
+técnica tiene ciertas limitaciones a la hora de estudiar estructuras amorfas 
+que se encuentran en los procesos de carga y descarga. Por otro lado, el análisis
+de la función distribución de a pares de Si \textit{ex-situ} de datos de rayos x
+hizo posible investigar el orden a corto alcance de las estructuras amorfas de
+Li$_x$Si ~\cite{key2011} y proponer una explicación al mecanismo de litiación.
+Sin embargo, como los elementos livianos como el Li tienen baja sensibilidad a 
+los rayos x, las conclusiones están restringidas a la formación de pequeños 
+clusters de Si o de átomos de Si aislados durante la litación, lo cual limita la 
+descripción de la estructura a una escala mayor.
+
+Dentro de este contexto, las simulaciones computacionales se posicionan como una
+herramienta poderosa para acceder al comportamiento microscópico de las 
+estructuras de Li$_x$Si y los cambios que sufren durante la litiación. Actualmente
+no existe un único modelo computacional robusto que permita estudiar todos los
+diferentes procesos presentes en los electrodos de silicio, por lo que se han 
+llevado a cabo distintos esfuerzos en los últimos años para estudiar este sistema,
+donde el mayor obstáculo está relacionado con la naturaleza intrínseca de 
+multi-escala del silicio. A pesar de su gran precisión, los estudios de DFT se
+encuentran drásticamente limitados en el número de átomos que se pueden utilizar
+para modelar las estructuras complejas de las fases litiadas. Una solución a este
+problema es utilizar potenciales interatómicos semi-empíricos, para los cuales 
+se necesita una parametrización que se robusta y transferible. En este 
+capítulo se utiliza un potencial reactivo, introducido en 
+la sección \ref{s:reaxff}, para sistemas de Li-Si previamente realizada por Fan 
+\textit{et al.} ~\cite{fan2013}, en la cual optimizaron el campo de fuerzas usando
+cálculos de DFT, considerando datos de las energías, distintas geometrías y cargas
+de las fases cristalinas de Li, Si y aleaciones de Li-Si. En su trabajo lo 
+utilizaron en simulaciones de MD para caracterizar las propiedades mecánicas de
+las estructuras amorfas de Li$_x$Si, incluyendo litiación de capa fina, compresión
+biaxial, tensión y compresión uniaxial y la tensión que puede soportar el sistema 
+antes de deformarse.
