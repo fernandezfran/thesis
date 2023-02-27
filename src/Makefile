@@ -1,14 +1,14 @@
 # https://mg.readthedocs.io/latexmk.html
 COMPILER = latexmk
-tesis_flags = -pdf # -quiet 
+thesis_flags = -pdf # -quiet 
 clean_flags = -c
 
-TARGETS = tesis
+TARGETS = thesis
 
 all: $(TARGETS)
 
-tesis: tesis.tex
-	$(COMPILER) $(tesis_flags) $<
+thesis: thesis.tex
+	$(COMPILER) $(thesis_flags) $<
 
 clean:
 	$(COMPILER) $(clean_flags)
