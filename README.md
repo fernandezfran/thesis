@@ -14,7 +14,7 @@ Advisors: Prof. Dr. Daniel Barraco & Prof. Dr. Ezequiel Leiva
 
 TODO
 
-### PhD seminars
+### PhD seminars talks
 
 + Machine learning interatomic potentials and their application to lithium 
 batteries. Apr 22, 2022. _Aula Magna, FAMAF._ 
@@ -107,11 +107,10 @@ semi-empirical force field".
 ## Instructions to generate the thesis
 
 The thesis is compiled using the Makefile:
-```bash
+```
 cd src/
-make
+make clean && make
 xdg-open tesis.pdf
-make clean
 ```
 
 
