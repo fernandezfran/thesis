@@ -10,9 +10,6 @@ Advisors: Prof. Dr. Daniel Barraco & Prof. Dr. Ezequiel Leiva
 
 ## PhD requirements fulfilled
 
-In order to obtain the [PhD in Physics at UNC (FAMAF)](https://www.famaf.unc.edu.ar/academica/post-grado/doctos/doctorado-en-f%C3%ADsica/), 
-it is necessary to fulfill several requirements, some of which are the following
-
 ### Dissertation
 
 TODO
@@ -116,6 +113,12 @@ make
 xdg-open tesis.pdf
 make clean
 ```
+
+
+## Disclaimer
+
+This repo may not faithfully reflect the final version of the PhD thesis in its 
+entirety.
 
 
 ## LICENSE
