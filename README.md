@@ -58,15 +58,15 @@ ECyT, UNSAM. 96 hrs, 2021.
 
 ### Scientific articles
 
-+ Density Functional Tight-Binding Model for Lithium-Silicon Alloys. _The Journal 
-of Physical Chemistry A_, 2023. B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, 
-E. Leiva, A. Paz. https://doi.org/10.1021/acs.jpca.3c00075 (_ChemRxiv_, 2022: 
-https://doi.org/10.26434/chemrxiv-2022-5s955)
++ [Density Functional Tight-Binding Model for Lithium-Silicon 
+Alloys](https://doi.org/10.1021/acs.jpca.3c00075). _The Journal of Physical 
+Chemistry A_, 2023. B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. 
+Paz.  ([_ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
 
-+ Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
-accelerated exploration of local minima. _Physical Chemistry Chemical Physics_, 2021. 
-<ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. 
-https://doi.org/10.1039/D1CP02216D
++ [Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
+accelerated exploration of local minima](https://doi.org/10.1039/D1CP02216D).
+_Physical Chemistry Chemical Physics_, 2021. <ins>F. Fernandez</ins>, A. Paz, 
+M. Otero, D. Barraco, E. Leiva. 
 
 
 ### Conference presentations
@@ -81,7 +81,7 @@ Sep 27--30, 2022.
 + XXI Meeting of surfaces and nanostructured materials. _Río Cuarto, Argentina_. 
 Aug 9--11, 2022. Poster Flash: "Short range order of amorphous structures in
 silicon anodes using a semiempirical reactive potential". (**Best poster flash 
-award**)
+award**).
 
 + 1 st National Lithium Meeting. _Argentina/Online_. Dec 1-3, 2021. Poster: 
 "Electrochemical and structural behavior of silicon anodes based on computational 
