@@ -1,11 +1,13 @@
 # Computational simulations for next-generation lithium-ion battery electrode development
 
-PhD thesis carried out at [LAES](http://www.laesunc.com/laes/), which is part of 
-[FAMAF](https://www.famaf.unc.edu.ar/), [FCQ](http://www.fcq.unc.edu.ar/) and 
-[FCEFyN](https://fcefyn.unc.edu.ar/) of the 
-[Universidad Nacional de Córdoba](https://www.unc.edu.ar/).
+PhD at [FAMAF](https://www.famaf.unc.edu.ar/), working in the computational area of [LAES](http://www.laesunc.com/laes/).
 
 Advisors: Prof. Dr. Daniel Barraco & Prof. Dr. Ezequiel Leiva
+
+
+## Abstract (abbreviated version)
+
+TODO
 
 
 ## PhD requirements fulfilled
@@ -52,18 +54,14 @@ my research.
 ECyT, UNSAM. 96 hrs, 2021.
 
 
-## Abstract
-
-TODO
-
-
 ## Research activity
 
 ### Scientific articles
 
-+ Density Functional Tight-Binding Model for Lithium-Silicon Alloys. _ChemRxiv_, 2022.
-B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. 
-https://doi.org/10.26434/chemrxiv-2022-5s955
++ Density Functional Tight-Binding Model for Lithium-Silicon Alloys. _The Journal 
+of Physical Chemistry A_, 2023. B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, 
+E. Leiva, A. Paz. https://doi.org/10.1021/acs.jpca.3c00075 (_ChemRxiv_, 2022: 
+https://doi.org/10.26434/chemrxiv-2022-5s955)
 
 + Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
 accelerated exploration of local minima. _Physical Chemistry Chemical Physics_, 2021. 
