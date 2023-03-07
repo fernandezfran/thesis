@@ -58,15 +58,15 @@ ECyT, UNSAM. 96 hrs, 2021.
 
 ### Scientific articles
 
-+ [Density Functional Tight-Binding Model for Lithium-Silicon 
++ B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. (2023). 
+[Density Functional Tight-Binding Model for Lithium-Silicon 
 Alloys](https://doi.org/10.1021/acs.jpca.3c00075). _The Journal of Physical 
-Chemistry A_, 2023. B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. 
-Paz.  ([_ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
+Chemistry A_. ([_ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
 
-+ [Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
++ <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. (2021).
+[Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
 accelerated exploration of local minima](https://doi.org/10.1039/D1CP02216D).
-_Physical Chemistry Chemical Physics_, 2021. <ins>F. Fernandez</ins>, A. Paz, 
-M. Otero, D. Barraco, E. Leiva. 
+_Physical Chemistry Chemical Physics_. 
 
 
 ### Conference presentations
