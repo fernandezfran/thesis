@@ -62,9 +62,9 @@ ECyT, UNSAM. 96 hrs, 2021.
 Towards the fast-charging of LIBs electrode materials: a heuristic model based on 
 galvanostatic simulations. _Article in preparation_. 
 
-+ <ins>F. Fernandez</ins>, M. Otero, D. Barraco, E. Leiva. (2023). Lithium 
-Chemical Shift Spectra Obtained by a Simple Nearest-Neighbor Model to Si Atom 
-Clusters. _Article in preparation_. 
++ <ins>F. Fernandez</ins>, M. Otero, D. Barraco, E. Leiva. (2023). Reproduction
+of NMR and Mössbauer spectra in LiSi systems using nearest-neighbors models 
+inspired by experimental data behavior. _Article in preparation_. 
 
 + B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. (2023). 
 [Density Functional Tight-Binding Model for Lithium-Silicon 
@@ -78,6 +78,10 @@ _Physical Chemistry Chemical Physics_.
 
 
 ### Conference presentations
+
++ 34th Topical Meeting of the International Society of Electrochemistry. _Mar del 
+Plata, Argentina_. Mar 20-22, 2023. Poster: "Study of electrochemical properties 
+in the lithiation of an amorphous silicon structure using a DFTB potential".
 
 + 107th Argentine Physics Association Meeting. _Bariloche, Argentina_. 
 Sep 27--30, 2022.
