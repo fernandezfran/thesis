@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-
 import numpy as np
 import galpynostatic
 
@@ -11,7 +9,7 @@ soc = np.array([0.992, 0.982, 0.965, 0.935, 0.854, 0.540, 0.297, 0.195, 0.125])
 dataset = galpynostatic.datasets.load_spherical()
 
 # longitud de difusión característica en cm
-d = 0.00075
+d = 7.5e-4
 
 # regresor galvanostático: modelo heurístico
 greg = galpynostatic.model.GalvanostaticRegressor(dataset, d, 3)
