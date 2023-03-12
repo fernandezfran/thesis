@@ -97,7 +97,6 @@
 %% para que las citas no rompan el renglón
 \usepackage[square]{natbib}
 \renewcommand{\cite}{\citep}
-%
 %% defino pagina en blanco
 \newcommand\blankpage{%
     \null
@@ -151,7 +150,40 @@
 % para acomodar mejor las posiciones de figuras/tablas
 \usepackage{float}
 
+% para agregar código Python
+\usepackage{listings}
 
+\definecolor{code-green}{RGB}{163, 190, 140}
+\definecolor{code-purple}{RGB}{0,0,0}
+\definecolor{code-magenta}{RGB}{180, 142, 173}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},
+    commentstyle=\color{code-green},
+    keywordstyle=\color{code-magenta},
+    stringstyle=\color{red},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    extendedchars=true,
+    tabsize=4
+}
+
+\lstset{
+    style=mystyle,
+    literate=
+    {á}{{\'a}}1
+    {é}{{\'e}}1
+    {í}{{\'i}}1
+    {ó}{{\'o}}1
+    {ú}{{\'u}}1
+}
 
 
 \begin{document}
@@ -232,9 +264,9 @@
 
 
 % Apéndices
-% \appendix
-% \chapter[Apéndice X]{Apéndice X}
-% \input{apendicex.tex}
+\appendix
+\renewcommand\chaptername{Apéndice}
+\input{apendices/software.tex}
 
 \bibliographystyle{apalike}
 \bibliography{citas}

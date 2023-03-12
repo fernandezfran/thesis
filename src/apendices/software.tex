@@ -1,0 +1,55 @@
+\chapter{Software desarrollado}
+
+En la última década, Python se ha convertido en un lenguaje de programación 
+importante dentro de la comunidad científica debido a su facilidad de uso y 
+versatilidad en la manipulación y visualización de datos ~\cite{millman2011}. 
+Por lo tanto, los software diseñados en esta tesis han sido escritos en este
+lenguaje y construídos sobre las librerías usuales del cómputo científico como
+NumPy \cite{numpy}, SciPy \cite{scipy}, pandas \cite{pandas}, 
+matplotlib \cite{matplotlib} y scikit-learn \cite{sklearn1, sklearn2}. 
+
+
+\section{Control de calidad de software}
+
+El control de calidad del software hace referencia al conjunto de reglas y 
+procedimientos que deben utilizarse para verificar que el software cumple 
+determinados estándares de calidad subjetivos. Un procedimiento habitual son las 
+pruebas unitarias (\textit{unit testing} en inglés), que consisten en aislar una 
+función del código y comprobar que funciona como se espera \cite{jazayeri2007}. 
+Otro procedimiento habitual se define a partir de este y es el 
+\textit{code-coverage}, que determina que proporción del software se ha testeado
+\cite{miller1963}. El estílo y la legibilidad del código también es importante
+y aquí se ha seguido la guía de estílo PEP8 de Python, la misma se asegura con 
+la herramienta flake8. Además, los mismos fueron desarrollados utilizando control 
+de versiones git y distribuidos bajo la Licencia MIT, fomentando su uso tanto en 
+entornos académicos como comerciales. Todo esto se realizó buscando que el 
+software sea facíl de mantener y que respete los estándares de la comunidad Python.
+
+
+\section{galpynostatic}
+
+Este paquete denominado \path{galpynostatic} fue escrito para la utilización
+del modelo heurístico presentado en el capítulo TODO. El mismo distribuye los 
+datos de los diagramas galvanostáticos, un módulo de preprocesamiento de datos
+para obtener capacidades de descarga a un potencial de corte dado a partir de 
+medidas de perfiles galvanostáticos y una clase que realiza la regresión sobre la 
+superficie y permite diferentes tipos de gráficos y estimaciones de parámetros.
+
+A contrinuación se muestra un ejemplo de uso:
+
+\lstinputlisting[language=Python]{apendices/ejemplo_galpynostatic.py}
+
+A \path{galpynostatic} se le realizan múltiples pruebas unitarias sobre datos de
+de electrodos actuales y de materiales de investigación de próxima generación en 
+baterías de litio, el \textit{coverage} del mismo alcanza el 100\% del software
+en su versión inicial.
+
+Por último, el código fuente está disponible en un repositorio público 
+(\url{https://github.com/fernandezfran/galpynostatic}) y todos los nuevos cambios 
+confirmados en este repositorio se prueban automáticamente con el servicio de 
+integración continua de GitHub Actions. También se genera una documentación a 
+partir de los docstrings del código, junto con una guía de instalación,
+tutoriales y ejemplos con aplicaciones reales, que se hacen públicos en el 
+servicio read-the-docs (\url{https://galpynostatic.readthedocs.io/en/latest/}). 
+Además, \path{galpynostatic} está disponible para su instalación en el Python 
+Package-Index (\url{https://pypi.org/project/galpynostatic/}).
