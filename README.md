@@ -80,8 +80,11 @@ _Physical Chemistry Chemical Physics_.
 ### Conference presentations
 
 + 34th Topical Meeting of the International Society of Electrochemistry. _Mar del 
-Plata, Argentina_. Mar 20-22, 2023. Poster: "Study of electrochemical properties 
-in the lithiation of an amorphous silicon structure using a DFTB potential".
+Plata, Argentina_. Mar 20-22, 2023. 
+    - Poster: "Study of electrochemical properties in the lithiation of an 
+    amorphous silicon structure using a DFTB potential".
+    - Talk: "Galvanostatic maps for fast-charging diagnosis of active materials 
+    in LIBs", _co-author_.
 
 + 107th Argentine Physics Association Meeting. _Bariloche, Argentina_. 
 Sep 27--30, 2022.
