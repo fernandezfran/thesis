@@ -58,13 +58,15 @@ ECyT, UNSAM. 96 hrs, 2021.
 
 ### Scientific articles
 
-+ <ins>F. Fernandez</ins>, M. Otero, S. A. Paz, M. B. Oviedo, D. E. Barraco, E. P. M. 
-Leiva. (2023). Unveiled atomic structures for LiSi amorphous systems can reproduce NMR, X-ray
-and Mössbauer experiments via simple nearest-neighbors analysis. _Article in preparation_. 
++ <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, D. E. Barraco, A. Visintín, Y. 
+Ein-Eli, E. P. M. Leiva. (2023). Towards a fast-charging of LIBs electrode 
+materials: a heuristic model based on galvanostatic simulations. _Manuscript 
+submitted_. 
 
-+ <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, D. E. Barraco, A. Visintín, Y. Ein-Eli, 
-E. P. M. Leiva. (2023). Towards a fast-charging of LIBs electrode materials: a heuristic 
-model based on galvanostatic simulations. _Manuscript submitted_. 
++ <ins>F. Fernandez</ins>, M. Otero, M. B. Oviedo, D. E. Barraco, S. A. Paz, 
+E. P. M. Leiva. (2023). Prediction of NMR, X-ray and Mössbauer experimental 
+results for amorphous Li-Si alloys using a novel DFTB model. 
+([_arXiv preprint:2305.11006_](https://arxiv.org/abs/2305.11006)).
 
 + B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. (2023). 
 [Density Functional Tight-Binding Model for Lithium-Silicon 
