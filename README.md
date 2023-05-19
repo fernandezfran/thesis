@@ -66,12 +66,13 @@ submitted_.
 + <ins>F. Fernandez</ins>, M. Otero, M. B. Oviedo, D. E. Barraco, S. A. Paz, 
 E. P. M. Leiva. (2023). Prediction of NMR, X-ray and Mössbauer experimental 
 results for amorphous Li-Si alloys using a novel DFTB model. 
-([_arXiv preprint:2305.11006_](https://arxiv.org/abs/2305.11006)).
+([_preprint arXiv:2305.11006_](https://arxiv.org/abs/2305.11006)).
 
 + B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. (2023). 
 [Density Functional Tight-Binding Model for Lithium-Silicon 
 Alloys](https://doi.org/10.1021/acs.jpca.3c00075). _The Journal of Physical 
-Chemistry A_. ([_ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
+Chemistry A_. ([_preprint ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955),
+2022).
 
 + <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. (2021).
 [Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
