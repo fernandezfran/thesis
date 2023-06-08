@@ -1,6 +1,7 @@
 # Computational simulations for next-generation lithium-ion battery electrode development
 
-PhD at [FAMAF](https://www.famaf.unc.edu.ar/), working in the computational area of [LAES](http://www.laesunc.com/laes/).
+PhD at [FAMAF](https://www.famaf.unc.edu.ar/), working in the computational area 
+of [LAES](http://www.laesunc.com/laes/).
 
 Advisors: Prof. Dr. Daniel Barraco & Prof. Dr. Ezequiel Leiva
 
@@ -18,8 +19,8 @@ TODO
 
 ### PhD seminars talks
 
-+ Machine learning interatomic potentials and their application to lithium 
-batteries. Apr 22, 2022. _Aula Magna, FAMAF._ 
++ **Machine learning interatomic potentials and their application to lithium 
+batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
 
 + 2 nd seminar talk: TODO
 
@@ -58,26 +59,28 @@ ECyT, UNSAM. 96 hrs, 2021.
 
 ### Scientific articles
 
-+ <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, D. E. Barraco, A. Visintín, Y. 
-Ein-Eli, E. P. M. Leiva. (2023). Towards a fast-charging of LIBs electrode 
-materials: a heuristic model based on galvanostatic simulations. _Manuscript 
-submitted_. 
++ **UMBEM: A Universal Metric for Benchmarking fast-charging Electrode Materials**.
+<ins>F. Fernandez</ins> _et al_. _Mnuscript in preparation_, 2023.
 
-+ <ins>F. Fernandez</ins>, M. Otero, M. B. Oviedo, D. E. Barraco, S. A. Paz, 
-E. P. M. Leiva. (2023). Prediction of NMR, X-ray and Mössbauer experimental 
-results for amorphous Li-Si alloys using a novel DFTB model. 
-([_preprint arXiv:2305.11006_](https://arxiv.org/abs/2305.11006)).
++ **Towards a fast-charging of LIBs electrode materials: a heuristic model based 
+on galvanostatic simulations**. <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, 
+D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva. _Manuscript 
+submitted_, 2023. 
 
-+ B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. (2023). 
-[Density Functional Tight-Binding Model for Lithium-Silicon 
-Alloys](https://doi.org/10.1021/acs.jpca.3c00075). _The Journal of Physical 
-Chemistry A_. ([_preprint ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955),
-2022).
++ **Prediction of NMR, X-ray and Mössbauer experimental results for amorphous 
+Li-Si alloys using a novel DFTB model**. <ins>F. Fernandez</ins>, M. Otero, 
+M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
+arXiv:2305.11006_](https://arxiv.org/abs/2305.11006), 2023).
 
-+ <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. (2021).
-[Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via 
-accelerated exploration of local minima](https://doi.org/10.1039/D1CP02216D).
-_Physical Chemistry Chemical Physics_. 
++ **Density functional tight-binding model for Lithium-Silicon** B. Oviedo, 
+<ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. [_The Journal of Physical 
+Chemistry A_](https://doi.org/10.1021/acs.jpca.3c00075), 2023. ([_preprint 
+ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
+
++ **Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via
+accelerated exploration of local minima**. <ins>F. Fernandez</ins>, A. Paz, 
+M. Otero, D. Barraco, E. Leiva. [_Physical Chemistry Chemical 
+Physics_](https://doi.org/10.1039/D1CP02216D), 2021.
 
 
 ### Conference presentations
