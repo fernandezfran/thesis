@@ -26,20 +26,20 @@ batteries**. Apr 22, 2022. _Aula Magna, FAMAF._
 
 ### Postgraduate courses
 
-+ [Software design for scientific computing](https://github.com/leliel12/diseno_sci_sfw), 
-FAMAF, UNC. 60 hrs, 2021.
++ **Software design for scientific computing**, FAMAF, UNC. 60 hrs, 2021. 
+[link](https://github.com/leliel12/diseno_sci_sfw).
 
-+ [Parallel computing](https://cs.famaf.unc.edu.ar/~nicolasw/Docencia/CP/2020/index.html),
-FAMAF, UNC. 120 hrs, 2020.
++ **Parallel computing**, FAMAF, UNC. 120 hrs, 2020. 
+[link](https://cs.famaf.unc.edu.ar/~nicolasw/Docencia/CP/2020/index.html).
 
-+ [Computational physics](https://github.com/fernandezfran/fiscomp), FAMAF, UNC. 
-120 hrs, 2020.
++ **Computational physics**, FAMAF, UNC, 120 hrs, 2020.
+[link](https://github.com/fernandezfran/fiscomp).
 
-+ Nuclear magnetic resonance, FAMAF, UNC. 25 hrs, 2020.
++ **Nuclear magnetic resonance**, FAMAF, UNC. 25 hrs, 2020.
 
-+ Computer simulations in condensed matter systems, FCQ, UNC. 40 hrs, 2019.
++ **Computer simulations in condensed matter systems**, FCQ, UNC. 40 hrs, 2019.
 
-+ Electrochemistry, FCQ, UNC. 80 hrs, 2019.
++ **Electrochemistry**, FCQ, UNC. 80 hrs, 2019.
 
 ### Extra postgraduate courses
 
@@ -47,12 +47,12 @@ These courses were not part of the formal requirements for the PhD, but they
 contributed to my training and the concepts covered have been used throughout 
 my research.
 
-+ Machine Learning School for Materials @ Ilum, CNPEM. 20 hrs, Sep 5--7, 2022.
++ **Machine Learning School for Materials @ Ilum**, CNPEM. 20 hrs, Sep 5--7, 2022.
 
-+ Machine learning for scarse data, ECI, DC, UBA. 15 hrs, Jul 26--30, 2021.
++ **Machine learning for scarse data**, ECI, DC, UBA. 15 hrs, Jul 26--30, 2021.
 
-+ [Python programming](https://github.com/python-unsam/Programacion_en_Python_UNSAM),
-ECyT, UNSAM. 96 hrs, 2021.
++ **Python programming**, ECyT, UNSAM. 96 hrs, 2021.
+[link](https://github.com/python-unsam/Programacion_en_Python_UNSAM).
 
 
 ## Research activity
@@ -60,7 +60,7 @@ ECyT, UNSAM. 96 hrs, 2021.
 ### Scientific articles
 
 + **UMBEM: A Universal Metric for Benchmarking fast-charging Electrode Materials**.
-<ins>F. Fernandez</ins> _et al_. _Mnuscript in preparation_, 2023.
+<ins>F. Fernandez</ins> _et al_. _Manuscript in preparation_, 2023.
 
 + **Towards a fast-charging of LIBs electrode materials: a heuristic model based 
 on galvanostatic simulations**. <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, 
@@ -72,7 +72,7 @@ Li-Si alloys using a novel DFTB model**. <ins>F. Fernandez</ins>, M. Otero,
 M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
 arXiv:2305.11006_](https://arxiv.org/abs/2305.11006), 2023).
 
-+ **Density functional tight-binding model for Lithium-Silicon** B. Oviedo, 
++ **Density functional tight-binding model for Lithium-Silicon**. B. Oviedo, 
 <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. [_The Journal of Physical 
 Chemistry A_](https://doi.org/10.1021/acs.jpca.3c00075), 2023. ([_preprint 
 ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
