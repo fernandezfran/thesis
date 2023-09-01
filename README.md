@@ -65,8 +65,8 @@ batteries**. Apr 22, 2022. _Aula Magna, FAMAF._
 
 + **Towards a fast-charging of LIBs electrode materials: a heuristic model based 
 on galvanostatic simulations**. <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, 
-D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva. _Manuscript 
-submitted_, 2023. 
+D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva. 
+[_Electrochimica Acta_](https://authors.elsevier.com/c/1hVzk_JcNFx-6), 2023. 
 
 + **Prediction of NMR, X-ray and Mössbauer experimental results for amorphous 
 Li-Si alloys using a novel DFTB model**. <ins>F. Fernandez</ins>, M. Otero, 
