@@ -1,9 +1,10 @@
-# Computational simulations for next-generation lithium-ion battery electrode development
+# Computational modeling of lithium battery electrodes
 
 PhD at [FAMAF](https://www.famaf.unc.edu.ar/), working in the computational area 
 of [LAES](http://www.laesunc.com/laes/).
 
-Advisors: Prof. Dr. Daniel Barraco & Prof. Dr. Ezequiel Leiva
+Advisors: [Prof. Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) & 
+[Prof. Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en)
 
 
 ## Abstract (abbreviated version)
@@ -16,13 +17,6 @@ TODO
 ### Dissertation
 
 TODO
-
-### PhD seminars talks
-
-+ **Machine learning interatomic potentials and their application to lithium 
-batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
-
-+ 2 nd seminar talk: TODO
 
 ### Postgraduate courses
 
@@ -54,6 +48,13 @@ my research.
 + **Python programming**, ECyT, UNSAM. 96 hrs, 2021.
 [link](https://github.com/python-unsam/Programacion_en_Python_UNSAM).
 
+### PhD seminars talks
+
++ **Machine learning interatomic potentials and their application to lithium 
+batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
+
++ **Fast-charging lithium batteries**. Sep 14, 2023. _Aula Magna, FAMAF._
+
 
 ## Research activity
 
@@ -72,10 +73,10 @@ Li-Si alloys using a novel DFTB model**. <ins>F. Fernandez</ins>, M. Otero,
 M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
 arXiv:2305.11006_](https://arxiv.org/abs/2305.11006), 2023).
 
-+ **Density functional tight-binding model for Lithium-Silicon**. B. Oviedo, 
-<ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. [_The Journal of Physical 
-Chemistry A_](https://doi.org/10.1021/acs.jpca.3c00075), 2023. ([_preprint 
-ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
++ **Density functional tight-binding model for Lithium-Silicon alloys**. B. 
+Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. [_The Journal of 
+Physical Chemistry A_](https://doi.org/10.1021/acs.jpca.3c00075), 2023. 
+([_preprint ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
 
 + **Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via
 accelerated exploration of local minima**. <ins>F. Fernandez</ins>, A. Paz, 
@@ -84,6 +85,14 @@ Physics_](https://doi.org/10.1039/D1CP02216D), 2021.
 
 
 ### Conference presentations
+
++ Renewable energy workshop: lithium batteries and hydrogen. _Córdoba, 
+Argentina_. Oct, 2023. Poster: "A heuristic model based on galvanostatic 
+simulations for fast charging of lithium-ion battery electrodes.".
+
++ 8th Meeting of Young Researchers in Materials Science and Technology. _Córdoba,
+Argentina_. Sep, 2023. Poster: "Nearest-neighbor model for predicting 7Li 
+chemical shift spectra in Si anodes".
 
 + 34th Topical Meeting of the International Society of Electrochemistry. _Mar del 
 Plata, Argentina_. Mar 20-22, 2023. 
