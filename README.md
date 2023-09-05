@@ -86,9 +86,13 @@ Physics_](https://doi.org/10.1039/D1CP02216D), 2021.
 
 ### Conference presentations
 
++ Y-TEC Federal PhD students exhibition. _La Plata, Argentina_. Sep,2023. Poster:
+"Fast-charging lithium-ion batteries: A heuristic model to predict optimal 
+particle size".
+
 + Renewable energy workshop: lithium batteries and hydrogen. _Córdoba, 
 Argentina_. Oct, 2023. Poster: "A heuristic model based on galvanostatic 
-simulations for fast charging of lithium-ion battery electrodes.".
+simulations for fast charging of lithium-ion battery electrodes".
 
 + 8th Meeting of Young Researchers in Materials Science and Technology. _Córdoba,
 Argentina_. Sep, 2023. Poster: "Nearest-neighbor model for predicting 7Li 
