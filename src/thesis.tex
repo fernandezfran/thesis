@@ -93,6 +93,7 @@
 \setcounter{secnumdepth}{4}
 %
 %% Bibliografía por capítulo
+\usepackage{tocbibind}
 % \usepackage[square,numbers,sort,sectionbib]{natbib}
 % \usepackage{chapterbib}
 %% para que las citas no rompan el renglón
@@ -255,16 +256,26 @@
 \mainmatter
 
 % Capítulos
-\input{introduccion/introduccion.tex}
+%\input{introduccion/introduccion.tex}
 
-\input{metodos/metodos.tex}
+%\input{metodos/metodos.tex}
 
 \part{Carga rápida}
 
+\input{FastCharging/un/un.tex}
+
+\input{FastCharging/umbem/umbem.tex}
+
+
 \part{Ánodos de Silicio}
 
-\input{caracterizacion/caracterizacion.tex}
+\input{Silicio/caracterizacion/caracterizacion.tex}
 
+\input{Silicio/modelo/modelo.tex}
+
+\input{Silicio/comportamiento/comportamiento.tex}
+
+\input{Silicio/prediccion/prediccion.tex}
 
 % Apéndices
 \part{Apéndices}
