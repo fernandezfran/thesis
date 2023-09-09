@@ -34,7 +34,7 @@ if sys.argv[1] == "SiSi":
 e1 = sys.argv[1][:2]
 e2 = sys.argv[1][2:]
 
-plt.rcParams.update({"font.size": 12})
+plt.rcParams.update({"font.size": 16})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"r [$\AA$]")
@@ -49,8 +49,9 @@ for i, x in enumerate(concentraciones):
     rdfx, rdfy = np.loadtxt(path + f"{x}.dat", unpack=True)
     ax.plot(rdfx, rdfy + i * weight, color=color_fader(i / n), label=f"{x}")
 
-handles, labels = ax.get_legend_handles_labels()
-ax.legend(handles[::-1], labels[::-1], title=r"$x$ en Li$_x$Si", loc=1)
+if sys.argv[1] == "LiLi":
+    handles, labels = ax.get_legend_handles_labels()
+    ax.legend(handles[::-1], labels[::-1], title=r"$x$ en Li$_x$Si", loc=1)
 
 fig.tight_layout()
 fig.savefig(f"rdf-{sys.argv[1]}.png", dpi=600)

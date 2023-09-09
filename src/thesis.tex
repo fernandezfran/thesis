@@ -72,6 +72,7 @@
     {\huge}
 %
 %% color de las secciones
+\partfont{\color{mycolor}}
 \sectionfont{\color{mycolor}}
 \subsectionfont{\color{mycolor}}
 \subsubsectionfont{\color{mycolor}}
@@ -190,8 +191,8 @@
 % enumeración de las primeras páginas con números romanos
 \frontmatter
 
-\blankpage
-\blankpage
+% \blankpage
+% \blankpage
 
 % Carátula
 \thispagestyle{empty}
@@ -200,8 +201,7 @@
 
     \vspace{1cm}
 
-    {\Huge Simulaciones computacionales para el desarrollo de electrodos de 
-            baterias de ion-litio de próxima generación}
+    {\Huge Modelado computacional de electrodos de baterías de ion-litio}
     
     \vspace{0.5cm}
     por
@@ -259,10 +259,16 @@
 
 \input{metodos/metodos.tex}
 
+\part{Carga rápida}
+
+\part{Ánodos de Silicio}
+
 \input{caracterizacion/caracterizacion.tex}
 
 
 % Apéndices
+\part{Apéndices}
+
 \appendix
 \renewcommand\chaptername{Apéndice}
 \input{apendices/software.tex}
