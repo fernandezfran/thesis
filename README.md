@@ -53,8 +53,8 @@ my research.
 + **Machine learning interatomic potentials and their application to lithium 
 batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
 
-+ **Fast-charging lithium batteries**. Sep 14, 2023. _Aula Magna, FAMAF._
-
++ **Fast-charging lithium batteries: from designing materials to optimizing 
+charging protocols**. Sep 14, 2023. _Aula Magna, FAMAF._
 
 ## Research activity
 
@@ -69,8 +69,8 @@ D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva.
 [_Electrochimica Acta_](https://authors.elsevier.com/c/1hVzk_JcNFx-6), 2023. 
 
 + **Prediction of NMR, X-ray and Mössbauer experimental results for amorphous 
-Li-Si alloys using a novel DFTB model**. <ins>F. Fernandez</ins>, M. Otero, 
-M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
+Li-Si alloys using Density-Functional Tight-Binding**. <ins>F. Fernandez</ins>, 
+M. Otero, M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
 arXiv:2305.11006_](https://arxiv.org/abs/2305.11006), 2023).
 
 + **Density functional tight-binding model for Lithium-Silicon alloys**. B. 
@@ -86,7 +86,7 @@ Physics_](https://doi.org/10.1039/D1CP02216D), 2021.
 
 ### Conference presentations
 
-+ Y-TEC Federal PhD students exhibition. _La Plata, Argentina_. Sep,2023. Poster:
++ Y-TEC PHD candidates exhibition. _La Plata, Argentina_. Sep, 2023. Poster:
 "Fast-charging lithium-ion batteries: A heuristic model to predict optimal 
 particle size".
 
