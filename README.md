@@ -50,11 +50,11 @@ my research.
 
 ### PhD seminars talks
 
-+ **Machine learning interatomic potentials and their application to lithium 
-batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
-
 + **Fast-charging lithium batteries: from designing materials to optimizing 
 charging protocols**. Sep 14, 2023. _Aula Magna, FAMAF._
+
++ **Machine learning interatomic potentials and their application to lithium 
+batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
 
 ## Research activity
 
@@ -68,9 +68,9 @@ on galvanostatic simulations**. <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu,
 D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva. 
 [_Electrochimica Acta_](https://authors.elsevier.com/c/1hVzk_JcNFx-6), 2023. 
 
-+ **Prediction of NMR, X-ray and Mössbauer experimental results for amorphous 
-Li-Si alloys using Density-Functional Tight-Binding**. <ins>F. Fernandez</ins>, 
-M. Otero, M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
++ **NMR, x-ray and Mössbauer results for amorphous Li-Si alloys using density 
+functional tight-binding method**. <ins>F. Fernandez</ins>, M. Otero,
+M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
 arXiv:2305.11006_](https://arxiv.org/abs/2305.11006), 2023).
 
 + **Density functional tight-binding model for Lithium-Silicon alloys**. B. 
