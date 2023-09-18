@@ -1,0 +1,133 @@
+\section{Métodos computacionales}
+
+\subsection{Fundamentos matemáticos}\label{s:metodologia}
+
+\begin{table}[h!]
+    \centering
+    \caption{Parámetros utilizados en las simulaciones y la construcción de los
+    diagramas}
+    \setlength\extrarowheight{2pt}\stackon{%
+    \begin{tabular}{l l}
+        \toprule
+        \thead{\normalsize\bfseries Parámetro} & 
+        \thead{\normalsize\bfseries Definición} \\
+        \midrule
+        $\Xi = k^0 \sqrt{t_h / (C_r D)}$ & Parámetro galvanostático cinético \\
+        $\ell = d (V/A) (C_r / (D t_h))$ & Parámetro galvanostático de difusión finita \\
+        $D$ & Coeficiente de difusión del Li$^+$ \\
+        $t, t_h$ & Tiempo y tiempo para una hora \\
+        $C_r$ & C-rate \\
+        $x, x_s$ & Grado de intercalación en el electrodo y en la interfase \\ 
+                 & electrodo/electrolito \\
+        $Q, Q_{\max}$ & Capacidad y capacidad máxima \\ 
+        SOC & Estado de la Carga, $\text{SOC} = Q / Q_{\max}$ \\ 
+        $z$ & Parámetro para establecer la geometría de la partícula: \\
+            & $z=1$ planar, $z=2$ cilíndrica, $z=3$ esférica \\
+        $d$ & Longitud de difusión -- radio de la partícula -- espesor \\ 
+            & de la lámina \\
+        $r$ & Distancia definida entre 0 y $d$ ($0 \leq r \leq d$) \\
+        $V$ & Volumen del material activo \\
+        $A$ & Área superficial del electrodo/electrolito \\
+        $V / A$ & Proporción volumen/superficie, $d$ planar, $d/2$ cilindríca, \\ 
+                & $d/3$ esférica \\
+        $I_c$, $i_c$ & Corriente y densidad de corriente (constantes) \\
+        $k^0$ & Constante cinética \\
+        $E$, $E^0$, $E_{\text{off}}$ & Potencial del electrodo de trabajo vs Li/Li$^+$,\\
+                                     & potencial de equilibrio y de corte \\
+        $\alpha$ & Coeficiente de transferencia de carga \\
+        $\rho$ & Densidad del material \\
+        $M_r$ & Masa molecular del material \\
+        $F$ & Constante de Faraday \\
+        $R$ & Constante universal de los gases \\
+        $T$ & Temperatura absoluta \\
+        \bottomrule
+    \end{tabular}
+    }{}
+    \label{t:params}
+\end{table}
+
+Para el fenómeno de la intercalación de iones de litio se consideró un modelo de 
+una sola partícula. Los parámetros de todas las ecuaciones que siguen se
+presentan en la Tabla \ref{t:params}. En el modelo, el grado de intercalación $x$
+en el punto $r$ y a tiempo $t$ se obtiene de resolver la ecuación diferencial 1D
+de Fick:
+\begin{equation}\label{eq:fick}
+    \frac{\partial x}{\partial t} = D \left[ \frac{\partial^2 x}{\partial r^2} + \frac{(z - 1)}{r} \left(\frac{\partial x}{\partial r}\right) \right],
+\end{equation}
+donde $D$ es el coeficiente de difusión y $z$ depende del tipo de geometría de la 
+partícula \cite{vassiliev2016}. Para resolver la ecuación \ref{eq:fick} se 
+utilizó el método de Crank-Nicolson mediante diferencias finitas 
+\cite{crank-nicolson} con las siguientes condiciones de contorno en la superficie
+de la partícula ($r = d$),
+\begin{equation}
+    \left(\frac{\partial x}{\partial r}\right)_d = - \frac{I_c}{F A \frac{\rho}{M_r}D},
+\end{equation}
+y al centro de la partícula ($r = 0$),
+\begin{equation}
+    \left(\frac{\partial x}{\partial r}\right)_0 = 0.
+\end{equation}
+
+La condición de corriente constante se fijó con la ecuación de Butler-Volmer
+\begin{equation}\label{eq:bv}
+    I_c = F A \frac{\rho}{M_r} k^0 \left\{x_s \exp\left[ \frac{(1-\alpha)F(E-E^0)}{RT} \right] - (1 - x_s) \exp\left[ -\frac{\alpha F (E-E^0)}{RT} \right] \right\}
+\end{equation}
+
+Las simulaciones fueron realizadas con un código escrito en \path{C++}.
+
+
+\subsection{Derivación de los parámetros adimensionales} 
+
+En esta sección se derivan los parámetros adimensionales de la ecuación de
+Butler-Volmer en condiciones de corriente constante. Para ello definimos
+$\xi = (nF/RT)(E - E^0)$ y $u = D t / d^2$, la ecuación \ref{eq:bv} se puede 
+expresar de la siguiente forma integral \cite{aoki1984}
+\begin{equation}\label{eq:aoki}
+    \frac{i}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \int_0^u \frac{i}{n F c^0} \Theta_3(0|u - z) dz \right\},
+\end{equation}
+donde $c^0$ es la concentración máxima del ion en el material. $\Theta_3(u)$ es 
+la función tita \cite{bieniasz2015}. Si consideramos una corriente constantes
+$i_c$, la ecuación \ref{eq:aoki} nos da
+\begin{equation}\label{eq:aoki2}
+    \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{i_c}{n F c^0} \int_0^u \Theta_3(0|u - z) dz \right\}.
+\end{equation}
+Esta corriente constante se la puede expresar en términos de la C-rate como
+\begin{equation}
+    I_c = \frac{C_r Q}{t_h}
+\end{equation}
+y usando que la capacidad del electrodo es
+\begin{equation}
+    Q = V \left( \frac{\rho}{M} \right) F n
+\end{equation}
+y dividiendo por el área superficial y $n F c^0$ se obtiene que
+\begin{equation}\label{eq:i_c}
+    \frac{i_c}{n F c^0} = \frac{V C_r}{A t_hi}.
+\end{equation}
+Reemplazando esta ecuación \ref{eq:i_c} en el lado derecho de la ecuación 
+\ref{eq:aoki2}, se tiene
+\begin{equation}\label{eq:aoki3}
+    \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{V C_r}{A t_h} \int_0^u \Theta_3(0|u - z) dz \right\},
+\end{equation}
+de donde el factor $d (V/A) (C_r / (D t_h))$ se utiliza para definir el 
+parámetro de difusión finita presentado en la ecuación \ref{eq:ele}. Reemplazando 
+ahora la ecuación \ref{eq:ele} en \ref{eq:aoki3} y normalizando por la densidad 
+de corriente y multiplicando a ambos miembros de la igualdad por el término 
+$\sqrt{t_h / (C_r D)}$ se llega a que
+\begin{equation}\label{eq:aoki4}
+    \frac{i_c}{n F c^0} \sqrt{\frac{t_h}{C_r D}} = k^0 \sqrt{\frac{t_h}{C_r D}}\left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \ell \int_0^u \Theta_3(0|u - z) dz \right\},
+\end{equation}
+de donde emerge el parámetro $\Xi$ ya definido en la ecuación \ref{eq:xi} como 
+$\Xi = k^0 \sqrt{t_h / (C_r D)}$.
+
+
+\subsection{Construcción de los diagramas}
+
+Como la respuesta de los perfiles galvanostáticos sólo depende de ambos parámetros
+adimensionales $\Xi$ y $\ell$, se pueden construir diagramas universales. Para 
+este fin se definió una grilla de $N$ puntos en el espacio 
+$\log(\Xi)--\log(\ell)$ y se fijó un potencial de corte. Para cada punto en la 
+grilla se realizó la simulación y se guardó el valor de intercalación de litio
+alcanzado, denotado por $\text{SOC}_{\max}$. Luego, para la construcción de los
+diagramas se utilizaron unos miles de puntos.
+
+
+\subsection{Un modelo heurístico para ajustar sistemas complejos}
