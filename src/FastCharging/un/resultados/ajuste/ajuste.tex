@@ -1,0 +1,101 @@
+\subsection{Ajuste del modelo}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{FastCharging/un/resultados/ajuste/ajustes.png}
+    \caption{Ajuste del modelo a los datos SOC$_{\max}$ \textit{versus} C-rate
+    para los distintos materiales de electrodos considerados: (a) Grafito 
+    amorfo \cite{mancini2022}, (b) LTO \cite{he2012}, (c) LFP \cite{lei2015}, 
+    (d) LCO \cite{wang2019high}, (e) LMO \cite{bak2011}, (f) LNMO
+    \cite{nishikawa2017}.}
+    \label{fig:ajustes}
+\end{figure}
+
+En la Figura \ref{fig:ajustes} se muestran los datos experimentales y los 
+ajustes del modelo para el SOC$_{\max}$ alcanzado al potencial de cortes 
+\textit{versus} la C-rate para los resultados de la Figura \ref{fig:preproc}
+y otros materiales de uso común en lso electrodos de las baterías de ion-litio.
+Puede observarse una buena concordancia en general entre el modelo y los 
+experimentos. Esto también puede observarse en la Figura \ref{fig:pred_vs_exp},
+donde se muestran los valores predichos para SOC$_{\max}$ en función de los
+experimentales, junto con el coeficiente de determinación de cada ajuste.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{FastCharging/un/resultados/ajuste/pred_vs_exp.png}
+    \caption{Predicciones del SOC$_{\max}$ \textit{versus} valores 
+    experimentales, junto al coeficiente de determinación de cada sistema.}
+    \label{fig:pred_vs_exp}
+\end{figure}
+
+El trabajo de Mancini \textit{et al} \cite{mancini2022} aportó nuevos 
+conocimientos sobre el efecto de esferoidización en las características de las
+partículas de grafito y su impacto en el comportamiento electroquímico. A
+continuación se hace referencia a estos datos como grafito amorfo, como puede
+verse en la Figure \ref{fig:ajustes}a. En este caso, el rango de C-rates
+reportadas cubre una amplia región del SOC$_{\max}$, desde un material 
+totalmente cargado hasta uno casi totalmente descargado. Esto no es lo habitual,
+ya que en la mayoría de los experimentos sólo se reportan curvas con un buen 
+rendimiento (alta capacidad), lo que limita los ajustes realizados a una región
+concreta del diagrama. El coeficiente de difusión y la constante cinética 
+obtenidos en el ajuste para este sistema son $1.23\times10^{-10}$ cm$^2$/s y 
+$2.31\times10^{-7}$ cm/s, respectivamente. Para esto se consideró un tamaño
+de partícula de $7.5 \mu$m y una geometría esférica. Este valor se corresponde
+con la media de la distribución de tamaños, que es reportada junto a los 
+cuartiles en el trabajo citado. Para los casos que siguen, en los que no se
+tiene información precisa de la distribución de tamaños, se considera el punto
+medio del rango reportado para el tamaño de las partículas y utiliza para 
+definir el parámetro $d$ en el modelo.
+
+Los ánodos de Li$_4$Ti$_5$O$_{12}$ (LTO) presentan características excelentes
+de seguridad y una capacidad teórica de 175 mAhg$^{-1}$. He \textit{et al} 
+\cite{he2012} sintetizaron nanopartículas cristalinas y esféricas de LTO a 
+diferentes proporciones atómicas de Li/Ti, con un tamaño entre los 0.5 $\mu$m 
+y los 3 $\mu$m. Se asume entonces un valor de $d=1.75 \mu$m y se utilizan los
+datos de la proporción usual del LTO para ajustar el modelo, teniendose como 
+resultado un valor de $D$ de $6.58\times10^{-12}$ cm$^2$/s. El valor experimental 
+de $D$ reportado por He \textit{et al} para esta proporción atómica fue de
+$5.12\times10^{-12}$ cm$^2$/s. Con respecto al valor de $k^0$, se obtuvo 
+$8.11\times10^{-8}$ cm/s. Comparar este valor con el experimental no es tan 
+directo, ya que lo que reportan es la densidad de corriente de intercambio, 
+$i^0 = 2.7\times10^{-4}$ mA/cm$^2$. Utilizando la ecuación \ref{eq:bv} de 
+Butler-Volmer se tiene una relación entre $k^0$ e $i^0$ dada por
+\begin{equation}\label{eq:i0k0}
+    i^0 = F \frac{\rho}{M_r} k^0 \left(x_s\right)^{\alpha} \left(1 - x_s\right)^{1-\alpha},
+\end{equation}
+donde las definiciones de los parámetros están dadas en la Tabla \ref{t:params}.
+Asumiendo un valor de 0.5 para el coeficiente de transferencia $\alpha$, un 
+SOC de 0.5 y utilizando los valores del precusor LTO para $M_r = 459.1$ g/mol y
+$\rho = 3.48$ g/cm$^3$ \cite{osti_1284125} se obtiene un valor para $k^0$ de
+$7.38\times10^{-10}$ cm/s, que presenta una discrepancia de dos ordenes de 
+magnitud con respecto al ajustado en el modelo. Sin embargo, en la literatura
+se encuentran valores de $i^0$ con una gran dispersión entre 
+$i^0 = 1.1\times10^{-3}$ mA/cm$^2$ \cite{medina2015} y $i^0 = 0.5$ mA/cm$^2$ 
+\cite{umirov2019} que darían valores de $k^0$ entre $3.00\times10^{-9}$ cm/s y 
+$1.37\times10^{-6}$ cm/s, respectivamente. Por lo cual puede afirmarse que el 
+valor estimado por el modelo es razonable, dada la simplicidad del mismo.
+
+Otro sistema en el cual las C-rates a las que se midieron los perfiles 
+galvanostáticos cubren un rango amplio de valores de SOC$_{\max}$, de 
+completamente cargado a completamente descargado, es el de LiFePO$_4$ (LFP) de 
+Lei \textit{et al} \cite{lei2015}, como puede verse en la Figura 
+\ref{fig:ajustes}. En este trabajo consideraron sistemas LFP/nanotubos de 
+carbono/grafeno (LFP-CNT-G) como materiales catódicos con una capacidad 
+superior a velocidades de carga alta y un desmpeño favorable en sucesivos 
+ciclados a densidades de corriente relativamente altas, comparados con 
+sistemas LFP-CNT y LFP-G. Para este caso seleccionado, obtuvieron coeficientes 
+de difusión, a partir de la pendiente de un ajuste lineal a mediciones de 
+espectroscopia de impedancia electroquímica (EIS), de $1.04\times10^{-12}$ 
+cm$^2$/s, $1.738\times10^{-13}$ cm$^2$/s y $8.225\times10^{-13}$ cm$^2$/s, 
+respectivamente para cada uno de los sistemas mencionados. Mientras que al
+ajustar los datos experimentales del primer sistema mencionado, con un tamaño
+de partícula de $0.35 \mu$m, se obtuvo un valor de $2.85\times10^{-13}$ cm$^2$/s
+para este parámetro. Como puede observarse, se aprecia una discrepancia de un 
+orden de magnitud pero dentro de los valores obtenidos en las otras sintesís.
+El valor obtenido para $k^0$ utilizando la ecuación \ref{eq:i0k0} y el dato 
+$i^0=5.127\times10^{-4}$ mA/cm$^2$ es $1.23\times10^{-9}$ cm/s, con un valor
+de $M_r$ de $157.75$ g/mol y $\rho$ de $1.36$ g/cm$^3$ \cite{jin2018}.
+En este caso se encuentra una correspondencia excelente con el valor ajustado
+de $1.00\times10^{-9}$ cm/s.
+
+
