@@ -22,13 +22,13 @@
         $Q, Q_{\max}$ & Capacidad y capacidad máxima \\ 
         SOC & Estado de la Carga, $\text{SOC} = Q / Q_{\max}$ \\ 
         $z$ & Parámetro para establecer la geometría de la partícula: \\
-            & $z=1$ planar, $z=2$ cilíndrica, $z=3$ esférica \\
+            & $z=1$ plana, $z=2$ cilíndrica, $z=3$ esférica \\
         $d$ & Longitud de difusión -- radio de la partícula -- espesor \\ 
             & de la lámina \\
         $r$ & Distancia definida entre 0 y $d$ ($0 \leq r \leq d$) \\
         $V$ & Volumen del material activo \\
         $A$ & Área superficial del electrodo/electrolito \\
-        $V / A$ & Proporción volumen/superficie, $d$ planar, $d/2$ cilindríca, \\ 
+        $V / A$ & Proporción volumen/superficie, $d$ plana, $d/2$ cilíndrica, \\ 
                 & $d/3$ esférica \\
         $I_c$, $i_c$ & Corriente y densidad de corriente (constantes) \\
         $k^0$ & Constante cinética \\
@@ -131,3 +131,83 @@ diagramas se utilizaron unos miles de puntos.
 
 
 \subsection{Un modelo heurístico para ajustar sistemas complejos}
+
+Muchos de los electrodos de intercalación de litio que se investigan en los 
+laboratorios o son utilizados en las baterías comerciales, pueden ser simulados
+con modelos matemáticos complejos que consideran las particularidades de cada
+caso \cite{doyle1995}. Durante el proceso de manufactura, en el cual se prepara
+el precursor con una distribución de tamaños, se agrega un material conductor y
+un \textit{binder}, lo cual genera una estructura porosa, cuyos poros definen
+caminos de difusión tortuosos para los iones de litio. Los modelos que poseen
+este nivel de detalles \cite{doyle1995} aportan información sobre las propiedades
+específicas de un electrodo determinado, a cambio de dificultar una descripción
+más general del problema. El modelo introducido en las secciones anteriores 
+se presenta como una alternativa para tener una descripción universal del 
+comportamiento de distintos materiales, ya que permite obtener la capacidad en 
+condiciones de cargado galvanostático en electrodos de una sola partícula en 
+función de 4 parámetros: la C-rate, el tamaño de partícula, el coeficiente de 
+difusión y la constante cinética.
+
+Este modelo tiene algunas suposiciones:
+\begin{itemize}
+    \item El transporte de carga dentro de la partícula está limitado por el
+        movimiento de los iones insertados, i.e. que el transporte electrónico
+        es rápido.
+    \item La difusión de los iones obedece la segunda Ley de Fick 1D para 
+        geometría plana, cilíndrica o esférica.
+    \item Se ignora la transferencia de masa con el electrolito dada una alta 
+        concentraciones de iones en el mismo.
+    \item El coeficiente de difusión, $D$, permanece constante en todo el 
+        proceso de intercalación.
+    \item El flujo de iones es cero en el centro de la partícula.
+    \item La transferencia de carga en la interfase electrodo/electrolito se 
+        describe mediante la ecuación de Butler-Volmer.
+    \item La constante cinética, $k^0$, es la misma en todo el proceso de 
+        intercalación.
+    \item La resistencia de la celda está dada por un valor constante, 
+        $R_{\Omega}$.
+    \item Se ignora la interacción entre los iones intercalados.
+    \item No se consideran los cambios volumétricos de la partícula durante su 
+        carga/descarga.
+    \item También se ignoran migraciones de los iones por la presencia de un 
+        campo eléctrico y reacciones secundarias.
+\end{itemize}
+La influencia de la mayoría de estas limitaciones a la hora de obtener la 
+capacidad de la partícula se discuten en la referencia \cite{gavilan2023}. Algunas
+de estas suposiciones pueden no cumplirse en muchos experimentos; sin embargo, el 
+modelo puede ser utilizado como una guía heurística para entender el 
+comportamiento global de los distintos materiales y para diseñar los materiales
+activos, en lo que respecta a su tamaño de partícula medio. La obtención de dicho
+comportamiento universal solo puede obtenerse al resignar a las particularidades
+de cada sistema. 
+
+El modelo heurístico basado en simulaciones galvanostáticas, que se presenta a 
+continuación, tiene asociado un software que fue escrito en Python, 
+\path{galpynostatic}, es open-source y fácil de usar, el mismo se describe en el
+Apéndice \ref{software:galpynostatic}. Este modelo pretende obtener información
+cinética de una manera simple y rápida, además, también pretende obtener el 
+tamaño óptimo de la partícula para obtener una carga del 80\% en 15 minutos.
+El mismo consiste en la utilización de los diagramas universales, como el que 
+se presenta en la Figura \ref{fig:diagnostico}, para determinar los valores de
+$\Xi$ y $\ell$ que mejor se ajustan a datos experimentales. Esto se logra al 
+realizar una búsqueda de grilla con distintas combinaciones posibles del 
+coeficiente de difusión $D$ y de la constante cinética $k^0$, manteniendo 
+constantes los otros parámetros involucrados en $\Xi$ y $\ell$, como el tamaño 
+de la partícula $d$ y el factor geométrico $z$. Luego, para cada valor de C-rate
+considerado se tiene el valor experimental del SOC y se lo compara con el 
+predicho.
+
+Para cada elección de parámetros ($D$, $k^0$) se calcula en valor de 
+$\text{SOC}_{\max}$ con el diagrama y se obtiene el error cuadrático medio (MSE,
+\textit{mean square error}) referido a los valores experimentales de la siguiente
+manera
+\begin{equation}
+    \text{MSE} = \frac{1}{n} \sum_{i=1}^n \left(y_i^{\text{exp}} - y_i^{\text{pred}}\right)^2,
+\end{equation}
+donde $n$ es el número de mediciones, $y_i^{\exp}$ son los valores 
+experimentales del SOC$_{\max}$ e $y_i^{\text{pred}}$ los predichos por el 
+modelo. Luego de una exploración exhaustiva, se obtiene el conjunto de 
+parámetros que minimizan el MSE. Esto nos provee los valores de $D$ y $k^0$ que
+caracterizan a un material de intercalación en particular. Con esta información
+se puede predecir el tamaño óptimo de la partícula para el cual el sistema 
+alcanza una capacidad considerable a una dada C-rate.
