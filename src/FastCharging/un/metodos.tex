@@ -84,9 +84,12 @@ expresar de la siguiente forma integral \cite{aoki1984}
 \begin{equation}\label{eq:aoki}
     \frac{i}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \int_0^u \frac{i}{n F c^0} \Theta_3(0|u - z) dz \right\},
 \end{equation}
-donde $c^0$ es la concentración máxima del ion en el material. $\Theta_3(u)$ es 
-la función tita \cite{bieniasz2015}. Si consideramos una corriente constantes
-$i_c$, la ecuación \ref{eq:aoki} nos da
+donde $c^0$ es la concentración máxima del ion en el material. 
+$\Theta_3(\nu|x)$ es la función tita \cite{bieniasz2015}
+\begin{equation}
+    \Theta_3(\nu|x) = \frac{1}{\sqrt{\pi x}} \sum_{n=-\infty}^{\infty} e^{-\frac{1}{x}(\nu + n)^2}
+\end{equation}
+Si consideramos una corriente constantes $i_c$, la ecuación \ref{eq:aoki} nos da
 \begin{equation}\label{eq:aoki2}
     \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{i_c}{n F c^0} \int_0^u \Theta_3(0|u - z) dz \right\}.
 \end{equation}
