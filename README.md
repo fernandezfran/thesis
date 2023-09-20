@@ -1,4 +1,4 @@
-# Computational modeling of lithium battery electrodes
+# PhD thesis
 
 PhD at [FAMAF](https://www.famaf.unc.edu.ar/), working in the computational area 
 of [LAES](http://www.laesunc.com/laes/).
