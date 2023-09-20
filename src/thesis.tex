@@ -6,8 +6,9 @@
 
 % colores nord blues
 \usepackage{xcolor}
-\definecolor{mycolor}{RGB}{94, 129, 172} % nord blue
-\definecolor{mylcolor}{RGB}{129, 161, 193} % nord lighter blue
+% \definecolor{mycolor}{RGB}{94, 129, 172} % nord blue
+% \definecolor{mylcolor}{RGB}{129, 161, 193} % nord lighter blue
+\definecolor{mycolor}{RGB}{31, 119, 180}
 
 % estilo de pagina
 %
@@ -152,11 +153,14 @@
 % para acomodar mejor las posiciones de figuras/tablas
 \usepackage{float}
 
+\usepackage{colortbl}
+\arrayrulecolor{mycolor}
+
 % para agregar código Python
 \usepackage{listings}
 
-\definecolor{code-green}{RGB}{163, 190, 140}
-\definecolor{code-magenta}{RGB}{180, 142, 173}
+\definecolor{code-green}{RGB}{44, 160, 44}
+\definecolor{code-magenta}{RGB}{227, 119, 194}
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{white},
