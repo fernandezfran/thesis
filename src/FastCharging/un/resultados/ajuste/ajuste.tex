@@ -12,48 +12,48 @@
 \end{figure}
 
 En la Figura \ref{fig:ajustes} se muestran los datos experimentales y los 
-ajustes del modelo para el SOC$_{\max}$ alcanzado al potencial de cortes 
+ajustes del modelo para el SOC$_{\max}$ alcanzado al potencial de corte 
 \textit{versus} la C-rate para los resultados de la Figura \ref{fig:preproc}
-y otros materiales de uso común en lso electrodos de las baterías de ion-litio.
+y otros materiales de uso común en los electrodos de las baterías de ion-litio.
 Puede observarse una buena concordancia en general entre el modelo y los 
-experimentos. Esto también puede observarse en la Figura \ref{fig:pred_vs_exp},
+experimentos. Esto también se observar en la Figura \ref{fig:pred_vs_exp},
 donde se muestran los valores predichos para SOC$_{\max}$ en función de los
 experimentales, junto con el coeficiente de determinación de cada ajuste.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{FastCharging/un/resultados/ajuste/pred_vs_exp.png}
-    \caption{Predicciones del SOC$_{\max}$ \textit{versus} valores 
+    \caption{Predicciones del SOC$_{\max}$ en función de los valores 
     experimentales, junto al coeficiente de determinación de cada sistema $R^2$.}
     \label{fig:pred_vs_exp}
 \end{figure}
 
-El trabajo de Mancini \textit{et al} \cite{mancini2022} aportó nuevos 
+El trabajo de Mancini \textit{et al.} \cite{mancini2022} aportó nuevos 
 conocimientos sobre el efecto de esferoidización en las características de las
 partículas de grafito natural (NG) y su impacto en el comportamiento 
-electroquímico. Como puede verse en la Figure \ref{fig:ajustes}a. En este caso, 
+electroquímico, como se muestra en la Figura \ref{fig:ajustes}a. En este caso, 
 el rango de C-rates reportadas cubre una amplia región del SOC$_{\max}$, desde un 
 material totalmente cargado hasta uno casi totalmente descargado. Esto no es lo 
 habitual, ya que en la mayoría de los experimentos sólo se reportan curvas con un 
-buen rendimiento (alta capacidad), lo que limita los ajustes realizados a una 
+buen rendimiento (capacidad alta), lo que limita los ajustes realizados a una 
 región concreta del diagrama. El coeficiente de difusión y la constante cinética 
 obtenidos en el ajuste para este sistema son $1.23\times10^{-10}$ cm$^2$/s y 
 $2.31\times10^{-7}$ cm/s, respectivamente. Para esto se consideró un tamaño
-de partícula de $7.5 \mu$m y una geometría esférica. Este valor se corresponde
+de partícula de $7.5$ $\mu$m y una geometría esférica. Este valor se corresponde
 con la media de la distribución de tamaños, que es reportada junto a los 
 cuartiles en el trabajo citado. Para los casos que siguen, en los que no se
 tiene información precisa de la distribución de tamaños, se considera el punto
-medio del rango reportado para el tamaño de las partículas y utiliza para 
+medio del rango reportado para el tamaño de las partículas y se utiliza para 
 definir el parámetro $d$ en el modelo.
 
 Los ánodos de Li$_4$Ti$_5$O$_{12}$ (LTO) presentan características excelentes
-de seguridad y una capacidad teórica de 175 mAhg$^{-1}$. He \textit{et al} 
+de seguridad y una capacidad teórica de 175 mAhg$^{-1}$. He \textit{et al.} 
 \cite{he2012} sintetizaron nanopartículas cristalinas y esféricas de LTO a 
 diferentes proporciones atómicas de Li/Ti, con un tamaño entre los 0.5 $\mu$m 
 y los 3 $\mu$m. Se asume entonces un valor de $d=1.75 \mu$m y se utilizan los
 datos de la proporción usual del LTO para ajustar el modelo, teniéndose como 
 resultado un valor de $D$ de $6.58\times10^{-12}$ cm$^2$/s. El valor experimental 
-de $D$ reportado por He \textit{et al} para esta proporción atómica fue de
+de $D$ reportado por He \textit{et al.} para esta proporción atómica fue de
 $5.12\times10^{-12}$ cm$^2$/s. Con respecto al valor de $k^0$, se obtuvo 
 $8.11\times10^{-8}$ cm/s. Comparar este valor con el experimental no es tan 
 directo, ya que lo que reportan es la densidad de corriente de intercambio, 
@@ -64,12 +64,12 @@ Butler-Volmer se tiene una relación entre $k^0$ e $i^0$ dada por
 \end{equation}
 donde las definiciones de los parámetros están dadas en la Tabla \ref{t:params}.
 Asumiendo un valor de 0.5 para el coeficiente de transferencia $\alpha$, un 
-SOC de 0.5 y utilizando los valores del precursor LTO para $M_r = 459.1$ g/mol y
+SOC de 0.5 y utilizando los valores del precursor LTO, $M_r = 459.1$ g/mol y
 $\rho = 3.48$ g/cm$^3$ \cite{osti_1284125} se obtiene un valor para $k^0$ de
 $7.38\times10^{-10}$ cm/s, que presenta una discrepancia de dos ordenes de 
 magnitud con respecto al ajustado en el modelo. Sin embargo, en la literatura
 se encuentran valores de $i^0$ con una gran dispersión entre 
-$i^0 = 1.1\times10^{-3}$ mA/cm$^2$ \cite{medina2015} y $i^0 = 0.5$ mA/cm$^2$ 
+$i^0 = 1.1\times10^{-3}$ mA/cm$^2$ \cite{medina2015} e $i^0 = 0.5$ mA/cm$^2$ 
 \cite{umirov2019} que darían valores de $k^0$ entre $3.00\times10^{-9}$ cm/s y 
 $1.37\times10^{-6}$ cm/s, respectivamente. Por lo cual puede afirmarse que el 
 valor estimado por el modelo es razonable, dada la simplicidad del mismo.
@@ -77,8 +77,8 @@ valor estimado por el modelo es razonable, dada la simplicidad del mismo.
 Otro sistema en el cual las C-rates a las que se midieron los perfiles 
 galvanostáticos cubren un rango amplio de valores de SOC$_{\max}$, de 
 completamente cargado a completamente descargado, es el de LiFePO$_4$ (LFP) de 
-Lei \textit{et al} \cite{lei2015}, como puede verse en la Figura 
-\ref{fig:ajustes}. En este trabajo consideraron sistemas LFP/nanotubos de 
+Lei \textit{et al.} \cite{lei2015}, como puede verse en la Figura 
+\ref{fig:ajustes}c. En este trabajo consideraron sistemas LFP/nanotubos de 
 carbono/grafeno (LFP-CNT-G) como materiales catódicos con una capacidad 
 superior a velocidades de carga alta y un desempeño favorable en sucesivos 
 ciclados a densidades de corriente relativamente altas, comparados con 
@@ -89,7 +89,7 @@ cm$^2$/s, $1.738\times10^{-13}$ cm$^2$/s y $8.225\times10^{-13}$ cm$^2$/s,
 respectivamente para cada uno de los sistemas mencionados. Mientras que al
 ajustar los datos experimentales del primer sistema mencionado, con un tamaño
 de partícula de $0.35 \mu$m, se obtuvo un valor de $2.85\times10^{-13}$ cm$^2$/s
-para este parámetro. Como puede observarse, se aprecia una discrepancia de un 
+para este parámetro. Para el mismo se aprecia una discrepancia de un 
 orden de magnitud pero dentro de los valores obtenidos en las otras síntesis.
 El valor obtenido para $k^0$ utilizando la ecuación \ref{eq:i0k0} y el dato 
 $i^0=5.127\times10^{-4}$ mA/cm$^2$ es $1.23\times10^{-9}$ cm/s, con un valor
@@ -99,18 +99,19 @@ de $1.00\times10^{-9}$ cm/s.
 
 Para el caso del LCO se obtuvo un valor de $D$ de $5.34\times10^{-9}$ cm$^2$/s y
 un valor de $k^0$ de $1.00\times10^{-5}$ al ajustar los datos experimentales 
-de Wang \textit{et al} \cite{wang2019high}, ya presentados en la Figura 
+de Wang \textit{et al.} \cite{wang2019high}, ya presentados en la Figura 
 \ref{fig:preproc} y ahora en el formato en el cual son ajustados en la Figura 
 \ref{fig:ajustes}d. En dicho trabajo sintetizaron partículas esféricas en el rango
 de 5 a 40 $\mu$m y utilizaron una técnica de microelectrodo de una sola partícula,
-la cual les permitió seleccionar partículas de 20 $\mu$m por lo que este fue el
-valor utilizado para $d$. El recubrimiento de TiO$_2$ mejora la eficiencia 
-coulómbica, el rendimiento de la sobrecarga, la \textit{rate capability} y la
-estabilidad con los ciclos a alto voltaje. El valor ajustado para el coeficiente 
-de difusión se encuentra en el rango de los presentados en este trabajo 
-(10$^{-10}$--10$^{-8}$) en la ventana de potencial 4.0--4.4 V.
+la cual les permitió seleccionar partículas de 20 $\mu$m, por lo que este fue el
+valor utilizado para $d$. En este experimento, el recubrimiento de TiO$_2$ mejora 
+la eficiencia coulómbica, el rendimiento de la sobrecarga, la 
+\textit{rate capability} y la estabilidad con los ciclos a alto voltaje. El valor 
+ajustado para el coeficiente de difusión se encuentra en el rango de los 
+presentados en este trabajo (10$^{-10}$--10$^{-8}$) en la ventana de potencial
+4.0--4.4 V.
 
-Bak \textit{et al} \cite{bak2011} sintetizaron nanopartículas híbridas de la 
+Bak \textit{et al.} \cite{bak2011} sintetizaron nanopartículas híbridas de la 
 espinela LiMn$_2$O$_4$ (LMO) con óxido de grafeno reducido de unos 0.01--0.04 
 $\mu$m. Con la geometría esférica considerada y el tamaño característico de 
 difusión de 0.025 $\mu$m se obtuvo un $D$ de $3.51\times10^{-14}$ cm$^2$/s y una
@@ -119,8 +120,8 @@ $k^0$ de $1.87\times10^{-8}$ cm/s. El ajuste se muestra en la Figura
 
 Por último, en la Figura \ref{fig:ajustes}f, se tiene la fase espinela 
 LiNi$_{0.5}$Mn$_{1.5}$O$_4$ (LNMO), que es un material prometedor para ser 
-utilizado como cátodo debido a su voltaje alto de funcionamiento de 4.7 V vs. 
-Li$^+$/Li. En este caso, Nishikawa \textit{et al} \cite{nishikawa2017} también
+utilizado como cátodo debido a su voltaje alto de operación de 4.7 V vs. Li$^+$/Li. 
+En este caso, Nishikawa \textit{et al.} \cite{nishikawa2017} también
 utilizaron una técnica de medición de una sola partícula para este sistema con 
 diámetros en el rango de 10 a 20 $\mu$m. En su trabajo estimaron el área 
 superficial de la partícula seleccionada, asumiendo una forma esférica, de donde
@@ -128,7 +129,7 @@ se obtuvo un tamaño de partícula de 8 $\mu$m. Los valores ajustados para el
 coeficiente de difusión y la constante cinética son $1.23\times10^{-9}$ cm$^2$/s 
 y $1.23\times10^{-6}$ cm/s, respectivamente. Como se realizó en los casos del 
 LTO y LFP, se obtuvo un valor de la $k^0$ al utilizar la densidad de corriente
-de intercambio reportada por Nishikawa \textit{et al}, 0.2 mA/cm$^2$. Además,
+de intercambio reportada por Nishikawa \textit{et al.}, 0.2 mA/cm$^2$. Además,
 se utilizó $M_r$ y $\rho$ de 182.7 g/mol y 2.3 g/cm$^3$, respectivamente, y se
 obtuvo $k^0 = 3.29\times10^{-7}$, que sólo difiere en un orden de magnitud con 
 el valor ajustado.
@@ -158,7 +159,7 @@ de SOC$_{\max}$ en el plano $\log(\Xi)$--$\log(\ell)$.
         \textbf{$D$ [cm$^2$/s]} &  
         \textbf{$k^0$ [cm/s]} \\
         \midrule
-        Grafito natural \cite{mancini2022} & (1.233 $\pm$ 0.001)$\times10^{-10}$ & (2.31 $\pm$ 0.01)$\times10^{-7}$ \\
+        NG \cite{mancini2022} & (1.233 $\pm$ 0.001)$\times10^{-10}$ & (2.31 $\pm$ 0.01)$\times10^{-7}$ \\
         LTO \cite{he2012} & (6.58 $\pm$ 0.06)$\times10^{-12}$ & (8.1 $\pm$ 0.7)$\times10^{-8}$ \\
         LFP \cite{lei2015} & (2.8 $\pm$ 0.1)$\times10^{-13}$ & (1.00 $\pm$ 0.03)$\times10^{-11}$ \\
         LCO \cite{wang2019high} & (5.3 $\pm$ 0.2)$\times10^{-9}$ & (1.0 $\pm$ 0.9)$\times10^{-5}$ \\

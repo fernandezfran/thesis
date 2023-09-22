@@ -5,12 +5,12 @@
 
 \begin{adjustwidth}{50pt}{50pt}
     En la búsqueda de una métrica universal que permita estandarizar las 
-    comparaciones en el desempeño de distintos materiales con capacidad para
-    aplicarse en una carga rápida, se define aquí la métrica UMBEM (
-    \textit{Universal Metric for Benchmarking Electrode Materials}) como el 
+    comparaciones del desempeño de distintos materiales que pueden emplearse en 
+    aplicaciones en las que se requiere una carga rápida, se define aquí la 
+    métrica UMBEM (\textit{Universal Metric for Benchmarking Electrode Materials}) como el 
     estado de la carga máxima retenida cuando el material es cargado por 15 
     minutos en condiciones de corriente constante. Esta proposición se basa 
-    en un método general que considera la influencia de la difusión finita, 
+    en un modelo general que considera la influencia de la difusión finita, 
     la cinética de la transferencia de carga, el tamaño de la partícula y la 
     C-rate, que ya fue introducido en el capítulo \ref{ch:un}. Además, se establece
     una jerarquía de materiales de acuerdo a su valor UMBEM y se predicen las 
@@ -42,7 +42,7 @@ composición, la porosidad, la tortuosidad y la distribución del material
 conductivo del electrodo también son importantes \cite{weiss2021}. Sin embargo,
 como se mencionó en el capítulo \ref{ch:un}, si estos factores están 
 optimizados, las limitaciones estarán impuestas por los anteriores. Esto último
-da relevancia a un análisis del comportamiento de los materiales de electrodos
+le da relevancia a un análisis del comportamiento de los materiales de electrodos
 utilizando un enfoque de una sola partícula.
 
 Al momento de la escritura de esta tesis se carece de una métrica universal 
@@ -55,12 +55,12 @@ capacidades de los electrodos a una misma C-rate, pero, a pesar de que algunas
 veces da una diagnostico aproximado del problema, no facilita un análisis 
 integral ya que, por ejemplo, el efecto del tamaño y la geometría de las 
 partículas no son tenidos en cuenta. Por otro lado, el coeficiente de difusión
-suele ser reportado como un parámetro para evaluar el desempeño de electrodos,
+suele ser reportado como un parámetro para evaluar el desempeño de los electrodos,
 pero por sí solo no aporta una información suficiente ya que omite la 
-influencia de la cinética en la interfase. En consecuencia, una métrica fiable 
+influencia de la cinética en la interfase. En consecuencia, una métrica confiable 
 debe tener en cuenta todos estos factores y la relación entre ellos. Un avance
-reciente en esta dirección ha sido realizada por Xia \textit{et al} 
-\cite{xia2022} en un artículo de perspectiva. Los autores presentaron una 
+reciente en esta dirección ha sido realizada por Xia \textit{et al.} 
+en un artículo de perspectiva \cite{xia2022}. Los autores presentaron una 
 figura de mérito (FOM, \textit{Figure of Merit}) para estandarizar las 
 comparaciones de los materiales de baterías de carga rápida. Esta FOM combina
 los efectos de los coeficientes de difusión y los tamaños de las partículas 
@@ -77,7 +77,7 @@ controladas por cuatro parámetros: el coeficiente de difusión de los iones
 dentro del material ($D$), la constante cinética de transferencia de carga
 ($k^0$), la C-rate ($C_r$) y el tamaño de partícula ($d$).
 
-El método utilizado ya fue explicado en la sección \ref{s:metodologia} del
+El modelo utilizado ya fue explicado en la sección \ref{s:metodologia} del
 capítulo \ref{ch:un}, un resumen de la explicación del mismo se encuentra 
 en la Figura \ref{fig:explicacion}. En la Figura \ref{fig:explicacion}a se 
 muestra un esquema del modelo de una sola partícula para obtener el estado
@@ -89,12 +89,12 @@ y se seleccionó un potencial de corte de 200 mV. Esto lo que permite es
 calcular la UMBEM como el SOC máximo alcanzado cuando el material es cargado
 en 15 minutos en condiciones de carga constante; una ilustración de esta 
 definición se presenta en la Figura \ref{fig:explicacion}d, la cual muestra 
-el comportamiento cualitativo de un perfil galvanostático típico. La UMBEM
+el comportamiento cualitativo de perfiles galvanostáticos típicos. La UMBEM
 es igual a 1 cuando el electrodo se encuentra completamente cargado, tiene
-un valor $\geq 0$ cuando satisface el criterio del USABC \cite{USABC} y
+un valor $\geq 0.8$ cuando satisface el criterio del USABC \cite{USABC} y
 valores menores (hasta 0) cuando el material no califica como de cargado 
 rápido dadas las condiciones definidas. La curva verde representa el caso 
-UMBEM$ = 0.8$, mientras que la violeta un caso de UMBEM$ = 0.3$ La UMBEM 
+UMBEM$ = 0.8$, mientras que la violeta un caso de UMBEM$ = 0.3$. La UMBEM 
 pretende estandarizar las comparaciones entre el desempeño de distintos 
 materiales para considerarse en una aplicación de carga rápida de electrodos
 de baterías de ion-litio, también permite establecer una jerarquía de 
@@ -176,16 +176,16 @@ de acuerdo a la propuesta del USABC.
     }{}
     \label{t:dataset}
 \end{table}
-Estos cuatro parámetros se utilizan para calcular los parámetros adimensionales 
-$\Xi$ y $\ell$ y así ubicar cada experimento en el mapa simulado, como se muestra
-en la Figure \ref{fig:UMBEM}a. Como referencia para delimitar la región de carga
-rápida del resto, se grafica la línea discontinua gris a UMBEM$ = 0.8$. Puede
-resaltarse que los puntos correspondientes a una material presentan una 
+Estos cuatro valores se utilizan para calcular los parámetros adimensionales 
+$\Xi$ y $\ell$ y así ubicar cada experimento en el mapa ya simulado, como se muestra
+en la Figura \ref{fig:UMBEM}a. Como referencia para delimitar la región de carga
+rápida del resto, se grafica la línea discontinua gris a UMBEM$ = 0.8$. Se puede
+resaltar que los puntos correspondientes a un material presentan una 
 dispersión mayor a lo largo del eje $\log(\ell)$ debido a la dependencia de este
 parámetro con el tamaño al cuadrado de la partícula (ecuación \ref{eq:ele}). La
 Figura \ref{fig:UMBEM}b muestra esta misma información en un gráfico de barras,
 agrupadas por materiales. Los sistemas se encuentran ordenados por valor promedio 
-por material de UMBEM decreciente. La línea discontinua horizontal es la misma que
+de UMBEM decreciente. La línea discontinua horizontal es la misma que
 en el diagrama, 0.8. Esto permite visualizar si el material cumple o no con el
 criterio para ser clasificado como de carga rápida o no. Como se observa en las
 Figuras \ref{fig:UMBEM}a y b, con la excepción de un dato, LCO y LMO se encuentran
@@ -204,7 +204,7 @@ y los materiales ternarios están fuera de la región de carga rápida.
     \label{fig:UMBEM}
 \end{figure}
 
-Xia \textit{et al} \cite{xia2022} utilizaron los datos experimentales de $d$ y $D$
+Xia \textit{et al.} \cite{xia2022} utilizaron los datos experimentales de $d$ y $D$
 que se encuentran en la Tabla \ref{t:dataset} para calcular su FOM a cada uno 
 de ellos, como se muestra en los puntos de la Figura \ref{fig:xiacomp}a. Los 
 valores de la UMBEM obtenidos en la Figura \ref{fig:UMBEM} son utilizados para
@@ -224,7 +224,7 @@ partícula menores sobre los coeficientes de difusión mayores.
     \centering
     \includegraphics[width=\textwidth]{FastCharging/umbem/xiacomp.png}
     \caption{(a) Cuadro con los puntos de la Figura de Mérito (FOM) de Xia 
-    \textit{et al} coloreados de acuerdo a los valores de la UMBEM. (b) UMBEM en 
+    \textit{et al.} coloreados de acuerdo a los valores de la UMBEM. (b) UMBEM en 
     función de FOM.}
     \label{fig:xiacomp}
 \end{figure}
@@ -267,14 +267,14 @@ es moverse en diagonal por un incremento en el coeficiente de difusión, como
 muestra la flecha etiquetada con $D$. En principio, cambiar el tamaño de la 
 partícula sería la más fácil de las tres opciones (cambiar $k^0$, $d$ o $D$) para 
 optimizar la carga retenida, ya que experimentalmente es posible controlar este 
-parámetro regulando las condiciones de síntesis de los materiales. En el parráfo
+parámetro regulando las condiciones de síntesis de los materiales. En el párrafo
 siguiente se analiza la optimización en $d$ para todos los experimentos 
 considerados.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{FastCharging/umbem/sizes.png}
-    \caption{(a) Diagrama de las distintas maneras de optimizar el rendimiento 
+    \caption{(a) Diagrama con las distintas maneras de optimizar el rendimiento 
     de un material. (b) Relación entre el tamaño óptimo predicho 
     ($d_{\text{opt}}$) y el experimental ($d_{\text{exp}}$) en escala logarítmica.
     El tamaño óptimo predicho es el requerido para obtener un valor de UMBEM 

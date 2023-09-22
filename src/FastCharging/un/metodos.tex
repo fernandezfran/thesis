@@ -22,14 +22,14 @@
         $Q, Q_{\max}$ & Capacidad y capacidad máxima \\ 
         SOC & Estado de la Carga, $\text{SOC} = Q / Q_{\max}$ \\ 
         $z$ & Parámetro para establecer la geometría de la partícula: \\
-            & $z=1$ plana, $z=2$ cilíndrica, $z=3$ esférica \\
+            & plana ($z=1$), cilíndrica ($z=2$) o esférica ($z=3$) \\
         $d$ & Longitud de difusión -- radio de la partícula -- espesor \\ 
             & de la lámina \\
         $r$ & Distancia definida entre 0 y $d$ ($0 \leq r \leq d$) \\
         $V$ & Volumen del material activo \\
         $A$ & Área superficial del electrodo/electrolito \\
-        $V / A$ & Proporción volumen/superficie, $d$ plana, $d/2$ cilíndrica, \\ 
-                & $d/3$ esférica \\
+        $V / A$ & Proporción volumen/superficie, para la geometría plana toma\\
+                & el valor de $d$, cilíndrica ($d/2$) o esférica ($d/3$) \\
         $I_c$, $i_c$ & Corriente y densidad de corriente (constantes) \\
         $k^0$ & Constante cinética \\
         $E$, $E^0$, $E_{\text{off}}$ & Potencial del electrodo de trabajo vs Li/Li$^+$,\\
@@ -77,19 +77,19 @@ Las simulaciones fueron realizadas con un código escrito en \path{C++}.
 
 \subsection{Derivación de los parámetros adimensionales}\label{s:derivparam}
 
-En esta sección se derivan los parámetros adimensionales de la ecuación de
-Butler-Volmer en condiciones de corriente constante. Para ello definimos
-$\xi = (nF/RT)(E - E^0)$ y $u = D t / d^2$, la ecuación \ref{eq:bv} se puede 
-expresar de la siguiente forma integral \cite{aoki1984}
+En esta sección se derivan los parámetros adimensionales de la ecuación
+\ref{eq:bv} de Butler-Volmer en condiciones de corriente constante. Para ello se 
+define $\xi = (nF/RT)(E - E^0)$ y $u = D t / d^2$, la ecuación \ref{eq:bv} se 
+puede expresar de la siguiente forma integral \cite{aoki1984}
 \begin{equation}\label{eq:aoki}
     \frac{i}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \int_0^u \frac{i}{n F c^0} \Theta_3(0|u - z) dz \right\},
 \end{equation}
-donde $c^0$ es la concentración máxima del ion en el material. 
-$\Theta_3(\nu|x)$ es la función tita \cite{bieniasz2015}
+donde $c^0$ es la concentración máxima del ion en el material y $\Theta_3(\nu|x)$ 
+es la función tita \cite{bieniasz2015} dada por la siguiente expresión
 \begin{equation}
     \Theta_3(\nu|x) = \frac{1}{\sqrt{\pi x}} \sum_{n=-\infty}^{\infty} e^{-\frac{1}{x}(\nu + n)^2}
 \end{equation}
-Si consideramos una corriente constantes $i_c$, la ecuación \ref{eq:aoki} nos da
+Si se considera una corriente constantes $i_c$, la ecuación \ref{eq:aoki} da
 \begin{equation}\label{eq:aoki2}
     \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{i_c}{n F c^0} \int_0^u \Theta_3(0|u - z) dz \right\}.
 \end{equation}
@@ -103,7 +103,7 @@ y usando que la capacidad del electrodo es
 \end{equation}
 y dividiendo por el área superficial y $n F c^0$ se obtiene que
 \begin{equation}\label{eq:i_c}
-    \frac{i_c}{n F c^0} = \frac{V C_r}{A t_hi}.
+    \frac{i_c}{n F c^0} = \frac{V C_r}{A t_h}.
 \end{equation}
 Reemplazando esta ecuación \ref{eq:i_c} en el lado derecho de la ecuación 
 \ref{eq:aoki2}, se tiene
@@ -112,7 +112,7 @@ Reemplazando esta ecuación \ref{eq:i_c} en el lado derecho de la ecuación
 \end{equation}
 de donde el factor $d (V/A) (C_r / (D t_h))$ se utiliza para definir el 
 parámetro de difusión finita presentado en la ecuación \ref{eq:ele}. Reemplazando 
-ahora la ecuación \ref{eq:ele} en \ref{eq:aoki3} y normalizando por la densidad 
+ahora la ecuación \ref{eq:ele} en \ref{eq:aoki3}, normalizando por la densidad 
 de corriente y multiplicando a ambos miembros de la igualdad por el término 
 $\sqrt{t_h / (C_r D)}$ se llega a que
 \begin{equation}\label{eq:aoki4}
@@ -126,24 +126,25 @@ $\Xi = k^0 \sqrt{t_h / (C_r D)}$.
 
 Como la respuesta de los perfiles galvanostáticos sólo depende de ambos parámetros
 adimensionales $\Xi$ y $\ell$, se pueden construir diagramas universales. Para 
-este fin se definió una grilla de $N$ puntos en el espacio 
-$\log(\Xi)--\log(\ell)$ y se fijó un potencial de corte. Para cada punto en la 
+este fin se definió una grilla logarítmica de $N$ puntos en el espacio 
+$\log(\Xi)$--$\log(\ell)$ y se fijó un potencial de corte. Para cada punto en la 
 grilla se realizó la simulación y se guardó el valor de intercalación de litio
-alcanzado, denotado por $\text{SOC}_{\max}$. Luego, para la construcción de los
-diagramas se utilizaron unos miles de puntos.
+alcanzado, denotado por $\text{SOC}_{\max}$. Para la construcción de los diagramas 
+se simularon unos miles de puntos que luego fueron suavizados mediante un spline
+que también se usa para interpolar.
 
 
 \subsection{Un modelo heurístico para ajustar sistemas complejos}
 
 Muchos de los electrodos de intercalación de litio que se investigan en los 
-laboratorios o son utilizados en las baterías comerciales, pueden ser simulados
+laboratorios o que son incorporados en las baterías comerciales, pueden ser simulados
 con modelos matemáticos complejos que consideran las particularidades de cada
 caso \cite{doyle1995}. Durante el proceso de manufactura, en el cual se prepara
 el precursor con una distribución de tamaños, se agrega un material conductor y
-un \textit{binder}, lo cual genera una estructura porosa, cuyos poros definen
+un \textit{binder}, se genera una estructura porosa, cuyos poros definen
 caminos de difusión tortuosos para los iones de litio. Los modelos que poseen
 este nivel de detalles \cite{doyle1995} aportan información sobre las propiedades
-específicas de un electrodo determinado, a cambio de dificultar una descripción
+específicas de un electrodo determinado, a costa de dificultar una descripción
 más general del problema. El modelo introducido en las secciones anteriores 
 se presenta como una alternativa para tener una descripción universal del 
 comportamiento de distintos materiales, ya que permite obtener la capacidad en 
@@ -151,7 +152,7 @@ condiciones de cargado galvanostático en electrodos de una sola partícula en
 función de 4 parámetros: la C-rate, el tamaño de partícula, el coeficiente de 
 difusión y la constante cinética.
 
-Este modelo tiene algunas suposiciones:
+Este modelo parte de las siguientes suposiciones:
 \begin{itemize}
     \item El transporte de carga dentro de la partícula está limitado por el
         movimiento de los iones insertados, i.e. que el transporte electrónico
@@ -162,7 +163,7 @@ Este modelo tiene algunas suposiciones:
         concentraciones de iones en el mismo.
     \item El coeficiente de difusión, $D$, permanece constante en todo el 
         proceso de intercalación.
-    \item El flujo de iones es cero en el centro de la partícula.
+    \item El flujo de iones en el centro de la partícula es cero.
     \item La transferencia de carga en la interfase electrodo/electrolito se 
         describe mediante la ecuación de Butler-Volmer.
     \item La constante cinética, $k^0$, es la misma en todo el proceso de 
@@ -188,8 +189,8 @@ El modelo heurístico basado en simulaciones galvanostáticas, que se presenta a
 continuación, tiene asociado un software que fue escrito en Python, 
 \path{galpynostatic}, es open-source y fácil de usar, el mismo se describe en el
 Apéndice \ref{software:galpynostatic}. Este modelo pretende obtener información
-cinética de una manera simple y rápida, además, también pretende obtener el 
-tamaño óptimo de la partícula para obtener una carga del 80\% en 15 minutos.
+cinética de una manera simple y rápida, además, también pretende predecir el 
+tamaño óptimo de la partícula para lograr una carga del 80\% en 15 minutos.
 El mismo consiste en la utilización de los diagramas universales, como el que 
 se presenta en la Figura \ref{fig:diagnostico}, para determinar los valores de
 $\Xi$ y $\ell$ que mejor se ajustan a datos experimentales. Esto se logra al 
@@ -197,20 +198,21 @@ realizar una búsqueda de grilla con distintas combinaciones posibles del
 coeficiente de difusión $D$ y de la constante cinética $k^0$, manteniendo 
 constantes los otros parámetros involucrados en $\Xi$ y $\ell$, como el tamaño 
 de la partícula $d$ y el factor geométrico $z$. Luego, para cada valor de C-rate
-considerado se tiene el valor experimental del SOC y se lo compara con el 
-predicho.
+considerado se tiene el valor experimental del SOC$_{\max}$ y se lo compara con 
+el predicho.
 
 Para cada elección de parámetros ($D$, $k^0$) se calcula en valor de 
 $\text{SOC}_{\max}$ con el diagrama y se obtiene el error cuadrático medio (MSE,
 \textit{mean square error}) referido a los valores experimentales de la siguiente
 manera
 \begin{equation}
-    \text{MSE} = \frac{1}{n} \sum_{i=1}^n \left(y_i^{\text{exp}} - y_i^{\text{pred}}\right)^2,
+    \text{MSE} = \frac{1}{n} \sum_{i=1}^n \left(\text{SOC}_{\max,i}^{\text{exp}} - \text{SOC}_{\max,i}^{\text{pred}}\right)^2,
 \end{equation}
-donde $n$ es el número de mediciones, $y_i^{\exp}$ son los valores 
-experimentales del SOC$_{\max}$ e $y_i^{\text{pred}}$ los predichos por el 
-modelo. Luego de una exploración exhaustiva, se obtiene el conjunto de 
-parámetros que minimizan el MSE. Esto nos provee los valores de $D$ y $k^0$ que
-caracterizan a un material de intercalación en particular. Con esta información
-se puede predecir el tamaño óptimo de la partícula para el cual el sistema 
-alcanza una capacidad considerable a una dada C-rate.
+donde $n$ es el número de mediciones, SOC$_{\max, i}^{\exp}$ y 
+SOC$_{\max, i}^{\text{pred}}$ son los valores experimentales y predichos por el 
+modelo, respectivamente, de la capacidad máxima alcanzada. Luego de una 
+exploración exhaustiva, se obtiene el conjunto de parámetros que minimizan el MSE. 
+La cual provee los valores de $D$ y $k^0$ que caracterizan a un material de 
+intercalación en particular. Con esta información se puede predecir el tamaño 
+óptimo de la partícula para que sistema alcance una capacidad deseada a una dada 
+C-rate.

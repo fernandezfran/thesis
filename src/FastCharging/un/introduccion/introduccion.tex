@@ -9,7 +9,7 @@ de recarga de la batería de los autos eléctricos de Nivel 2 se encuentra entre
 las 4 y las 10 horas \cite{evcs}. Este número es dos ordenes de magnitud 
 mayor que el tiempo que toma recargar un auto a combustión interna.
 
-Existen distintos criterios para definir que una carga sea rápida. Un criterio 
+Existen distintos criterios para definir que una carga sea rápida. Uno de ellos, 
 pensado para la aplicación de vehículos eléctricos, busca una autonomía de 30 km 
 por minuto de carga \cite{dufek2022}. Otro criterio, definido por el USABC (de sus
 siglas en inglés, \textit{United States Advanced Battery Consortium}), tiene como
@@ -26,9 +26,9 @@ de lo que es la escala micrométrica, los procesos que determinan la velocidad d
 carga al nivel de una sola partícula de los materiales de electrodos son la 
 difusión de iones de litio dentro de electrodos y la transferencia de carga en 
 las interfases electrodo/electrolito, por lo cual es necesario favorecer ambos
-procesos \cite{liu2019, tomaszewska2019, weiss2021}. También se ha mostrado
-que el tamaño y la geometría de las partículas juegan un rol importante en el 
-desempeño electroquímico \cite{gavilan2020, gavilan2022}. Así, incluso descartando
+procesos \cite{liu2019, tomaszewska2019, weiss2021}. También se ha estudiado la 
+importancia del rol del tamaño y la geometría de las partículas en el desempeño 
+electroquímico \cite{gavilan2020, gavilan2022}. Así, incluso descartando
 otros factores que podrían influir en la carga de la batería (como cambios de 
 volumen durante la intercalación de iones de litio, termodinámicas particulares
 de los sistemas, formación de interfase electrolito/sólido, etc), es complicado
@@ -38,7 +38,7 @@ La electroquímica de electrodos de una sola partícula \cite{ventosa2021,
 heubner2020, takahashi2020, wahab2020, xu2020, tao2019, fukui2011} permite 
 estudiar la respuesta \say{pura} de los materiales activos, i.e., sin el efecto 
 de otros aditivos presentes en los electrodos compuestos. Esta información 
-detallada es valiosa ya que nos da a conocer los factores limitantes para su 
+detallada es valiosa ya que da a conocer los factores limitantes para su 
 carga rápida y su respuesta frente a la misma. Enmarcado en este contexto, un 
 modelo de una sola partícula recientemente propuesto \cite{gavilan2023} fue 
 utilizado para construir diagramas galvanostáticos de la capacidad máxima 
@@ -53,12 +53,12 @@ y el otro de difusión finita,
 \end{equation}
 donde $k^0$ es la constante cinética, $D$ el coeficiente de difusión, $V/A$ es la 
 proporción volumen/superficie, $d$ es el tamaño característico de la partícula, 
-$C_r$ denota la \textit{C-rate} y $t_h$ el tiempo de una hora (en unidades 
-correspondientes). En la Figura \ref{fig:diagnostico}a se muestra en 2D la 
+$C_r$ denota la C-rate y $t_h$ el tiempo de una hora (en las unidades que
+corresponda). En la Figura \ref{fig:diagnostico}a se muestra en 2D la 
 capacidad alcanzada en función de los dos parámetros adimensionales, estos valores 
 se corresponden con los cortes de los perfiles galvanostáticos presentes en las
 Figuras \ref{fig:diagnostico}b y c (ejemplos para algunos valores en particular 
-de $\Xi$ y $\ell$) a 150 mV debajo del potencial de equilibrio.
+de $\Xi$ y $\ell$) 150 mV debajo del potencial de equilibrio.
 
 \begin{figure}[h!]
     \centering
@@ -67,8 +67,8 @@ de $\Xi$ y $\ell$) a 150 mV debajo del potencial de equilibrio.
     corte de 150 mV y condiciones de contorno detalladas en la sección 
     \ref{s:metodologia}. Los datos de los puntos A y B se encuentran en la 
     Tabla \ref{t:ab}. (b) y (c) muestran perfiles voltaje/capacidad para 
-    diferentes valores de $\Xi$ y $\ell$, ver líneas grises punteadas en 
-    Figura \ref{fig:diagnostico}a.}
+    diferentes valores particulares de $\Xi$ y $\ell$ (ver líneas grises 
+    discontinuas en la Figura \ref{fig:diagnostico}a).}
     \label{fig:diagnostico}
 \end{figure}
 
@@ -99,21 +99,23 @@ pensarse como una función universal de los parámetros de escaleo $\Xi$ y $\ell
 \begin{equation}\label{eq:socmax}
     \text{SOC}_{\max} = f(\Xi, \ell) = f(d, D, k^0, C_r).
 \end{equation}
-Esta cantidad puede ser obtenida en un mapeo ($\Xi$, $\ell$) de simulaciones 
-galvanostáticas, como se la presenta en la Figura \ref{fig:diagnostico}a.
+Como no tenemos una expresión análitica para esta función $f$, la misma puede ser 
+obtenida en un mapeo ($\Xi$, $\ell$) de simulaciones galvanostáticas, como se la 
+presenta en la Figura \ref{fig:diagnostico}a.
 
-Un trabajo reciente ha propuesto una figura de mérito que permite establecer 
+En un trabajo reciente se ha propuesto una figura de mérito que permite establecer 
 una jerarquía entre distintos materiales de carga rápida \cite{xia2022}. Desde
 este punto de vista, la ecuación \ref{eq:socmax} evaluada en el punto ($\Xi$, 
-$\ell$) se introduce como una figura de mérito. Supongamos que tenemos dos 
-materiales, A y B, con las propiedades dadas en la Tabla \ref{t:ab} y se quiere
-determinar si alguno de ellos es un buen candidato para una carga en 15 minutos.
-Entonces, con los datos de las columnas 2--4 de la Tabla \ref{t:ab} podemos 
-calcular los valores de $\Xi$ y $\ell$, utilizando las ecuaciones \ref{eq:xi} y
-\ref{eq:ele}, presentados en la quinta y la sexta columna de la Tabla \ref{t:ab}.
-Los puntos correspondientes a estos materiales se presentan en el mapa de la 
-Figura \ref{fig:diagnostico}a. Por lo tanto, podemos ver que el material A es 
-un buen candidato para una carga en 15 minutos mientras que el material B no.
+$\ell$) también puede introducirse como una figura de mérito. Supongamos que 
+tenemos dos materiales, A y B, con las propiedades dadas en la Tabla \ref{t:ab} y 
+se quiere determinar si alguno de ellos es un buen candidato para una carga en 15 
+minutos. Entonces, con los datos de las columnas 2--4 de la Tabla \ref{t:ab} 
+se pueden calcular los valores de $\Xi$ y $\ell$, utilizando las ecuaciones 
+\ref{eq:xi} y \ref{eq:ele}, presentados en la quinta y la sexta columna de la 
+Tabla \ref{t:ab}. Los puntos correspondientes a estos materiales se presentan en 
+el mapa de la Figura \ref{fig:diagnostico}a. Por lo tanto, podemos ver que el 
+material A es un buen candidato para una carga en 15 minutos mientras que el 
+material B no.
 
 \begin{table}[h!]
     \centering
@@ -138,7 +140,7 @@ un buen candidato para una carga en 15 minutos mientras que el material B no.
 \end{table}
 
 El principal objetivo de este capítulo es proponer que estos diagramas generales 
-sean utilizados con un enfoque heurístico, utilizando datos experimentales de la
-literatura, y mostrar que pueden proporcionar una guía simple y rápida para 
+sean utilizados con un enfoque heurístico, aprovechando datos experimentales de la
+literatura, para mostrar que pueden proporcionar una guía simple y rápida para 
 estudiar la cinética y el comportamiento de materiales específicos bajo 
 condiciones de carga rápida.
