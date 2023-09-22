@@ -5,11 +5,12 @@
 El cambio de volumen fraccionario puede definirse utilizando una normalización 
 relativa al número de átomos de Si en la estructura de acuerdo a
 \begin{equation}\label{eq:fvc}
-    fvc = \frac{N_{Si}}{V_{Si}} \left( \frac{V_{Si,x}}{N_{Si,x}} - \frac{V_{Si}}{N_{Si}} \right),
+    \text{fvc} = \frac{N_{\text{Si}}}{V_{\text{Si}}} \left( \frac{V_{\text{Si},x}}{N_{\text{Si},x}} - \frac{V_{\text{Si}}}{N_{\text{Si}}} \right),
 \end{equation}
-donde $V_{Si}$ y $N_{Si}$ son el volumen y el número de átomos de Si en la celda
-unidad de c-Si, $V_{Si,x}$ y $N_{Si,x}$ son el volumen y el número de átomos de Si
-en la celda de simulación para el valor correspondiente de $x$. En la figura
+donde $V_{\text{Si}}$ y $N_{\text{Si}}$ son el volumen y el número de átomos de 
+Si en la celda unidad de c-Si, $V_{\text{Si},x}$ y $N_{\text{Si},x}$ son el 
+volumen y el número de átomos de Si
+en la celda de simulación para el valor correspondiente de $x$. En la Figura
 \ref{fig:fvc} se muestran los valores calculados a partir de la ecuación 
 \ref{eq:fvc} para las distintas estructuras de Li$_x$Si estudiadas. En la misma 
 se comparan los valores obtenidos con datos experimentales de AFM (\textit{atomic 
@@ -34,21 +35,20 @@ cuantitativamente.
     \centering
     \caption{Energías de formación obtenidas a través de la ecuación \ref{eq:fe}}
     \setlength\extrarowheight{2pt}\stackon{%
-    \begin{tabular}{c c c}
+    \begin{tabular}{c c}
         \toprule
         \textbf{x en Li$_x$Si} & 
-        \textbf{Energía de formación [eV]} & 
-        \textbf{Desviación estándar [eV]} \\
+        \textbf{Energía de formación [eV]} \\ 
         \midrule
-        0.21  &  0.5027  &  0.0037 \\
-        0.62  &  0.1206  &  0.0074 \\
-        1.25  & -0.1160  &  0.0096 \\
-        1.71  & -0.2358  &  0.0065 \\
-        2.17  & -0.3551  &  0.0075 \\
-        2.71  & -0.4098  &  0.0072 \\
-        3.25  & -0.5187  &  0.0126 \\
-        3.75  & -0.6202  &  0.0097 \\
-        4.20  & -0.6995  &  0.0075 \\
+        0.21  &  0.503 $\pm$ 0.003 \\
+        0.62  &  0.121 $\pm$ 0.007 \\
+        1.25  & -0.12 $\pm$ 0.01 \\
+        1.71  & -0.236 $\pm$ 0.007 \\
+        2.17  & -0.355 $\pm$ 0.008 \\
+        2.71  & -0.410 $\pm$ 0.007 \\
+        3.25  & -0.52 $\pm$ 0.01 \\
+        3.75  & -0.62 $\pm$ 0.01 \\
+        4.20  & -0.699 $\pm$ 0.008 \\
         \bottomrule
     \end{tabular}
     }{}
@@ -59,10 +59,11 @@ modelo para predecir propiedades electroquímicas, como fue sugerido por Chevrie
 y Dahn ~\cite{chevrier2009}. Primero, se define la energía de formación de las 
 distintas estructuras amorfas como
 \begin{equation}\label{eq:fe}
-    E_f(x) = E_{Li_xSi} - (x E_{Li} + E_{Si}),
+    E_f(x) = E_{\text{Li}_x\text{Si}} - (x E_{\text{Li}} + E_{\text{Si}}),
 \end{equation}
-donde $E_{Li_xSi}$ es la energía de la aleación Li$_x$Si por átomo de Si, E$_{Li}$
-y E$_{Si}$ son las energías cohesivas de Li y Si en sus fases cristalinas. Usando
+donde $E_{\text{Li}_x\text{Si}}$ es la energía de la aleación Li$_x$Si por átomo 
+de Si, $E_{\text{Li}}$ y $E_{\text{Si}}$ son las energías cohesivas de Li y Si
+en sus fases cristalinas. Usando
 la ecuación \ref{eq:fe} como aproximación a la energía de formación de Gibbs, el 
 potencial \textit{versus} Li metálico de Li$_x$Si puede obtenerse a partir de
 \begin{equation}\label{eq:voltaje}
@@ -70,11 +71,11 @@ potencial \textit{versus} Li metálico de Li$_x$Si puede obtenerse a partir de
 \end{equation}
 donde $V$ es el potencial. Los datos obtenidos así pueden compararse con valores
 experimentales y computacionales previos. Las energías de formación calculadas
-a partir de la ecuación \ref{eq:fe} se muestran en la tabla \ref{t:fe}. 
+a partir de la ecuación \ref{eq:fe} se muestran en la Tabla \ref{t:fe}. 
 Si se realiza un \textit{spline} a estos valores, mostrados en el recuadro de la
-figura \ref{fig:voltaje}, se obtienen los valores de $V(x)$ a partir de la ecuación
-\ref{eq:voltaje}, que se grafican en función de la composición en la figura 
-\ref{fig:voltaje} con una línea roja. Para comparar, se incluye en la misma figura
+Figura \ref{fig:voltaje}, se obtienen los valores de $V(x)$ a partir de la ecuación
+\ref{eq:voltaje}, que se grafican en función de la composición en la Figura 
+\ref{fig:voltaje} con una línea roja. Para comparar, se incluye en la misma Figura
 las curvas experimentales medidas para la litiación y la delitiación de silicio
 amorfo ~\cite{hatchard2004} y la curva teórica de cálculos de primeros principios 
 ~\cite{chevrier2009}. Se puede afirmar que los resultados obtenidos con el ReaxFF 

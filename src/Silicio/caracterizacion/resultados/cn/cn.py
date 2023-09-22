@@ -6,10 +6,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-nordblue = "#5E81AC"
-nordgreen = "#A3BE8C"
-nordorange = "#D08770"
-
 plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
@@ -24,7 +20,7 @@ ax.grid(axis="y", linestyle=":")
 ax.set_xlim((0, 4.25))
 
 interacciones = ["LiLi", "SiLi", "SiSi"]
-colores = [nordgreen, nordorange, nordblue]
+colores = ["tab:green", "tab:orange", "tab:blue"]
 markers = ["o", "^", "s"]
 for e, c, m in zip(interacciones, colores, markers):
     x, y, yerr = np.loadtxt(f"data/cn/{e}.dat", unpack=True)
@@ -45,3 +41,4 @@ ax.legend()
 fig.tight_layout()
 
 fig.savefig("cn.png", dpi=600)
+plt.show()

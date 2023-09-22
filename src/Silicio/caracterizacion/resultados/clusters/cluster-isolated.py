@@ -9,15 +9,15 @@ import numpy as np
 
 
 def color_fader(mix):
-    nordblue = np.array(colors.to_rgb("#5E81AC"))
-    nordgreen = np.array(colors.to_rgb("#A3BE8C"))
+    nordblue = np.array(colors.to_rgb("tab:blue"))
+    nordgreen = np.array(colors.to_rgb("tab:green"))
     return colors.to_hex((1 - mix) * nordblue + mix * nordgreen)
 
 
 concentraciones = [0.21, 0.62, 1.25, 1.71, 2.17, 2.71, 3.25, 3.75, 4.2]
 n = len(concentraciones)
 
-plt.rcParams.update({"font.size": 16})
+plt.rcParams.update({"font.size": 14})
 fig, ax = plt.subplots()
 
 ax.set_xlabel(r"r$_{cut}$ [$\AA$]")
@@ -42,6 +42,7 @@ for i, (x, m) in enumerate(zip(concentraciones, markers)):
 
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles[::-1], labels[::-1], title=r"$x$ en Li$_x$Si", loc=1)
+ax.text(-0.15, 1.05, "(a)", transform=ax.transAxes)
 
 fig.tight_layout()
 fig.savefig(f"cluster-isolated.png", dpi=600)

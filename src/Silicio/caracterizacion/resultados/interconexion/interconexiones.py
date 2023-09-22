@@ -6,6 +6,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+"""
 nordgray = "#2E3440"
 nordblue = "#5E81AC"
 nordred = "#BF616A"
@@ -15,6 +16,7 @@ nordgreen = "#A3BE8C"
 nordpink = "#B48EAD"
 
 nordcolors = [nordorange, nordpink, nordyellow, nordgreen, nordred, nordblue]
+"""
 concentraciones = np.array([[0.21, 0.62, 1.25], [1.71, 2.17, 2.71], [3.25, 3.75, 4.2]])
 labels = ["0 átomos", "1 átomo", "2 átomo", "3 átomos", "4 átomos", "+5 átomos"]
 
@@ -34,9 +36,9 @@ for conc, axis in zip(concentraciones, axes):
 
         ges = np.loadtxt(f"data/rdf/{x}.dat", unpack=True)
 
-        for g, c, l in zip(ges[1:], nordcolors, labels):
-            ax.plot(ges[0], g, color=c, label=l)
-        ax.plot(ges[0], ges[1:].sum(axis=0), color=nordgray, label="total")
+        for g, l in zip(ges[1:], labels):
+            ax.plot(ges[0], g, label=l)
+        ax.plot(ges[0], ges[1:].sum(axis=0), color="k", label="total")
 
         ax.text(5.75, 1.45, f"x = {x}")
 

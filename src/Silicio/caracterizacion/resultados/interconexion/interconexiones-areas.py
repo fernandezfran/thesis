@@ -6,9 +6,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-nordgreen = "#A3BE8C"
-nordpink = "#B48EAD"
-
 plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
@@ -26,8 +23,8 @@ ax.set_xlim((0, 4.35))
 x, h1, h2 = np.loadtxt("data/areas/histo.dat", unpack=True)
 
 w = 0.1
-ax.bar(x - 0.5 * w, h1, width=w, color=nordpink, label="una conexión")
-ax.bar(x + 0.5 * w, h2, width=w, color=nordgreen, label="más de una conexión")
+ax.bar(x - 0.5 * w, h1, width=w, label="una conexión")
+ax.bar(x + 0.5 * w, h2, width=w, label="más de una conexión")
 
 ax.legend()
 

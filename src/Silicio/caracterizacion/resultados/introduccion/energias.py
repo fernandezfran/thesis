@@ -7,13 +7,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 import numpy as np
 
-nordred = "#BF616A"
-nordblue = "#5E81AC"
-nordgreen = "#A3BE8C"
-nordorange = "#D08770"
-nordgray = "#2E3440"
-
-nordcolors = [nordgray, nordgreen, nordblue, nordorange, nordred]
+colors = ["tab:gray", "tab:green", "tab:blue", "tab:orange", "tab:red"]
 alfas = [1, 0.2, 0.4, 0.6, 0.8]
 concentraciones = np.array([[0.21, 0.62, 1.25], [1.71, 2.17, 2.71], [3.25, 3.75, 4.2]])
 anchos = np.array(
@@ -40,13 +34,13 @@ for conc, axis, anch in zip(concentraciones, axes, anchos):
                 xx,
                 yy,
                 width=w,
-                color=nordgray,
+                color="tab:gray",
                 alpha=0.75,
                 label=rf"$\alpha$ = 1",
             )
 
         histo = np.loadtxt(f"data/{x}-histo.dat", unpack=True)
-        for c, h, alfa in zip(nordcolors[1:], histo[1:], alfas[1:]):
+        for c, h, alfa in zip(colors[1:], histo[1:], alfas[1:]):
             ax.bar(
                 histo[0],
                 h,

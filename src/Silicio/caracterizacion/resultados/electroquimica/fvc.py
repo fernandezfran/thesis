@@ -7,10 +7,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-nordred = "#BF616A"
-nordblue = "#5E81AC"
-nordgray = "#2E3440"
-
 x, fvc = np.loadtxt("data/fvc/fvc.dat", unpack=True)
 df = pd.read_csv("data/fvc/afm.csv")
 xdft = np.array([0, 4.25])
@@ -29,11 +25,12 @@ ax.grid(axis="y", linestyle=":")
 ax.set_ylim((-0.25, 3.5))
 ax.set_xlim((0, 4.25))
 
-ax.plot(x, fvc, marker="o", linestyle="--", color=nordred, label="ReaxFF")
-ax.plot(df.x, df.afm, marker="s", linestyle="--", color=nordblue, label="AFM")
-ax.plot(xdft, 0.786647 * xdft + 0.001547, color=nordgray, label="DFT volumen fijo")
+ax.plot(x, fvc, marker="o", linestyle="--", color="tab:red", label="ReaxFF")
+ax.plot(df.x, df.afm, marker="s", linestyle="--", color="tab:blue", label="AFM")
+ax.plot(xdft, 0.786647 * xdft + 0.001547, color="tab:gray", label="DFT volumen fijo")
 
 ax.legend()
 fig.tight_layout()
 
 fig.savefig("fvc.png", dpi=600)
+plt.show()

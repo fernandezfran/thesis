@@ -18,8 +18,8 @@ import numpy as np
 
 
 def color_fader(mix):
-    nordblue = np.array(colors.to_rgb("#5E81AC"))
-    nordgreen = np.array(colors.to_rgb("#A3BE8C"))
+    nordblue = np.array(colors.to_rgb("tab:blue"))
+    nordgreen = np.array(colors.to_rgb("tab:green"))
     return colors.to_hex((1 - mix) * nordblue + mix * nordgreen)
 
 

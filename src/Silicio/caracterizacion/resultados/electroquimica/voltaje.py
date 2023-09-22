@@ -6,10 +6,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-nordred = "#BF616A"
-nordblue = "#5E81AC"
-nordgray = "#2E3440"
-
 xfe, fe, dfe = np.loadtxt("data/voltaje/fe.dat", unpack=True)
 x, fes, v = np.loadtxt("data/voltaje/fe-spline.dat", unpack=True)
 xdft, vdft = np.loadtxt("data/voltaje/v-chev.dat", delimiter=",", unpack=True)
@@ -28,10 +24,10 @@ ax.set_ylabel(r"Voltaje [V vs Li/Li$^+$]")
 ax.set_ylim((-0.01, 0.8))
 ax.set_xlim((0, 4.25))
 
-ax.plot(x, v, color=nordred, label="ReaxFF spline")
-ax.plot(xdft, vdft, color=nordgray, label="DFT spline")
-ax.plot(xexp1, vexp1, color=nordblue, label="a-Si")
-ax.plot(xexp2, vexp2, color=nordblue)
+ax.plot(x, v, color="tab:red", label="ReaxFF spline")
+ax.plot(xdft, vdft, color="tab:gray", label="DFT spline")
+ax.plot(xexp1, vexp1, color="tab:blue", label="a-Si")
+ax.plot(xexp2, vexp2, color="tab:blue")
 
 ax.legend(loc=3)
 
@@ -50,8 +46,8 @@ ax2.set_xlim((0, 4.25))
 ax2.set_xlabel(r"$x$ en Li$_x$Si", fontsize=fontsize)
 ax2.set_ylabel("Energía de formación [eV]", fontsize=fontsize)
 
-ax2.scatter(xfe, fe, color=nordgray, marker="s", s=15, label="ReaxFF")
-ax2.plot(x, fes, color=nordred, label="spline")
+ax2.scatter(xfe, fe, color="k", marker="s", s=15, label="ReaxFF")
+ax2.plot(x, fes, color="tab:red", label="spline")
 
 ax2.legend(prop={"size": fontsize})
 ##################################################################################

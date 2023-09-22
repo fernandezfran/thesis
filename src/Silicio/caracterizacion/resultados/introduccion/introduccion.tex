@@ -3,31 +3,29 @@ con un termostato de Langevin ~\cite{schneider1978} utilizando una versión
 modificada de \path{GEMS} ~\cite{gems}. A cada estructura se le realizó una 
 minimización de gradientes conjugados con el software \path{LAMMPS} 
 ~\cite{lammps1, lammps2}. El tamaño de los sistemas y la cantidad de estructuras 
-utilizadas para obtener los siguiente resultados se presentan en la tabla 
+utilizadas para obtener los siguiente resultados se presentan en la Tabla 
 \ref{t:siminfo}.
 \begin{table}[h]
     \centering
     \caption{Información del conjunto de datos.}
     \setlength\extrarowheight{2pt}\stackon{%
-    \begin{tabular}{c c c c c c c c}
+    \begin{tabular}{c c c c c c c}
         \toprule
-        \thead{\normalsize\bfseries $x$ en Li$_{x}$Si} & 
-        \thead{\normalsize\bfseries N$_{Li}$} & 
-        \thead{\normalsize\bfseries N$_{Si}$} &
-        \thead{\normalsize\bfseries N$_{estructuras}$} & 
-        \thead{\normalsize\bfseries E$_{mean}$ / N$_T$ [eV]} & 
-        \thead{\normalsize\bfseries E$_{std}$ / N$_T$ [eV]} & 
-        \thead{\normalsize\bfseries $\sqrt{kT}$ / N$_T$ [eV]} \\
+        \textbf{$x$ en Li$_{x}$Si} & 
+        \textbf{$N_{\text{Li}}$} & 
+        \textbf{$N_{\text{Si}}$} &
+        \textbf{$N_{\text{estructuras}}$} & 
+        \textbf{$E$ / $N$ [eV]} \\ 
         \midrule
-        0.21 & 140 & 667 & 774 & -4.399 & 0.003 & 0.0002 \\
-        0.62 & 416 & 670 & 1665 & -4.002 & 0.005 & 0.0001 \\
-        1.25 & 839 & 671 & 1224 & -3.521 & 0.004 & 0.0001 \\
-        1.71 & 1152 & 672 & 2132 & -3.286 & 0.002 & 0.0001 \\
-        2.17 & 693 & 319 & 1699 & -3.126 & 0.002 & 0.0002 \\
-        2.71 & 865 & 319 & 1504 & -2.964 & 0.002 & 0.0001 \\
-        3.25 & 1040 & 320 & 1464 & -2.856 & 0.003 & 0.0001 \\
-        3.75 & 1080 & 288 & 2660 & -2.777 & 0.002 & 0.0001 \\
-        4.20 & 1344 & 320 & 1600 & -2.717 & 0.001 & 0.0001 \\
+        0.21 & 140 & 667 & 774 & -4.399 $\pm$ 0.003 \\
+        0.62 & 416 & 670 & 1665 & -4.002 $\pm$ 0.005 \\
+        1.25 & 839 & 671 & 1224 & -3.521 $\pm$ 0.004 \\
+        1.71 & 1152 & 672 & 2132 & -3.286 $\pm$ 0.002 \\
+        2.17 & 693 & 319 & 1699 & -3.126 $\pm$ 0.002 \\
+        2.71 & 865 & 319 & 1504 & -2.964 $\pm$ 0.002 \\
+        3.25 & 1040 & 320 & 1464 & -2.856 $\pm$ 0.003 \\
+        3.75 & 1080 & 288 & 2660 & -2.777 $\pm$ 0.002 \\
+        4.20 & 1344 & 320 & 1600 & -2.717 $\pm$ 0.001 \\
         \bottomrule
     \end{tabular}
     }{}
@@ -42,7 +40,7 @@ utilizadas para obtener los siguiente resultados se presentan en la tabla
     en la ecuación \ref{eq:bias}, para cada composición de Li$_x$Si estudiada.}
     \label{fig:energias}
 \end{figure}
-La figura \ref{fig:energias} muestra los histogramas para las energías mínimas
+La Figura \ref{fig:energias} muestra los histogramas para las energías mínimas
 de las estructuras de Li$_x$Si obtenidas con el método AELM para los valores de
 $x$ estudiados y distintos valores de compresión $\alpha$. En cada fila hay un 
 histograma de energías representativo para las estructuras de concentración 
@@ -75,10 +73,10 @@ reducen fuertemente la energía potencial del sistema.
     de Si se muestran en azul mientras que los de Li en verde.}
     \label{fig:amorfas}
 \end{figure}
-De los histogramas de la figura \ref{fig:energias} se seleccionan los factores 
+De los histogramas de la Figura \ref{fig:energias} se seleccionan los factores 
 de aceleración más óptimos, es decir que producen energías menores, para obtener
 las propiedades estructurales que se discuten a continuación. Para estos valores
-se muestra una estructura representativa a cada composición en la figura 
+se muestra una estructura representativa a cada composición en la Figura 
 \ref{fig:amorfas}. Para $x = 0.21$ puede verse que la red amorfa de silicio
 permanece con su estructura tetraédrica desordenada. Algunos enlaces Si-Si 
 comienzan a romperse a medida que la concentración de litio aumenta, como puede
