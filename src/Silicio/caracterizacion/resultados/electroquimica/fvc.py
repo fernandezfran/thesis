@@ -17,7 +17,7 @@ fig, ax = plt.subplots()
 ax.set_xlabel(r"$x$ en Li$_x$Si")
 ax.secondary_xaxis(
     "top", functions=(lambda x: 4056.2 * x / 4.25, lambda x: 4056.2 * x / 4.25)
-).set_xlabel(r"Capacidad [mAhg$^{-1}$]")
+).set_xlabel(r"Capacidad (mAhg$^{-1}$)")
 ax.set_ylabel("Cambio de volumen fraccionario")
 
 ax.grid(axis="y", linestyle=":")
@@ -25,9 +25,9 @@ ax.grid(axis="y", linestyle=":")
 ax.set_ylim((-0.25, 3.5))
 ax.set_xlim((0, 4.25))
 
-ax.plot(x, fvc, marker="o", linestyle="--", color="tab:red", label="ReaxFF")
 ax.plot(df.x, df.afm, marker="s", linestyle="--", color="tab:blue", label="AFM")
-ax.plot(xdft, 0.786647 * xdft + 0.001547, color="tab:gray", label="DFT volumen fijo")
+ax.plot(xdft, 0.786647 * xdft + 0.001547, color="k", label="DFT volumen fijo")
+ax.plot(x, fvc, marker="o", linestyle="--", color="tab:orange", label="ReaxFF")
 
 ax.legend()
 fig.tight_layout()

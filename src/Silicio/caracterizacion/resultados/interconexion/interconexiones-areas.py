@@ -12,7 +12,7 @@ fig, ax = plt.subplots()
 ax.set_xlabel(r"$x$ en Li$_x$Si")
 ax.secondary_xaxis(
     "top", functions=(lambda x: 4056.2 * x / 4.25, lambda x: 4056.2 * x / 4.25)
-).set_xlabel(r"Capacidad [mAhg$^{-1}$]")
+).set_xlabel(r"Capacidad (mAhg$^{-1}$)")
 ax.set_ylabel("Fracción")
 
 ax.grid(axis="y", linestyle=":")

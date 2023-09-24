@@ -1,57 +1,57 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-"""Radial Distribution Function.
-
-Correr como:
-
-    $ python3 rdf.py ij
-
-donde ij es el tipo de interacción posible: LiLi, SiSi o SiLi.
-"""
-
-import sys
-
+import matplotlib.colors
 import matplotlib.pyplot as plt
-from matplotlib import colors
+
 import numpy as np
 
+import pandas as pd
 
-def color_fader(mix):
-    nordblue = np.array(colors.to_rgb("tab:blue"))
-    nordgreen = np.array(colors.to_rgb("tab:green"))
-    return colors.to_hex((1 - mix) * nordblue + mix * nordgreen)
+def _color_fader(mix, first_color="tab:cyan", second_color="tab:pink"):
+    """Color fader function."""
+    c1 = np.array(matplotlib.colors.to_rgb(first_color))
+    c2 = np.array(matplotlib.colors.to_rgb(second_color))
+    return matplotlib.colors.to_hex((1 - mix) * c1 + mix * c2)
 
 
-path = f"data/{sys.argv[1]}/"
-concentraciones = [0.21, 0.62, 1.25, 1.71, 2.17, 2.71, 3.25, 3.75, 4.2]
-n = len(concentraciones)
-
-weight = 1
-if sys.argv[1] == "SiSi":
-    weight = 5
-
-e1 = sys.argv[1][:2]
-e2 = sys.argv[1][2:]
+def _colormap():
+    """Color map function generated with color fader function."""
+    colors = [_color_fader(v) for v in np.linspace(0, 1, num=100)]
+    return matplotlib.colors.ListedColormap(colors)
 
 plt.rcParams.update({"font.size": 16})
-fig, ax = plt.subplots()
 
-ax.set_xlabel(r"r [$\AA$]")
-ax.set_ylabel(rf"RDF {e1}-{e2}")
+fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
 
-ax.grid(axis="x", linestyle=":")
+cmap = _colormap()
 
-ax.set_xlim((1.5, 10))
-ax.set_yticks([])
+sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=3.75))
+clb = fig.colorbar(sm, ax=ax[0], ticks=[0, 1, 2, 3, 3.75], location="left")
+clb.ax.set_ylabel(r"$x$ en Li$_x$Si")
 
-for i, x in enumerate(concentraciones):
-    rdfx, rdfy = np.loadtxt(path + f"{x}.dat", unpack=True)
-    ax.plot(rdfx, rdfy + i * weight, color=color_fader(i / n), label=f"{x}")
+xs = ["0.21", "0.62", "1.25", "1.71", "2.17", "2.71", "3.25", "3.75", "4.20"]
+for k, (weight, central, interact) in enumerate(zip([1, 1, 5], ["Li", "Si", "Si"], ["Li", "Li", "Si"])):
 
-if sys.argv[1] == "LiLi":
-    handles, labels = ax.get_legend_handles_labels()
-    ax.legend(handles[::-1], labels[::-1], title=r"$x$ en Li$_x$Si", loc=1)
+    for i, x in enumerate(xs):
+        rdfx, rdfy = np.loadtxt(f"data/{central}{interact}/{x}.dat", unpack=True)
+        ax[k].plot(rdfx, rdfy + i * weight, color=cmap(float(x) / 3.75))
+
+    ax[k].set_xlabel(r"r [$\AA$]")
+    ax[k].set_ylabel("")
+    ax[k].set_title(f"{central}-{interact}")
+
+    ax[k].set_xlim((1.5, 10))
+    ax[k].set_yticks([])
+
+    ax[k].grid(linestyle=":")
+
+    if k == 2:
+        ax[k].yaxis.set_label_position("right")
+        ax[k].yaxis.set_ticks_position("right")
+        ax[k].yaxis.tick_right()
+        ax[k].set_ylabel("RDF")
+    elif k == 0:
+        ax[k].tick_params(labelleft=False)
 
 fig.tight_layout()
-fig.savefig(f"rdf-{sys.argv[1]}.png", dpi=600)
+fig.savefig("rdf.png", dpi=600)

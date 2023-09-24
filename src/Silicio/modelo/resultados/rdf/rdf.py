@@ -13,18 +13,24 @@ _ = [
     for i, xpeak in enumerate((2.37, 3.87, 4.53), start=1)
 ]
 
+# experimental
+experimental = pd.read_csv("datos/rdf-experimental.csv")
+plt.plot(
+    experimental.r,
+    experimental.rdf,
+    marker="s",
+    c="k",
+    ls=":",
+    label="datos experimentales",
+)
+
 # annealings con exnfriamiento exponencial
-labels = ["DFTB conjunto A", "DFTB conjunto B", "ReaxFF"]
-parametrizaciones = ["A", "B", "reax"]
-colores = ["tab:blue", "tab:green", "tab:orange"]
+labels = ["ReaxFF", "DFTB conjunto A", "DFTB conjunto B"]
+parametrizaciones = ["reax", "A", "B"]
+colores = ["tab:orange", "tab:blue", "tab:green"]
 for color, label, param in zip(colores, labels, parametrizaciones):
     df = pd.read_csv(f"datos/rdf-{param}.csv")
     ax.plot(df.r, df.rdf, color=color, label=label)
-
-
-# experimental
-experimental = pd.read_csv("datos/rdf-experimental.csv")
-plt.plot(experimental.r, experimental.rdf, marker="^", c="k", ls=":", label="datos experimentales")
 
 ax.set_xlabel(r"r [$\AA$]")
 ax.set_ylabel("RDF Si-Si")
