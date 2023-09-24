@@ -7,7 +7,7 @@ import numpy as np
 
 import pandas as pd
 
-def _color_fader(mix, first_color="tab:cyan", second_color="tab:pink"):
+def _color_fader(mix, first_color="tab:blue", second_color="tab:green"):
     """Color fader function."""
     c1 = np.array(matplotlib.colors.to_rgb(first_color))
     c2 = np.array(matplotlib.colors.to_rgb(second_color))
@@ -25,8 +25,8 @@ fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(12, 4))
 
 cmap = _colormap()
 
-sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=3.75))
-clb = fig.colorbar(sm, ax=ax[0], ticks=[0, 1, 2, 3, 3.75], location="left")
+sm = plt.cm.ScalarMappable(cmap=cmap, norm=plt.Normalize(vmin=0, vmax=4.2))
+clb = fig.colorbar(sm, ax=ax[0], ticks=[0, 1, 2, 3, 4.0], location="left")
 clb.ax.set_ylabel(r"$x$ en Li$_x$Si")
 
 xs = ["0.21", "0.62", "1.25", "1.71", "2.17", "2.71", "3.25", "3.75", "4.20"]
@@ -34,7 +34,7 @@ for k, (weight, central, interact) in enumerate(zip([1, 1, 5], ["Li", "Si", "Si"
 
     for i, x in enumerate(xs):
         rdfx, rdfy = np.loadtxt(f"data/{central}{interact}/{x}.dat", unpack=True)
-        ax[k].plot(rdfx, rdfy + i * weight, color=cmap(float(x) / 3.75))
+        ax[k].plot(rdfx, rdfy + i * weight, color=cmap(float(x) / 4.2))
 
     ax[k].set_xlabel(r"r [$\AA$]")
     ax[k].set_ylabel("")

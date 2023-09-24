@@ -20,7 +20,7 @@ voltajes = ["000", "050", "085", "095", "100", "105"]
 for x, volt in zip(xs, voltajes):
     df = pd.read_csv(f"datos/{volt}.csv")
 
-    ax.plot(df.ppm, df.pred, color="tab:cyan", linewidth=3, zorder=1)
+    ax.plot(df.ppm, df.pred, color="tab:blue", linewidth=3, zorder=1)
     ax.scatter(df.ppm, df.exp, s=5, color="k", zorder=2)
 
     ax.text(-20, 0.3 + df.exp[0], f"{volt} mV ~ x={x:.2f}")

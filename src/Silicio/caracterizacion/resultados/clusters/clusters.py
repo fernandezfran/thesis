@@ -9,8 +9,8 @@ import numpy as np
 
 
 def color_fader(mix):
-    nordblue = np.array(colors.to_rgb("tab:cyan"))
-    nordgreen = np.array(colors.to_rgb("tab:pink"))
+    nordblue = np.array(colors.to_rgb("tab:blue"))
+    nordgreen = np.array(colors.to_rgb("tab:green"))
     return colors.to_hex((1 - mix) * nordblue + mix * nordgreen)
 
 
@@ -18,7 +18,6 @@ plt.rcParams.update({"font.size": 16})
 
 concentraciones = [0.21, 0.62, 1.25, 1.71, 2.17, 2.71, 3.25, 3.75, 4.2]
 nsis = [667, 670, 671, 672, 319, 319, 320, 288, 320]
-n = len(concentraciones)
 
 fig, ax = plt.subplots(ncols=2, figsize=(13, 5))
 
@@ -36,7 +35,7 @@ markers = ["o", "v", "^", "<", ">", "s", "d", "D", "X"]
 for i, (x, m, natoms) in enumerate(zip(concentraciones, markers, nsis)):
     rcut, nclusters, lcluster, isolatedp = np.loadtxt(f"data/{x}.dat", unpack=True)
 
-    color = color_fader(i / n)
+    color = color_fader(x / 4.2)
 
     ax[0].plot(
         rcut,

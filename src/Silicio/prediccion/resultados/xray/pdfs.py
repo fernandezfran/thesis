@@ -15,7 +15,7 @@ for i, (experimento, m, l) in enumerate(
 
     for metodo, c, ls, l in zip(
         ["cristal", "DFTB"],
-        ["tab:pink", "tab:cyan"],
+        ["tab:orange", "tab:blue"],
         ["dashed", "solid"],
         ["cristalinas", "DFTB"],
     ):

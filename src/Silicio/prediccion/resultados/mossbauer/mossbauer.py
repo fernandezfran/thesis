@@ -18,12 +18,12 @@ for experimento, l in zip(["e", "f"], ["datos experimentales", None]):
 
 xglobal = np.linspace(0, 4, num=500)
 yglobal = 0.15 + 2.4 * (0.5 - np.abs((xglobal / (1 + xglobal)) - 0.5))
-ax.plot(xglobal, yglobal, color="tab:pink", ls="--", label="concentraciones globales")
-ax.text(0.35, 1.0, r"C$_{Li}$", rotation=60, color="tab:pink", fontsize="large")
-ax.text(1.85, 1.0, r"C$_{Si}$", rotation=-30, color="tab:pink", fontsize="large")
+ax.plot(xglobal, yglobal, color="tab:orange", ls="--", label="concentraciones globales")
+ax.text(0.35, 1.0, r"C$_{Li}$", rotation=60, color="tab:orange", fontsize="large")
+ax.text(1.85, 1.0, r"C$_{Si}$", rotation=-30, color="tab:orange", fontsize="large")
 
 df = pd.read_csv("datos/mossbauer.csv")
-ax.scatter(df.x, df.delta, s=50, color="tab:cyan", label="concentraciones locales")
+ax.scatter(df.x, df.delta, s=50, color="tab:blue", label="concentraciones locales")
 
 ax.set_xlim((0, 4))
 ax.set_ylim((0.15, 1.35))

@@ -46,7 +46,7 @@ ax2.set_xlim((0, 4.25))
 ax2.set_xlabel(r"$x$ en Li$_x$Si", fontsize=fontsize)
 ax2.set_ylabel("Energía de formación [eV]", fontsize=fontsize)
 
-ax2.scatter(xfe, fe, color="tab:orange", marker="s", s=15, label="ReaxFF")
+ax2.scatter(xfe, fe, color="k", marker="s", s=15, label="ReaxFF")
 ax2.plot(x, fes, color="tab:orange", label="spline")
 
 ax2.legend(prop={"size": fontsize})

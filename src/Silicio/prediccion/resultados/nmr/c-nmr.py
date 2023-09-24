@@ -16,7 +16,7 @@ aleaciones = ["Li12Si7", "Li7Si3", "Li13Si4", "Li15Si4"]
 for k, aleacion in enumerate(aleaciones):
     df = pd.read_csv(f"datos/c-{aleacion}.csv")
 
-    ax.plot(df.ppm, df.pred, color="tab:cyan", linewidth=3, zorder=1)
+    ax.plot(df.ppm, df.pred, color="tab:blue", linewidth=3, zorder=1)
     ax.scatter(df.ppm, df.exp, s=5, color="k", zorder=2)
 
     ax.text(-30, 7.5 + 2.1 * (k + 0.2), aleacion)

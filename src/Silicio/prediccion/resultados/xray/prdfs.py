@@ -7,7 +7,7 @@ import numpy as np
 
 import pandas as pd
 
-def _color_fader(mix, first_color="tab:cyan", second_color="tab:pink"):
+def _color_fader(mix, first_color="tab:blue", second_color="tab:green"):
     """Color fader function."""
     c1 = np.array(matplotlib.colors.to_rgb(first_color))
     c2 = np.array(matplotlib.colors.to_rgb(second_color))

@@ -20,7 +20,7 @@ for axis in ax:
     axis.set_xlim((0, 4.25))
 
 interacciones = ["LiLi", "SiLi", "SiSi"]
-colores = ["tab:pink", "tab:purple", "tab:cyan"]
+colores = ["tab:green", "tab:orange", "tab:blue"]
 markers = ["o", "^", "s"]
 for e, c, m in zip(interacciones, colores, markers):
     x, y, yerr = np.loadtxt(f"data/cn/{e}.dat", unpack=True)
@@ -57,4 +57,4 @@ ax[0].text(0.0, 1.15, "(a)", transform=ax[0].transAxes)
 ax[1].text(0.92, 1.15, "(b)", transform=ax[1].transAxes)
 
 fig.tight_layout()
-fig.savefig("cns.png", dpi=600)
+fig.savefig("cn.png", dpi=600)

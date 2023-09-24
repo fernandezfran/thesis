@@ -19,7 +19,7 @@ ax[0].plot(cristales.x, 1e-2 * cristales.B, color="tab:green", ls="solid", label
 ax[0].set_xlim((0, 1))
 ax[0].set_xlabel("Fracción molar de Si")
 ax[0].set_ylim((0, 9e-2))
-ax[0].set_ylabel("Residuos de la energía de formación (eV)")
+ax[0].set_ylabel(r"|$E_f^{DFT}$ - $E_f^{DFTB}$| (eV)")
 
 ax[0].text(0.0, 1.05, "(a)", transform=ax[0].transAxes)
 

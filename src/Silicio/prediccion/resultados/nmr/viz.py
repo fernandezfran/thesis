@@ -12,13 +12,13 @@ rsi = 0.25
 si_centers = [(0, 2.5), (2.7, 2.5), (0, -2), (-4, 4)]
 
 silicons = (
-    [plt.Circle(si_centers[0], rsi, color="tab:cyan", label="Si")]
-    + [plt.Circle(center, rsi, color="tab:cyan") for center in si_centers[1:]]
+    [plt.Circle(si_centers[0], rsi, color="tab:blue", label="Si")]
+    + [plt.Circle(center, rsi, color="tab:blue") for center in si_centers[1:]]
     + [
         plt.Circle(
             (center[0] + img[0], center[1] + img[1]),
             radius=rsi,
-            color="tab:cyan",
+            color="tab:blue",
             alpha=0.5,
         )
         for center, img in it.product(si_centers, pbc)
@@ -40,13 +40,13 @@ li_centers = [
     (2.8, 0.9),
 ]
 lithiums = (
-    [plt.Circle((li_centers[0]), rli, color="tab:pink", label="Li")]
-    + [plt.Circle(center, rli, color="tab:pink") for center in li_centers[1:]]
+    [plt.Circle((li_centers[0]), rli, color="tab:green", label="Li")]
+    + [plt.Circle(center, rli, color="tab:green") for center in li_centers[1:]]
     + [
         plt.Circle(
             (center[0] + img[0], center[1] + img[1]),
             radius=rli,
-            color="tab:pink",
+            color="tab:green",
             alpha=0.5,
         )
         for center, img in it.product(li_centers, pbc)
@@ -55,7 +55,7 @@ lithiums = (
 
 rcuts = [
     plt.Circle(
-        center, 3.4, color="tab:pink", linestyle="dashed", linewidth=2, fill=False
+        center, 3.4, color="tab:green", linestyle="dashed", linewidth=2, fill=False
     )
     for center in li_centers
 ]
@@ -77,11 +77,11 @@ for circ in silicons + lithiums + rcuts[:3]:
     ax.add_patch(circ)
 
 # silicon bonds
-ax.plot([0, 2.7], [2.5, 2.5], color="tab:cyan")
+ax.plot([0, 2.7], [2.5, 2.5], color="tab:blue")
 # images
-ax.plot([-10 + rsi, -7.3 - rsi], [2.5, 2.5], color="tab:cyan", alpha=0.5)
-ax.plot([rsi, 2.7 - rsi], [-7.5, -7.5], color="tab:cyan", alpha=0.5)
-ax.plot([-10 + rsi, -7.3 - rsi], [-7.5, -7.5], color="tab:cyan", alpha=0.5)
+ax.plot([-10 + rsi, -7.3 - rsi], [2.5, 2.5], color="tab:blue", alpha=0.5)
+ax.plot([rsi, 2.7 - rsi], [-7.5, -7.5], color="tab:blue", alpha=0.5)
+ax.plot([-10 + rsi, -7.3 - rsi], [-7.5, -7.5], color="tab:blue", alpha=0.5)
 
 ax.set_xlim((-10, 10))
 ax.set_ylim((-10, 10))
