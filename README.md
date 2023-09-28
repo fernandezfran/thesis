@@ -80,13 +80,13 @@ Physics_](https://doi.org/10.1039/D1CP02216D), 2021.
 
 ### Conference presentations
 
++ 2nd Renewable energy workshop: lithium batteries and hydrogen. _Córdoba, 
+Argentina_. Oct, 2023. Poster: "A heuristic model based on galvanostatic 
+simulations for fast charging of lithium-ion battery electrodes".
+
 + Y-TEC PHD candidates exhibition. _La Plata, Argentina_. Sep, 2023. Poster:
 "Fast-charging lithium-ion batteries: A heuristic model to predict optimal 
 particle size".
-
-+ Renewable energy workshop: lithium batteries and hydrogen. _Córdoba, 
-Argentina_. Oct, 2023. Poster: "A heuristic model based on galvanostatic 
-simulations for fast charging of lithium-ion battery electrodes".
 
 + 8th Meeting of Young Researchers in Materials Science and Technology. _Córdoba,
 Argentina_. Sep, 2023. Poster: "Nearest-neighbor model for predicting 7Li 
@@ -111,15 +111,15 @@ Aug 9--11, 2022. Poster Flash: "Short range order of amorphous structures in
 silicon anodes using a semiempirical reactive potential". (**Best poster flash 
 award**).
 
-+ 1 st National Lithium Meeting. _Argentina/Online_. Dec 1-3, 2021. Poster: 
++ 1st National Lithium Meeting. _Argentina/Online_. Dec 1-3, 2021. Poster: 
 "Electrochemical and structural behavior of silicon anodes based on computational 
 simulations".
 
-+ 8 th International Workshop on Lithium, Industrial Minerals and Energy (IWLiME).
++ 8th International Workshop on Lithium, Industrial Minerals and Energy (IWLiME).
 _Cochabamba, Bolivia/Online_. Nov 8-10, 2021. Poster: "Amorphous Li-Si structures 
 found via a novel simulation method using a reactive force field". 
 
-+ 72 nd Annual Meeting of the International Society of Electrochemistry. 
++ 72nd Annual Meeting of the International Society of Electrochemistry. 
 _Jeju Island, Korea/Online_. Aug 29-Sep 3, 2021. Talk: "Kinectic modeling on 
 lithium-ion instertion in prototypical systems", _co-autor_.
 
@@ -127,7 +127,7 @@ lithium-ion instertion in prototypical systems", _co-autor_.
 Plata, Argentina/Online_. Aug 19-29, 2021. Talk: "A journey through the nanoworld 
 of Li batteries", _co-author_.
 
-+ 7 th IWLiME. _Antofagasta, Chile/Online_. Nov 9-11, 2020. Poster: "First steps 
++ 7th IWLiME. _Antofagasta, Chile/Online_. Nov 9-11, 2020. Poster: "First steps 
 towards reproducing chemical shifts spectra of c-LiSi alloys using a 
 semi-empirical force field".
 
