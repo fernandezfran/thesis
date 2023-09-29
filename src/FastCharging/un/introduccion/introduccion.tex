@@ -1,12 +1,12 @@
 \section{Introducción}
 
-La industria de vehículos eléctricos se encuentra en crecimiento debido a la
+La industria de vehículos eléctricos se encuentra en rápido crecimiento debido a la
 necesidad de utilizar energías limpias y renovables para reducir los efectos 
 causados por el cambio climático y la contaminación ambiental. Dentro de esta 
 industria, la carga rápida es una de las principales características a ser 
 mejorada. Para dar una idea del desafío con el cual nos encontramos, el tiempo 
 de recarga de la batería de los autos eléctricos de Nivel 2 se encuentra entre 
-las 4 y las 10 horas \cite{evcs}. Este número es dos ordenes de magnitud 
+las 4 y las 10 horas \cite{evcs}. Este número es dos órdenes de magnitud 
 mayor que el tiempo que toma recargar un auto a combustión interna.
 
 Existen distintos criterios para definir que una carga sea rápida. Uno de ellos, 
@@ -16,12 +16,12 @@ siglas en inglés, \textit{United States Advanced Battery Consortium}), tiene co
 objetivo obtener el 80\% del Estado de la Carga (SOC, \textit{State-of-Charge})
 en 15 minutos \cite{USABC}. Este último es el criterio elegido para esta tesis.
 Para cumplir con el mismo, es necesario entender la física de los materiales de
-intercalación y como estos se comportan durante el cargado, ya que esto podría 
+intercalación y cómo estos se comportan durante el cargado, ya que esto podría 
 permitir una optimización en el diseño de los electrodos.
 
 La carga rápida es un problema multi-escala \cite{franco2013, franco2019} y, por 
 lo tanto, las mejoras en la velocidad de carga de las celdas electroquímicas 
-requieren una comprensión desde el nivel atómico hasta el ingenieril. Dentro 
+requieren de una comprensión desde el nivel atómico hasta el ingenieril. Dentro 
 de lo que es la escala micrométrica, los procesos que determinan la velocidad de 
 carga al nivel de una sola partícula de los materiales de electrodos son la 
 difusión de iones de litio dentro de electrodos y la transferencia de carga en 
@@ -29,19 +29,19 @@ las interfases electrodo/electrolito, por lo cual es necesario favorecer ambos
 procesos \cite{liu2019, tomaszewska2019, weiss2021}. También se ha estudiado la 
 importancia del rol del tamaño y la geometría de las partículas en el desempeño 
 electroquímico \cite{gavilan2020, gavilan2022}. Así, incluso descartando
-otros factores que podrían influir en la carga de la batería (como cambios de 
-volumen durante la intercalación de iones de litio, termodinámicas particulares
-de los sistemas, formación de interfase electrolito/sólido, etc), es complicado
+otros factores que podrían influir en la carga de la batería (como los cambios de 
+volumen durante la intercalación de iones de litio, las características termodinámicas particulares
+de los sistemas, la formación de interfase electrolito/sólido, etc), es complicado
 realizar un análisis detallado del desafío general.
 
 La electroquímica de electrodos de una sola partícula \cite{ventosa2021, 
 heubner2020, takahashi2020, wahab2020, xu2020, tao2019, fukui2011} permite 
-estudiar la respuesta \say{pura} de los materiales activos, i.e., sin el efecto 
+estudiar la respuesta \say{pura} de los materiales activos, esto es, sin el efecto 
 de otros aditivos presentes en los electrodos compuestos. Esta información 
 detallada es valiosa ya que da a conocer los factores limitantes para su 
-carga rápida y su respuesta frente a la misma. Enmarcado en este contexto, un 
-modelo de una sola partícula recientemente propuesto \cite{gavilan2023} fue 
-utilizado para construir diagramas galvanostáticos de la capacidad máxima 
+carga rápida y su respuesta frente a la misma. Enmarcado en este contexto, se utilizó un 
+modelo de una sola partícula recientemente propuesto \cite{gavilan2023} 
+para construir diagramas galvanostáticos de la capacidad máxima 
 alcanzada por una sola partícula en función de dos parámetros adimensionales: uno
 cinético,
 \begin{equation}\label{eq:xi}
@@ -54,7 +54,7 @@ y el otro de difusión finita,
 donde $k^0$ es la constante cinética, $D$ el coeficiente de difusión, $V/A$ es la 
 proporción volumen/superficie, $d$ es el tamaño característico de la partícula, 
 $C_r$ denota la C-rate y $t_h$ el tiempo de una hora (en las unidades que
-corresponda). En la Figura \ref{fig:diagnostico}a se muestra en 2D la 
+corresponda). En la Figura \ref{fig:diagnostico}a se muestra en dos dimensiones la 
 capacidad alcanzada en función de los dos parámetros adimensionales, estos valores 
 se corresponden con los cortes de los perfiles galvanostáticos presentes en las
 Figuras \ref{fig:diagnostico}b y c (ejemplos para algunos valores en particular 
@@ -74,9 +74,9 @@ de $\Xi$ y $\ell$) 150 mV debajo del potencial de equilibrio.
 
 
 Los parámetros $\Xi$ y $\ell$ introducidos en las ecuaciones \ref{eq:xi} y 
-\ref{eq:ele}, respectivamente, son relaciones de escaleo útiles para hacer una
+\ref{eq:ele}, respectivamente, son relaciones de escaleo útiles para realizar una
 primera predicción cualitativa de la capacidad que un material alcanzaría a una
-dada C-rate. Esto es relevante ya que permite realizar la tarea no-trivial de
+dada C-rate. Esto es relevante, ya que permite realizar la tarea no-trivial de
 clasificar distintos materiales, cada uno caracterizado por los descriptores $D$,
 $k^0$ y $d$.
 
@@ -95,6 +95,7 @@ para entender el comportamiento de fluidos más complejos que los gases ideales.
 
 De manera similar a la de los gases ideales, el valor máximo del SOC alcanzado a 
 un dado potencial de corte y a una dada C-rate, SOC$_{\max}$, puede 
+\todo{Eze: Quizás se pueda marcar el SOCmax en la Figura 1.1, como ejemplo ¿en la (a) o en la (b) y (c)?}
 pensarse como una función universal de los parámetros de escaleo $\Xi$ y $\ell$,
 \begin{equation}\label{eq:socmax}
     \text{SOC}_{\max} = f(\Xi, \ell) = f(d, D, k^0, C_r).
@@ -104,7 +105,9 @@ obtenida en un mapeo ($\Xi$, $\ell$) de simulaciones galvanostáticas, como se l
 presenta en la Figura \ref{fig:diagnostico}a.
 
 En un trabajo reciente se ha propuesto una figura de mérito que permite establecer 
-una jerarquía entre distintos materiales de carga rápida \cite{xia2022}. Desde
+una jerarquía entre distintos materiales de carga rápida \cite{xia2022}. 
+\todo{contar un poco el trabajo, agregar una figura del chart.}
+Desde
 este punto de vista, la ecuación \ref{eq:socmax} evaluada en el punto ($\Xi$, 
 $\ell$) también puede introducirse como una figura de mérito. Supongamos que 
 tenemos dos materiales, A y B, con las propiedades dadas en la Tabla \ref{t:ab} y 
@@ -113,9 +116,9 @@ minutos. Entonces, con los datos de las columnas 2--4 de la Tabla \ref{t:ab}
 se pueden calcular los valores de $\Xi$ y $\ell$, utilizando las ecuaciones 
 \ref{eq:xi} y \ref{eq:ele}, presentados en la quinta y la sexta columna de la 
 Tabla \ref{t:ab}. Los puntos correspondientes a estos materiales se presentan en 
-el mapa de la Figura \ref{fig:diagnostico}a. Por lo tanto, podemos ver que el 
+el mapa de la Figura \ref{fig:diagnostico}a. A partir de este, podemos ver que el 
 material A es un buen candidato para una carga en 15 minutos mientras que el 
-material B no.
+material B no lo es.
 
 \begin{table}[h!]
     \centering

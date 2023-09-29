@@ -47,9 +47,9 @@
 \end{table}
 
 Para el fenómeno de la intercalación de iones de litio se consideró un modelo de 
-una sola partícula. Los parámetros de todas las ecuaciones que siguen se
+una sola partícula. Los parámetros de todas las ecuaciones que siguen a continuación se
 presentan en la Tabla \ref{t:params}. En el modelo, el grado de intercalación $x$
-en el punto $r$ y a tiempo $t$ se obtiene de resolver la ecuación diferencial 1D
+en el punto $r$ y a tiempo $t$ se obtiene resolviendo numéricamente la ecuación diferencial 1D
 de Fick:
 \begin{equation}\label{eq:fick}
     \frac{\partial x}{\partial t} = D \left[ \frac{\partial^2 x}{\partial r^2} + \frac{(z - 1)}{r} \left(\frac{\partial x}{\partial r}\right) \right],
@@ -130,7 +130,7 @@ este fin se definió una grilla logarítmica de $N$ puntos en el espacio
 $\log(\Xi)$--$\log(\ell)$ y se fijó un potencial de corte. Para cada punto en la 
 grilla se realizó la simulación y se guardó el valor de intercalación de litio
 alcanzado, denotado por $\text{SOC}_{\max}$. Para la construcción de los diagramas 
-se simularon unos miles de puntos que luego fueron suavizados mediante un spline
+se simularon algunos miles de puntos que luego fueron suavizados mediante un spline
 que también se usa para interpolar.
 
 
@@ -140,7 +140,7 @@ Muchos de los electrodos de intercalación de litio que se investigan en los
 laboratorios o que son incorporados en las baterías comerciales, pueden ser simulados
 con modelos matemáticos complejos que consideran las particularidades de cada
 caso \cite{doyle1995}. Durante el proceso de manufactura, en el cual se prepara
-el precursor con una distribución de tamaños, se agrega un material conductor y
+el precursor con una distribución de tamaños de partícula, se agrega un material conductor y
 un \textit{binder}, se genera una estructura porosa, cuyos poros definen
 caminos de difusión tortuosos para los iones de litio. Los modelos que poseen
 este nivel de detalles \cite{doyle1995} aportan información sobre las propiedades
@@ -155,18 +155,17 @@ difusión y la constante cinética.
 Este modelo parte de las siguientes suposiciones:
 \begin{itemize}
     \item El transporte de carga dentro de la partícula está limitado por el
-        movimiento de los iones insertados, i.e. que el transporte electrónico
+        movimiento de los iones insertados, es decir que el transporte electrónico
         es rápido.
     \item La difusión de los iones obedece la segunda Ley de Fick 1D para 
         geometría plana, cilíndrica o esférica.
-    \item Se ignora la transferencia de masa con el electrolito dada una alta 
-        concentraciones de iones en el mismo.
-    \item El coeficiente de difusión, $D$, permanece constante en todo el 
+    \item Se ignoran limitaciones en la transferencia de masa en el electrolito, dado que el coeficiente de difusión de Li$^+$ en este medio es del orden de 10$^{-5}$ cm$^2$/s \cite{}, es decir, varios órdenes de magnitud mayor que en cualquiera de los materiales analizados. \todo{Por otro lado, el mismo se encuentra usualmente a altas concentraciones}.
+    \item El coeficiente de difusión, $D$, permanece constante durante todo el 
         proceso de intercalación.
     \item El flujo de iones en el centro de la partícula es cero.
     \item La transferencia de carga en la interfase electrodo/electrolito se 
         describe mediante la ecuación de Butler-Volmer.
-    \item La constante cinética, $k^0$, es la misma en todo el proceso de 
+    \item La constante cinética, $k^0$, es la misma durante todo el proceso de 
         intercalación.
     \item La resistencia de la celda está dada por un valor constante, 
         $R_{\Omega}$.
@@ -182,14 +181,14 @@ de estas suposiciones pueden no cumplirse en muchos experimentos; sin embargo, e
 modelo puede ser utilizado como una guía heurística para entender el 
 comportamiento global de los distintos materiales y para diseñar los materiales
 activos, en lo que respecta a su tamaño de partícula medio. La obtención de dicho
-comportamiento universal solo puede obtenerse al resignar a las particularidades
+comportamiento universal sólo puede obtenerse al resignar a las particularidades
 de cada sistema. 
 
 El modelo heurístico basado en simulaciones galvanostáticas, que se presenta a 
 continuación, tiene asociado un software que fue escrito en Python, 
 \path{galpynostatic}, es open-source y fácil de usar, el mismo se describe en el
 Apéndice \ref{software:galpynostatic}. Este modelo pretende obtener información
-cinética de una manera simple y rápida, además, también pretende predecir el 
+cinética de una manera simple y rápida, además, también tiene por objeto predecir el 
 tamaño óptimo de la partícula para lograr una carga del 80\% en 15 minutos.
 El mismo consiste en la utilización de los diagramas universales, como el que 
 se presenta en la Figura \ref{fig:diagnostico}, para determinar los valores de
@@ -212,7 +211,7 @@ donde $n$ es el número de mediciones, SOC$_{\max, i}^{\exp}$ y
 SOC$_{\max, i}^{\text{pred}}$ son los valores experimentales y predichos por el 
 modelo, respectivamente, de la capacidad máxima alcanzada. Luego de una 
 exploración exhaustiva, se obtiene el conjunto de parámetros que minimizan el MSE. 
-La cual provee los valores de $D$ y $k^0$ que caracterizan a un material de 
+Esta exploración provee los valores de $D$ y $k^0$ que caracterizan a un material de 
 intercalación en particular. Con esta información se puede predecir el tamaño 
 óptimo de la partícula para que sistema alcance una capacidad deseada a una dada 
 C-rate.

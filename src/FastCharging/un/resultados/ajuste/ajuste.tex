@@ -4,9 +4,9 @@
     \centering
     \includegraphics[width=0.7\textwidth]{FastCharging/un/resultados/ajuste/ajustes.png}
     \caption{Ajuste del modelo a los datos SOC$_{\max}$ \textit{versus} C-rate
-    para los distintos materiales de electrodos considerados: (a) NG 
-    \cite{mancini2022}, (b) LTO \cite{he2012}, (c) LFP \cite{lei2015}, 
-    (d) LCO \cite{wang2019high}, (e) LMO \cite{bak2011}, (f) LNMO
+    para los distintos materiales de electrodos considerados: (a) Grafito natural (NG)
+    \cite{mancini2022}, (b) Li$_4$Ti$_5$O$_{12}$ (LTO) \cite{he2012}, (c) LiFePO$_4$ (LFP) \cite{lei2015}, 
+    (d) LiCoO$_2$ (LCO) \cite{wang2019high}, (e) LiMn$_2$O$_4$ (LMO) \cite{bak2011}, (f) LiNi$_{0.5}$Mn$_{1.5}$O$_4$ (LNMO)
     \cite{nishikawa2017}.}
     \label{fig:ajustes}
 \end{figure}
@@ -32,7 +32,7 @@ El trabajo de Mancini \textit{et al.} \cite{mancini2022} aportó nuevos
 conocimientos sobre el efecto de esferoidización en las características de las
 partículas de grafito natural (NG) y su impacto en el comportamiento 
 electroquímico, como se muestra en la Figura \ref{fig:ajustes}a. En este caso, 
-el rango de C-rates reportadas cubre una amplia región del SOC$_{\max}$, desde un 
+el intervalo de C-rates reportadas cubre una amplia región del SOC$_{\max}$, desde un 
 material totalmente cargado hasta uno casi totalmente descargado. Esto no es lo 
 habitual, ya que en la mayoría de los experimentos sólo se reportan curvas con un 
 buen rendimiento (capacidad alta), lo que limita los ajustes realizados a una 
@@ -50,7 +50,7 @@ Los ánodos de Li$_4$Ti$_5$O$_{12}$ (LTO) presentan características excelentes
 de seguridad y una capacidad teórica de 175 mAhg$^{-1}$. He \textit{et al.} 
 \cite{he2012} sintetizaron nanopartículas cristalinas y esféricas de LTO a 
 diferentes proporciones atómicas de Li/Ti, con un tamaño entre los 0.5 $\mu$m 
-y los 3 $\mu$m. Se asume entonces un valor de $d=1.75 \mu$m y se utilizan los
+y los 3 $\mu$m. Se supone entonces un valor de $d=1.75 \mu$m y se utilizan los
 datos de la proporción usual del LTO para ajustar el modelo, teniéndose como 
 resultado un valor de $D$ de $6.58\times10^{-12}$ cm$^2$/s. El valor experimental 
 de $D$ reportado por He \textit{et al.} para esta proporción atómica fue de
@@ -63,7 +63,7 @@ Butler-Volmer se tiene una relación entre $k^0$ e $i^0$ dada por
     i^0 = F \frac{\rho}{M_r} k^0 \left(x_s\right)^{\alpha} \left(1 - x_s\right)^{1-\alpha},
 \end{equation}
 donde las definiciones de los parámetros están dadas en la Tabla \ref{t:params}.
-Asumiendo un valor de 0.5 para el coeficiente de transferencia $\alpha$, un 
+Suponiendo un valor de 0.5 para el coeficiente de transferencia $\alpha$, un 
 SOC de 0.5 y utilizando los valores del precursor LTO, $M_r = 459.1$ g/mol y
 $\rho = 3.48$ g/cm$^3$ \cite{osti_1284125} se obtiene un valor para $k^0$ de
 $7.38\times10^{-10}$ cm/s, que presenta una discrepancia de dos ordenes de 
@@ -74,47 +74,50 @@ $i^0 = 1.1\times10^{-3}$ mA/cm$^2$ \cite{medina2015} e $i^0 = 0.5$ mA/cm$^2$
 $1.37\times10^{-6}$ cm/s, respectivamente. Por lo cual puede afirmarse que el 
 valor estimado por el modelo es razonable, dada la simplicidad del mismo.
 
+\todo{
 Otro sistema en el cual las C-rates a las que se midieron los perfiles 
 galvanostáticos cubren un rango amplio de valores de SOC$_{\max}$, de 
 completamente cargado a completamente descargado, es el de LiFePO$_4$ (LFP) de 
 Lei \textit{et al.} \cite{lei2015}, como puede verse en la Figura 
-\ref{fig:ajustes}c. En este trabajo consideraron sistemas LFP/nanotubos de 
-carbono/grafeno (LFP-CNT-G) como materiales catódicos con una capacidad 
-superior a velocidades de carga alta y un desempeño favorable en sucesivos 
+\ref{fig:ajustes}c. En este trabajo se consideraron sistemas LFP/nanotubos de 
+carbono/grafeno (LFP-CNT-G) como materiales catódicos, con una alta capacidad, 
+a velocidades de carga alta y un desempeño favorable en sucesivos 
 ciclados a densidades de corriente relativamente altas, comparados con 
-sistemas LFP-CNT y LFP-G. Para este caso seleccionado, obtuvieron coeficientes 
-de difusión, a partir de la pendiente de un ajuste lineal a mediciones de 
+sistemas LFP-CNT y LFP-G. Para este caso seleccionado, los autores obtuvieron coeficientes 
+de difusión, a partir de la pendiente de un ajuste lineal de mediciones de 
 espectroscopia de impedancia electroquímica (EIS), de $1.04\times10^{-12}$ 
 cm$^2$/s, $1.738\times10^{-13}$ cm$^2$/s y $8.225\times10^{-13}$ cm$^2$/s, 
 respectivamente para cada uno de los sistemas mencionados. Mientras que al
 ajustar los datos experimentales del primer sistema mencionado, con un tamaño
 de partícula de $0.35 \mu$m, se obtuvo un valor de $2.85\times10^{-13}$ cm$^2$/s
 para este parámetro. Para el mismo se aprecia una discrepancia de un 
-orden de magnitud pero dentro de los valores obtenidos en las otras síntesis.
+orden de magnitud, pero dentro de los valores obtenidos en las otras síntesis.
 El valor obtenido para $k^0$ utilizando la ecuación \ref{eq:i0k0} y el dato 
 $i^0=5.127\times10^{-4}$ mA/cm$^2$ es $1.23\times10^{-9}$ cm/s, con un valor
 de $M_r$ de $157.75$ g/mol y $\rho$ de $1.36$ g/cm$^3$ \cite{jin2018}.
 En este caso se encuentra una correspondencia excelente con el valor ajustado
 de $1.00\times10^{-9}$ cm/s.
+}
 
 Para el caso del LCO se obtuvo un valor de $D$ de $5.34\times10^{-9}$ cm$^2$/s y
 un valor de $k^0$ de $1.00\times10^{-5}$ al ajustar los datos experimentales 
 de Wang \textit{et al.} \cite{wang2019high}, ya presentados en la Figura 
-\ref{fig:preproc} y ahora en el formato en el cual son ajustados en la Figura 
-\ref{fig:ajustes}d. En dicho trabajo sintetizaron partículas esféricas en el rango
+\ref{fig:preproc} y \todo{(ahora en el formato en el cual son ajustados en la Figura 
+\ref{fig:ajustes}d) -> quise decir que antes se mostraba el perfil completo (en la fig 1.2 y ahora en el formato en el cual son ajustados, es decir, SOCmax versus C-rate)}.
+En dicho trabajo sintetizaron partículas esféricas en el rango
 de 5 a 40 $\mu$m y utilizaron una técnica de microelectrodo de una sola partícula,
 la cual les permitió seleccionar partículas de 20 $\mu$m, por lo que este fue el
 valor utilizado para $d$. En este experimento, el recubrimiento de TiO$_2$ mejora 
 la eficiencia coulómbica, el rendimiento de la sobrecarga, la 
 \textit{rate capability} y la estabilidad con los ciclos a alto voltaje. El valor 
-ajustado para el coeficiente de difusión se encuentra en el rango de los 
-presentados en este trabajo (10$^{-10}$--10$^{-8}$) en la ventana de potencial
+acá ajustado para el coeficiente de difusión se encuentra en el rango de los 
+presentados en este trabajo (10$^{-10}$--10$^{-8}$ cm$^2$/s) en la ventana de potencial
 4.0--4.4 V.
 
 Bak \textit{et al.} \cite{bak2011} sintetizaron nanopartículas híbridas de la 
 espinela LiMn$_2$O$_4$ (LMO) con óxido de grafeno reducido de unos 0.01--0.04 
 $\mu$m. Con la geometría esférica considerada y el tamaño característico de 
-difusión de 0.025 $\mu$m se obtuvo un $D$ de $3.51\times10^{-14}$ cm$^2$/s y una
+difusión de 0.025 $\mu$m \todo{se obtuvo -> ¿obtuvieron?} un $D$ de $3.51\times10^{-14}$ cm$^2$/s y una
 $k^0$ de $1.87\times10^{-8}$ cm/s. El ajuste se muestra en la Figura 
 \ref{fig:ajustes}e.
 
@@ -123,7 +126,7 @@ LiNi$_{0.5}$Mn$_{1.5}$O$_4$ (LNMO), que es un material prometedor para ser
 utilizado como cátodo debido a su voltaje alto de operación de 4.7 V vs. Li$^+$/Li. 
 En este caso, Nishikawa \textit{et al.} \cite{nishikawa2017} también
 utilizaron una técnica de medición de una sola partícula para este sistema con 
-diámetros en el rango de 10 a 20 $\mu$m. En su trabajo estimaron el área 
+diámetros en el intervalo de 10 a 20 $\mu$m. En su trabajo estimaron el área 
 superficial de la partícula seleccionada, asumiendo una forma esférica, de donde
 se obtuvo un tamaño de partícula de 8 $\mu$m. Los valores ajustados para el
 coeficiente de difusión y la constante cinética son $1.23\times10^{-9}$ cm$^2$/s 
@@ -137,16 +140,15 @@ el valor ajustado.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{FastCharging/un/resultados/ajuste/mapa.png}
-    \caption{La región del diagrama en la que se encuentra cada experimento 
+    \caption{Región del diagrama de nivel de capacidades máximas SOC$_{\max}$ en la que se encuentra cada uno de los experimentos de literatura analizados aquí
     \cite{mancini2022, he2012, lei2015, wang2019high, bak2011, nishikawa2017}
     luego del ajuste.}
     \label{fig:ajustes-mapa}
 \end{figure}
 
-También es ilustrativo presentar los ajustes realizados con el modelo 
-heurístico en la superficie construida con las simulaciones galvanostáticas, 
-como se muestra en la Figure \ref{fig:ajustes-mapa}, donde se tiene el valor
-de SOC$_{\max}$ en el plano $\log(\Xi)$--$\log(\ell)$.
+También es ilustrativo presentar la zona del diagrama de SOC$_{\max}$ en el plano $\log(\Xi)$--$\log(\ell)$ donde se realizaron los ajustes de las simulaciones galvanostáticas con el presente modelo 
+heurístico, 
+como se muestra en la Figure \ref{fig:ajustes-mapa}.
 
 \begin{table}[h!]
     \centering
@@ -189,7 +191,7 @@ y
 \begin{equation}
     \sigma_{k^0}^2 = \sum_{i=0}^{N-1} \left(\frac{\partial k^0}{\partial \text{SOC}_{\max,i}}\right)^2.
 \end{equation}
-Si tuviéramos una expresión analítica, i.e. si conociéramos la expresión 
+Si tuviéramos una expresión analítica, es decir si conociéramos la expresión 
 explícita dada en la ecuación \ref{eq:socmax}, se podría calcular fácilmente
 estos valores. Dado que este no es el caso, lo que se hace es resolverlo 
 numéricamente aproximando la matriz de covarianza por la inversa de la matriz

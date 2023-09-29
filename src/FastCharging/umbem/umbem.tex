@@ -11,7 +11,7 @@
     estado de la carga máxima retenida cuando el material es cargado por 15 
     minutos en condiciones de corriente constante. Esta proposición se basa 
     en un modelo general que considera la influencia de la difusión finita, 
-    la cinética de la transferencia de carga, el tamaño de la partícula y la 
+    la cinética de la transferencia de carga interfacial, el tamaño de la partícula y la 
     C-rate, que ya fue introducido en el capítulo \ref{ch:un}. Además, se establece
     una jerarquía de materiales de acuerdo a su valor UMBEM y se predicen las 
     modificaciones en los parámetros requeridas para alcanzar la carga rápida.
@@ -26,7 +26,7 @@
 Como ya se ha mencionado en esta tesis, lograr una carga rápida de una batería 
 de ion-litio no es una tarea simple de realizar ya que a diferentes escalas 
 ocurren distintos procesos que deben optimizarse \cite{franco2013}. En 
-particular, en la escala del electrodo se tiene que las partículas se encuentran
+particular, en lo concerniente al tamaño del electrodo, se tiene que las dimensiones de las partículas se encuentran
 en el orden de los nano/micro-metros y que a dicho nivel la velocidad de carga 
 depende en gran medida de la difusión de iones dentro del material activo y del
 intercambio de los mismo en la interfase electrodo/electrolito \cite{weiss2021}.
@@ -36,7 +36,7 @@ por lo tanto, más configurable ya que depende de muchos factores como el
 solvente \cite{levin2017}, la estructura cristalina \cite{li2022}, la
 orientación de los cristales \cite{mala2020}, modificaciones en la superficie o 
 distintas composiciones de electrodos \cite{kaur2022}. Con respecto al material
-activo, el tamaño y la geometría de la partícula imponen las condiciones más
+activo, el tamaño y la geometría de las partículas imponen las condiciones más
 relevantes para el transporte de iones dentro de ellas. Otros factores como la 
 composición, la porosidad, la tortuosidad y la distribución del material 
 conductivo del electrodo también son importantes \cite{weiss2021}. Sin embargo,
@@ -51,12 +51,12 @@ científicas, lo cual obstaculiza el desarrollo de materiales de electrodos de
 carga rápida. Sería especialmente atractivo contar con una métrica que 
 estandarice las comparaciones de una manera simple y que sea capaz de realizar
 predicciones fiables. Por ejemplo, una práctica usual es comparar las 
-capacidades de los electrodos a una misma C-rate, pero, a pesar de que algunas
-veces da una diagnostico aproximado del problema, no facilita un análisis 
+capacidades de los electrodos a una misma C-rate, pero, a pesar de que esta da algunas
+veces un diagnóstico aproximado del problema, no facilita un análisis 
 integral ya que, por ejemplo, el efecto del tamaño y la geometría de las 
 partículas no son tenidos en cuenta. Por otro lado, el coeficiente de difusión
-suele ser reportado como un parámetro para evaluar el desempeño de los electrodos,
-pero por sí solo no aporta una información suficiente ya que omite la 
+suele ser reportado como un parámetro relevante para evaluar el desempeño de los electrodos,
+pero por sí solo no aporta una información completa ya que omite la 
 influencia de la cinética en la interfase. En consecuencia, una métrica confiable 
 debe tener en cuenta todos estos factores y la relación entre ellos. Un avance
 reciente en esta dirección ha sido realizada por Xia \textit{et al.} 
@@ -72,7 +72,7 @@ expresaron la necesidad de refinar este modelo para mejorar el diagnóstico.
 El objetivo de este capítulo es proponer la métrica UMBEM (\textit{Universal
 Metric for Benchmarking Electrode Materials}) para materiales de carga rápida
 de baterías de ion-litio en condiciones de cargado galvanostático. Con este
-objetivo, se considera una difusión finita y una cinética en la interfase 
+objetivo, se considera una difusión finita dentro de cada partícula y una cinética en la interfase electrolito/partícula 
 controladas por cuatro parámetros: el coeficiente de difusión de los iones 
 dentro del material ($D$), la constante cinética de transferencia de carga
 ($k^0$), la C-rate ($C_r$) y el tamaño de partícula ($d$).
@@ -95,7 +95,7 @@ un valor $\geq 0.8$ cuando satisface el criterio del USABC \cite{USABC} y
 valores menores (hasta 0) cuando el material no califica como de cargado 
 rápido dadas las condiciones definidas. La curva verde representa el caso 
 UMBEM$ = 0.8$, mientras que la violeta un caso de UMBEM$ = 0.3$. La UMBEM 
-pretende estandarizar las comparaciones entre el desempeño de distintos 
+tiene por objetivo estandarizar las comparaciones entre el desempeño de distintos 
 materiales para considerarse en una aplicación de carga rápida de electrodos
 de baterías de ion-litio, también permite establecer una jerarquía de 
 materiales de acuerdo a su valor.
@@ -118,7 +118,7 @@ extraída de la referencia \cite{xia2022}. Sin embargo, como la discusión se
 realizará en el contexto del modelo esquematizado en la Figura 
 \ref{fig:explicacion}, también se necesita considerar la constante cinética $k^0$.
 Valores experimentales típicos para este parámetro fundamental se encuentran en 
-un rango que va desde $10^{-5}$ hasta $10^{-9}$ cm/s \cite{gavilan2020kinetic}, 
+un intervalo que va desde $10^{-5}$ hasta $10^{-9}$ cm/s \cite{gavilan2020kinetic}, 
 por lo cual se utiliza un valor intermedio de $10^{-7}$ cm/s para todos los 
 materiales. La C-rate fue fijada a 4 C, que se corresponde con 15 minutos, 
 de acuerdo a la propuesta del USABC. 
@@ -210,15 +210,15 @@ de ellos, como se muestra en los puntos de la Figura \ref{fig:xiacomp}a. Los
 valores de la UMBEM obtenidos en la Figura \ref{fig:UMBEM} son utilizados para
 colorear cada uno de ellos con el propósito de comparar ambas métricas, como
 se muestra en la barra de colores de la Figura \ref{fig:xiacomp}a. A continuación
-se analiza si es que existe una correspondencia entre ambas métricas en 
+se analiza la posible existencia de una correspondencia entre ambas métricas en 
 consideración, la FOM y la UMBEM. Si hubiera una correspondencia perfecta entre
 las dos métricas, todos los puntos situados a lo largo de las líneas grises 
-discontinuas deberían tener el mismo color. Sin embargo, puede apreciarse como 
-los puntos que se encuentran sobre una dada línea, a medida que aumenta el tamaño
-de la partícula y el coeficiente de difusión, el valor de la UMBEM decrece. Por
-lo cual, para una relación constante de $d^2/D$, se espera un mayor desempeño 
-si tanto $d$ como $D$ son menores. Esto muestra una importancia de tamaños de 
-partícula menores sobre los coeficientes de difusión mayores.
+discontinuas deberían tener el mismo color. Sin embargo, puede apreciarse cómo a lo largo de
+los puntos que se encuentran sobre una dada línea, el valor de la UMBEM decrece a medida que aumentan el tamaño
+de la partícula y el coeficiente de difusión. De
+este modo, para una relación constante de $d^2/D$, se espera un mejor desempeño 
+si tanto $d$ como $D$ son menores. \todo{Esto muestra una importancia de tamaños de 
+partícula menores sobre los coeficientes de difusión mayores. (YO TAMPOCO)}
 
 \begin{figure}[h!]
     \centering
@@ -230,15 +230,15 @@ partícula menores sobre los coeficientes de difusión mayores.
 \end{figure}
 
 La Figura \ref{fig:xiacomp}b presenta la UMBEM en función de la FOM para la 
-elección actual de $k^0$. Se puede observar una correlación entre ambas métricas.
+presente elección de $k^0$. Se puede observar una correlación entre ambas métricas.
 Puede afirmarse que un valor de FOM menor a 10$^3$ s es considerado por la UMBEM 
 como carga rápida. Sin embargo, se observan algunos valores fuera de lo esperado,
-especialmente en el caso del grafito que para dos experimentos dan un valor de 
-FOM menor a 10$^3$ s pero un valor de UMBEM menor comparándolos con otros 
+especialmente en el caso del grafito, que para dos experimentos arroja un valor de 
+FOM menor a 10$^3$ s pero un valor de UMBEM menor, comparándolo con otros 
 materiales como valores similares de FOM. El bajo desempeño del grafito en 
 comparación a los otros materiales puede entenderse al observar los dos puntos 
-del grafito que de encuentran al borde de la zona de carga rápida de la Figura 
-\ref{fig:UMBEM}a. Lo cual muestra que a pesar que el valor de $d^2/D$ indica
+del grafito que se encuentran al borde de la zona de carga rápida de la Figura 
+\ref{fig:UMBEM}a. Esto muestra que a pesar de que el valor de $d^2/D$ indica
 un tiempo de carga favorable (Figura \ref{fig:xiacomp}a), el coeficiente de 
 difusión mayor da un valor menor de $\Xi$ (Figura \ref{fig:UMBEM}a) que resulta
 en un bajo rendimiento cinético, que no es descripto por la métrica FOM.
@@ -250,12 +250,12 @@ definido, ni un valor a partir del cual clasificar un material como de carga
 rápida o no.
 
 La Figura \ref{fig:sizes}a muestra un diagrama de nivel, indicando la zona de 
-carga rápida y la de no-carga rápida separadas por una línea correspondiente a
+carga rápida y la de carga lenta separadas por una línea correspondiente a
 UMBEM$ = 0.8$. Como ya se ha dicho, este es el menor valor de carga rápida 
 propuesto por el USABC. Fuera de la región de carga rápida se encuentran dos 
 sistemas de ejemplo (cuadrado y círculo rojos) para dar una idea cualitativa de 
 cómo un análisis guiado por el mapa puede ayudar a optimizar el desempeño de 
-estos sistemas. El cuadrado que se encuentra abajo a la izquierda del gráfico 
+estos sistemas. El cuadrado que se encuentra en la parte inferior izquierda del gráfico 
 podría desplazarse verticalmente para alcanzar la línea divisoria. Para que 
 ese desplazamiento ocurra se necesitaría un aumento en $k^0$, como detalla la 
 flecha apuntando hacia arriba en la Figura \ref{fig:sizes}a. Con respecto al 
@@ -263,7 +263,7 @@ círculo que se encuentra arriba a la derecha, se muestran dos opciones para
 optimizarlo. Una consiste en moverse horizontalmente hacia la izquierda en el 
 diagrama, lo cual puede lograrse reduciendo el tamaño de la partícula, como 
 se muestra con la flecha horizontal etiquetada con el símbolo $d$. La otra opción
-es moverse en diagonal por un incremento en el coeficiente de difusión, como 
+es moverse en diagonal incrementando el coeficiente de difusión, como 
 muestra la flecha etiquetada con $D$. En principio, cambiar el tamaño de la 
 partícula sería la más fácil de las tres opciones (cambiar $k^0$, $d$ o $D$) para 
 optimizar la carga retenida, ya que experimentalmente es posible controlar este 
@@ -284,7 +284,7 @@ considerados.
 \end{figure}
 
 Se realizaron las predicciones de los tamaños óptimos de partícula para que todos 
-los casos alcancen un valor de UMBEM de 0.8, tanto para aquellos que excedían 
+los materiales alcancen un valor de UMBEM de 0.8, tanto para aquellos que excedían 
 dicho valor como para los que estaban por debajo. Esto se presenta en al Figura 
 \ref{fig:sizes}b, donde se dividieron las predicciones de los tamaños óptimos 
 ($d_{\text{opt}}$) por los tamaños experimentales ($d_{\text{exp}}$) para permitir
@@ -293,12 +293,14 @@ cada barra en el histograma está dado por su desempeño original, ya que con
 el nuevo tamaño todos tendrían el mismo color correspondiente a la UMBEM de 0.8.
 La línea discontinua se corresponde al cado $d_{\text{opt}} = d_{\text{exp}}$.
 
+\section{Concluciones del capítulo}
+
 En este capítulo se definió una métrica universal para comparar el desempeño
-de materiales de electrodos de carga rápida (UMBEM) como el estado de la carga 
+de carga rápida de materiales de electrodos (UMBEM). Esta se definió como el estado de la carga 
 alcanzado cuando el material se carga en condiciones de corriente constante 
-durante 15 minutos. Esta métrica presenta una mejora sobre un trabajo anterior al
+durante 15 minutos. Esta métrica presenta una mejora respecto de la definida en un trabajo anterior de literatura al
 considerar la difusión finita, la transferencia de carga, el tamaño de la 
 partícula y el tiempo de carga. Basándose en el valor de la UMBEM para distintas 
 caracterizaciones experimentales, fue posible establecer una jerarquía de 
-sistemas y predecir las mejoras necesarias para clasificarlos como materiales de 
+sistemas y predecir las mejoras necesarias para \todo{clasificarlos -> encuadrarlos} como materiales de 
 carga rápida.

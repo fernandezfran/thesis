@@ -39,7 +39,7 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 5))
 
 cmap = cm.get_cmap("viridis")
 ax1.text(-3.9, 1, "Zona de carga rápida")
-ax1.text(-1.5, -3, "Zona de no-carga rápida", color="white")
+ax1.text(-1.5, -3, "Zona de carga lenta", color="white")
 
 greg = galpynostatic.model.GalvanostaticRegressor(dataset, 1, 1)
 greg._map = galpynostatic.datasets.map.MapSpline(dataset)
