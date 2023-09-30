@@ -1,1 +1,23 @@
 \section{Introducción}
+
+Las simulaciones computacionales pueden facilitar la aplicación industrial de los
+ánodos de silicio. Sin embargo, la disciplina debe afrontar los problemas 
+intrínsecos de la complejidad del sistema. Las simulaciones deben ser capaces
+de seguir los cambios drásticos que se producen en el material durante los ciclos
+de carga y descarga. El ánodo de silicio pasa por varias aleaciones con distintas
+propiedades fisicoquímicas que ya han sido mencionadas en capítulos anteriores.
+En el capítulo \ref{ch:caracterizacion} se utilizó un potencial ReaxFF 
+\cite{fan2013} junto con un método de exploración que permitió predecir distintas
+estructuras amorfas que podrían presentarse en electrodos altamente ciclados.
+
+En este capítulo se provee un modelo transferible capaz de representar con 
+precisión las regiones no exploradas del espacio de configuraciones en su 
+parametrización, permitiendo el descubrimiento de estructuras presentes en los
+electrodos y previniendo falsos positivos. Aunque DFTB implica un nivel de teoría
+más riguroso que los campos de fuerza clásicos, como el ReaxFF, es más rápido que
+los cálculos de la Teoría del Funcional de la Densidad (DFT), lo que permite 
+estudiar también la dinámica. También se presenta un algoritmo de parametrización
+que permite optimizar el modelo reproduciendo otros observables más allá de las
+energías absolutas. Con esta idea se centra la discución en la reproducción de las
+energías de formación de Li$_x$Si, una característica clave para lograr robustez
+y transferibilidad. 
