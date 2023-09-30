@@ -2,6 +2,15 @@
 
 \subsubsection{Cambio de volumen fraccionario}
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Silicio/caracterizacion/resultados/electroquimica/fvc.png}
+    \caption{Cambio de volumen fraccionario en función de la composición de la 
+    aleación. Los valores experimentales de AFM se muestran con cuadrados azules, 
+    la línea recta se corresponde con cálculos de DFT y los círculos naranjas son 
+    resultados de este trabajo.}
+    \label{fig:fvc}
+\end{figure}
 El cambio de volumen fraccionario puede definirse utilizando una normalización 
 relativa al número de átomos de Si en la estructura de acuerdo a
 \begin{equation}\label{eq:fvc}
@@ -15,23 +24,14 @@ en la celda de simulación para el valor correspondiente de $x$. En la Figura
 \ref{eq:fvc} para las distintas estructuras de Li$_x$Si estudiadas. En la misma 
 se comparan los valores obtenidos con datos experimentales de AFM (\textit{atomic 
 force microscopy}, sus siglas en inglés) medidos por Beaulieu \textit{et al.} 
-~\cite{beaulieu2003} y con predicciones de DFT con un cambio volumétrico fijo 
-utilizado por Chevrier y Dahn ~\cite{chevrier2009}. Los mismos muestran que el
+~\cite{beaulieu2003} y con valores de DFT fijos de cambio volumétrico utilizado 
+por Chevrier y Dahn ~\cite{chevrier2009}. Los mismos muestran que el
 potencial ReaxFF proporciona una tendencia correcta, tanto cualitativa como 
 cuantitativamente.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Silicio/caracterizacion/resultados/electroquimica/fvc.png}
-    \caption{Cambio de volumen fraccionario en función de la composición de la 
-    aleación. Los valores experimentales de AFM se muestran con cuadrados azules, 
-    la línea recta se corresponde con cálculos de DFT y los círculos rojos son 
-    resultados de este trabajo.}
-    \label{fig:fvc}
-\end{figure}
 
 \subsubsection{Voltaje}
 
-\begin{table}[h]
+\begin{table}[b]
     \centering
     \caption{Energías de formación obtenidas a través de la ecuación \ref{eq:fe}}
     \setlength\extrarowheight{2pt}\stackon{%
@@ -75,11 +75,12 @@ a partir de la ecuación \ref{eq:fe} se muestran en la Tabla \ref{t:fe}.
 Si se realiza un \textit{spline} a estos valores, mostrados en el recuadro de la
 Figura \ref{fig:voltaje}, se obtienen los valores de $V(x)$ a partir de la ecuación
 \ref{eq:voltaje}, que se grafican en función de la composición en la Figura 
-\ref{fig:voltaje} con una línea roja. Para comparar, se incluye en la misma Figura
+\ref{fig:voltaje} con una línea naranja. Para comparar, se incluye en la misma Figura
 las curvas experimentales medidas para la litiación y la delitiación de silicio
 amorfo ~\cite{hatchard2004} y la curva teórica de cálculos de primeros principios 
 ~\cite{chevrier2009}. Se puede afirmar que los resultados obtenidos con el ReaxFF 
 son satisfactorios.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Silicio/caracterizacion/resultados/electroquimica/voltaje.png}

@@ -1,6 +1,15 @@
 \subsection{Formación de conglomerados (clusters)}\label{s:clusters}
 
-Analizando la formación de conglomerados (clusters) por medio del algoritmo DBSCAN 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/clusters/clusters.png}
+    \caption{Formación de clusters indicando una red amorfa de silicio. (a) 
+    Porcentaje de átomos de Si aislados en función de la elección del
+    radio de corte. (b) Número de clusters de Si sobre el número total de átomos 
+    de Si.}
+    \label{fig:clusters}
+\end{figure}
+Analizando la formación de \change{conglomerados} (clusters) por medio del algoritmo DBSCAN 
 ~\cite{ester1996}, en el cual puede definirse un radio de corte para el cual se 
 deja de considerar que los átomos están enlazados entre sí (es decir, formando 
 clusters), se encuentra que las estructuras amorfas de silicio no pueden ser 
@@ -20,13 +29,3 @@ se tiene que cuando el radio de corte es menor que el primer pico de la RDF$_{\t
 el número de clusters es igual al número de átomos de Si, pero que cuando este 
 radio es más grande que la distancia a la cual termina el primer pico, hay un 
 solo cluster.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/clusters/clusters.png}
-    \caption{Formación de clusters indicando una red amorfa de silicio. (a) 
-    Porcentaje de átomos de Si aislados en función de la elección del
-    radio de corte. (b) Número de clusters de Si sobre el número total de átomos 
-    de Si.}
-    \label{fig:clusters}
-\end{figure}

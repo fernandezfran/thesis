@@ -1,11 +1,4 @@
-Las simulaciones aceleradas fueron llevadas a cabo en el ensamble NVT a 300.0 K
-con un termostato de Langevin ~\cite{schneider1978} utilizando una versión 
-modificada de \path{GEMS} ~\cite{gems}. A cada estructura se le realizó una 
-minimización de gradientes conjugados con el software \path{LAMMPS} 
-~\cite{lammps1, lammps2}. El tamaño de los sistemas y la cantidad de estructuras 
-utilizadas para obtener los siguiente resultados se presentan en la Tabla 
-\ref{t:siminfo}.
-\begin{table}[h]
+\begin{table}[b]
     \centering
     \caption{Información del conjunto de datos.}
     \setlength\extrarowheight{2pt}\stackon{%
@@ -31,8 +24,15 @@ utilizadas para obtener los siguiente resultados se presentan en la Tabla
     }{}
     \label{t:siminfo}
 \end{table}
+Las simulaciones aceleradas fueron llevadas a cabo en el ensamble NVT a 300.0 K
+con un termostato de Langevin ~\cite{schneider1978} utilizando una versión 
+modificada de \path{GEMS} ~\cite{gems}. A cada estructura se le realizó una 
+minimización de gradientes conjugados con el software \path{LAMMPS} 
+~\cite{lammps1, lammps2}. El tamaño de los sistemas y la cantidad de estructuras 
+utilizadas para obtener los siguiente resultados se presentan en la Tabla 
+\ref{t:siminfo}.
 
-\begin{figure}[h]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/introduccion/energias.png}
     \caption{Histogramas correspondientes a la energía potencial de las 
@@ -74,7 +74,7 @@ reducen fuertemente la energía potencial del sistema.
     \label{fig:amorfas}
 \end{figure}
 De los histogramas de la Figura \ref{fig:energias} se seleccionan los factores 
-de aceleración más óptimos, es decir que producen energías menores, para obtener
+de aceleración óptimos, es decir que producen energías menores, para obtener
 las propiedades estructurales que se discuten a continuación. Para estos valores
 se muestra una estructura representativa a cada composición en la Figura 
 \ref{fig:amorfas}. Para $x = 0.21$ puede verse que la red amorfa de silicio
