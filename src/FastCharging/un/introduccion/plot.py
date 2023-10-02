@@ -20,7 +20,8 @@ for file, (chi, l) in zip(files, chill):
     data = np.loadtxt(file, dtype=np.float32, skiprows=1, unpack=True)
     x, potential = data[0], data[2]
 
-    ax[chi_values[::-1].index(chi)].plot(x, potential, label=f"{np.log10(l)}")
+    ax[chi_values[::-1].index(chi)].plot(x, potential, label=f"{np.log10(l)}", zorder=1)
+    ax[chi_values[::-1].index(chi)].scatter(x[-1], -0.15, s=150, marker="^", color="k", zorder=2)
 
 for a, chi, bc in zip(ax, chi_values[::-1], ["(b)", "(c)"]):
     a.text(0.025, 0.12, bc)
