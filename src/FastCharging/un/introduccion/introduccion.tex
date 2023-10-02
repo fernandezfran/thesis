@@ -32,13 +32,13 @@ electroquímico \cite{gavilan2020, gavilan2022}. Así, incluso descartando
 otros factores que podrían influir en la carga de la batería (como los cambios de 
 volumen durante la intercalación de iones de litio, las características termodinámicas particulares
 de los sistemas, la formación de interfase electrolito/sólido, etc), es complicado
-realizar un análisis detallado del desafío general.
+realizar un análisis detallado del desafío general que representa este problema.
 
 La electroquímica de electrodos de una sola partícula \cite{ventosa2021, 
 heubner2020, takahashi2020, wahab2020, xu2020, tao2019, fukui2011} permite 
 estudiar la respuesta \say{pura} de los materiales activos, esto es, sin el efecto 
 de otros aditivos presentes en los electrodos compuestos. Esta información 
-detallada es valiosa ya que da a conocer los factores limitantes para su 
+detallada es valiosa, ya que da a conocer los factores limitantes para su 
 carga rápida y su respuesta frente a la misma. Enmarcado en este contexto, se utilizó un 
 modelo de una sola partícula recientemente propuesto \cite{gavilan2023} 
 para construir diagramas galvanostáticos de la capacidad máxima 
@@ -54,9 +54,9 @@ y el otro de difusión finita,
 donde $k^0$ es la constante cinética, $D$ el coeficiente de difusión, $V/A$ es la 
 proporción volumen/superficie, $d$ es el tamaño característico de la partícula, 
 $C_r$ denota la C-rate y $t_h$ el tiempo de una hora (en las unidades que
-corresponda). En la Figura \ref{fig:diagnostico}a se muestra en dos dimensiones la 
-capacidad alcanzada en función de los dos parámetros adimensionales, estos valores 
-se corresponden con los cortes de los perfiles galvanostáticos presentes en las
+corresponda). En la Figura \ref{fig:diagnostico}a se muestra en un gráfico de colores en dos dimensiones el
+estado de carga máximo alcanzada en función de los dos parámetros adimensionales. Estos valores 
+de capacidad se corresponden con los cortes con el eje de las abscisas de los perfiles galvanostáticos presentes en las
 Figuras \ref{fig:diagnostico}b y c (ejemplos para algunos valores en particular 
 de $\Xi$ y $\ell$) 150 mV debajo del potencial de equilibrio.
 
@@ -68,8 +68,8 @@ de $\Xi$ y $\ell$) 150 mV debajo del potencial de equilibrio.
     \ref{s:metodologia}. Los datos de los puntos A y B se encuentran en la 
     Tabla \ref{t:ab}. (b) y (c) muestran perfiles voltaje/capacidad para 
     diferentes valores particulares de $\Xi$ y $\ell$ (ver líneas grises 
-    discontinuas en la Figura \ref{fig:diagnostico}a)\todo{, los triángulos negros 
-    sobre el eje SOC indican los valores de SOC$_{\max}$ alcanzados.}}
+    discontinuas en la Figura \ref{fig:diagnostico}a), los triángulos negros 
+    sobre el eje SOC indican los valores de SOC$_{\max}$ alcanzados.}
     \label{fig:diagnostico}
 \end{figure}
 
@@ -107,20 +107,20 @@ presenta en la Figura \ref{fig:diagnostico}a.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.7\textwidth]{FastCharging/un/introduccion/xiafom.png}
-    \caption{\todo{Figura de mérito definida como el tiempo característico de difusión, 
+    \caption{Figura de mérito definida como el tiempo característico de difusión, 
     $\tau = d^2/D$, propuesta por Xia \textit{et al.} \cite{xia2022}. La líneas
-    grises discontinuas indican valores de $\tau$ constante que dividen a los 
-    materiales en clases con diferentes capacidades de carga rápida.}}
+    grises discontinuas indican valores de $\tau$ constantes que dividen a los 
+    materiales en clases con diferentes capacidades de carga rápida.}
     \label{fig:xiafom}
 \end{figure}
 En un trabajo reciente se ha propuesto una figura de mérito que permite establecer 
-una jerarquía entre distintos materiales de carga rápida \cite{xia2022}\todo{, la 
-misma consiste en combinar los efectos de los coeficientes de difusión y los 
+una jerarquía entre distintos materiales de carga rápida \cite{xia2022}. 
+Esta consiste en combinar los efectos de los coeficientes de difusión y los 
 tamaños geométricos para definir el tiempo característico de difusión, 
 $\tau = d^2 / D$, y es presentada en la Figura \ref{fig:xiafom}. Esta figura de 
 mérito supone un sólido semi-infinito y una reacción interfacial ultrarrápida, 
 es decir que supone que el proceso limitante es la difusión de los iones dentro 
-del material.}
+del material.
 Desde
 este punto de vista, la ecuación \ref{eq:socmax} evaluada en el punto ($\Xi$, 
 $\ell$) también puede introducirse como una figura de mérito. Supongamos que 
