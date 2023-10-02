@@ -2,6 +2,9 @@
 
 \subsection{Fundamentos matemáticos}\label{s:metodologia}
 
+Para el fenómeno de la intercalación de iones de litio se consideró un modelo de 
+una sola partícula. Los parámetros de todas las ecuaciones que siguen a continuación se
+presentan en la Tabla \ref{t:params}.
 \begin{table}[h!]
     \centering
     \caption{Parámetros utilizados en las simulaciones y la construcción de los
@@ -45,12 +48,8 @@
     }{}
     \label{t:params}
 \end{table}
-
-Para el fenómeno de la intercalación de iones de litio se consideró un modelo de 
-una sola partícula. Los parámetros de todas las ecuaciones que siguen a continuación se
-presentan en la Tabla \ref{t:params}. En el modelo, el grado de intercalación $x$
-en el punto $r$ y a tiempo $t$ se obtiene resolviendo numéricamente la ecuación diferencial 1D
-de Fick:
+En el modelo, el grado de intercalación $x$ en el punto $r$ y a tiempo $t$ se 
+obtiene resolviendo numéricamente la ecuación diferencial 1D de Fick:
 \begin{equation}\label{eq:fick}
     \frac{\partial x}{\partial t} = D \left[ \frac{\partial^2 x}{\partial r^2} + \frac{(z - 1)}{r} \left(\frac{\partial x}{\partial r}\right) \right],
 \end{equation}
