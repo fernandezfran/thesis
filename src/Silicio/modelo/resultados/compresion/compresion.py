@@ -10,8 +10,8 @@ colores = [
     "tab:green",
     "tab:red",
     "tab:orange",
-    "tab:purple",
     "tab:pink",
+    "tab:purple",
     "tab:cyan",
     "tab:blue",
 ]
