@@ -30,7 +30,7 @@ entrenamiento. Los coeficientes $\check{\boldsymbol{\xi}}_s$ minimizados para ca
 conjunto, A y B, se reportan en la Tabla \ref{t:xiweights}.
 \begin{table}[h!]
     \centering
-    \caption{Pesos óptimos, $\check{\boldsymbol{xi}}_s$, de cada conjunto.}
+    \caption{Pesos óptimos, $\check{\boldsymbol{\xi}}_s$, de cada conjunto.}
     \setlength\extrarowheight{2pt}\stackon{%
     \begin{tabular}{l c c}
         \toprule
@@ -51,14 +51,29 @@ conjunto, A y B, se reportan en la Tabla \ref{t:xiweights}.
     \label{t:xiweights}
 \end{table}
 Es interesante que para el conjunto A el algoritmo reduce los pesos relativos del 
-Li y del Si puro y aumenta los de las aleaciones. Mientras tanto, para el conjuntoB sucede lo contrario, los pesos óptimos son mayores para los elementos puros y
-menores para las aleaciones (salvo para la Li$_{15}$Si$_4$). Este comportamiento 
-se debe a que el término de la energía de bandas del conjunto A se construye 
-utilizando los elementos puros mientras que el mismo término para el conjunto B
-utiliza una de las aleaciones. Resulta razonable que el término de repulsión, que
-busca compensar el residuo de la energía dada por todas las demás contribuciones 
-energéticas, sea menos importante para las estructuras consideradas en el ajuste
-de las energías de banda y más importante para el resto. Así, los coeficientes
-óptimos $\check{\boldsymbol{\xi}}_s$ parecen ser capaces de percibir esta 
-situación y tratar de compensarla al centrar la parametrización en las estructurasque más la necesitan.
+Li y del Si puro y aumenta los de las aleaciones. Mientras tanto, para el conjunto 
+B sucede lo contrario, los pesos óptimos son mayores para los elementos puros y
+menores para las aleaciones. Este comportamiento se debe a que el término de la 
+energía de bandas del conjunto A se construye utilizando los elementos puros 
+mientras que el mismo término para el conjunto B utiliza una de las aleaciones. 
+Resulta razonable que el término de repulsión, que busca compensar el residuo de la 
+energía dada por todas las demás contribuciones energéticas, sea menos importante 
+para las estructuras consideradas en el ajuste de las energías de banda y más 
+importante para el resto. Así, los coeficientes óptimos $\check{\boldsymbol{\xi}}_s$ 
+parecen ser capaces de percibir esta situación y tratar de compensarla al centrar 
+la parametrización en las estructuras que más la necesitan.
 
+Otra observación que surge de la Tabla \ref{t:xiweights} es el peso relativo bajo
+que resulta en ambos conjuntos para la aleación cristalina Li$_{15}$Si$_4$, en 
+comparación al resto de las aleaciones. En particular, para el conjunto B este 
+peso es prácticamente igual a cero, indicando que la inclusión de estas 
+estructuras en el conjunto de entrenamiento no contribuye a una mejora de la 
+predicción de las energías de formación relativas. Esto puede deberse a que la 
+estructura de Li$_{15}$Si$_4$ tiene una naturaleza particular que difiere del 
+resto de las aleaciones e interfiere de alguna manera con el ajuste de los 
+parámetros del modelo. Por ejemplo, una explicación posible puede ser que el 
+entorno químico de esta estructura es bastante diferente al del resto de las 
+aleaciones por lo que la predicción puede ser mejorada globalmente al centrar el 
+ajuste en el resto de las aleaciones. En este sentido, el procedimiento de 
+optimización propuesto en este capítulo puede considerarse como una herramienta 
+para detectar peculiaridades dentro del conjunto de entrenamiento.
