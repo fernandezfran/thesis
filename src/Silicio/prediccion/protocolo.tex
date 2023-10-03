@@ -12,11 +12,11 @@ en los siguientes pasos:
         Voronoi \cite{aurenhammer1991}. Desde estos puntos se computa la 
         distancia al átomo más cercano y se selecciona como centro aquel que 
         tenga la mayor distancia. 
-    \item Aumentar  el volumen y se escalar las coordenadas por un factor para
+    \item Aumentar  el volumen y escalar las coordenadas por un factor para
         seguir la expansión experimental del sistema.
     \item Minimizar localmente, con el algoritmo LBFGS en este caso.
-    \item Hace una simulación de dinámica molecular en el ensamble $NPT$, en 
-        este caso utilizando el termostato y el barostato de Berendsen 
+    \item Hacer una simulación de dinámica molecular en el ensamble $NPT$, en 
+        este caso utilizando el termostato y el barostato de Berendsen \cite{berendsen1984} 
         disponibles en el código \path{DFTB+} \cite{dftb+} por 10 ps. 
     \item Seleccionar la estructura con menor presión absoluta.
     \item Si $x < 3.75$ se vuelve al paso 1 y si no se termina la litiación.
