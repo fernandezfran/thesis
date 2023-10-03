@@ -1,4 +1,4 @@
-\subsection{Ajuste de los conjuntos A y B de parámetros}
+\subsection{Ajuste de dos conjuntos de parámetros DFTB}
 
 Como fue introducido en la sección \ref{s:dftb}, para el método DFTB hay dos 
 grupos de parámetros a ser determinados, los electrónicos (los orbitales 
@@ -51,7 +51,7 @@ conjunto, A y B, se reportan en la Tabla \ref{t:xiweights}.
     \label{t:xiweights}
 \end{table}
 Es interesante que para el conjunto A el algoritmo reduce los pesos relativos del 
-Li y del Si puro y aumenta los de las aleaciones. Mientras tanto, para el conjunto 
+Li y del Si puro y aumenta los de las aleaciones. Mientras que para el conjunto 
 B sucede lo contrario, los pesos óptimos son mayores para los elementos puros y
 menores para las aleaciones. Este comportamiento se debe a que el término de la 
 energía de bandas del conjunto A se construye utilizando los elementos puros 
@@ -73,7 +73,7 @@ estructura de Li$_{15}$Si$_4$ tiene una naturaleza particular que difiere del
 resto de las aleaciones e interfiere de alguna manera con el ajuste de los 
 parámetros del modelo. Por ejemplo, una explicación posible puede ser que el 
 entorno químico de esta estructura es bastante diferente al del resto de las 
-aleaciones por lo que la predicción puede ser mejorada globalmente al centrar el 
+aleaciones por lo que la predicción global puede ser mejorada al centrar el 
 ajuste en el resto de las aleaciones. En este sentido, el procedimiento de 
 optimización propuesto en este capítulo puede considerarse como una herramienta 
 para detectar peculiaridades dentro del conjunto de entrenamiento.

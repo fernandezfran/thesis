@@ -3,7 +3,7 @@
 La ecuación \ref{eq:fepa} de energía de formación es usual presentarla (como
 se hace en el Materials Project \cite{materials_project}) en función
 de la fracción molar de Si ($\Theta$ en Li$_{1-\Theta}$Si$_\Theta$), que
-se relaciona con $x$ como
+su relación con $x$ viene dada por
 \begin{equation}
 	x = \frac{1 - \Theta}{\Theta}.
 \end{equation}
@@ -12,8 +12,8 @@ A y B se presentan en la Figura \ref{fig:eform}a con puntos negros. En azul
 y verde se muestran los resultados para los dos conjuntos de parámetros A y B
 luego de la optimización de pesos. Además, para comparar, se incluyen resultados
 obtenidos con la parametrización del ReaxFF realizada por Fan \textit{et al.}
-\cite{fan2013}, que es el potencial reactivo del estado-del-arte para este
-sistema. Se observa una buena concordancia para ambos conjuntos de parámetros
+\cite{fan2013}, que es el potencial del estado-del-arte para este sistema. 
+Se observa una buena concordancia para ambos conjuntos de parámetros
 de DFTB, en particular el conjunto B resulta ser la mejor de todas las
 aproximaciones. Las mayores diferencias entre los modelos y DFT son para las
 aleaciones Li$_{13}$Si$_4$ ($\Theta \approx 0.24$) y Li$_{15}$Si$_4$
@@ -36,14 +36,14 @@ sistema y las diferencias obtenidas en las energías de formación son menores.
 
 A continuación se analiza la capacidad de predicción de ambas parametrizaciones
 de DFTB en el conjunto de evaluación de estructuras amorfas de Li$_x$Si. Al
-igual que para la estructuras cristalinas, se compara con los valores
+igual que para las estructuras cristalinas, se compara con los valores
 calculados con DFT y con ReaxFF. La obtención de estas estructuras se introdujo
 en la sección \ref{s:dftcalc} y los resultados de las mismas se muestran
 en la Figura \ref{fig:eform}b; se deja el caso de los resultados con DFT de
 las estructuras cristalinas como referencia. En general, se tiene una buena
 reproducción de los valores de DFT con ambas parametrizaciones. Es más, una
 inspección minuciosa permite concluir que DFTB es capaz de imitar la tendencia
-de los datos DFT, siguiendo la tendencia de los distintos máximos y mínimos
+de los datos DFT, siguiendo la ocurrencia de los distintos máximos y mínimos
 locales. Por otro lado, las energías de formación obtenidas con ReaxFF muestran
 una desviación considerable con respecto a DFT cuando el silicio se encuentra
 mayormente litiado ($\Theta < 0.5$), donde se predice erróneamente que las

@@ -42,7 +42,7 @@ se calculan explícitamente los elementos de dos centros de las matrices del
 Hamiltoniano y de superposición en función de la distancia y la orientación, usando 
 las reglas de transformación de Slater-Koster \cite{slater1954}.
 
-Una de las partes cruciales del uso del método DFTB es calcular las funciones de 
+Una de las partes cruciales del uso del método DFTB es calcular las funciones 
 base y las densidades atómicas $\phi$ y $\rho^0$, respectivamente. Los orbitales
 pseudoatómicos y las densidades se obtienen de resolver las ecuaciones atómicas KS 
 modificadas en las que se agrega un potencial de confinamiento, $V_{\text{conf}}$
@@ -52,7 +52,7 @@ modificadas en las que se agrega un potencial de confinamiento, $V_{\text{conf}}
 Una práctica común dentro de la comunidad de DFTB consiste en elegir un potencial
 de confinamiento parabólico o cuadrático. En esta tesis se utilizó una función 
 de ley de potencia, como está implementada en el código \path{Hotcent}
-\cite{hotcent, van2019},
+\cite{hotcent},
 \begin{equation}\label{eq:vconf}
     V_{\text{conf}}(r)=\left(\frac{r}{r_0}\right)^{\sigma}
 \end{equation}
@@ -102,10 +102,10 @@ potenciales repulsivos $V_{\text{rep}}(r)$ de cada par de átomos
 \end{equation}
 donde $i$ y $j$ son los índices de los átomos en el sistema y $r_{ij}$ es la 
 distancia entre ellos. Generalmente se considera que $V_{\text{rep}}$ es una
-función empírica que se determina de ajustar datos de cálculos de estructura 
-electrónica de un nivel mayor, como DFT. En este capítulo, ajustó dicho potencial 
-utilizando el código \path{TANGO} \cite{tango}, donde el potencial repulsivo 
-viene dado por:
+función empírica que se determina al ajustar datos de cálculos de estructura 
+electrónica de un nivel superior, como DFT. En este capítulo, se ajustó dicho 
+potencial utilizando el código \path{TANGO} \cite{tango}, donde el potencial 
+repulsivo está dado por:
 \begin{equation}\label{eq:v_rep}
     V_{\text{rep}}(r) = \begin{cases}
         e^{-a_1r+a_2}+a_3 & 0\le r<r_{\min}\\
@@ -116,7 +116,7 @@ viene dado por:
 los valores que se utilizan para $r_{\min}$ y $r_{\text{cut}}$ se encuentran
 en la Tabla \ref{t:mincut}. Los parámetros $a_i$ se ajustan para reproducir las 
 energías de DFT para cada estructura elegida para el entrenamiento utilizando el 
-algoritmo de Levenber-Marquardt. Para el grado $m$ del polinomio se eligió 8 y 
+algoritmo de Levenber-Marquardt. Se eligió el grado del polinomio $m = 8$ y 
 los coeficiente $c_i$ se optimizaron con un ajuste por cuadrados mínimos.
 Los códigos \path{Hotcent} y \path{TANGO} proveen valores por defecto para 
 cualquier otro parámetro que no haya sido explícitamente descripto. 
@@ -145,8 +145,8 @@ cualquier otro parámetro que no haya sido explícitamente descripto.
 
 Los cálculos de DFT de las estructures cristalinas fueron obtenidos usando el 
 paquete de simulación \path{GPAW} ~\cite{enkovaara2010, mortensen2005} del 
-Entorno de Simulación Atómica \cite{larsen2017}. El paquete \path{GPAW} es un 
-algoritmo de grilla del espacio real basado en el método de la función de onda 
+Entorno de Simulación Atómica \cite{larsen2017}. El paquete \path{GPAW} provee un 
+algoritmo de grillado del espacio real basado en el método de la función de onda 
 aumentada por proyector \cite{blochl1994} que utiliza la aproximación del núcleo 
 congelado. Las coordenadas de Li, Li$_{15}$Si$_{4}$, Li$_{13}$Si$_{4}$, 
 Li$_{7}$Si$_{3}$, Li$_{12}$Si$_{7}$, LiSi y Si se descargaron del Materials 
@@ -159,7 +159,7 @@ de 2.5 puntos $k$ por \AA$^{-1}$.
 
 También se estudiaron con cálculos DFT estructuras amorfas de Li$_x$Si siguiendo
 el protocolo de litiación propuesto por Chevrier y Dahn \cite{chevrier2009, 
-chevrier2010}. Se utilizó un esquema de celda repetido con 12 átomos de silicio y 
+chevrier2010}. Se utilizó un esquema de celda repetida con 12 átomos de silicio y 
 $N$ de litio por celda unidad, con $N\in[0,45]$ cubriendo todo el intervalo 
 $x\in[0,3.75]$. Cada estructura Li$_{N+1}$Si$_{12}$ se obtuvo agregando un átomo 
 de litio en la esfera vacía más grande de la celda Li$_{N}$Si$_{12}$ y realizando
@@ -272,7 +272,7 @@ $\boldsymbol{\xi}$ $=\left(\xi_{\text{Li}},\cdots,\xi_{\text{Si}}\right)$ que
 permite controlar el peso relativo entre las distintas estequiometrías. Con esta 
 definición, los parámetros óptimos de DFTB para la ecuación \ref{eq:e_res},
 $\check{{\bf p}}$, pueden considerarse como una función que depende de 
-$\boldsymbol{\xi}$, $\check{{\bf p}}(\boldsymbol{\xi})$. A continuación se 
+$\boldsymbol{\xi}$, $\check{{\bf p}}(\boldsymbol{\xi})$. Lo cual 
 introduce un segundo proceso de optimización para obtener los coeficientes 
 $\check{\boldsymbol{\xi}}$.
 
@@ -284,8 +284,8 @@ mantenga su precisión para el mayor rango posible de concentraciones, para evit
 la necesidad de cambiar de modelo \say{\textit{on-the-fly}} durante una simulación.
 Por lo que se requiere que la parametrización sea lo más transferible posible 
 entre las distintas estequiometrías. En este sentido, el objetivo principal de la 
-parametrización es que la misma realice predicciones fiables de las energías de 
-formación relativas por átomo:
+parametrización es que la misma realice predicciones fiables de algún observable, 
+en este caso de las energías de formación relativas por átomo:
 \begin{equation}\label{eq:fepa}
     F(\check{{\bf r}}_s) = E_A(\check{{\bf r}}_s) - \frac{x E_A(\check{{\bf r}}_\text{Li}) + E_A(\check{{\bf r}}_\text{Si})}{x+1}
 \end{equation}
