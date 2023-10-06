@@ -64,8 +64,9 @@ D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva.
 
 + **NMR, x-ray and Mössbauer results for amorphous Li-Si alloys using density 
 functional tight-binding method**. <ins>F. Fernandez</ins>, M. Otero,
-M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. ([_preprint 
-arXiv:2305.11006_](https://arxiv.org/abs/2305.11006), 2023).
+M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. 
+[_Physical Review B_](https://doi.org/10.1103/PhysRevB.108.144201), 2023.
+([_preprint arXiv:2305.11006_](https://arxiv.org/abs/2305.11006)).
 
 + **Density functional tight-binding model for Lithium-Silicon alloys**. B. 
 Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. [_The Journal of 
