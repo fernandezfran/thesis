@@ -1,21 +1,21 @@
 \subsection{Rayos x: Funciones de distribución de pares}
 
-Las estructuras amorfas obtenidas con el protocolo de litiación propuesto en la 
-sección \ref{s:litpro} son primero caracterizadas con las funciones distribución 
+Se comienza caracterizando las estructuras amorfas obtenidas con el protocolo de litiación propuesto en la 
+sección \ref{s:litpro} con las funciones distribución 
 radial (RDF) parciales, que describen la probabilidad de encontrar un átomo de 
 tipo B en un cascarón a una distancia $r$ de un átomo de referencia de tipo A y 
 están definidas por la siguiente formula
 \begin{equation}
     g_{AB}(r) = \frac{V}{4 \pi r^2 N_B} \sum_{i}^{N_A} \sum_{j\neq i}^{N_B} \delta(r - r_{ij}),
 \end{equation}
-donde $N_A$ y $N_B$ son los números de átomos de tipo A y B, respectivamente,
-$V$ es el volumen de la celda de simulación y $r_{ij}$ es la distancia entre
-los átomos $i$ y $j$. Estas curvas muestran en la Figura \ref{fig:srdfs} para 
+donde $V$ es el volumen de la celda de simulación, $r_{ij}$ es la distancia entre
+los átomos $i$ y $j$ y $N_A$ y $N_B$ son los números de átomos de tipo A y B, 
+respectivamente. Estas curvas se muestran en la Figura \ref{fig:prdfs} para 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Silicio/prediccion/resultados/xray/prdfs.png}
-    \caption{RDFs parciales para Li-Li, Si-Li y Si-Si para los valores $x$ en 
-    Li$_x$Si optimizados. El color de la curva cambia de azul (predominio del Si)
+    \caption{Funciones distribución radial (RDF) parciales para Li-Li, Si-Li y Si-Si para los valores $x$ en 
+    Li$_x$Si optimizados (ver texto de sección \ref{s:litpro}). El color de la curva cambia de azul (predominio del Si)
     a verde (predominio del Li). Las barras de error son menores que el ancho de 
     las líneas.}
     \label{fig:prdfs}
@@ -33,7 +33,7 @@ amorfa inicial se rompen durante la litiación y aparecen Si aislados. Observand
 con mayor detalle se aprecia un hombro en el segundo pico a distancias mayores 
 a 5 \AA. Esto se relaciona con la persistencia de algunos enlaces Si-Si, es decir,
 un Si aislado tiene un segundo vecino a 4.7 \AA. Si este último se encuentra 
-enlazado a otro Si, entonces este se encuentra a una distancia de 5.0 \AA del 
+enlazado a otro Si, entonces este se encuentra a una distancia de 5.0 \AA\ del 
 primero. Cabe señalar que el modelo DFTB desarrollado en el capítulo 
 \ref{ch:modelo} permite capturar estas características a un costo computacional
 considerablemente menor que el que se tendría con DFT.
@@ -104,7 +104,7 @@ medio y se obtuvieron los valores que se presentan en la Tabla
     \caption{Factor de peso de cada contribución (c-Si, c-Li$_{15}$Si$_4$, a-Si y 
     a-Li$_{15}$Si$_4$) a la función distribución radial de a pares $G(r)$ del 
     Si litiado (ver las Figuras \ref{fig:gofrs} y \ref{fig:pdfs} y la ecuación 
-    \ref{eq:contributions}). El porcentaje de cada peso se agrega entre paréntesis.}
+    \ref{eq:contributions}). El porcentaje que representa cada peso se agrega entre paréntesis.}
     \setlength\extrarowheight{2pt}\stackon{%
     \begin{tabular}{l c c c c}
         \toprule

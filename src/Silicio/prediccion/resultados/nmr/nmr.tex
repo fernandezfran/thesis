@@ -10,18 +10,18 @@ es intrínseca al fenómeno de RMN, y una función gaussiana, debida al detector
 señal, corrimiento químico, que depende del apantallamiento electromagnético 
 producido por el entorno local y, por lo tanto, por la estructura local. Luego,
 el espectro total obtenido para una muestra es la suma de las contribuciones 
-procedentes de todos los átomos de $^7$Li de la estructura. En un trabajo previo,
-Key \textit{et al.} \cite{key2009} prepararon estructuras de LiSi a diferentes 
-concentraciones de litio y midieron los espectros de corrimiento químico del 
-$^7$Li. En estas mediciones, Key \textit{et al.} \cite{key2009} le asignaron un 
-pico en 18 ppm al corrimiento químico del átomo de $^7$Li cercano a un Si enlazado. 
-Por otro lado, atribuyeron el pico en 6 ppm a un átomos de $^7$Li cercano a un Si 
-aislado. Sin embargo, no está claro como interpretar la ocurrencia de picos entre 
-6 y 18 ppm, que de hecho se observan en las mediciones de RMN de estructuras 
-amorfas de Li-Si.
+procedentes de todos los átomos de $^7$Li de la estructura. Para utilizar esta 
+técnica en Li-Si, Key \textit{et al.} \cite{key2009} prepararon estructuras
+a distintas concentraciones de litio y midieron los espectros de corrimiento 
+químico del $^7$Li. En estas mediciones, Key \textit{et al.} \cite{key2009} 
+le asignaron un pico en 18 ppm al corrimiento químico del átomo de $^7$Li 
+cercano a un Si enlazado. Por otro lado, atribuyeron el pico en 6 ppm a un 
+átomo de $^7$Li cercano a un Si aislado. Sin embargo, no está claro como 
+interpretar la ocurrencia de picos entre 6 y 18 ppm, que de hecho se observan 
+en las mediciones de RMN de estructuras amorfas de Li-Si.
 
 El modelo de vecinos más cercanos que se propone para emular e interpretar las 
-mediciones de espectros de corrimiento químico de $^7$Li en aleaciones de LiSi 
+mediciones de espectros de corrimiento químico de $^7$Li en aleaciones de Li-Si 
 define el corrimiento químico del $i$-ésimo átomo de Li como
 \begin{equation}\label{eq:dli}
     \delta_{i} = \frac{1}{N_i^{\text{Si}}} \sum^{N_i^{\text{Si}}}_{\alpha} \delta_{\text{Key}}(\alpha),
@@ -51,7 +51,7 @@ distancia de corte de 3.0 \AA, que es la posición del mínimo entre el primer y
 segundo pico de la RDF parcial de Si-Si.
 
 El espectro total de RMN se construye como un histograma de picos cuyas posiciones
-vienen dadas por la ecuación \ref{eq:dli}. Este histograma se construye sumando 
+vienen dadas por la ecuación \ref{eq:dli}. A este histograma se lo grafica sumando 
 \textit{kernels} Voigt ($V$) centrados en $\delta_i$ sobre todos los átomos de Li
 en la estructura,
 \begin{equation}\label{eq:nmr}
@@ -59,7 +59,7 @@ en la estructura,
 \end{equation}
 donde $x$ es el corrimiento químico, $\sigma$ es la desviación estándar de la 
 componente gaussiana debida al detector y $\gamma$ es el ancho medio a la altura 
-media de la componente lorentziana que es intrínseca al fenómeno de RMN. Estos 
+media de la componente lorentziana intrínseca del fenómeno de RMN. Estos 
 dos parámetros se ajustan a los datos experimentales. Por último, se promediaron
 los resultados sobre las estructuras obtenidas en las trayectorias de dinámica 
 molecular.
@@ -72,7 +72,7 @@ del sistema Li-Si.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.7\textwidth]{Silicio/prediccion/resultados/nmr/viz.png}
-    \caption{Diagrama para explicar el modelo de vecinos más cercanos que predice los
+    \caption{Diagrama explicativo del modelo de vecinos más cercanos que predice los
     espectros de RMN en sistemas Li--Si.} 
     \label{fig:viz}
 \end{figure}
@@ -98,7 +98,7 @@ Luego, la intensidad del espectro generada por estos tres átomos es la suma
 de sus contribuciones con picos Voigt centrados en los corrimientos químicos
 calculados
 \begin{equation}
-    I = V_1(12\text{ppm}) + V_2(18\text{ppm}) + V_3(6\text{ppm}) + ...,
+    I = V_1(x, 12 \text{ppm}, \sigma, \gamma) + V_2(x, 18 \text{ppm}, \sigma, \gamma) + V_3(x, 6 \text{ppm}, \sigma, \gamma) + ...,
 \end{equation}
 y así puede considerarse el resto de los átomos de Li en la estructura.
 
@@ -122,16 +122,16 @@ Las predicciones del modelo se muestran con curvas continuas mientras que las
 mediciones de Key se corresponden con los puntos. Para todas las aleaciones se 
 reproduce el centro del pico con gran precisión. En las aleaciones 
 Li$_{12}$Si$_7$ y Li$_7$Si$_3$ todos los átomos de Si se encuentran enlazados. 
-En la primera de ellas forman pentágonos de cinco átomos de estrellas de cuatro, 
-mientras que en la segunda todos los enlaces son mancuernas. Esto hace que las 
-contribuciones de todos los átomos de Li se centren en 18 ppm en el modelo. Para 
+En la primera de ellas forman pentágonos de cinco átomos y estrellas de cuatro, 
+mientras que en la segunda todos los enlaces son mancuernas. Esto hace que el 
+modelo centre las contribuciones de todos los átomos de Li en 18 ppm. Para 
 la aleación Li$_{15}$Si$_4$ sólo se tienen Si aislados, lo cual centra todas las
 contribuciones en 6 ppm. Mientras tanto, hay una coexistencia de Si enlazados y 
 Si aislados en Li$_{13}$Si$_4$ que produce contribuciones intermedias al espectro,
 consistente con el experimento.
 
 Habiéndose obtenido estos resultados prometedores para las estructuras cristalinas,
-se centra la discusión que sigue en estructuras amorfas, que son las que 
+la discusión que sigue se centra en estructuras amorfas, que son las que 
 usualmente se encuentran en los experimentos electroquímicos. En este caso se 
 calculan los espectros de corrimiento químico de $^7$Li con el modelo de vecinos 
 más cercanos utilizando las estructuras amorfas de Li$_x$Si simuladas con 
@@ -142,13 +142,13 @@ los datos experimentales, se incluyó un pico a -0.3 ppm que representa la
 interfase electrolito sólido (SEI), como sugieren los autores citados. Estos 
 resultados se los muestra en la Figura \ref{fig:a-nmr} que, a pesar de algunas 
 diferencias que se explican a continuación, presenta una concordancia razonable
-entre los resultados computacionales y experimentales.
+entre los resultados computacionales y los experimentales.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.7\textwidth]{Silicio/prediccion/resultados/nmr/a-nmr.png}
     \caption{Espectros de corrimiento químico de $^7$Li para estructuras amorfas.
-    Los puntos corresponden a las mediciones de Key \textit{et al.}. Los 
-    resultados del modelo se representan con líneas continuas y se añade una 
+    Los puntos corresponden a las mediciones de Key \textit{et al.} \cite{key2009}. Las
+    predicciones del modelo se representan con líneas continuas y se añade una 
     contribución de la SEI para comparar con el experimento. Las líneas verticales 
     indican las contribuciones de la SEI y de los átomos de Si enlazados o 
     aislados. Las barras de error son menores que el ancho de las líneas. Las 
@@ -174,4 +174,4 @@ a Si aislados en regiones altamente litiadas que no son incluidas en las
 estructuras simuladas. Las simulaciones de dinámica molecular realizadas se 
 corresponden a estructuras en equilibrio termodinámico y no tienen en cuenta estas 
 fases meta-estables altamente litiadas que aparecen en los experimentos de Key 
-\textit{et al.} \cite{key2009} a concentraciones globales de Li bajas.
+\textit{et al.} \cite{key2009} a bajas concentraciones de Li globales.
