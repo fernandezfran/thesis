@@ -1,0 +1,205 @@
+\subsubsection{DFTB}
+
+Un método alternativo para obtener las fuerzas en dinámica molecular es a través
+de la utilización de un modelo híbrido entre los métodos \textit{ab-initio},
+basados en DFT, y el uso de potenciales completamente empíricos, DFTB (de sus 
+siglas en inglés, \textit{Density Functional based Tight Binding}), que tiene
+la ventaja de ser más transferibles que estos últimos y requiere menos costo
+computacional que los primeros.
+
+El método de DFTB se basa en una expansión de segundo orden de la energía total 
+de Kohn-Sham ~\cite{dft1, dft2} en la DFT con respecto a las fluctuaciones de la 
+densidad de carga. El enfoque de orden cero es equivalente a un esquema estándar 
+no auto-consistente (TB), mientras que en el segundo orden se puede derivar una 
+expresión transparente, libre de parámetros y fácilmente calculable para los 
+elementos matriciales hamiltonianos generalizados. Estos se modifican mediante 
+una redistribución auto-consistente de las cargas de Mulliken (SCC).
+
+La energía total de un sistema de $M$ electrones en el campo de $N$ núcleos en
+las posiciones $\mathbf{R}$ puede escribirse a través de DFT como
+\begin{equation*}
+E = \sum_i^{occ} \langle \psi_i | - \frac{\Delta}{2} + V_{ext} + \frac{1}{2} \int' \frac{n(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|} | \psi_i \rangle + E_{XC}(n(\mathbf{r})) + \frac{1}{2} \sum_{\alpha, \beta}^N \frac{Z_{\alpha}Z_{\beta}}{|\mathbf{R}_{\alpha} - \mathbf{R}_{\beta}|},
+\end{equation*}
+donde la primera suma es sobre los autoestados $\psi_i$ ocupados de Kohn-Sham,
+$n(\mathbf{r})$ es la densidad electrónica, el segundo término es la contribución
+de la correlación de intercambio (XC), y el último término considera la repulsión
+de ion-ion. Si se utiliza una densidad de referencia $n_0$ más un término 
+pequeño de fluctuación $\delta n$ y se expande $E_{XC}$ a la densidad de 
+referencia:
+\begin{equation}\label{eq:dft-fluc}
+    \begin{aligned}
+        E =& \sum_i^{occ} \langle \psi_i | \hat{H}_0 | \psi_i \rangle - \frac{1}{2} \int \int' \frac{n_0' n_0}{|\mathbf{r} - \mathbf{r}'|} + E_{XC}(n_0) - \int V_{XC}(n_0)n_0 + E_{ii} \\
+        &+ \frac{1}{2} \int \int' \left(\frac{1}{|\mathbf{r} - \mathbf{r}'|} + \frac{\delta^2 E_{XC}}{\delta n \delta n'}\bigg\rvert_{n_0} \right)
+    \end{aligned}
+\end{equation}
+
+\begin{enumerate}
+    \item \textbf{Enforque de orden cero}
+
+        El método de DFTB de orden cero calcula los elementos de la matriz 
+        Hamiltoniana y de solapamiento a partir de una base orbital local con la
+        ayuda de DFT-LDA (DFT-\textit{Local density approximation}) y algunas
+        aproximaciones en las integrales. Puede verse como una aproximación de 
+        una combinación lineal de los orbitales atómicos (LCAO, de sus siglas en 
+        ingles, \textit{linear-combination-of-atomic-orbitals}). De esta forma se
+        busca evitar las dificultades que surgen a la hora de parametrizar un 
+        potencial empírico ~\cite{dftb1, dftb2}.
+
+        En esta aproximación, las ecuaciones de Kohn-Sham son resultas de una
+        forma no consistente, ignorando el último término de la ecuación 
+        \ref{eq:dft-fluc} y expandiendo los orbitales de Kohn-Sham $\psi_i$ del 
+        sistema en términos de las funciones de la base localizadas centradas en 
+        el átomo,
+        \begin{equation*}
+        \psi_i = \sum_{\nu} C_{\nu i} \phi_{\nu}(\mathbf{r}-\mathbf{R}_k),
+        \end{equation*}
+        resolviendo las ecuaciones de Kohn-Sham para un potencial efectivo de una
+        partícula $V_{eff}(\mathbf{r})$,
+        \begin{equation}\label{eq:kohn-sham-mod}
+            \hat{H}_0 \psi_i(\mathbf{r}) = \varepsilon_i \psi_i(\mathbf{r}), \quad \hat{H}_0 = \hat{T} + V_{eff}(\mathbf{r}),
+        \end{equation}
+        se tiene como resultado un conjunto de ecuaciones algebraicas,
+        \begin{equation}\label{eq:alg-eq}
+        \sum_{\nu} C_{\nu i} (H_{\mu \nu} - \varepsilon S_{\mu \nu}) = 0, \quad \forall \mu, i,
+        \end{equation}
+        donde
+        \begin{equation*}
+        H_{\mu \nu} = \langle \phi_{\mu}|\hat{H}_0|\phi_{\nu} \rangle, \quad S_{\mu \nu} = \langle\phi_{\mu}|\phi_{\nu}\rangle.
+        \end{equation*}
+
+        La energía total del sistema puede ser aproximada como una suma sobre la
+        energía de la estructura de bandas y un potencial repulsivo de dos cuerpos
+        de corto alcance,
+        \begin{equation*}
+            \begin{aligned}
+                   E_{tot}(\{\mathbf{R}_k\}) &= E_{BS}(\{\mathbf{R}_k\}) + E_{rep}(\{|\mathbf{R}_k - \mathbf{R}_l|\}) \\
+                    &= \sum_i n_i \varepsilon_i(\{\mathbf{R}_k\}) + \sum_k \sum_{<l} V_{rep}(|\mathbf{R}_l - \mathbf{R}_k|),
+            \end{aligned}
+        \end{equation*}
+        donde $n_i$ es el número de ocupación del orbital $i$.
+        
+        Las funciones de onda pseudoatómicas pueden escribirse en términos de los
+        orbitales tipo Slater y armónicos esféricos,
+        \begin{equation*}
+        \phi_{\nu}(\mathbf{r}) = \sum_{n,\alpha,l_{\nu},m_{\nu}} a_{n\alpha} r^{l_{\nu}+n} e^{-\alpha r} Y_{l_{\nu}m_{\nu}}\left(\frac{\mathbf{r}}{r}\right),
+        \end{equation*}
+        a la hora de realizar una solución auto-consistente a las ecuaciones
+        modificadas de Kohn-Sham \ref{eq:kohn-sham-mod}. Estas soluciones son
+        utilizadas como funciones de la base LCAO a la hora de tratar el sistema
+        sólo considerando los orbitales de valencia.
+        
+        Como una aproximación, se escribe el potencial de un electrón de una 
+        estructura con muchos átomos como una suma de contribuciones atómicas
+        esféricas,
+        \begin{equation*}
+        V_{eff}(\mathbf{r}) = \sum_k V_0^k(|\mathbf{r} - \mathbf{R}_k|),
+        \end{equation*}
+        donde $V_0$ es el potencial de Kohn-Sham de un pseudo-átomo neutral.
+
+        La matriz de solapamiento consiste solamente de dos elementos centrales
+        y puede ser calculada de una forma sencilla
+        \begin{equation*}
+            H_{\mu\nu}^0 = 
+            \begin{cases*}
+                \varepsilon_{\mu}^{atomo\ libre} & si $\mu = \nu$ \\
+                \langle \phi_{\mu}^{\alpha} | \hat{T} + V_0^{\alpha} + V_0^{\beta} | \phi_{\nu}^{\beta} \rangle & si $\alpha \neq \beta$ \\
+                0 & para el resto de los casos,
+            \end{cases*}
+        \end{equation*}
+        donde los índices $\alpha$ y $\beta$ indican el átomo sobre el cual la
+        función de onda y el potencial están centrados, sólo dos elementos de la 
+        matriz Hamiltoniana son tratados. Debido a que todos los elementos de la 
+        matriz dependen sólo de las distancias interatómicas, sólo es necesario
+        calcularlos una vez para cada par de tipo de átomo y guardar los valores
+        definiendo un ancho de paso. Luego, los elementos para distancias 
+        intermedias pueden ser interpolados entre los valores guardados.
+
+        La repulsión a corto alcance $V_{rep}(R)$ puede ser determinada a partir
+        de la diferencia en la energía total resultante de un cálculo 
+        auto-consistente, $E_{LDA}^{sc}$, y $E_{BS}$ para distintos valores de 
+        distancia $R$,
+        \begin{equation*}
+        V_{rep}(R) = E_{LDA}^{sc}(R) - E_{BS}(R).
+        \end{equation*}
+
+        Por último, las fuerzas interatómicas pueden ser derivadas de manera
+        explícita para utilizarlas en dinámica molecular de la siguiente forma
+        \begin{equation*}
+        \mathbf{F}_{\alpha} = - \sum_i n_i \sum_{\mu} \sum_{\nu} C_{\mu i} C_{\nu i} \left(\frac{\partial H_{\mu \nu}^0}{\partial \mathbf{r}_{\alpha}} - \varepsilon \frac{\partial S_{\mu \nu}}{\partial \mathbf{r}_{\alpha}}\right) - \sum_{\beta \neq \alpha} \frac{\partial E_{rep}(|\mathbf{r_{\alpha} - \mathbf{r}_{\beta}|)}}{\partial \mathbf{r}_{\alpha}}.
+        \end{equation*}
+
+    \item \textbf{Enfoque de segundo orden}
+
+        En una aproximación de segundo orden se agrega un término, además de
+        el usual correspondiente a la \say{estructura de bandas} y el 
+        potencial repulsivo de corto alcance, que considera la energía de
+        interacción a largo alcance de Coulomb entre las fluctuaciones de la 
+        carga a través una redistribución auto-consistente de las cargas de 
+        Mulliken (SCC) ~\cite{dftb3}.
+
+        Ahora sí se considera el último término de la ecuación \ref{eq:dft-fluc}
+        al descomponer $\delta n(\mathbf{r})$ en contribuciones centradas en el
+        átomo, entonces el término de segundo orden queda
+        \begin{equation}\label{eq:q1}
+        E_{2nd} = \frac{1}{2} \sum_{\alpha, \beta}^N \int \int' \Gamma(\mathbf{r}, \mathbf{r}', n_0) \delta n_{\alpha}(\mathbf{r}) \delta n_{\beta}(\mathbf{r}'),
+        \end{equation}
+        donde $\Gamma$ denota los coeficiente Hartree y XC. $\delta n_{\alpha}$
+        puede ser extendida en una serie de funciones radiales y angulares,
+        \begin{equation*}
+            \begin{aligned}
+                \delta n_{\alpha}(\mathbf{r}) &= \sum_{l,m} K_{ml} F_{ml}^{\alpha}(|\mathbf{r} - \mathbf{R}_{\alpha}|) Y_{lm} \left(\frac{\mathbf{r}-\mathbf{R}_{\alpha}}{|\mathbf{r}-\mathbf{R}_{\alpha}|}\right) \\
+                &\approx \Delta q_{\alpha} F_{00}^{\alpha}(|\mathbf{r} - \mathbf{R}_{\alpha}|) Y_{00},
+            \end{aligned}
+        \end{equation*}
+        donde $F_{ml}^{\alpha}$ denota la dependencia radial normalizada de la
+        fluctuación de la densidad en el átomo $\alpha$ para el momento angular
+        correspondiente. Esta expresión preserva la carga total del sistema.
+        Si a la misma se la sustituye en la ecuación \ref{eq:q1},
+        \begin{equation*}
+        E_{2nd} = \frac{1}{2} \sum_{\alpha,\beta}^N \Delta q_{\alpha} \Delta q_{\beta} \gamma_{\alpha\beta},
+        \end{equation*}
+        donde
+        \begin{equation*}
+        \gamma_{\alpha\beta} = \int \int' \Gamma(\mathbf{r},\mathbf{r}',n_0)\frac{F_{00}^{\alpha}(|\mathbf{r} - \mathbf{R}_{\alpha}|)F_{00}^{\beta}(|\mathbf{r} - \mathbf{R}_{\beta}|)}{4 \pi}
+        \end{equation*}
+        se introduce como abreviatura. En el límite de distancias interatómicas
+        grandes, $E_{2nd}$ puede ser vista como una interacción de Coulomb pura
+        entre dos cargas puntuales $\Delta q_{\alpha}$ y $\Delta q_{\beta}$. Una
+        aproximación simple y muy utilizada en métodos de química cuántica 
+        semi-empíricos es aproximar el valor de $\gamma_{\alpha\alpha}$ por la 
+        diferencia potencial de ionización atómica y la afinidad electrónica, que
+        está relacionada al parámetro de Hubbard $U_{\alpha}$, 
+        $\gamma_{\alpha\alpha} \approx U_{\alpha};$ luego, $\gamma_{\alpha\beta}$ 
+        sólo depende de la distancia entre los átomos $\alpha$ y $\beta$ y los 
+        parámetros $U_{\alpha}$ y $U_{\beta}$, que pueden ser calculados a partir 
+        de la segunda derivada de la energía total de un solo átomo con respecto 
+        al número de ocupación del último orbital atómico ocupado en LDA-DFT.
+
+        Por último, en este enfoque de segundo orden, la ecuación 
+        \ref{eq:dft-fluc} puede escribirse como
+        \begin{equation*}
+        E_2^{TB} = \sum_i^{occ} \langle \psi_i | \hat{H}_0 | \psi_i \rangle + \frac{1}{2} \sum_{\alpha, \beta}^N \gamma_{\alpha\beta} \Delta q_{\alpha} q_{\beta} + E_{rep}.
+        \end{equation*}
+
+        Para estimar las fluctuaciones de la carga se implementa el análisis de
+        Mulliken
+        \begin{equation*}
+        q_{\alpha} = \frac{1}{2} \sum_i^{occ} n_i \sum_{\mu \in \alpha} \sum_{\nu}^N (C_{\mu i}^{*} C_{\nu i} S_{\mu nu} + C_{\nu i}^{*} C_{\mu i} S_{\nu mu})
+        \end{equation*}
+        y se obtiene un sistema de ecuaciones algebraicas como en la ecuación
+        \ref{eq:alg-eq} pero donde el Hamiltoniano ahora considera una 
+        corrección debido a la fluctuación de las cargas $H_{\mu \nu}^1$,
+        \begin{equation*}
+            \begin{aligned}
+                H_{\mu \nu} &= \langle \phi_{\mu} | \hat{H}_0 | \phi_{\nu} \rangle + \frac{1}{2}\sum_{\xi}^N (\gamma_{\alpha\xi} + \gamma{\beta\xi}) \Delta q_{\xi} \\
+                &= H_{\mu\nu}^0 + H_{\mu\nu}^1, \quad S_{\mu\nu} = \langle \phi_{\mu} | \phi_{\nu} \rangle, \quad \forall \mu \in \alpha, \quad \nu \in \beta.
+            \end{aligned}
+        \end{equation*}
+
+        En este nuevo enfoque las fuerzas interatómicas para utilizar en 
+        simulaciones de dinámica molecular vienen dadas por
+        \begin{equation*}
+        \mathbf{F}_{\alpha} = - \sum_i^{occ} n_i \sum_{\mu\nu} C_{\mu i} C_{\nu i} \left[\frac{\partial H_{\mu\nu}^0}{\partial \mathbf{r}_{\alpha}} - \left(\varepsilon_i - \frac{H_{\mu\nu}^1}{S_{\mu\nu}}\right) \frac{\partial S_{\mu\nu}}{\partial \mathbf{r}_{\alpha}} \right] - \Delta q_{\alpha} \sum_{\xi}^N \frac{\partial \gamma_{\alpha\xi}}{\partial \mathbf{r}_{\alpha}} \Delta q_{\xi} - \frac{\partial E_{rep}}{\partial \mathbf{r}_{\alpha}}.
+        \end{equation*}
+ 
+\end{enumerate}

@@ -1,0 +1,109 @@
+\subsection{Análisis de las trayectorias}\label{s:observables}
+
+Para analizar las trayectorias de una MD existen distintos observables usuales 
+que pueden calcularse a partir de las posiciones o de las velocidades, algunos
+de ellos dan información de carácter estructural, como puede ser la función 
+distribución radial, y otros de carácter dinámico, como el desplazamiento 
+cuadrático medio que puede ser utilizado para estimar coeficientes de difusión.
+
+\subsubsection{Funciones distribución radial}
+
+La función de distribución radial (RDF, de sus siglas en inglés \textit{radial 
+distribution function}), usualmente referida como $g(r)$, permite caracterizar la
+estructura local de un fluido describiendo la probabilidad de encontrar un átomo
+en una cáscara a una distancia $r$ de un átomo de referencia,
+\begin{equation}\label{eq:rdf}
+    g(r) = \frac{V}{N^2} \sum_{i=1}^N \sum_{i \neq j} \delta(r - r_{ij}),
+\end{equation}
+donde $V$ es el volumen de la celda de simulación, $N$ el número de partículas y 
+$r_{ij}$ la distancia entre el átomo $i$ y el $j$. Esta cantidad también puede 
+calcularse como la razón entre la densidad media $\rho$ a una distancia $r$ del 
+átomo de referencia y la densidad a esa misma distancia de un gas ideal.
+
+De la misma forma que en la ecuación \ref{eq:rdf} puede discriminarse el tipo 
+de átomos al considerar la probabilidad de encontrar un átomo, de tipo B, en un 
+cascarón a una distancia $r$ de un átomo de referencia, de tipo A, para definir 
+las funciones distribución radial parciales
+\begin{equation}\label{eq:prdf}
+    g_{AB}(r) = \frac{V}{4 \pi r^2 N_B} \sum_{i}^{N_A} \sum_{j\neq i}^{N_B} \delta(r - r_{ij}),
+\end{equation}
+donde $N_A$ y $N_B$ son los números de átomos de tipo A y B, respectivamente. 
+
+Una característica importante de la RDF es que si sus picos están bien definidos,
+a distancias largas, entonces la estructura se corresponde con un sólido, si sus 
+picos están ensanchados con respecto a estos ya medida que la distancia aumenta, 
+la $g(r)$ empieza a oscilar alrededor de la unidad, entonces se corresponde con 
+un liquido.
+
+
+\subsubsection{Función distribución radial de a pares}
+
+La combinación de las RDFs parciales de la ecuación \ref{eq:prdf} es que permiten
+calcular la función distribución radial de a pares, $G(r)$ \cite{billinge2019}
+\begin{equation}
+    G(r) = 4 \pi r \rho_0 \left[\sum_{\langle A,B \rangle} \frac{b_A b_B}{\langle b\rangle^2} g_{AB}(r) - 1\right], 
+\end{equation}
+donde $\rho_0$ es la densidad de la celda de simulación, $\langle A, B \rangle$
+considera las permutaciones sin repeticiones de A y B, $b_A$ y $b_B$ son los 
+factores de dispersión de los átomos A y B, respectivamente, y $\langle b \rangle$
+es el factor de dispersión promedio de la celda de simulación. La $G(r)$ es 
+directamente comparable con la función distribución radial de a pares (PDF) que 
+se puede medir con rayos x.
+
+
+\subsubsection{Número de coordinación}
+
+El número de coordinación (CN, de sus siglás en inglés, \textit{coordination 
+number}), también llamado ligancia, de un átomo dado en un sistema, se define 
+como el número de átomos, moléculas o iones unidos a él. Para definirlo pueden 
+tomarse dos alternativas, la primera de ellas contando el número de vecinos que 
+rodean a un determinado tipo de átomo en promedio hasta un cierto radio de corte 
+$r_{\text{cut}}$, definido por el mínimo en la RDF después de su primer pico; 
+la segunda de ellas a partir de la integral de la RDF,
+\begin{equation}
+    \int_0^{r_{\text{cut}}} g(r) dV.
+\end{equation}
+De manera análoga pueden definirse el número de coordinación para segundos 
+vecinos y así sucesivamente.
+
+Así como se definieron las RDFs parciales en la ecuación \ref{eq:prdf}, puede 
+definirse los número de coordinación de distintos tipos de átomos.
+
+
+\subsubsection{Difusión}
+
+Si una partícula permanece en un sitio por un periodo de tiempo lo 
+suficientemente largo, comparado al tiempo que demora en dar un salto hacia otro
+sitio, entonces pierde memoria de donde vino y el próximo salto se dará hacia 
+una dirección aleatoria, se dice entonces que el movimiento de la partícula es 
+estocástico y que sigue una caminata aleatoria. Si esto se cumple, entonces, el 
+desplazamiento cuadrático medio es proporcional al tiempo, donde la constante de 
+proporcionalidad es el coeficiente de difusión de traza
+\begin{equation}
+    D^{*} = \frac{\langle \Delta r^2 \rangle}{2d\cdot t},
+\end{equation}
+donde $d$ es la dimensión del problema, $t$ el tiempo y 
+$\langle \Delta r^2 \rangle$ el desplazamiento cuadrático medio, que en un 
+sistema de $N$ partículas puede calcularse de la siguiente manera
+\begin{equation}
+    \langle \Delta r^2 \rangle = \frac{1}{N} \sum_{i=1}^{N} \langle |\vec{r_i}(t) - \vec{r_i}(t_0)|^2 \rangle.
+\end{equation}
+
+Si se conoce el coeficiente de difusión de traza, entonces el coeficiente de 
+difusión químico puede obtenerse de la siguiente relación ~\cite{gomer1990}
+\begin{equation}
+    D = \left( \frac{\partial (\mu / k_BT)}{\partial ln \theta} \right)_T D^{*},
+\end{equation}
+donde $\mu$ es el potencial químico y $\theta$ es la concentración.
+
+Usualmente, el tiempo que demora un átomo en dar un salto en una dinámica 
+molecular a temperatura ambiente es muy largo, lo que impide tener una buena 
+estadística en un tiempo de simulación razonable, por lo que es usual calcular 
+el desplazamiento cuadrático medio a distintas temperaturas altas y extrapolar
+el valor que se obtendría a temperatura ambiente mediante una ecuación de tipo 
+Arrhenius, en la cual el coeficiente de difusión puede separarse en un 
+prefactor $D_0$ y un término tipo Boltzmann,
+\begin{equation}
+    D = D_0 e^{-E / k_BT},
+\end{equation}
+donde $E$ es la energía de activación del proceso. 
