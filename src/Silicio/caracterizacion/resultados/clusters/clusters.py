@@ -22,7 +22,7 @@ nsis = [667, 670, 671, 672, 319, 319, 320, 288, 320]
 fig, ax = plt.subplots(ncols=2, figsize=(13, 5))
 
 ax[0].set_xlabel(r"r$_{cut}$ [$\AA$]")
-ax[0].set_ylabel(r"% de átomos de Si aislados")
+ax[0].set_ylabel(r"Fracción de átomos de Si aislados")
 
 ax[0].grid(axis="both", linestyle=":")
 

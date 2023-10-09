@@ -1,6 +1,6 @@
 \begin{table}[b]
     \centering
-    \caption{Información del conjunto de datos.}
+    \caption{Conjunto de datos relevantes empleados en las simulaciones de dinámica acelerada.}
     \setlength\extrarowheight{2pt}\stackon{%
     \begin{tabular}{c c c c c c c}
         \toprule
@@ -45,14 +45,14 @@ de las estructuras de Li$_x$Si obtenidas con el método AELM para los valores de
 $x$ estudiados y distintos valores de compresión $\alpha$. En cada fila hay un 
 histograma de energías representativo para las estructuras de concentración 
 cercana, por lo cual en el análisis sólo son nombradas algunas de estas 
-concentraciones. Para el primer caso, donde $x = 0.21$, se puede apreciar como el 
+concentraciones. Para el primer caso, donde $x = 0.21$, se puede apreciar cómo el 
 uso de valores más pequeños de $\alpha$ permite que estructuras con menor energía 
 sean encontradas. El principal efecto de este factor $\alpha$ sobre la PES es la 
 disminución de sus barreras de energía, mejorando la exploración del espacio de 
 las fases. Este efecto se vuelve más drástico a medida que el valor de $\alpha$ 
 tiende a cero. Para estas concentraciones representativas también se realizaron 
-simulaciones de MD usuales, es decir, con un valor de $\alpha = 1$, estas no 
-pueden sobrepasar las barreras de energías durante el tiempo simulado. El sistema 
+simulaciones de MD usuales, es decir, con un valor de $\alpha = 1$, de modo que el sistema no 
+puede sobrepasar las barreras de energías durante el tiempo simulado. En estos casos, el sistema 
 permanece cercano al mínimo local asociado a la configuración inicial. Por otro 
 lado, el uso de $\alpha = 0.2$ en el método de AELM resulta en un acceso rápido
 a estructuras de energías menores. Un comportamiento similar se observa para 
@@ -69,7 +69,7 @@ reducen fuertemente la energía potencial del sistema.
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/introduccion/amorfas.png}
-    \caption{Configuración amorfa representativa de cada valor de $x$. Los átomos
+    \caption{Configuración amorfa representativa de cada valor de $x$ empleado en la aleación de composición Li$_x$Si. Los átomos
     de Si se muestran en azul mientras que los de Li en verde.}
     \label{fig:amorfas}
 \end{figure}

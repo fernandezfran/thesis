@@ -47,11 +47,11 @@ alcanzada en un tiempo de simulación razonable. El término
 $(\alpha - 1) V(\mathbf{r})$ es usualmente referido como la 
 \say{función de sesgo}.
 
-La adición de esta función de sesgo a la PES está en la base del método de 
+La adición de esta función de sesgo a la PES constituye la base del método de 
 hiper-dinámica (HD), desarrollado por Voter ~\cite{voter1997HD,voter1997method} 
-para acelerar la exploración de un sistema sin perder su dinámica. En una 
-simulación típica de HD, para recuperar el promedio de alguna propiedad, la 
-configuración muestreada son repesadas por un factor $w$ que involucra una función
+para acelerar la exploración de un sistema sin perder su comportamiento dinámico a tiempos largos. En una 
+simulación típica de HD, para recuperar el promedio de alguna propiedad, las 
+configuraciones muestreadas son repesadas por un factor $w$ que involucra una función
 exponencial y depende del sesgo aplicado. Debido a que este sistema involucra 
 cambios grandes en las energías de interacción, comparado con la energía térmica
 $k_BT$, lo que implica que la función exponencial en $w$ toma valores muy grandes,
@@ -60,7 +60,7 @@ la propiedad de interés, como la energía potencial, no sea posible. Ya que est
 capítulo se centra en un estudio estructural de los sistemas, podemos ignorar
 el cálculo del tiempo real evolucionado en la simulación. Además, como el 
 funcionamiento de las baterías luego se da a temperatura ambiente, es de esperar
-que una vez que se alcanza un mínimo local el sistema explore configuraciones
+que una vez que se alcance un mínimo local, el sistema explore configuraciones
 cercanas a este. Por este motivo se aplica el método de gradientes conjugados (CG)
 a cada una de las configuraciones de la HD y de esa forma se muestrea la 
 multiplicidad de estructuras.
