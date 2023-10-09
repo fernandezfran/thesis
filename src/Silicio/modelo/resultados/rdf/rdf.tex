@@ -1,4 +1,4 @@
-\subsection{Amorfización del silicio mediante un templado simulado y análisis de la RDF}\label{s:rdfb}
+\subsection{Amorfización del silicio mediante un templado simulado y análisis de la función de distribución radial (RDF)}\label{s:rdfb}
 
 \begin{figure}[h!]
     \centering
@@ -14,7 +14,7 @@
 \end{figure}
 
 Por último, las mayores discrepancias entre las energías de formación calculadas con DFTB
-con respecto a DFT se corresponden a estructuras de silicio amorfo. Por lo cual,
+con respecto a DFT se corresponden a estructuras de silicio amorfo, por lo cual,
 se realizó una evaluación extra para este caso. En la Figura \ref{fig:rdfb} se 
 muestran las RDFs Si-Si obtenidas por un templado simulado para cada una de las
 parametrizaciones. Además, se compara con el potencial previo de ReaxFF 
@@ -22,12 +22,12 @@ parametrizaciones. Además, se compara con el potencial previo de ReaxFF
 obtener las estructuras amorfas se comenzó con una celda de c-Si con 64 átomos 
 a la cual se le realizó un templado simulado en el ensamble $NVT$ utilizando el 
 termostato de Nosé-Hoover. El mismo consistió en una etapa inicial de 
-calentamiento lineal desde temperatura ambiente a 3000 K por 100 ps, luego una
+calentamiento lineal desde temperatura ambiente hasta 3000 K durante 100 ps, luego una
 termalización a dicha temperatura por 600 ps y, por último, un enfriamiento 
 exponencial de 600 ps hasta llegar a temperatura ambiente. Para todas las etapas
-se utilizó un paso temporal de 1 fs. Para el computo de las RDFs que se muestran
+se utilizó un paso temporal de 1 fs. Para el cómputo de las RDFs que se muestran
 en la Figura \ref{fig:rdfb} se equilibró la estructura alcanzada a temperatura 
-ambiente por 100 ps. Puede destacarse que el conjunto B de parámetros muestran
+ambiente durante 100 ps. Puede destacarse que los resultados del conjunto B de parámetros muestran
 una concordancia excelente con los datos experimentales de la referencia 
 \cite{laaziri1999}, lo que convierte a esta parametrización en la más adecuada
 para simulaciones futuras. Los archivos de dichos parámetros están disponibles

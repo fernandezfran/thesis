@@ -157,7 +157,7 @@ funcional de intercambio-correlación PBE (Perdew-Burke-Ernzerhof) y la integrac
 de la zona de Brillouin se efectuó con grillas Monkhorst-Pack con una densidad
 de 2.5 puntos $k$ por \AA$^{-1}$.
 
-También se estudiaron con cálculos DFT estructuras amorfas de Li$_x$Si siguiendo
+También se estudiaron, con cálculos DFT, estructuras amorfas de Li$_x$Si siguiendo
 el protocolo de litiación propuesto por Chevrier y Dahn \cite{chevrier2009, 
 chevrier2010}. Se utilizó un esquema de celda repetida con 12 átomos de silicio y 
 $N$ de litio por celda unidad, con $N\in[0,45]$ cubriendo todo el intervalo 
@@ -281,8 +281,8 @@ permita luego simular la litiación de ánodos de silicio. Este es un proceso mu
 complejo ya que involucra distintos entornos químicos, con un intervalo amplio de
 composiciones de Li$_x$Si. Sin embargo, es importante que la parametrización
 mantenga su precisión para el mayor rango posible de concentraciones, para evitar 
-la necesidad de cambiar de modelo \say{\textit{on-the-fly}} durante una simulación.
-Por lo que se requiere que la parametrización sea lo más transferible posible 
+la necesidad de cambiar de modelo \say{\textit{on-the-fly}} durante una simulación,
+por lo que se requiere que la parametrización sea lo más transferible posible 
 entre las distintas estequiometrías. En este sentido, el objetivo principal de la 
 parametrización es que la misma realice predicciones fiables de algún observable, 
 en este caso de las energías de formación relativas por átomo:
@@ -299,7 +299,7 @@ minimizan la sumatoria de los residuos de las energías de formación relativas 
 \begin{equation}\label{eq:fepa2}
     \text{Res}_F(\boldsymbol{\xi}) = \sum_{s\in S} \left[F_\text{DFT}(\check{{\bf r}}^s)-F_\text{DFTB}(\check{{\bf r}}^s;\check{{\bf p}}({\boldsymbol{\xi}}))\right]^2
 \end{equation}
-La minimización de este residuo concluye en un conjunto de parámetros de DFTB
+La minimización de este residuo resulta en un conjunto de parámetros de DFTB
 $\check{{\bf p}}(\check{\boldsymbol{\xi}})$ óptimo en el conjunto de 
 entrenamiento donde las estequiometrías también son pesadas para dar un residuo
 mínimo en su energía de formación.
