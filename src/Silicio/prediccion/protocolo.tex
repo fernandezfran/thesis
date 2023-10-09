@@ -6,7 +6,7 @@ Se propone un protocolo de litiación, similar al que presentaron Chevrier y Dah
 \cite{chevrier2009} que se utilizó en la sección \ref{s:dftcalc}, que consiste 
 en los siguientes pasos:
 \begin{enumerate}
-    \item Agregar un átomo de Li en el centro de la esfera vacía más grande.
+    \item Agregar un átomo de Li en el centro de la esfera vacía más grande que se pueda definir en el sistema.
         Para encontrar dicho punto se calculan los centros de la triangulación 
         de Delaunay, que se corresponden a los vértices de un diagrama de 
         Voronoi \cite{aurenhammer1991}. Desde estos puntos se computa la 
@@ -14,12 +14,12 @@ en los siguientes pasos:
         tenga la mayor distancia. 
     \item Aumentar  el volumen y escalar las coordenadas por un factor para
         seguir la expansión experimental del sistema.
-    \item Minimizar localmente las coordenadas, con el algoritmo LBFGS en este caso.
-    \item Hacer una simulación de dinámica molecular en el ensamble $NPT$, en 
+    \item Minimizar localmente las coordenadas, con el algoritmo LBFGS \cite{liu1989} en este caso.
+    \item Correr una simulación de dinámica molecular en el ensamble $NPT$, en 
         este caso utilizando el termostato y el barostato de Berendsen \cite{berendsen1984} 
         disponibles en el código \path{DFTB+} \cite{dftb+} por 10 ps. 
     \item Seleccionar la estructura con menor presión absoluta.
-    \item Si $x < 3.75$ se vuelve al paso 1 y si no se termina la litiación.
+    \item Si $x < 3.75$ se vuelve al paso 1 y sino se termina la litiación.
 \end{enumerate}
 El paso (4) representa una modificación ligera que mejora la optimización a 
 cambio de volumen fijo como se realiza en la referencia \cite{chevrier2009}.
