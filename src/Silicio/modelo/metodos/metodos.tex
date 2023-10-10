@@ -1,146 +1,5 @@
 \section{Métodos computacionales}
 
-\subsection{Método DFTB}\label{s:dftb}
-
-El formalismo del funcional de densidad de enlace estrecho (DFTB, \textit{density
-functional tight-binging}) que se utiliza los capítulos \ref{ch:modelo} y 
-\ref{ch:prediccion} ha sido ampliamente descripto en la literatura 
-\cite{elstner1998,frauenheim2000,seifert2007,gaus2011}. El método DFTB se basa 
-en una expansión a segundo orden de la energía de la teoría del funcional de la 
-densidad (DFT) con respecto a una fluctuación de la densidad electrónica de 
-referencia \cite{foulkes1989}. La energía de DFTB resultante puede escribirse de 
-la siguiente manera:
-\begin{equation}\label{eq:dftb}
-    E_{\text{DFTB}}=\sum_i^{\text{occ}}\langle\Psi_i|\hat{H}^0|\Psi_i\rangle+\frac{1}{2}\sum_{AB}\gamma_{AB}\Delta q_A\Delta q_B+E_{\text{rep}}^{AB}
-\end{equation}
-donde $\Psi_i$ denota los orbitales Kohn-Sham (KS) de una partícula. Con una 
-combinación lineal de orbitales atómicos, $\Psi_i$ se expande en un conjunto de 
-orbitales de valencia pseudoatómicos de tipo Slater $\phi_\nu$,
-\begin{equation}
-    \Psi_i({\bf r})=\sum_\nu c_{\nu i}\phi_\nu({\bf r}-{\bf r}_A),
-\end{equation}
-que se determinan resolviendo la ecuación secular KS
-\begin{equation}\label{eq:ks}
-    \sum_\mu c_{\mu i}\left(H^0_{\nu\mu}-\epsilon_iS_{\nu\mu}\right)=0, \;\;\forall \nu,i
-\end{equation}
-donde $S_{\nu\mu}=\langle \phi_\nu| \phi_\mu\rangle$ y $\epsilon_\nu$ son la 
-matriz de superposición y los autovalores de un átomo aislado, respectivamente.
-${H}^0_{\nu\mu}$ es el Hamiltoniano efectivo KS generado con la densidad 
-electrónica de referencia, $\rho^0$, y está definido como
-\begin{equation}\label{eq:h0}
-    H^0_{\nu\mu}=\begin{cases}
-        \epsilon_\mu & \text{si}\; \nu=\mu\\
-        \langle \phi_{\nu}| -\frac{1}{2}\nabla^2+v_{\text{eff}}\left[\rho_A^0+\rho_B^0\right]|\phi_{\nu}\rangle&\text{si}\;\mu\in A,\; \nu\in B\;\text{y} \;A\ne B\\
-        0& \text{si no}
-    \end{cases}
-\end{equation}
-donde $\rho_A^0$ es la densidad de referencia de un átomo neutro $A$ y 
-$v_{\text{eff}}$ el potencial KS efectivo, construido a partir de la superposición
-de densidades centradas en átomos neutros. En particular, los elementos de la 
-matriz del Hamiltoniano dependen solo de los átomos $A$ y $B$, por lo tanto sólo
-se calculan explícitamente los elementos de dos centros de las matrices del 
-Hamiltoniano y de superposición en función de la distancia y la orientación, usando 
-las reglas de transformación de Slater-Koster \cite{slater1954}.
-
-Una de las partes cruciales del uso del método DFTB es calcular las funciones 
-base y las densidades atómicas $\phi$ y $\rho^0$, respectivamente. Los orbitales
-pseudoatómicos y las densidades se obtienen de resolver las ecuaciones atómicas KS 
-modificadas en las que se agrega un potencial de confinamiento, $V_{\text{conf}}$
-\begin{equation}\label{eq:dft}
-    \left[\hat{T}+V_{\text{eff}}+V_{\text{conf}}\right]\phi_\mu=\epsilon_\mu\phi_\mu.
-\end{equation}
-Una práctica común dentro de la comunidad de DFTB consiste en elegir un potencial
-de confinamiento parabólico o cuadrático. En esta tesis se utilizó una función 
-de ley de potencia, como está implementada en el código \path{Hotcent}
-\cite{hotcent},
-\begin{equation}\label{eq:vconf}
-    V_{\text{conf}}(r)=\left(\frac{r}{r_0}\right)^{\sigma}
-\end{equation}
-donde $r_0$ y $\sigma$ son números reales que pueden ser elegidos de para cada 
-orbital atómico $\phi$ y cada densidad $\rho^0$.
-
-\begin{table}[h!]
-    \centering
-    \caption{Configuraciones electrónicas, energías en el sitio de los orbitales
-    de valencia y parámetros de Hubbard calculados con el funcional de intercambio
-    y correlación PBE.}
-    \setlength\extrarowheight{2pt}\stackon{%
-    \begin{tabular}{l c c c c c}
-        \toprule
-        \textbf{Elemento} & 
-        \textbf{Capa de valencia} &  
-        \textbf{$\varepsilon_s$} &
-        \textbf{$\varepsilon_p$} &  
-        \textbf{$U_s$} & 
-        \textbf{$U_p$} \\
-        \midrule
-        Li & 2s$^1$ & -0.105127 & -- & 0.167057 & -- \\
-        Li & 3s$^2$3p$^2$ & -0.395452 & -0.150169 & 0.329247 & 0.244483 \\
-        \bottomrule
-    \end{tabular}
-    }{}
-    \label{t:hubbard}
-\end{table}
-El segundo término en la ecuación \ref{eq:dftb} es la energía debida a las 
-fluctuaciones de cargas y se parametriza analíticamente como una función de las
-cargas orbitales y de $\gamma_{AB}$, que a su vez es una función de la separación 
-interatómica y del parámetro de Hubbard, $U$, (ver Tabla \ref{t:hubbard}) que se 
-obtienen suponiendo que son iguales a los de los átomos aislados y se calculan
-como la diferencia de la afinidad electrónica y la energía de ionización para 
-distintos momentos angulares orbitales \cite{elstner1998b}. 
-$\Delta q_X = q_X - q_X^0$ es la carga de Mulliken inducida autoconsistente en el 
-átomo $X$ \cite{elstner1998}.
-
-La contribución restante a la energía total de DFTB en la ecuación \ref{eq:dftb}
-es $E_{\text{rep}}$ y se corresponde con el potencial repulsivo diatómico que 
-depende de la distancia y contiene los efectos de los electrones del núcleo, los 
-términos de repulsión ion-ion y efectos de intercambio-correlación. 
-La energía total repulsiva de un sistema es una suma de contribuciones de 
-potenciales repulsivos $V_{\text{rep}}(r)$ de cada par de átomos
-\begin{equation}\label{eq:rep}
-    E_{\text{rep}}=\sum_{i<j} V_{\text{rep}}(r_{ij})
-\end{equation}
-donde $i$ y $j$ son los índices de los átomos en el sistema y $r_{ij}$ es la 
-distancia entre ellos. Generalmente se considera que $V_{\text{rep}}$ es una
-función empírica que se determina al ajustar datos de cálculos de estructura 
-electrónica de un nivel superior, como DFT. En este capítulo, se ajustó dicho 
-potencial utilizando el código \path{TANGO} \cite{tango}, donde el potencial 
-repulsivo está dado por:
-\begin{equation}\label{eq:v_rep}
-    V_{\text{rep}}(r) = \begin{cases}
-        e^{-a_1r+a_2}+a_3 & 0\le r<r_{\min}\\
-        \displaystyle\sum_{i=2}^m c_i\left(r_{\text{cut}}-r\right)^i & r_{\min}\le r < r_{\text{cut}}\\
-        0 & r_{\text{cut}} \le r
-    \end{cases}
-\end{equation}
-los valores que se utilizan para $r_{\min}$ y $r_{\text{cut}}$ se encuentran
-en la Tabla \ref{t:mincut}. Los parámetros $a_i$ se ajustan para reproducir las 
-energías de DFT para cada estructura elegida para el entrenamiento utilizando el 
-algoritmo de Levenber-Marquardt. Se eligió el grado del polinomio $m = 8$ y 
-los coeficiente $c_i$ se optimizaron con un ajuste por cuadrados mínimos.
-Los códigos \path{Hotcent} y \path{TANGO} proveen valores por defecto para 
-cualquier otro parámetro que no haya sido explícitamente descripto. 
-\begin{table}[h!]
-    \centering
-    \caption{Valores de $r_{\min}$ y $r_{\text{cut}}$ utilizados en la ecuación
-    \ref{eq:v_rep}}
-    \setlength\extrarowheight{2pt}\stackon{%
-    \begin{tabular}{l c c}
-        \toprule
-        & 
-        \textbf{$r_{\min}$ [\AA]} & 
-        \textbf{$r_{\text{cut}}$ [\AA]} \\
-        \midrule
-        Si-Si & 1.7760 & 3.4410 \\
-        Si-Li & 1.7925 & 4.1825 \\
-        Li-Li & 1.9456 & 4.7360 \\
-        \bottomrule
-    \end{tabular}
-    }{}
-    \label{t:mincut}
-\end{table}
-
-
 \subsection{Cálculos DFT}\label{s:dftcalc}
 
 Los cálculos de DFT de las estructures cristalinas fueron obtenidos usando el 
@@ -173,10 +32,90 @@ de la celda se optimizaron utilizando el algoritmo BFGS hasta que la fuerza fuer
 menor a 0.08 eV/\AA\ para cada estructura.
 
 
+\subsection{Detalles técnicos de DFTB}\label{ss:dftb}
+
+El formalismo de DFTB ya fue introducido en el capítulo \ref{ch:metodos}, 
+sección \ref{s:dftb}. A la hora de elegir el potencial de confinamiento de la
+ecuación \ref{eq:dft} se mencionó que lo usual es elegir un parabólico, 
+cuadrático, o una función de ley de potencias, siendo esta última opción la 
+utilizada debido a que es la que está implementada en el código \path{Hotcent}
+\cite{hotcent},
+\begin{equation}\label{eq:vconf}
+    V_{\text{conf}}(r)=\left(\frac{r}{r_0}\right)^{\sigma}
+\end{equation}
+donde $r_0$ y $\sigma$ son números reales que pueden ser elegidos de para cada 
+orbital atómico $\phi$ y cada densidad $\rho^0$.
+
+En la Tabla \ref{t:hubbard} se presentan las configuraciones electrónicas 
+utilizadas, junto a las energías en el sitio de los orbitales de valencia y a 
+los parámetros de Hubbard calculados, que se introducen en el segundo término
+de la ecuación \ref{eq:dftb}.
+\begin{table}[h!]
+    \centering
+    \caption{Configuraciones electrónicas, energías en el sitio de los orbitales
+    de valencia y parámetros de Hubbard calculados con el funcional de intercambio
+    y correlación PBE.}
+    \setlength\extrarowheight{2pt}\stackon{%
+    \begin{tabular}{l c c c c c}
+        \toprule
+        \textbf{Elemento} & 
+        \textbf{Capa de valencia} &  
+        \textbf{$\varepsilon_s$} &
+        \textbf{$\varepsilon_p$} &  
+        \textbf{$U_s$} & 
+        \textbf{$U_p$} \\
+        \midrule
+        Li & 2s$^1$ & -0.105127 & -- & 0.167057 & -- \\
+        Li & 3s$^2$3p$^2$ & -0.395452 & -0.150169 & 0.329247 & 0.244483 \\
+        \bottomrule
+    \end{tabular}
+    }{}
+    \label{t:hubbard}
+\end{table}
+
+El potencial de repulsión utilizado para definir la ecuación \ref{eq:rep} 
+se ajustó utilizando el código \path{TANGO} \cite{tango}, donde el potencial 
+repulsivo está dado por:
+\begin{equation}\label{eq:v_rep}
+    V_{\text{rep}}(r) = \begin{cases}
+        e^{-a_1r+a_2}+a_3 & 0\le r<r_{\min}\\
+        \displaystyle\sum_{i=2}^m c_i\left(r_{\text{cut}}-r\right)^i & r_{\min}\le r < r_{\text{cut}}\\
+        0 & r_{\text{cut}} \le r
+    \end{cases}
+\end{equation}
+los valores que se utilizan para $r_{\min}$ y $r_{\text{cut}}$ se encuentran
+en la Tabla \ref{t:mincut}. Los parámetros $a_i$ se ajustan para reproducir las 
+energías de DFT para cada estructura elegida para el entrenamiento utilizando el 
+algoritmo de Levenber-Marquardt. Se eligió el grado del polinomio $m = 8$ y 
+los coeficiente $c_i$ se optimizaron con un ajuste por cuadrados mínimos.
+
+\begin{table}[h!]
+    \centering
+    \caption{Valores de $r_{\min}$ y $r_{\text{cut}}$ utilizados en la ecuación
+    \ref{eq:v_rep}}
+    \setlength\extrarowheight{2pt}\stackon{%
+    \begin{tabular}{l c c}
+        \toprule
+        & 
+        \textbf{$r_{\min}$ [\AA]} & 
+        \textbf{$r_{\text{cut}}$ [\AA]} \\
+        \midrule
+        Si-Si & 1.7760 & 3.4410 \\
+        Si-Li & 1.7925 & 4.1825 \\
+        Li-Li & 1.9456 & 4.7360 \\
+        \bottomrule
+    \end{tabular}
+    }{}
+    \label{t:mincut}
+\end{table}
+
+Los códigos \path{Hotcent} y \path{TANGO} proveen valores por defecto para 
+cualquier otro parámetro que no haya sido explícitamente descripto. 
+
+
 \subsection{Algoritmo de ajuste}\label{s:algfit}
 
-En esta tesis, todos los cálculos de DFTB fueron realizados con \path{DFTB+} 
-\cite{dftb+}. Para la obtención de los parámetros Li-Si de DFTB se siguió el 
+Para la obtención de los parámetros Li-Si de DFTB se siguió el 
 método de aprendizaje descripto en los trabajos de van den Bossche \textit{et al.}
 \cite{van2018, van2019}. Esto se realizó para dos conjuntos de parámetros, 
 denotados como conjunto A y conjunto B, que difieren entre ellos en el ajuste
@@ -285,18 +224,13 @@ la necesidad de cambiar de modelo \say{\textit{on-the-fly}} durante una simulaci
 por lo que se requiere que la parametrización sea lo más transferible posible 
 entre las distintas estequiometrías. En este sentido, el objetivo principal de la 
 parametrización es que la misma realice predicciones fiables de algún observable, 
-en este caso de las energías de formación relativas por átomo:
-\begin{equation}\label{eq:fepa}
-    F(\check{{\bf r}}_s) = E_A(\check{{\bf r}}_s) - \frac{x E_A(\check{{\bf r}}_\text{Li}) + E_A(\check{{\bf r}}_\text{Si})}{x+1}
-\end{equation}
-
-donde $x$ viene de Li$_x$Si y $E_A$ es la energía por átomo, es decir 
-$E_A(\check{{\bf r}}_\text{Li})$ y $E_A(\check{{\bf r}}_\text{Si})$ son las 
-energías por átomo de Li BCC y Si diamante, respectivamente. Por lo tanto, se 
+en este caso de las energías de formación relativas por átomo (definidas en la 
+ecuación \ref{eq:formacion}) evaluadas en las estructuras 
+$\lbrace \check{\mathbf{r}}_s \rbrace$. Por lo tanto, se 
 optimizan los valores de los coeficientes $\check{\boldsymbol{\xi}}$ tal que 
 minimizan la sumatoria de los residuos de las energías de formación relativas por 
 átomo
-\begin{equation}\label{eq:fepa2}
+\begin{equation}\label{eq:fres}
     \text{Res}_F(\boldsymbol{\xi}) = \sum_{s\in S} \left[F_\text{DFT}(\check{{\bf r}}^s)-F_\text{DFTB}(\check{{\bf r}}^s;\check{{\bf p}}({\boldsymbol{\xi}}))\right]^2
 \end{equation}
 La minimización de este residuo resulta en un conjunto de parámetros de DFTB
@@ -307,7 +241,7 @@ mínimo en su energía de formación.
 En la Figura \ref{fig:diagrama} se muestra un diagrama de flujo con los pasos 
 principales del algoritmo de ajuste descripto arriba. La minimización de la 
 ecuación \ref{eq:e_res} se realiza con el código \path{TANGO} \cite{tango}. Para
-minimizar la ecuación \ref{eq:fepa2}, se desarrolló un programa llamado 
+minimizar la ecuación \ref{eq:fres}, se desarrolló un programa llamado 
 \path{Milonga} que ejecuta varias instancias de \path{TANGO}, una por cada
 evaluación de Res$_F(\boldsymbol{\xi})$ requerida por el proceso de minimización.
 
@@ -317,7 +251,7 @@ evaluación de Res$_F(\boldsymbol{\xi})$ requerida por el proceso de minimizaci�
     \caption{Diagrama de flujo del algoritmo de ajuste. Se realizan dos
     procedimientos de optimización anidados: la minimización de Res$_E$ (ecuación 
     \ref{eq:e_res}) utilizando el código \texttt{TANGO} \cite{tango} (resaltado en
-    verde) y la minimización de Res$_F$ (ecuación \ref{eq:fepa}) utilizando un 
+    verde) y la minimización de Res$_F$ (ecuación \ref{eq:fres}) utilizando un 
     código llamado \texttt{Milonga} (resaltado en naranja). Cada mejora de los pesos
     $\boldsymbol{\xi}$ requiere una minimización completa de Res$_E$ para obtener 
     los parámetros óptimos DFTB asociados $\check{{\bf p}}(\boldsymbol{\xi})$.}
