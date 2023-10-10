@@ -11,23 +11,14 @@
     resultados de este trabajo.}
     \label{fig:fvc}
 \end{figure}
-El cambio de volumen fraccionario puede definirse utilizando una normalización 
-relativa al número de átomos de Si en la estructura de acuerdo a
-\begin{equation}\label{eq:fvc}
-    \text{fvc} = \frac{N_{\text{Si}}}{V_{\text{Si}}} \left( \frac{V_{\text{Si},x}}{N_{\text{Si},x}} - \frac{V_{\text{Si}}}{N_{\text{Si}}} \right),
-\end{equation}
-donde $V_{\text{Si}}$ y $N_{\text{Si}}$ son el volumen y el número de átomos de 
-Si en la celda unidad de c-Si, $V_{\text{Si},x}$ y $N_{\text{Si},x}$ son el 
-volumen y el número de átomos de Si
-en la celda de simulación para el valor correspondiente de $x$. En la Figura
-\ref{fig:fvc} se muestran los valores calculados a partir de la ecuación 
-\ref{eq:fvc} para las distintas estructuras de Li$_x$Si estudiadas. En la misma 
-se comparan los valores obtenidos con datos experimentales de AFM (\textit{atomic 
-force microscopy}, sus siglas en inglés) medidos por Beaulieu \textit{et al.} 
-~\cite{beaulieu2003} y con valores de DFT fijos de cambio volumétrico utilizado 
-por Chevrier y Dahn ~\cite{chevrier2009}. Los mismos muestran que el
-potencial ReaxFF proporciona una tendencia correcta, tanto cualitativa como 
-cuantitativamente.
+El cambio de volumen fraccionario calculado con la ecuación \ref{eq:fvc} de la 
+sección \ref{ss:electrochim} para las distintas estructuras de Li$_x$Si estudiadas 
+se lo presenta en la Figura \ref{fig:fvc}. En la misma se comparan los valores 
+obtenidos con datos experimentales de AFM (\textit{atomic force microscopy}) 
+medidos por Beaulieu \textit{et al.} \cite{beaulieu2003} y con valores de DFT 
+fijos de cambio volumétrico utilizado por Chevrier y Dahn \cite{chevrier2009}. 
+Los mismos muestran que el potencial ReaxFF proporciona una tendencia correcta, 
+tanto cualitativa como cuantitativamente.
 
 \subsubsection{Voltaje}
 
@@ -56,30 +47,17 @@ cuantitativamente.
 \end{table}
 Las energías obtenidas pueden ser utilizadas para evaluar el funcionamiento del 
 modelo para predecir propiedades electroquímicas, como fue sugerido por Chevrier
-y Dahn ~\cite{chevrier2009}. Primero, se define la energía de formación de las 
-distintas estructuras amorfas como
-\begin{equation}\label{eq:fe}
-    E_f(x) = E_{\text{Li}_x\text{Si}} - (x E_{\text{Li}} + E_{\text{Si}}),
-\end{equation}
-donde $E_{\text{Li}_x\text{Si}}$ es la energía de la aleación Li$_x$Si por átomo 
-de Si, $E_{\text{Li}}$ y $E_{\text{Si}}$ son las energías cohesivas de Li y Si
-en sus fases cristalinas. Usando
-la ecuación \ref{eq:fe} como aproximación a la energía de formación de Gibbs, el 
-potencial \textit{versus} Li metálico de Li$_x$Si puede obtenerse a partir de
-\begin{equation}\label{eq:voltaje}
-    V(x) = - \frac{dE_f(x)}{dx},
-\end{equation}
-donde $V$ es el potencial. Los datos obtenidos así pueden compararse con valores
-experimentales y computacionales previos. Las energías de formación calculadas
-a partir de la ecuación \ref{eq:fe} se muestran en la Tabla \ref{t:fe}. 
-Si se realiza un \textit{spline} a estos valores, mostrados en el recuadro de la
-Figura \ref{fig:voltaje}, se obtienen los valores de $V(x)$ a partir de la ecuación
-\ref{eq:voltaje}, que se grafican en función de la composición en la Figura 
-\ref{fig:voltaje} con una línea naranja. Para comparar, se incluyen en la misma Figura
-las curvas experimentales medidas para la litiación y la delitiación de silicio
-amorfo ~\cite{hatchard2004} y la curva teórica de cálculos de primeros principios 
-~\cite{chevrier2009}. Se puede afirmar que los resultados obtenidos con el ReaxFF 
-son satisfactorios.
+y Dahn \cite{chevrier2009}. Para ello primero se calculan las energías de formación
+con la ecuación \ref{eq:formacion} de la sección \ref{ss:electrochim}, que se muestran
+en la Tabla \ref{t:fe}. Estas se utilizan luego para calcular el potencial 
+\textit{versus} Li metálico de Li$_x$Si, para lo cual se realiza un \textit{spline} 
+a estos valores, mostrados en el recuadro de la Figura \ref{fig:voltaje}, se obtienen
+los valores de $V(x)$ a partir de la ecuación \ref{eq:voltaje}, que se grafican en 
+función de la composición en la Figura \ref{fig:voltaje} con una línea naranja. Para 
+comparar, se incluyen en la misma Figura las curvas experimentales medidas para la
+litiación y la delitiación de silicio amorfo \cite{hatchard2004} y la curva teórica 
+de cálculos de primeros principios \cite{chevrier2009}. Se puede afirmar que los 
+resultados obtenidos con el ReaxFF son satisfactorios.
 
 \begin{figure}[h]
     \centering
