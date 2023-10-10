@@ -1,0 +1,52 @@
+\subsection{Teoría del funcional de la densidad (DFT)}
+
+La teoría del funcional de la densidad (DFT por sus siglas en inglés
+\textit{Density functional theory}) es un método altamente efectivo para 
+encontrar soluciones a la ecuación fundamental que describe el comportamiento 
+cuántico de átomos y moleculas en sistemas de materia condensada, la ecuación 
+\ref{eq:schrodinger} de Schrödinger, en situaciones de utilidad práctica 
+\cite{sholl2022}. La misma se basa en dos teoremas matemáticos fundamentales
+demostrados por Hohenberg y Kohn \cite{hohenberg1964} y la derivación de un 
+conjunto de ecuaciones realizada por Kohn y Sham \cite{kohn1965}.
+
+El primero de los teoremas establece: \say{La energía del estado fundamental 
+de la ecuación de Schrödinger es un funcional unívoco de la densidad
+electrónica}, es decir que la energía $E$ puede expresarse como 
+$E[n(\mathbf{r})]$.
+
+El segundo teorema define la siguiente propiedad: \say{La densidad electrónica
+que minimiza la energía del funcional global es la densidad verdadera de los 
+electrones correspondiente a la solución completa de la ecuación de Schrödinger}.
+Si se conociera la forma del funcional \say{verdadera} podría variarse la 
+densidad electrónica hasta que se minimice su energía, este es el principio 
+variacional y en la práctica se lo utiliza con formas aproximadas del funcional.
+
+Al funcional de la energía se lo puede plantear en dos términos,
+\begin{equation}
+    E[\lbrace \psi_i \rbrace] = E_{\text{conocido}}[\lbrace \psi_i \rbrace] + E_{\text{XC}}[\lbrace \psi_i \rbrace].
+\end{equation}
+El primero de ellos involucra cuatro contriubciones que pueden expresarse 
+analíticamente: la energía cinética del electrón y las interacciónes de tipo 
+Coulomb (electrón-núcleo, electrón-electrón y núcleo-núcleo). Mientras que
+el segundo de los términos es el funcional de la correlación de intercambio
+que se define para incluir todos los efectos mecánico cuánticos que no estén
+incluidos en los términos \say{conocidos}. Kohn y Sham demostraron que la 
+solución de la ecuación puede plantearse en términos de la función de onda 
+sólo un electrón que depende de tres variables espaciales.
+
+El potencial de correlación de intercambio puede definirse como una 
+\say{derivada del funcional}
+\begin{equation}
+    V_{\text{XC}}(\mathbf{r}) = \frac{\delta E_{\text{XC}}(\mathbf{r})}{\delta n(\mathbf{r})}.
+\end{equation}
+La solución exacta de la densidad electrónica ha sido demostrada para un gas 
+uniforme de electrones. Luego, una aproximación local de la densidad (LCA,
+\textit{local density aproximation}) utiliza la densidad local para definir 
+un potencial de correlación de intercambio aproximado,
+\begin{equation}
+    V_{\text{XC}}(\mathbf{r}) = V_{\text{XC}}^{\text{gas de electrones}}[n(\mathbf{r})].
+\end{equation}
+Otras aproximaciones también utilizan información del gradiente local en 
+la densidad electrónica, lo cual define la aproximación generalizada del 
+gradiente (GGA, \textit{generalized gradient approximation}). Uno de los
+funcionales más utilizados para sólidos es el de Perdew-Burke-Ernzerhof (PBE).

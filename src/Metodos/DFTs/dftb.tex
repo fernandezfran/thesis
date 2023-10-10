@@ -1,0 +1,78 @@
+\subsection{Funcional de la densidad de enlace fuerte (DFTB)}\label{s:dftb}
+
+El formalismo del funcional de densidad de enlace fuerte (DFTB, \textit{density
+functional tight-binging}) ha sido ampliamente descripto en la literatura 
+\cite{elstner1998,frauenheim2000,seifert2007,gaus2011}. El método DFTB se basa 
+en una expansión a segundo orden de la energía de la teoría del funcional de la 
+densidad (DFT) con respecto a una fluctuación de la densidad electrónica de 
+referencia \cite{foulkes1989}. La energía de DFTB resultante puede escribirse de 
+la siguiente manera:
+\begin{equation}\label{eq:dftb}
+    E_{\text{DFTB}}=\sum_i^{\text{occ}}\langle\psi_i|\hat{H}^0|\psi_i\rangle+\frac{1}{2}\sum_{AB}\gamma_{AB}\Delta q_A\Delta q_B+E_{\text{rep}}^{AB}
+\end{equation}
+donde $\psi_i$ denota los orbitales Kohn-Sham (KS) de una partícula. Con una 
+combinación lineal de orbitales atómicos, $\psi_i$ se expande en un conjunto de 
+orbitales de valencia pseudoatómicos de tipo Slater $\phi_\nu$,
+\begin{equation}
+    \psi_i({\bf r})=\sum_\nu c_{\nu i}\phi_\nu({\bf r}-{\bf r}_A),
+\end{equation}
+que se determinan resolviendo la ecuación secular KS
+\begin{equation}\label{eq:ks}
+    \sum_\mu c_{\mu i}\left(H^0_{\nu\mu}-\epsilon_iS_{\nu\mu}\right)=0, \;\;\forall \nu,i
+\end{equation}
+donde $S_{\nu\mu}=\langle \phi_\nu| \phi_\mu\rangle$ y $\epsilon_\nu$ son la 
+matriz de superposición y los autovalores de un átomo aislado, respectivamente.
+${H}^0_{\nu\mu}$ es el Hamiltoniano efectivo KS generado con la densidad 
+electrónica de referencia, $\rho^0$, y está definido como
+\begin{equation}\label{eq:h0}
+    H^0_{\nu\mu}=\begin{cases}
+        \epsilon_\mu & \text{si}\; \nu=\mu\\
+        \langle \phi_{\nu}| -\frac{1}{2}\nabla^2+v_{\text{eff}}\left[\rho_A^0+\rho_B^0\right]|\phi_{\nu}\rangle&\text{si}\;\mu\in A,\; \nu\in B\;\text{y} \;A\ne B\\
+        0& \text{si no}
+    \end{cases}
+\end{equation}
+donde $\rho_A^0$ es la densidad de referencia de un átomo neutro $A$ y 
+$v_{\text{eff}}$ el potencial KS efectivo, construido a partir de la superposición
+de densidades centradas en átomos neutros. En particular, los elementos de la 
+matriz del Hamiltoniano dependen solo de los átomos $A$ y $B$, por lo tanto sólo
+se calculan explícitamente los elementos de dos centros de las matrices del 
+Hamiltoniano y de superposición en función de la distancia y la orientación, usando 
+las reglas de transformación de Slater-Koster \cite{slater1954}.
+
+Una de las partes cruciales del uso del método DFTB es calcular las funciones 
+base y las densidades atómicas $\phi$ y $\rho^0$, respectivamente. Los orbitales
+pseudoatómicos y las densidades se obtienen de resolver las ecuaciones atómicas KS 
+modificadas en las que se agrega un potencial de confinamiento, $V_{\text{conf}}$
+\begin{equation}\label{eq:dft}
+    \left[\hat{T}+V_{\text{eff}}+V_{\text{conf}}\right]\phi_\mu=\epsilon_\mu\phi_\mu.
+\end{equation}
+Una práctica común dentro de la comunidad de DFTB consiste en elegir un potencial
+de confinamiento parabólico, cuadrático, o una función de ley de potencia,
+\begin{equation}\label{eq:vconf}
+    V_{\text{conf}}(r)=\left(\frac{r}{r_0}\right)^{\sigma}
+\end{equation}
+donde $r_0$ y $\sigma$ son números reales que pueden ser elegidos de para cada 
+orbital atómico $\phi$ y cada densidad $\rho^0$.
+
+El segundo término en la ecuación \ref{eq:dftb} es la energía debida a las 
+fluctuaciones de cargas y se parametriza analíticamente como una función de las
+cargas orbitales y de $\gamma_{AB}$, que a su vez es una función de la separación 
+interatómica y del parámetro de Hubbard, $U$, que se obtienen suponiendo que son 
+iguales a los de los átomos aislados y se calculan como la diferencia de la 
+afinidad electrónica y la energía de ionización para distintos momentos angulares 
+orbitales \cite{elstner1998b}. $\Delta q_X = q_X - q_X^0$ es la carga de Mulliken 
+inducida autoconsistente en el átomo $X$ \cite{elstner1998}.
+
+La contribución restante a la energía total de DFTB en la ecuación \ref{eq:dftb}
+es $E_{\text{rep}}$ y se corresponde con el potencial repulsivo diatómico que 
+depende de la distancia y contiene los efectos de los electrones del núcleo, los 
+términos de repulsión ion-ion y efectos de intercambio-correlación. 
+La energía total repulsiva de un sistema es una suma de contribuciones de 
+potenciales repulsivos $V_{\text{rep}}(r)$ de cada par de átomos
+\begin{equation}\label{eq:rep}
+    E_{\text{rep}}=\sum_{i<j} V_{\text{rep}}(r_{ij})
+\end{equation}
+donde $i$ y $j$ son los índices de los átomos en el sistema y $r_{ij}$ es la 
+distancia entre ellos. Generalmente se considera que $V_{\text{rep}}$ es una
+función empírica que se determina al ajustar datos de cálculos de estructura 
+electrónica de un nivel superior, como DFT.

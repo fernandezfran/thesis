@@ -1,0 +1,39 @@
+\section{Software}
+
+En la actualizad existe una gran cantidad de códigos que permiten realizar 
+simulaciones de los distintos métodos descriptos en las secciones anteriores 
+de manera eficiente, aprovechando la estructura paralela de los procesadores o 
+las tarjetas gráficas. A continuación de mencionan los softwares utilizados 
+en esta tesis para caso:
+\begin{itemize}
+    \item \textbf{DFT}: utilizó tanto el paquete de simulación \path{GPAW} 
+        \cite{enkovaara2010, mortensen2005} del Entorno de Simulación Atómica 
+        \cite{larsen2017} como el programa \path{QUANTUM} \path{ESPRESSO} 
+        \cite{quantum_espresso, quantum_espresso_advanced}.
+    \item \textbf{DFTB}: para el desarrollo del modelo DFTB, en el capítulo 
+        \ref{ch:modelo}, se utilizó \path{Hotcent} \cite{hotcent} y
+        \path{TANGO} \cite{tango} junto a un programa \path{Milonga} que ejecuta
+        distintas instancias de \path{TANGO}. Luego, para las simulaciones 
+        realizadas con esta parametrización de DFTB se utilizó \path{DFTB+} 
+        \cite{dftb+}.
+    \item \textbf{Dinámica molecular}: para estas simulaciones se empleó el 
+        software \path{LAMMPS} ~\cite{lammps1, lammps2}, un código centrado en 
+        el modelado de materiales que permite simular con distintos campos de 
+        fuerzas, ensambles y condiciones de contorno. También se realizaron 
+        simulaciones con versiones modificadas de \path{GEMS} \cite{gems}, que 
+        posee métodos de aceleración que no se encuentran en el primero.
+    \item \textbf{Visualizaciones}: para visualizar las trayectorias y obtener 
+        imagenes de estructuras representativas se utilizó \path{VMD} \cite{vmd}.
+    \item \textbf{Análisis de las configuraciones atómicas}: para el 
+        post-procesamiento de las trayectorias y las series temporales de  las
+        propiedades termodinámicas se escribieron distintos códigos en Python,
+        los más relevantes se presentan en el apéndice \ref{a:software}.
+    \item \textbf{Modelo de una sola partícula}: las simulaciones de perfiles 
+        galvanostáticos y la construcción de diagramas de diagnóstico se 
+        realizaron con un código escrito en \path{C++}. Luego, para seguir el 
+        enfoque de ajustar datos experimentales a esta superficie construida 
+        (ver capítulo \ref{ch:un}) se escribió una librería en Python 
+        (apéndice \ref{software:galpynostatic}), que también se utilizó para 
+        proponer una métrica universal en el capítulo \ref{ch:umbem}.
+\end{itemize}
+
