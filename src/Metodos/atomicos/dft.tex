@@ -15,7 +15,7 @@ La ecuación de Schrödinger no-relativista e independiente del tiempo,
 \begin{equation}\label{eq:schrodinger}
     H \psi = E \psi,
 \end{equation}
-caracteriza un sistema físico desde un punto de vista cuántico, donde $\psi$ es un
+caracteriza un sistema físico desde un enfoque cuántico, donde $\psi$ es un
 conjunto de soluciones, o autoestados, del Hamiltoniano $H$ que tienen asociados los
 autovalores $E$ que satisfacen dicha ecuación. 
 %Para el caso en el que se desee estudiar
@@ -24,7 +24,7 @@ autovalores $E$ que satisfacen dicha ecuación.
 %\begin{equation}\label{eq:schrodinger}
 %    \left[ - \frac{\hbar^2}{2 m} \sum_{i=1}^N \nabla_i^2 + \sum_{i=1}^N V(\mathbf{r}_i) + \sum_{i=1}^N \sum_{i<j} U(\mathbf{r}_i, \mathbf{r}_j) \right] \psi = E \psi,
 %\end{equation}
-%donde $\hbar$ es la constante de Plank reducida, $m$ la masa del electrón, el primer 
+%donde $\hbar$ es la constante de Planck reducida, $m$ la masa del electrón, el primer 
 %término describe la energía cinética de cada electrón, el segundo la energía de 
 %interacción de cada electrón con todos los núcleos y el tercero la energía de 
 %interacción entre distintos electrones. Este último término es el más crítico desde 
@@ -47,7 +47,7 @@ gran cantidad de información que es observable, $n(\mathbf{r})$.
 La teoría del funcional de la densidad (DFT por sus siglas en inglés
 \textit{Density functional theory}) es un método altamente efectivo para 
 encontrar soluciones a la ecuación fundamental que describe el comportamiento 
-cuántico de átomos y moleculas en sistemas de materia condensada, la ecuación 
+cuántico de átomos y moléculas en sistemas de materia condensada, la ecuación 
 \ref{eq:schrodinger} de Schrödinger, en situaciones de utilidad práctica 
 \cite{sholl2022}. La misma se basa en dos teoremas matemáticos fundamentales
 demostrados por Hohenberg y Kohn \cite{hohenberg1964} y la derivación de un 
@@ -69,17 +69,17 @@ Al funcional de la energía se lo puede plantear en dos términos,
 \begin{equation}
     E[\lbrace \psi_i \rbrace] = E_{\text{conocido}}[\lbrace \psi_i \rbrace] + E_{\text{XC}}[\lbrace \psi_i \rbrace].
 \end{equation}
-El primero de ellos involucra cuatro contriubciones que pueden expresarse 
-analíticamente: la energía cinética del electrón y las interacciónes de tipo 
+El primero de ellos involucra cuatro contribuciones que pueden expresarse 
+analíticamente: la energía cinética del electrón y las interacciones de tipo 
 Coulomb (electrón-núcleo, electrón-electrón y núcleo-núcleo). Mientras que
 el segundo de los términos es el funcional de la correlación de intercambio
 que se define para incluir todos los efectos mecánico cuánticos que no estén
 incluidos en los términos \say{conocidos}. Kohn y Sham demostraron que la 
 solución de la ecuación puede plantearse en términos de la función de onda 
-sólo un electrón que depende de tres variables espaciales.
+de un sólo electrón que depende de tres variables espaciales.
 
-El potencial de correlación de intercambio puede definirse como una 
-\say{derivada del funcional}
+De la \say{derivada} del funcional de la correlación de intercambio puede 
+definirse el potencial de correlación de intercambio como sigue
 \begin{equation}
     V_{\text{XC}}(\mathbf{r}) = \frac{\delta E_{\text{XC}}(\mathbf{r})}{\delta n(\mathbf{r})}.
 \end{equation}

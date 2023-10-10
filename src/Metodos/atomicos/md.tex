@@ -34,7 +34,7 @@ completamente por su desviación estándar $\sigma_M$, es decir,
     \sigma_M = \sqrt{\overline{(M - \overline{M})^2}}.
 \end{equation}
 Puede demostrarse que las \textit{fluctuaciones} de la variable mecánica $M$ 
-decrecen a medida que aumenta el número de particulas $N$ presentes en el sistema 
+decrecen a medida que aumenta el número de partículas $N$ presentes en el sistema 
 de forma proporcional a la inversa de su raíz,
 \begin{equation}\label{eq:fluctuaciones}
     \frac{\sigma_M}{\overline{M}} \approx \mathcal{O}(N^{-1/2}).
@@ -52,7 +52,7 @@ donde $m_i$ es la masa del átomo $i$, $\mathbf{r}_i$ su posición y $\mathbf{F}
 la fuerza. Estas ecuaciones de movimiento son integradas en intervalos de tiempo
 pequeños que permiten obtener la evolución temporal del sistema, es decir, su
 trayectoria. Ya introducida la mecánica estadística, pueden extraerse propiedades
-macroscópicas del sistema en equilibro al considerar configuraciones microscópicas
+macroscópicas del sistema en equilibrio al considerar configuraciones microscópicas
 representativas a distintos instantes de tiempo de la trayectoria
 \cite{allen2017, frenkel2001}.
 
@@ -81,7 +81,8 @@ simulación. El mismo está conformado por las siguientes partes:
 \end{enumerate}
 Luego de este proceso se tiene la evolución temporal de las distintas propiedades
 termodinámicas de interés y la trayectoria del sistema para ser analizada 
-posteriormente. A continuación se dan más detalles sobre cada uno de estos pasos.
+posteriormente, por ejemplo con los observables que se definen en la sección 
+\ref{s:observables}. A continuación se dan más detalles sobre cada uno de estos pasos.
 
 \begin{figure}
     \centering
@@ -93,11 +94,10 @@ posteriormente. A continuación se dan más detalles sobre cada uno de estos pas
 
 \subsubsection{Inicialización del sistema}
 
-En algunos sistemas cristalinos es posible tener las posiciones iniciales de los
-átomos a partir de sus vectores de red. Existe una base de datos, Materials
-Project \cite{materials_project}, ampliamente utilizada en el ámbito académico y 
-en la industria que recopila estructuras optimizadas con DFT, realiza nuevos
-cálculos y está abierta a la comunidad para su uso y colaboración. Antes de que 
+Existe una base de datos, Materials Project \cite{materials_project}, 
+ampliamente utilizada en el ámbito académico y en la industria que 
+recopila estructuras optimizadas con DFT, realiza nuevos cálculos y 
+está abierta a la comunidad para su uso y colaboración. Antes de que 
 los datos se carguen en la página, los mismos son comparados con resultados 
 experimentales para determinar si están dentro de un rango de validez definido. 
 En esta tesis en particular, se utilizaron distintas estructuras cristalinas de 
@@ -119,10 +119,7 @@ se tienen condiciones periódicas de contorno (PBC, por sus siglas en inglés,
 \textit{periodic boundary conditions}), que busca reproducir un sistema infinito,
 para que no existan efectos de borde, y consiste en considerar que los átomos se 
 encuentran dentro de una celda unidad de una red infinita de celdas idénticas; en
-donde si un átomo sale por un extremo de la celda, ingresa por el opuesto. Una
-condición que debe cumplir esta celda es que su tamaño en cada una de las 
-direcciones debe ser mayor al radio de corte de las interacciones entre los 
-átomos. % Por otro lado, el segundo de los casos es útil considerarlo cuando se tienen nanoestructuras en las cuales los átomos están ordenados de cierta forma que globalmente representan una forma definida y no pueden ser consideradas como una red infinita.
+donde si un átomo sale por un extremo de la celda, ingresa por el opuesto. % Una condición que debe cumplir esta celda es que su tamaño en cada una de las direcciones debe ser mayor al radio de corte de las interacciones entre los átomos. Por otro lado, el segundo de los casos es útil considerarlo cuando se tienen nanoestructuras en las cuales los átomos están ordenados de cierta forma que globalmente representan una forma definida y no pueden ser consideradas como una red infinita.
 
 
 \subsubsection{Campo de fuerzas}
@@ -136,8 +133,8 @@ metales, por ejemplo. El potencial de Coulomb \cite{coulomb} considera las
 partículas como cargas puntuales que interactúan electrostáticamente. Los 
 potenciales de Tersoff \cite{tersoff} o de Stillinger-Weber 
 \cite{stillinger-weber} se desarrollaron especialmente para el modelado de 
-materiales con enlaces covalentes fuertes, como es el caso del carbono o del 
-silicio. El método del átomo embebido (EAM, de sus siglas en inglés) \cite{eam} 
+materiales con enlaces covalentes fuertes.%, como es el caso del carbono o del silicio. 
+El método del átomo embebido (EAM, de sus siglas en inglés) \cite{eam} 
 y el EAM modificado (MEAM) \cite{meam} están diseñados para simular sistemas 
 metálicos. Otros potenciales con enfoques más avanzados permiten simular
 reacciones químicas en algunos sistemas, como es el caso de el COMB 
@@ -145,6 +142,12 @@ reacciones químicas en algunos sistemas, como es el caso de el COMB
 equilibración de las cargas en el modelo, o el del ReaxFF (\textit{reactive 
 force fields}) \cite{reaxff}, que combina en un solo modelo distintas 
 componentes de las que fueron mencionadas. 
+
+Para calcular la fuerza que actúa sobre el átomo $i$ se utiliza el opuesto 
+de la derivada del potencial,
+\begin{equation}\label{eq:fuerzas}
+    \mathbf{F}_i = - \frac{\partial V}{\partial \mathbf{r}_i}.
+\end{equation}
 
 Para entender el comportamiento de los campos de fuerza se considera como ejemplo 
 representativo el potencial de a pares de Lennard-Jones \cite{lennard-jones}, 
@@ -170,13 +173,7 @@ hace que el potencial se iguale suavemente a cero.
     \label{fig:lj}
 \end{figure}
 
-La fuerza que actúa sobre el átomo $i$ viene dada por el opuesto de la derivada 
-del potencial,
-\begin{equation}\label{eq:fuerzas}
-    \mathbf{F}_i = - \frac{\partial V}{\partial \mathbf{r}_i}.
-\end{equation}
-
-El ReaxFF \cite{reaxff} es el potencial interatómico del estado del arte para 
+El ReaxFF \cite{reaxff} es el potencial reactivo del estado del arte para 
 utilizar en simulaciones de MD de sistemas de interés en baterías de litio, ya
 que representa adecuadamente la asociación y disociación de enlaces de átomos al 
 considerar que la energía del sistema, $E_{\text{system}}$, se encuentra dividida
@@ -209,15 +206,11 @@ para el sistema Li-Si \cite{fan2013} se utiliza en el capítulo
 \ref{ch:caracterizacion}.
 
 En los capítulos \ref{ch:modelo} y \ref{ch:prediccion} se utiliza un enfoque 
-híbrido que consiste en introducir el hamiltoniano del método DFTB, introducido 
+híbrido que consiste en considerar el hamiltoniano del método DFTB, introducido 
 en la sección \ref{s:dftb}, en la ecuación \ref{eq:fuerzas} para calcular las 
 fuerzas en una dinámica molecular.
 
-En el último tiempo también se han desarrollado potenciales interatómicos de 
-aprendizaje automático \cite{behler2016, behler2017, deringer2019}. En estos 
-casos no se tiene una forma funcional con una interpretación física, si no más 
-bien un mapeo entre las posiciones y la fuerza o la energía de un cálculo de un 
-nivel más complejo, como puede ser DFT.
+% En el último tiempo también se han desarrollado potenciales interatómicos de aprendizaje automático \cite{behler2016, behler2017, deringer2019}. En estos casos no se tiene una forma funcional con una interpretación física, si no más bien un mapeo entre las posiciones y la fuerza o la energía de un cálculo de un nivel más complejo, como puede ser DFT.
 
 
 \subsubsection{Cómputo de propiedades termodinámicas}
@@ -255,8 +248,8 @@ aproximados usualmente por $3N$ para sistemas lo suficientemente grandes. Por
 P = \rho k_B T + \frac{1}{d \cdot V} \left\langle \sum_{i<j} \mathbf{f}(\mathbf{r}_{ij}) \cdot \mathbf{r}_{ij} \right\rangle,
 \end{equation}
 donde $\rho$ es la densidad, $d$ la dimensión y $V$ el volumen de la celda de 
-simulación. El segundo término es conocido como el virial, donde $r_{ij}$ y 
-$f(r_{ij})$ son las distancias y las fuerzas entre los átomos $i$ y $j$.
+simulación. El segundo término es conocido como el virial, donde $\mathbf{r}_{ij}$ 
+y $\mathbf{f}(\mathbf{r}_{ij})$ son las distancias y las fuerzas entre los átomos $i$ y $j$.
 
 
 \subsubsection{Integración de las ecuaciones de movimiento}
@@ -265,8 +258,8 @@ Para la integración de las ecuaciones de movimiento se utiliza un integrador qu
 cumple con la función de evolucionar las velocidades y las posiciones de los 
 átomos una vez que ya se conocen las fuerzas aplicadas sobre cada uno de ellos.
 Un integrador estándar, utilizado en esta tesis, es el \textit{velocity Verlet}. 
-El mismo conserva la energía total del sistema si no hay ninguna alteración del 
-ensamble. Para las posiciones se tiene una actualización de las mismas, a partir
+% El mismo conserva la energía total del sistema si no hay ninguna alteración del ensamble.
+Para las posiciones se tiene una actualización de las mismas, a partir
 del paso actual, como un desarrollo de Taylor de orden 2,
 \begin{equation}
     r(t+dt) = r(t) + v(t) dt + \frac{f(t)}{2m} dt^2,
@@ -290,9 +283,7 @@ experimentos con los cuales se pueden comparar resultados se llevan a cabo en
 condiciones de temperatura y/o presión constante, es necesario introducir 
 distintos termostatos y barostatos que permitan controlar estos parámetros en las 
 simulaciones realizadas. Para modelar el comportamiento directamente de estados
-de equilibrio en estos ensambles, se puede modificar la dinámica molecular. Donde
-estas modificaciones son meramente de conveniencia computacional y pueden producir 
-desviaciones del movimiento newtoniano real, aunque extremadamente pequeñas.
+de equilibrio en estos ensambles, se puede modificar la dinámica molecular. % Donde estas modificaciones son meramente de conveniencia computacional y pueden producir desviaciones del movimiento newtoniano real, aunque extremadamente pequeñas.
 
 Desde el punto de vista de la mecánica estadística a un sistema se le puede 
 imponer una temperatura (ensamble NVT) si se lo pone en contacto con un baño 
@@ -316,112 +307,8 @@ De manera análoga puede dejar de pensarse al volumen como constante y empezar a
 pensar que el mismo es una variable acoplando el sistema a un pistón para tener
 una presión deseada (NPT).
 
-Distintos termostatos y barostatos fueron utilizados durante esta tesis, los 
-mismos se introducen a continuación:
-\begin{itemize}
-    \item \textbf{Termostato y barostato de Berendsen}:
-        Si se considera la ecuación de Langevin \cite{schneider1978}
-        \begin{equation}\label{eq:langevin}
-            m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
-        \end{equation}
-        donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, 
-        $\gamma$ la constante de fricción y $R_i(t)$ una variable estocástica con 
-        media cero que cumple 
-        \begin{equation}
-            \left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij},
-        \end{equation}
-        entonces el termostato de Berendsen \cite{berendsen1984} puede derivarse 
-        con una elección en particular de la constante constante de fricción 
-        $\gamma$ como $\lambda$, e ignorando la variable estocástica, lo cual 
-        representa un escaleo de las velocidades,
-        \begin{equation}
-            v(t) = \lambda v(t),
-        \end{equation}
-        por paso temporal $t$, donde
-        \begin{equation}
-            \lambda = \sqrt{1 + \frac{dt}{\tau_T} \left( \frac{T_0}{T} - 1 \right)},
-        \end{equation}
-        produce un cambio de temperatura igual a
-        \begin{equation}
-            \frac{dT}{dt} = \frac{1}{\tau_T} (T_0 - T)
-        \end{equation}
-        donde $T_0$ es la temperatura de referencia y $\tau_T$ es la constante de
-        acoplamiento con el baño térmico y tiene las mismas unidades que el paso 
-        temporal. Luego, para considerar un acoplamiento con un baño de presión 
-        contante, Berendsen \cite{berendsen1984} agrega un término extra a las 
-        ecuaciones de movimiento que consideran el cambio de presión
-        \begin{equation}
-            \frac{dP}{dt} = \frac{1}{\tau_P} (P_0 - P),
-        \end{equation}
-        donde $P_0$ es la presión de referencia, $P$ la instantánea y $\tau_P$ la 
-        constante de acoplamiento. Este comportamiento puede producirse si se 
-        realiza un cambio en el virial, escaleando las distancias entre las 
-        partículas. Si el volumen ahora cambia como 
-        \begin{equation}
-            \frac{dV}{dt} = 3 \alpha V,
-        \end{equation}
-        y se usa que
-        \begin{equation}
-            \frac{dP}{dt} = - \frac{1}{\beta V} \frac{dV}{dt} = -\frac{3\alpha}{\beta},
-        \end{equation}
-        donde $\beta$ es la compresibilidad isotérmica y 
-        $\alpha = - \beta (P_0 - P) / (3 \tau_P)$, las posiciones de los átomos 
-        dentro de la celda de simulación en cada dirección pueden escalearse como
-        \begin{equation}
-            x = \mu x,
-        \end{equation}
-        donde
-        \begin{equation}
-        \mu = \sqrt[3]{1 - \frac{dt}{\tau_P} (P_0 - P)}.
-        \end{equation}
-    
-    \item \textbf{Termostato de Langevin}:
-        En este termostato se considera la ecuación \ref{eq:langevin} junto a 
-        tres parámetros \cite{kroger2005} para actualizar las velocidades y 
-        las posiciones como
-        \begin{align}
-            a &= \frac{2 - \xi dt}{2 + \xi dt}, \\
-            b &= \sqrt{k_B T_0 \xi \frac{dt}{2}}, \\
-            c &= \frac{2 dt}{2 + \xi dt}
-        \end{align}
-        donde $\xi$ es el factor de fricción, es decir, con qué intensidad se 
-        acopla el sistema con el baño térmico. Se tiene entonces una 
-        actualización de la siguiente manera
-        \begin{align}
-            v(t+dt) &= a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt, \\
-            r(t+dt) &= r(t) + c v(t) dt
-        \end{align}
-        donde $\eta$ es una distribución gaussiana de números aleatorios con 
-        media 0 y varianza 1. 
-    
-    \item \textbf{Termostato de Nosé-Hoover}:
-        Debido a que la temperatura es proporcional al promedio de las 
-        velocidades al cuadrado, como puede verse en la ecuación \ref{eq:tempvel}, 
-        es posible variar la temperatura al ajustar la razón a la cual el tiempo 
-        progresa \cite{nose1984a}. Por lo cual puede introducirse una nueva 
-        variable dinámica $s$ en el Lagrangiano que reescalee la unidad de 
-        tiempo, y pueden añadirse términos adicionales para obtener el 
-        comportamiento deseado \cite{rapaport2004}. Lo que que provoca que haya
-        dos variables temporales distintas: el tiempo real, o físico, $t$, y un 
-        tiempo escalado, o virtual, $t'$; que están relacionados a través de sus 
-        diferenciales,
-        \begin{equation}
-            dt' = s(t) dt.
-        \end{equation}
-        Con el Lagrangiano del sistema extendido pueden obtenerse las ecuaciones 
-        de movimiento para esta nueva \say{coordenada} $s$ con masa $M_s$ y 
-        evolucionarla junto al sistema de átomos. Ya que la relación entre $t'$ y
-        $t$ depende de toda la historia del sistema, es decir,
-        \begin{equation}
-            t' = \int s(t) dt
-        \end{equation}
-        es conveniente resolver ecuaciones en las unidades del tiempo físico 
-        \cite{nose1984b, hoover1985}.
-    
-    \item \textbf{Barostato de Parrinello-Rahman}:
-        De una manera similar a la realizada en el algoritmo de Nosé-Hoover para 
-        el control de la temperatura, el algoritmo Parrinello-Rahman permite
-        obtener una representación correcta del ensamble isotérmico-isobárico al 
-        realizar un control de la presión, donde se permite una evolución 
-        temporal del volumen de la caja \cite{parrinello-rahman}.
-\end{itemize}
+Distintos termostatos y barostatos fueron utilizados durante esta tesis, ellos 
+son: el termostato y barostato de Berendsen \cite{berendsen1984}, el termostato 
+de Langevin \cite{schneider1978, kroger2005}, el termostato de Nosé-Hoover 
+\cite{nose1984a, nose1984b, hoover1985} y el barostato de Parrinello-Rahman
+\cite{parrinello-rahman}.

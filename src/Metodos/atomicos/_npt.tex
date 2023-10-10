@@ -1,0 +1,109 @@
+Distintos termostatos y barostatos fueron utilizados durante esta tesis, los 
+mismos se introducen a continuación:
+\begin{itemize}
+    \item \textbf{Termostato y barostato de Berendsen}:
+        Si se considera la ecuación de Langevin \cite{schneider1978}
+        \begin{equation}\label{eq:langevin}
+            m_i \dot{v_i} = F_i - m_i \gamma v_i + R_i(t),
+        \end{equation}
+        donde $F_i$ es la fuerza con la que interactúan los átomos entre sí, 
+        $\gamma$ la constante de fricción y $R_i(t)$ una variable estocástica con 
+        media cero que cumple 
+        \begin{equation}
+            \left\langle R_i(t) R_j(t+t') \right\rangle = 2m_i \gamma_i k_B T \delta(t') \delta_{ij},
+        \end{equation}
+        entonces el termostato de Berendsen \cite{berendsen1984} puede derivarse 
+        con una elección en particular de la constante constante de fricción 
+        $\gamma$ como $\lambda$, e ignorando la variable estocástica, lo cual 
+        representa un escaleo de las velocidades,
+        \begin{equation}
+            v(t) = \lambda v(t),
+        \end{equation}
+        por paso temporal $t$, donde
+        \begin{equation}
+            \lambda = \sqrt{1 + \frac{dt}{\tau_T} \left( \frac{T_0}{T} - 1 \right)},
+        \end{equation}
+        produce un cambio de temperatura igual a
+        \begin{equation}
+            \frac{dT}{dt} = \frac{1}{\tau_T} (T_0 - T)
+        \end{equation}
+        donde $T_0$ es la temperatura de referencia y $\tau_T$ es la constante de
+        acoplamiento con el baño térmico y tiene las mismas unidades que el paso 
+        temporal. Luego, para considerar un acoplamiento con un baño de presión 
+        contante, Berendsen \cite{berendsen1984} agrega un término extra a las 
+        ecuaciones de movimiento que consideran el cambio de presión
+        \begin{equation}
+            \frac{dP}{dt} = \frac{1}{\tau_P} (P_0 - P),
+        \end{equation}
+        donde $P_0$ es la presión de referencia, $P$ la instantánea y $\tau_P$ la 
+        constante de acoplamiento. Este comportamiento puede producirse si se 
+        realiza un cambio en el virial, escaleando las distancias entre las 
+        partículas. Si el volumen ahora cambia como 
+        \begin{equation}
+            \frac{dV}{dt} = 3 \alpha V,
+        \end{equation}
+        y se usa que
+        \begin{equation}
+            \frac{dP}{dt} = - \frac{1}{\beta V} \frac{dV}{dt} = -\frac{3\alpha}{\beta},
+        \end{equation}
+        donde $\beta$ es la compresibilidad isotérmica y 
+        $\alpha = - \beta (P_0 - P) / (3 \tau_P)$, las posiciones de los átomos 
+        dentro de la celda de simulación en cada dirección pueden escalearse como
+        \begin{equation}
+            x = \mu x,
+        \end{equation}
+        donde
+        \begin{equation}
+        \mu = \sqrt[3]{1 - \frac{dt}{\tau_P} (P_0 - P)}.
+        \end{equation}
+    
+    \item \textbf{Termostato de Langevin}:
+        En este termostato se considera la ecuación \ref{eq:langevin} junto a 
+        tres parámetros \cite{kroger2005} para actualizar las velocidades y 
+        las posiciones como
+        \begin{align}
+            a &= \frac{2 - \xi dt}{2 + \xi dt}, \\
+            b &= \sqrt{k_B T_0 \xi \frac{dt}{2}}, \\
+            c &= \frac{2 dt}{2 + \xi dt}
+        \end{align}
+        donde $\xi$ es el factor de fricción, es decir, con qué intensidad se 
+        acopla el sistema con el baño térmico. Se tiene entonces una 
+        actualización de la siguiente manera
+        \begin{align}
+            v(t+dt) &= a v(t) + b \eta + \frac{f(t+dt)+f(t)}{2m} dt, \\
+            r(t+dt) &= r(t) + c v(t) dt
+        \end{align}
+        donde $\eta$ es una distribución gaussiana de números aleatorios con 
+        media 0 y varianza 1. 
+    
+    \item \textbf{Termostato de Nosé-Hoover}:
+        Debido a que la temperatura es proporcional al promedio de las 
+        velocidades al cuadrado, como puede verse en la ecuación \ref{eq:tempvel}, 
+        es posible variar la temperatura al ajustar la razón a la cual el tiempo 
+        progresa \cite{nose1984a}. Por lo cual puede introducirse una nueva 
+        variable dinámica $s$ en el Lagrangiano que reescalee la unidad de 
+        tiempo, y pueden añadirse términos adicionales para obtener el 
+        comportamiento deseado \cite{rapaport2004}. Lo que que provoca que haya
+        dos variables temporales distintas: el tiempo real, o físico, $t$, y un 
+        tiempo escalado, o virtual, $t'$; que están relacionados a través de sus 
+        diferenciales,
+        \begin{equation}
+            dt' = s(t) dt.
+        \end{equation}
+        Con el Lagrangiano del sistema extendido pueden obtenerse las ecuaciones 
+        de movimiento para esta nueva \say{coordenada} $s$ con masa $M_s$ y 
+        evolucionarla junto al sistema de átomos. Ya que la relación entre $t'$ y
+        $t$ depende de toda la historia del sistema, es decir,
+        \begin{equation}
+            t' = \int s(t) dt
+        \end{equation}
+        es conveniente resolver ecuaciones en las unidades del tiempo físico 
+        \cite{nose1984b, hoover1985}.
+    
+    \item \textbf{Barostato de Parrinello-Rahman}:
+        De una manera similar a la realizada en el algoritmo de Nosé-Hoover para 
+        el control de la temperatura, el algoritmo Parrinello-Rahman permite
+        obtener una representación correcta del ensamble isotérmico-isobárico al 
+        realizar un control de la presión, donde se permite una evolución 
+        temporal del volumen de la caja \cite{parrinello-rahman}.
+\end{itemize}

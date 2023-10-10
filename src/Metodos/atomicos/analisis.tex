@@ -16,7 +16,7 @@ en una cáscara a una distancia $r$ de un átomo de referencia,
 \begin{equation}\label{eq:rdf}
     g(r) = \frac{V}{N^2} \sum_{i=1}^N \sum_{i \neq j} \delta(r - r_{ij}),
 \end{equation}
-donde $V$ es el volumen de la celda de simulación, $N$ el número de partículas y 
+donde $V$ es el volumen de la celda de simulación, $N$ el número de átomos y 
 $r_{ij}$ la distancia entre el átomo $i$ y el $j$. Esta cantidad también puede 
 calcularse como la razón entre la densidad media $\rho$ a una distancia $r$ del 
 átomo de referencia y la densidad a esa misma distancia de un gas ideal.
@@ -33,16 +33,16 @@ donde $N_A$ y $N_B$ son los números de átomos de tipo A y B, respectivamente.
 
 Una característica importante de la RDF es que si sus picos están bien definidos,
 a distancias largas, entonces la estructura se corresponde con un sólido, si sus 
-picos están ensanchados con respecto a estos ya medida que la distancia aumenta, 
+picos están ensanchados con respecto a estos y a medida que la distancia aumenta, 
 la $g(r)$ empieza a oscilar alrededor de la unidad, entonces se corresponde con 
 un liquido.
 
 
 \subsubsection{Función distribución radial de a pares}\label{ss:gofr}
 
-La combinación de las RDFs parciales de la ecuación \ref{eq:prdf} es que permiten
-calcular la función distribución radial de a pares, $G(r)$ \cite{billinge2019}
-\begin{equation}\ref{eq:gofr}
+La combinación de las RDFs parciales de la ecuación \ref{eq:prdf} permiten
+calcular la función distribución radial de a pares, $G(r)$, \cite{billinge2019}
+\begin{equation}\label{eq:gofr}
     G(r) = 4 \pi r \rho_0 \left[\sum_{\langle A,B \rangle} \frac{b_A b_B}{\langle b\rangle^2} g_{AB}(r) - 1\right], 
 \end{equation}
 donde $\rho_0$ es la densidad de la celda de simulación, $\langle A, B \rangle$
@@ -57,29 +57,28 @@ se puede medir con rayos x.
 
 El número de coordinación (CN, de sus siglás en inglés, \textit{coordination 
 number}), también llamado ligancia, de un átomo dado en un sistema, se define 
-como el número de átomos, moléculas o iones unidos a él. Para definirlo pueden 
-tomarse dos alternativas, la primera de ellas contando el número de vecinos que 
-rodean a un determinado tipo de átomo en promedio hasta un cierto radio de corte 
-$r_{\text{cut}}$, definido por el mínimo en la RDF después de su primer pico; 
-la segunda de ellas a partir de la integral de la RDF,
-\begin{equation}\ref{eq:cn}
-    \text{CN} = \int_0^{r_{\text{cut}}} g(r) dV.
+como el número de átomos, moléculas o iones unidos a él. El mismo se puede 
+calcular a partir de la integral de la RDF,
+\begin{equation}\label{eq:cn}
+    \text{CN} = \int_0^{r_{\text{cut}}} g(r) dV,
 \end{equation}
-De manera análoga pueden definirse el número de coordinación para segundos 
-vecinos y así sucesivamente.
+donde $r_{\text{cut}}$ es un radio de corte definido por el mínimo de la $g(r)$
+después de su primer pico. De manera análoga pueden definirse el número de 
+coordinación para segundos vecinos, cambiando los límites de integración para 
+considerar el segundo pico de la $g(r)$, y así sucesivamente.
 
-Así como se definieron las RDFs parciales en la ecuación \ref{eq:prdf}, puede 
-definirse los número de coordinación de distintos tipos de átomos,
+Así como se definieron las RDFs parciales en la ecuación \ref{eq:prdf}, pueden 
+definirse los números de coordinación de distintos tipos de átomos,
 CN$_{\text{AB}}$, que se corresponde con la cantidad de átomos vecinos de tipo
 B para un átomo central de tipo A. Para la elección del radio de corte en 
 este caso se considera la $g_{\text{AB}}(r)$ correspondiente.
 
 \subsubsection{Difusión}
 
-Si una partícula permanece en un sitio por un periodo de tiempo lo 
+Si una átomo permanece en un sitio por un periodo de tiempo lo 
 suficientemente largo, comparado al tiempo que demora en dar un salto hacia otro
 sitio, entonces pierde memoria de donde vino y el próximo salto se dará hacia 
-una dirección aleatoria, se dice entonces que el movimiento de la partícula es 
+una dirección aleatoria, se dice entonces que el movimiento de la átomo es 
 estocástico y que sigue una caminata aleatoria. Si esto se cumple, entonces, el 
 desplazamiento cuadrático medio es proporcional al tiempo, donde la constante de 
 proporcionalidad es el coeficiente de difusión de traza
@@ -88,7 +87,7 @@ proporcionalidad es el coeficiente de difusión de traza
 \end{equation}
 donde $d$ es la dimensión del problema, $t$ el tiempo y 
 $\langle \Delta r^2 \rangle$ el desplazamiento cuadrático medio, que en un 
-sistema de $N$ partículas puede calcularse de la siguiente manera
+sistema de $N$ átomos puede calcularse de la siguiente manera
 \begin{equation}
     \langle \Delta r^2 \rangle = \frac{1}{N} \sum_{i=1}^{N} \langle |\vec{r_i}(t) - \vec{r_i}(t_0)|^2 \rangle.
 \end{equation}
@@ -115,12 +114,12 @@ donde $E$ es la energía de activación del proceso.
 
 \subsubsection{Observables electroquímicos}\label{ss:electrochim}
 
-La energía de formación $F(\mathbf{r})$ es la energía que se requiere para 
-generar la estructura A$_x$B (donde $x$ es la cantidad de átomos de A en la 
-estructura B) con la configuración atómica $\mathbf{r}$ y se la puede calcular de
-la siguiente manera
+La energía de formación $F(\mathbf{r})$ es la energía que se requiere para generar 
+una estructura. En particular, para un sistema binario A$_x$B (donde $x$ es la 
+cantidad de átomos de A en la estructura B) con la configuración atómica
+$\mathbf{r}$, se la puede calcular de la siguiente manera
 \begin{equation}\label{eq:formacion}
-    F(\mathbf{r}) = E_{\text{A}_x\text{B}}(\mathbf{r}) - (x E_{\text{A}} + E_{\text{B}}),
+    F(\mathbf{r}) = E_{\text{A}_x\text{B}}(\mathbf{r}) - \frac{x E_{\text{A}} + E_{\text{B}}}{x + 1},
 \end{equation}
 donde $E_{\text{A}_x\text{B}}$ es la energía de la estructura A$_x$B por átomo, 
 $E_{\text{A}}$ y $E_{\text{B}}$ son las energías cohesivas de los elementos puros.
