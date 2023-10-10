@@ -1,16 +1,10 @@
 \subsection{Rayos x: Funciones de distribución de pares}
 
-Se comienza caracterizando las estructuras amorfas obtenidas con el protocolo de litiación propuesto en la 
-sección \ref{s:litpro} a través de las funciones distribución 
-radial (RDF) parciales, que describen la probabilidad de encontrar un átomo de 
-tipo B en un cascarón a una distancia $r$ de un átomo de referencia de tipo A y 
-están definidas por la siguiente formula
-\begin{equation}
-    g_{AB}(r) = \frac{V}{4 \pi r^2 N_B} \sum_{i}^{N_A} \sum_{j\neq i}^{N_B} \delta(r - r_{ij}),
-\end{equation}
-donde $V$ es el volumen de la celda de simulación, $r_{ij}$ es la distancia entre
-los átomos $i$ y $j$ y $N_A$ y $N_B$ son los números de átomos de tipo A y B, 
-respectivamente. Estas curvas se muestran en la Figura \ref{fig:prdfs} para 
+Se comienza caracterizando las estructuras amorfas obtenidas con el protocolo 
+de litiación propuesto en la sección \ref{s:litpro} a través de las funciones 
+distribución radial (RDF) parciales, definidas en la ecuación \ref{eq:prdf}
+de la sección \ref{ss:rdf}. Las curvas correspondientes a la RDF parcial de 
+Li-Li, Si-Li y Si-Si se muestran en la Figura \ref{fig:prdfs}. 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Silicio/prediccion/resultados/xray/prdfs.png}
@@ -20,7 +14,7 @@ respectivamente. Estas curvas se muestran en la Figura \ref{fig:prdfs} para
     las líneas.}
     \label{fig:prdfs}
 \end{figure}
-las distintas permutaciones de A y B (Li-Li, Si-Li, Si-Si); como puede observarse,
+Como puede observarse,
 la naturaleza de las distribuciones calculadas es la típica de las estructuras
 amorfas, presentando un primer pico bien definido a distancias cortas y picos 
 decrecientes a medida que aumenta la distancia. Para el caso del Li-Li y del Si-Li
@@ -38,16 +32,10 @@ primero. Cabe señalar que el modelo DFTB desarrollado en el capítulo
 \ref{ch:modelo} permite capturar estas características a un costo computacional
 considerablemente menor que el que se tendría con DFT.
 
-La combinación de las RDFs previas permite calcular la función distribución radial 
-de a pares, $G(r)$, para cada estructura utilizando que \cite{billinge2019}
-\begin{equation}
-    G(r) = 4 \pi r \rho_0 \left[\sum_{\langle A,B \rangle} \frac{b_A b_B}{\langle b\rangle^2} g_{AB}(r) - 1\right], 
-\end{equation}
-donde $\rho_0$ es la densidad de la celda de simulación, $\langle A, B \rangle$
-considera las permutaciones sin repeticiones de A y B, $b_A$ y $b_B$ son los 
-factores de dispersión de los átomos A y B, respectivamente, y $\langle b \rangle$
-es el factor de dispersión promedio de la celda de simulación. Los factores de 
-dispersión para Li y Si son 3 y 14, respectivamente, lo que resulta en una 
+Utilizando ahora las curvas de la Figura \ref{fig:prdfs} para calcular la función
+distribución radial de a pares, $G(r)$, con la ecuación \ref{eq:gofr} definida 
+en la sección \ref{ss:gofr}. Para ello se consideran los factores de 
+dispersión para Li y Si que valen 3 y 14, respectivamente, lo que resulta en una 
 contribución del 82\% para la RDF parcial de Si-Si, un 16\% para la Si-Li y
 un 3\% para la Li-Li. La $G(r)$ puede ser directamente comparada con la PDF
 obtenida de mediciones de rayos x. Los triángulos de la Figura \ref{fig:pdfs} 
