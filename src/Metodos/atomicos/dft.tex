@@ -1,5 +1,49 @@
 \subsection{Teoría del funcional de la densidad (DFT)}
 
+El desarrollo de la mecánica cuántica, y las observaciones experimentales que la
+validan, fue uno de los avances científicos más significativos del siglo veinte. 
+Esta teoría permite estudiar cómo varía la energía de los materiales con el 
+movimiento de los átomos. Esto gracias a la aproximación de Born-Oppenheimer, que 
+separa los núcleos de los electrones al considerar que los primeros son mucho más
+pesados que los segundos. Esto implica que se puede considerar que los electrones 
+responden mucho más rápido a los cambios en su entorno que los núcleos, lo que 
+permite resolver las ecuaciones que describen su movimiento fijando las 
+posiciones de los núcleos atómicos. Así se encuentra el estado fundamental de los
+electrones, es decir, su configuración de menor energía \cite{shankar2012}.
+
+La ecuación de Schrödinger no-relativista e independiente del tiempo,
+\begin{equation}\label{eq:schrodinger}
+    H \psi = E \psi,
+\end{equation}
+caracteriza un sistema físico desde un punto de vista cuántico, donde $\psi$ es un
+conjunto de soluciones, o autoestados, del Hamiltoniano $H$ que tienen asociados los
+autovalores $E$ que satisfacen dicha ecuación. 
+%Para el caso en el que se desee estudiar
+%la interacción entre varios electrones y núcleos una descripción más completa de la 
+%ecuación de Schrödinger es la siguiente,
+%\begin{equation}\label{eq:schrodinger}
+%    \left[ - \frac{\hbar^2}{2 m} \sum_{i=1}^N \nabla_i^2 + \sum_{i=1}^N V(\mathbf{r}_i) + \sum_{i=1}^N \sum_{i<j} U(\mathbf{r}_i, \mathbf{r}_j) \right] \psi = E \psi,
+%\end{equation}
+%donde $\hbar$ es la constante de Plank reducida, $m$ la masa del electrón, el primer 
+%término describe la energía cinética de cada electrón, el segundo la energía de 
+%interacción de cada electrón con todos los núcleos y el tercero la energía de 
+%interacción entre distintos electrones. Este último término es el más crítico desde 
+%el punto de vista de la resolución de la ecuación.
+
+%Ahora, la cantidad que puede medirse es la probabilidad de que los $N$ electrones 
+La cantidad que puede medirse es la probabilidad de que los $N$ electrones 
+estén en un conjunto de posiciones $\lbrace \mathbf{r}_i \rbrace$ en cualquier orden. 
+Una cantidad relacionada a dicha probabilidad es la densidad de electrones,
+$n(\mathbf{r})$. Esta se puede escribir como 
+\begin{equation}
+    n(\mathbf{r}) = 2 \sum_i \psi_i^*(\mathbf{r}) \psi_i(\mathbf{r}),
+\end{equation}
+donde la suma se realiza sobre todos los electrones $i$ y el producto de $\psi_i$ con su 
+complejo conjugado $\psi_i^*$ es el cálculo de la probabilidad asociada al electrón $i$. 
+Lo destacable de esta ecuación es que reduce la solución completa de la función de onda
+de la ecuación de Schrödinger de $3 N$ coordenadas a tan sólo 3 y, además, contiene una 
+gran cantidad de información que es observable, $n(\mathbf{r})$.
+
 La teoría del funcional de la densidad (DFT por sus siglas en inglés
 \textit{Density functional theory}) es un método altamente efectivo para 
 encontrar soluciones a la ecuación fundamental que describe el comportamiento 
