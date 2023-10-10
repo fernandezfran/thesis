@@ -1,130 +1,10 @@
 \section{Métodos computacionales}
 
-\subsection{Fundamentos matemáticos}\label{s:metodologia}
+\subsection{Construcción de los diagramas con el modelo de una sola partícula}
 
-Para el fenómeno de la intercalación de iones de litio se consideró un modelo de 
-una sola partícula. Los parámetros de todas las ecuaciones que siguen a continuación se
-presentan en la Tabla \ref{t:params}.
-\begin{table}[h!]
-    \centering
-    \caption{Parámetros utilizados en las simulaciones y la construcción de los
-    diagramas}
-    \setlength\extrarowheight{2pt}\stackon{%
-    \begin{tabular}{l l}
-        \toprule
-        \textbf{Parámetro} & 
-        \textbf{Definición} \\
-        \midrule
-        $\Xi = k^0 \sqrt{t_h / (C_r D)}$ & Parámetro galvanostático cinético \\
-        $\ell = d (V/A) (C_r / (D t_h))$ & Parámetro galvanostático de difusión finita \\
-        $D$ & Coeficiente de difusión del Li$^+$ \\
-        $t, t_h$ & Tiempo y tiempo para una hora \\
-        $C_r$ & C-rate \\
-        $x, x_s$ & Grado de intercalación en el electrodo y en la interfase \\ 
-                 & electrodo/electrolito \\
-        $Q, Q_{\max}$ & Capacidad y capacidad máxima \\ 
-        SOC & Estado de la Carga, $\text{SOC} = Q / Q_{\max}$ \\ 
-        $z$ & Parámetro para establecer la geometría de la partícula: \\
-            & plana ($z=1$), cilíndrica ($z=2$) o esférica ($z=3$) \\
-        $d$ & Longitud de difusión -- radio de la partícula -- espesor \\ 
-            & de la lámina \\
-        $r$ & Distancia definida entre 0 y $d$ ($0 \leq r \leq d$) \\
-        $V$ & Volumen del material activo \\
-        $A$ & Área superficial del electrodo/electrolito \\
-        $V / A$ & Proporción volumen/superficie, para la geometría plana toma\\
-                & el valor de $d$, cilíndrica ($d/2$) o esférica ($d/3$) \\
-        $I_c$, $i_c$ & Corriente y densidad de corriente (constantes) \\
-        $k^0$ & Constante cinética \\
-        $E$, $E^0$, $E_{\text{off}}$ & Potencial del electrodo de trabajo vs Li/Li$^+$,\\
-                                     & potencial de equilibrio y de corte \\
-        $\alpha$ & Coeficiente de transferencia de carga \\
-        $\rho$ & Densidad del material \\
-        $M_r$ & Masa molecular del material \\
-        $F$ & Constante de Faraday \\
-        $R$ & Constante universal de los gases \\
-        $T$ & Temperatura absoluta \\
-        \bottomrule
-    \end{tabular}
-    }{}
-    \label{t:params}
-\end{table}
-En el modelo, el grado de intercalación $x$ en el punto $r$ y a tiempo $t$ se 
-obtiene resolviendo numéricamente la ecuación diferencial 1D de Fick:
-\begin{equation}\label{eq:fick}
-    \frac{\partial x}{\partial t} = D \left[ \frac{\partial^2 x}{\partial r^2} + \frac{(z - 1)}{r} \left(\frac{\partial x}{\partial r}\right) \right],
-\end{equation}
-donde $D$ es el coeficiente de difusión y $z$ depende del tipo de geometría de la 
-partícula \cite{vassiliev2016}. Para resolver la ecuación \ref{eq:fick} se 
-utilizó el método de Crank-Nicolson mediante diferencias finitas 
-\cite{crank-nicolson} con las siguientes condiciones de contorno en la superficie
-de la partícula ($r = d$),
-\begin{equation}
-    \left(\frac{\partial x}{\partial r}\right)_d = - \frac{I_c}{F A \frac{\rho}{M_r}D},
-\end{equation}
-y al centro de la partícula ($r = 0$),
-\begin{equation}
-    \left(\frac{\partial x}{\partial r}\right)_0 = 0.
-\end{equation}
-
-La condición de corriente constante se fijó con la ecuación de Butler-Volmer
-\begin{equation}\label{eq:bv}
-    I_c = F A \frac{\rho}{M_r} k^0 \left\{x_s \exp\left[ \frac{(1-\alpha)F(E-E^0)}{RT} \right] - (1 - x_s) \exp\left[ -\frac{\alpha F (E-E^0)}{RT} \right] \right\}
-\end{equation}
-
-Las simulaciones fueron realizadas con un código escrito en \path{C++}.
-
-
-\subsection{Derivación de los parámetros adimensionales}\label{s:derivparam}
-
-En esta sección se derivan los parámetros adimensionales de la ecuación
-\ref{eq:bv} de Butler-Volmer en condiciones de corriente constante. Para ello se 
-define $\xi = (nF/RT)(E - E^0)$ y $u = D t / d^2$, la ecuación \ref{eq:bv} se 
-puede expresar de la siguiente forma integral \cite{aoki1984}
-\begin{equation}\label{eq:aoki}
-    \frac{i}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \int_0^u \frac{i}{n F c^0} \Theta_3(0|u - z) dz \right\},
-\end{equation}
-donde $c^0$ es la concentración máxima del ion en el material y $\Theta_3(\nu|x)$ 
-es la función tita \cite{bieniasz2015} dada por la siguiente expresión
-\begin{equation}
-    \Theta_3(\nu|x) = \frac{1}{\sqrt{\pi x}} \sum_{n=-\infty}^{\infty} e^{-\frac{1}{x}(\nu + n)^2}
-\end{equation}
-Si se considera una corriente constantes $i_c$, la ecuación \ref{eq:aoki} da
-\begin{equation}\label{eq:aoki2}
-    \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{i_c}{n F c^0} \int_0^u \Theta_3(0|u - z) dz \right\}.
-\end{equation}
-Esta corriente constante se la puede expresar en términos de la C-rate como
-\begin{equation}
-    I_c = \frac{C_r Q}{t_h}
-\end{equation}
-y usando que la capacidad del electrodo es
-\begin{equation}
-    Q = V \left( \frac{\rho}{M} \right) F n
-\end{equation}
-y dividiendo por el área superficial y $n F c^0$ se obtiene que
-\begin{equation}\label{eq:i_c}
-    \frac{i_c}{n F c^0} = \frac{V C_r}{A t_h}.
-\end{equation}
-Reemplazando esta ecuación \ref{eq:i_c} en el lado derecho de la ecuación 
-\ref{eq:aoki2}, se tiene
-\begin{equation}\label{eq:aoki3}
-    \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{V C_r}{A t_h} \int_0^u \Theta_3(0|u - z) dz \right\},
-\end{equation}
-de donde el factor $d (V/A) (C_r / (D t_h))$ se utiliza para definir el 
-parámetro de difusión finita presentado en la ecuación \ref{eq:ele}. Reemplazando 
-ahora la ecuación \ref{eq:ele} en \ref{eq:aoki3}, normalizando por la densidad 
-de corriente y multiplicando a ambos miembros de la igualdad por el término 
-$\sqrt{t_h / (C_r D)}$ se llega a que
-\begin{equation}\label{eq:aoki4}
-    \frac{i_c}{n F c^0} \sqrt{\frac{t_h}{C_r D}} = k^0 \sqrt{\frac{t_h}{C_r D}}\left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \ell \int_0^u \Theta_3(0|u - z) dz \right\},
-\end{equation}
-de donde emerge el parámetro $\Xi$ ya definido en la ecuación \ref{eq:xi} como 
-$\Xi = k^0 \sqrt{t_h / (C_r D)}$.
-
-
-\subsection{Construcción de los diagramas}
-
-Como la respuesta de los perfiles galvanostáticos sólo depende de ambos parámetros
-adimensionales $\Xi$ y $\ell$, se pueden construir diagramas universales. Para 
+El modelo de una sola partícula introducido en la sección \ref{s:metodologia}
+proporciona la respuesta de los perfiles galvanostáticos en función de dos parámetros
+adimensionales $\Xi$ y $\ell$. Esto permite construir diagramas universales. Para 
 este fin se definió una grilla logarítmica de $N$ puntos en el espacio 
 $\log(\Xi)$--$\log(\ell)$ y se fijó un potencial de corte. Para cada punto en la 
 grilla se realizó la simulación y se guardó el valor de intercalación de litio
@@ -135,49 +15,15 @@ que también se usa para interpolar.
 
 \subsection{Un modelo heurístico para ajustar sistemas complejos}
 
-Muchos de los electrodos de intercalación de litio que se investigan en los 
-laboratorios o que son incorporados en las baterías comerciales, pueden ser simulados
-con modelos matemáticos complejos que consideran las particularidades de cada
-caso \cite{doyle1995}. Durante el proceso de manufactura, en el cual se prepara
-el precursor con una distribución de tamaños de partícula, se agrega un material conductor y
-un \textit{binder}, se genera una estructura porosa, cuyos poros definen
-caminos de difusión tortuosos para los iones de litio. Los modelos que poseen
-este nivel de detalles \cite{doyle1995} aportan información sobre las propiedades
-específicas de un electrodo determinado, a costa de dificultar una descripción
-más general del problema. El modelo introducido en las secciones anteriores 
+El modelo introducido en la sección \ref{s:metodologia} 
 se presenta como una alternativa para tener una descripción universal del 
 comportamiento de distintos materiales, ya que permite obtener la capacidad en 
 condiciones de cargado galvanostático en electrodos de una sola partícula en 
 función de 4 parámetros: la C-rate, el tamaño de partícula, el coeficiente de 
 difusión y la constante cinética.
 
-Este modelo parte de las siguientes suposiciones:
-\begin{itemize}
-    \item El transporte de carga dentro de la partícula está limitado por el
-        movimiento de los iones insertados, es decir que el transporte electrónico
-        es rápido.
-    \item La difusión de los iones obedece la segunda Ley de Fick 1D para 
-        geometría plana, cilíndrica o esférica.
-    \item Se ignoran limitaciones en la transferencia de masa en el electrolito, dado que el coeficiente de difusión de Li$^+$ en este medio es del orden de 10$^{-5}$ cm$^2$/s \cite{valoen2005}, es decir, varios órdenes de magnitud mayor que en cualquiera de los materiales analizados.
-    \item El coeficiente de difusión, $D$, permanece constante durante todo el 
-        proceso de intercalación.
-    \item El flujo de iones en el centro de la partícula es cero.
-    \item La transferencia de carga en la interfase electrodo/electrolito se 
-        describe mediante la ecuación de Butler-Volmer.
-    \item La constante cinética, $k^0$, es la misma durante todo el proceso de 
-        intercalación.
-    \item La resistencia de la celda está dada por un valor constante, 
-        $R_{\Omega}$.
-    \item Se ignora la interacción entre los iones intercalados.
-    \item No se consideran los cambios volumétricos de la partícula durante su 
-        carga/descarga.
-    \item También se ignoran migraciones de los iones por la presencia de un 
-        campo eléctrico y reacciones secundarias.
-\end{itemize}
-La influencia de la mayoría de estas limitaciones a la hora de obtener la 
-capacidad de la partícula se discuten en la referencia \cite{gavilan2023}. Algunas
-de estas suposiciones pueden no cumplirse en muchos experimentos; sin embargo, el 
-modelo puede ser utilizado como una guía heurística para entender el 
+Algunas de las suposiciones del modelo pueden no cumplirse en muchos experimentos; sin embargo, el 
+mismo puede ser utilizado como una guía heurística para entender el 
 comportamiento global de los distintos materiales y para diseñar los materiales
 activos, en lo que respecta a su tamaño de partícula medio. La obtención de dicho
 comportamiento universal sólo puede obtenerse al resignar a las particularidades

@@ -1,3 +1,38 @@
 \section{Modelos del continuo}
 
-\subsection{Modelo de una sola partícula}
+De los modelos atómisticos, introducidos en las secciones \ref{s:mc} (enfoque 
+mecánico cuántico) y \ref{s:me} (enfoque mecánico estadístico), se puede obtener
+mucha información sobre como se comportan los materiales que componen las
+distintas partes de las baterías de ion-litio en la nanoescala. Esta información 
+tiene una importancia crucial, sin embargo suelen estar limitados por el tamaño
+(unos cientos o miles de átomos) y el tiempo (del orden de los nanosegundos) que 
+pueden simular. Como consecuencia a esto se suelen implementar modelos del 
+continuo para estudiar al nivel de la celda. Estos modelos consideran las 
+diferentes componentes de las baterías como un medio continuo, en vez de 
+considerar partículas discretas o átomos, esto permite manejar escalas espaciales 
+y temporales mayores \cite{brosa2022}.
+
+Los modelos de batería de tipo continuo pueden dividirse en dos categoría:
+empíricos y basados en física. Los modelos empíricos se basan en ajustar 
+incrementalmente ecuaciones y parámetros para encontrar la mejor correspondencia
+con datos experimentales, representando así el comportamiento de la batería. 
+Como ventaja de estos modelos puede destacarse su velocidad de cómputo y su
+conjunto reducido de parámetros, sin embargo no se basan en la física subyacente, 
+lo que limita obtener una interpretación de los mecanismos internos de la batería.
+En contraste, los modelos basados en física representan los fenómenos físicos 
+que gobiernan el comportamiento de la batería y pueden utilizarse para producir 
+simulaciones con una precisión mayor, respecto a los empíricos. También existen
+modelos híbridos que combinan los mejores aspectos de ambas aproximaciones para 
+lograr un compromiso adecuado entre la precisión y la velocidad computacional.
+
+Muchos de los electrodos de intercalación de litio que se investigan en los 
+laboratorios o que son incorporados en las baterías comerciales, pueden ser 
+simulados con modelos matemáticos complejos que consideran las particularidades 
+de cada caso \cite{doyle1995}. Los modelos que poseen un mayor nivel de detalles 
+pueden ofrecer una mayor precisión sobre las propiedades 
+específicas de un electrodo determinado, pero a su vez pueden dificultar la 
+compresión de los aspectos físicos ya que requieren una parametrización detallada, 
+lo cual, además de ser una carga a veces innecesaria, dificulta una descripción 
+más general del problema. 
+
+\input{Metodos/CM/spm.tex}
