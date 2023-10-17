@@ -74,7 +74,7 @@ presentan en la Tabla \ref{t:params}.
 \end{table}
 
 En este modelo, el grado de intercalación $x$ en el punto $r$ y a tiempo $t$ se 
-obtiene resolviendo numéricamente la ecuación diferencial 1D de Fick:
+obtiene resolviendo numéricamente la ecuación diferencial 1D de Fick \cite{bard-electrochemistry}:
 \begin{equation}\label{eq:fick}
     \frac{\partial x}{\partial t} = D \left[ \frac{\partial^2 x}{\partial r^2} + \frac{(z - 1)}{r} \left(\frac{\partial x}{\partial r}\right) \right],
 \end{equation}
@@ -91,7 +91,7 @@ y al centro de la partícula ($r = 0$),
     \left(\frac{\partial x}{\partial r}\right)_0 = 0.
 \end{equation}
 
-La condición de corriente constante se fija con la ecuación de Butler-Volmer
+La condición de corriente constante se fija con la ecuación de Butler-Volmer \cite{bard-electrochemistry}
 \begin{equation}\label{eq:bv}
     I_c = F A \frac{\rho}{M_r} k^0 \left\{x_s \exp\left[ \frac{(1-\alpha)F(E-E^0)}{RT} \right] - (1 - x_s) \exp\left[ -\frac{\alpha F (E-E^0)}{RT} \right] \right\}
 \end{equation}
