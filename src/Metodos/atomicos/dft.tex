@@ -4,7 +4,7 @@ El desarrollo de la mecánica cuántica, y las observaciones experimentales que 
 validan, fue uno de los avances científicos más significativos del siglo veinte. 
 Esta teoría permite estudiar cómo varía la energía de los materiales con el 
 movimiento de los átomos. Esto gracias a la aproximación de Born-Oppenheimer, que 
-separa los núcleos de los electrones al considerar que los primeros son mucho más
+separa el movimiento de los núcleos del de los electrones al considerar que los primeros son mucho más
 pesados que los segundos. Esto implica que se puede considerar que los electrones 
 responden mucho más rápido a los cambios en su entorno que los núcleos, lo que 
 permite resolver las ecuaciones que describen su movimiento fijando las 
@@ -44,7 +44,7 @@ Lo destacable de esta ecuación es que reduce la solución completa de la funci�
 de la ecuación de Schrödinger de $3 N$ coordenadas a tan sólo 3 y, además, contiene una 
 gran cantidad de información que es observable, $n(\mathbf{r})$.
 
-La teoría del funcional de la densidad (DFT por sus siglas en inglés
+La teoría del funcional de la densidad electrónica (DFT por sus siglas en inglés
 \textit{Density functional theory}) es un método altamente efectivo para 
 encontrar soluciones a la ecuación fundamental que describe el comportamiento 
 cuántico de átomos y moléculas en sistemas de materia condensada, la ecuación 
@@ -71,7 +71,7 @@ Al funcional de la energía se lo puede plantear en dos términos,
 \end{equation}
 El primero de ellos involucra cuatro contribuciones que pueden expresarse 
 analíticamente: la energía cinética del electrón y las interacciones de tipo 
-Coulomb (electrón-núcleo, electrón-electrón y núcleo-núcleo). Mientras que
+Coulomb (electrón-núcleo, electrón-electrón y núcleo-núcleo), mientras que
 el segundo de los términos es el funcional de la correlación de intercambio
 que se define para incluir todos los efectos mecánico cuánticos que no estén
 incluidos en los términos \say{conocidos}. Kohn y Sham demostraron que la 
@@ -84,7 +84,7 @@ definirse el potencial de correlación de intercambio como sigue
     V_{\text{XC}}(\mathbf{r}) = \frac{\delta E_{\text{XC}}(\mathbf{r})}{\delta n(\mathbf{r})}.
 \end{equation}
 La solución exacta de la densidad electrónica ha sido demostrada para un gas 
-uniforme de electrones. Luego, una aproximación local de la densidad (LCA,
+uniforme de electrones. Luego, una aproximación local de la densidad (LDA,
 \textit{local density aproximation}) utiliza la densidad local para definir 
 un potencial de correlación de intercambio aproximado,
 \begin{equation}

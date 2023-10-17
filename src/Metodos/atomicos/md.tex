@@ -74,7 +74,7 @@ simulación. El mismo está conformado por las siguientes partes:
         y velocidades del paso temporal siguiente a partir del actual.
     \item \textbf{Control de la temperatura y/o la presión}: para que la 
         simulación se realice en el ensamble termodinámico deseado.
-    \item \textbf{Evolución temporal}: se incrementa el tiempo adhiriendo un
+    \item \textbf{Evolución temporal}: se incrementa el tiempo adicionando un
         paso temporal y se vuelve a realizar el cálculo de las fuerzas sobre las 
         nuevas configuraciones hasta alcanzar el número de pasos temporales 
         deseados.
@@ -198,7 +198,7 @@ $E_{\text{vdWaals}}$, utilizando un potencial de Morse, y uno de Coulomb,
 $E_{\text{Coulomb}}$, donde las cargas de los átomos se aproximan a través de 
 un método de equilibración.
 
-La expresión dada en la ecuación \ref{eq:reaxff} genera una gran cantidad de 
+La expresión dada en la ecuación \ref{eq:reaxff} implica una gran cantidad de 
 parámetros ajustables que se obtienen a partir de cálculos de química cuántica
 sobre la disociación de enlaces, reacciones de moléculas pequeñas, energías de 
 formación y geometrías de distintos compuestos. Una parametrización ya existente
@@ -216,7 +216,7 @@ fuerzas en una dinámica molecular.
 \subsubsection{Cómputo de propiedades termodinámicas}
 
 Una vez que ya se conocen las posiciones, velocidades y fuerzas de todos los 
-átomos se tiene toda la información necesaria para computar distintas cantidades 
+átomos, se tiene toda la información necesaria para computar distintas cantidades 
 de interés. Por ejemplo, para el cálculo de la energía total ($E_{\text{tot}}$) 
 se tiene la suma de la contribución potencial ($E_{\text{pot}}$) y de la cinética
 ($E_{\text{cin}}$),
@@ -285,7 +285,7 @@ distintos termostatos y barostatos que permitan controlar estos parámetros en l
 simulaciones realizadas. Para modelar el comportamiento directamente de estados
 de equilibrio en estos ensambles, se puede modificar la dinámica molecular. % Donde estas modificaciones son meramente de conveniencia computacional y pueden producir desviaciones del movimiento newtoniano real, aunque extremadamente pequeñas.
 
-Desde el punto de vista de la mecánica estadística a un sistema se le puede 
+Desde el punto de vista de la mecánica estadística, a un sistema se le puede 
 imponer una temperatura (ensamble NVT) si se lo pone en contacto con un baño 
 térmico lo suficientemente grande. En dicho caso la probabilidad de encontrar al 
 sistema en un estado de energía viene dada por la distribución de 
@@ -303,8 +303,8 @@ temperatura de la siguiente forma
 que proviene de calcular el segundo y el cuarto momento de la ecuación 
 \ref{eq:mb}.
 
-De manera análoga puede dejar de pensarse al volumen como constante y empezar a
-pensar que el mismo es una variable acoplando el sistema a un pistón para tener
+De manera análoga se puede dejar de suponer al volumen como constante y empezar a
+pensar que el mismo es una variable, acoplando el sistema a un pistón para tener
 una presión deseada (NPT).
 
 Distintos termostatos y barostatos fueron utilizados durante esta tesis, ellos 

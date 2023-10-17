@@ -2,7 +2,7 @@
 
 Para analizar las configuraciones atómicas, provenientes de trayectorias de MD
 o de cálculos DFT, existen distintos observables usuales que pueden obtenerse
-a partir de las posiciones, algunos de ellos dan información de carácter 
+a partir de las posiciones. Algunos de ellos dan información de carácter 
 estructural, como puede ser la función distribución radial, y otros de carácter 
 dinámico, como el desplazamiento cuadrático medio que puede ser utilizado para 
 estimar coeficientes de difusión.
@@ -40,7 +40,7 @@ un liquido.
 
 \subsubsection{Función distribución radial de a pares}\label{ss:gofr}
 
-La combinación de las RDFs parciales de la ecuación \ref{eq:prdf} permiten
+La combinación de las RDFs parciales de la ecuación \ref{eq:prdf} permite
 calcular la función distribución radial de a pares, $G(r)$, \cite{billinge2019}
 \begin{equation}\label{eq:gofr}
     G(r) = 4 \pi r \rho_0 \left[\sum_{\langle A,B \rangle} \frac{b_A b_B}{\langle b\rangle^2} g_{AB}(r) - 1\right], 
@@ -75,10 +75,10 @@ este caso se considera la $g_{\text{AB}}(r)$ correspondiente.
 
 \subsubsection{Difusión}
 
-Si una átomo permanece en un sitio por un periodo de tiempo lo 
-suficientemente largo, comparado al tiempo que demora en dar un salto hacia otro
+Si un átomo permanece en las vecindades de un sitio por un periodo de tiempo lo 
+suficientemente largo, comparado con el tiempo que demora en dar un salto hacia otro
 sitio, entonces pierde memoria de donde vino y el próximo salto se dará hacia 
-una dirección aleatoria, se dice entonces que el movimiento de la átomo es 
+una dirección aleatoria. Se dice entonces que el movimiento del átomo es 
 estocástico y que sigue una caminata aleatoria. Si esto se cumple, entonces, el 
 desplazamiento cuadrático medio es proporcional al tiempo, donde la constante de 
 proporcionalidad es el coeficiente de difusión de traza
@@ -114,8 +114,8 @@ donde $E$ es la energía de activación del proceso.
 
 \subsubsection{Observables electroquímicos}\label{ss:electrochim}
 
-La energía de formación $F(\mathbf{r})$ es la energía que se requiere para generar 
-una estructura. En particular, para un sistema binario A$_x$B (donde $x$ es la 
+La energía de formación $F(\mathbf{r})$ de un compuesto es la energía que se requiere para generar 
+una estructura a partir de los elementos puros de sus constituyentes. En particular, para un sistema binario A$_x$B (donde $x$ es la 
 cantidad de átomos de A en la estructura B) con la configuración atómica
 $\mathbf{r}$, se la puede calcular de la siguiente manera
 \begin{equation}\label{eq:formacion}
@@ -125,10 +125,11 @@ donde $E_{\text{A}_x\text{B}}$ es la energía de la estructura A$_x$B por átomo
 $E_{\text{A}}$ y $E_{\text{B}}$ son las energías cohesivas de los elementos puros.
 
 Si esta energía de la ecuación \ref{eq:formacion} se la utiliza como aproximación 
-a la energía de formación de Gibbs, entonces el potencial $V$ viene dado por
+a la energía de formación de Gibbs, entonces el potencial $V$ viene dado por \cite{urban2016}
 \begin{equation}\label{eq:potencial}
-    V(x) = - \frac{d F(x)}{dx}.
+    V(x) = - \frac{1}{e} \frac{d F(x)}{dx},
 \end{equation}
+donde $e$ es la carga del electrón.
 
 Algunos sistemas, como los ánodos de silicio estudiados en la parte 
 \ref{p:silicio} de esta tesis, presentan expansiones volumétricas que pueden 
