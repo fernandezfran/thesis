@@ -24,6 +24,6 @@ if __name__ == "__main__":
     ).set_xlabel(r"Capacidad (mAhg$^{-1}$)")
 
     fig.tight_layout()
-    fig.savefig("comportamiento-D.png", dpi=600)
+    fig.savefig("difusion.png", dpi=600)
 
     plt.show()
