@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import sierras
 
 def invert(x):
     # 1/x with special treatment of x == 0
@@ -9,59 +13,50 @@ def invert(x):
     x[~near_zero] = 1 / x[~near_zero]
     return x
 
+structures = ("crystal", "amorphous")
 
-if __name__ == "__main__":
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import pandas as pd
-    import sierras
+activation_energies = np.zeros(len(structures))
+room_dcoeffs = np.zeros(len(structures))
 
-    structures = ("crystal", "amorphous")
+colors = ["tab:blue", "tab:orange"]
+markers = ["s", "o"]
+labels = ["c-Si", "a-Si"]
 
-    activation_energies = np.zeros(len(structures))
-    room_dcoeffs = np.zeros(len(structures))
+fig, ax = plt.subplots()
 
-    colors = ["tab:blue", "tab:orange"]
-    markers = ["s", "o"]
-    labels = ["c-Si", "a-Si"]
+for i, s in enumerate(structures):
+    df = pd.read_csv(f"data/{s}.csv")
+    temps, dcoeffs, dcoeffs_err = (
+        df["temps"].to_numpy().reshape(-1, 1),
+        df["dcoeffs"].to_numpy(),
+        df["dcoeffs_err"].to_numpy(),
+    )
 
-    fig, ax = plt.subplots()
+    k_boltzmann = 8.617333262e-5  # eV / K
+    areg = sierras.ArrheniusRegressor(k_boltzmann)
 
-    for i, s in enumerate(structures):
-        df = pd.read_csv(f"data/{s}.csv")
-        temps, dcoeffs, dcoeffs_err = (
-            df["temps"].to_numpy().reshape(-1, 1),
-            df["dcoeffs"].to_numpy(),
-            df["dcoeffs_err"].to_numpy(),
-        )
+    areg.fit(temps, dcoeffs, sample_weight=dcoeffs_err)
 
-        k_boltzmann = 8.617333262e-5  # eV / K
-        areg = sierras.ArrheniusRegressor(k_boltzmann)
+    activation_energies[i] = areg.activation_energy_
+    room_dcoeffs[i] = areg.extrapolated_process_
 
-        areg.fit(temps, dcoeffs, sample_weight=dcoeffs_err)
+    print(f"{s},{activation_energies[i]:.2f},{room_dcoeffs[i]:.3e}")
 
-        activation_energies[i] = areg.activation_energy_
-        room_dcoeffs[i] = areg.extrapolated_process_
+    areg.plot(
+        ax=ax,
+        data_kws={"color": colors[i], "marker": markers[i], "label": ""},
+        pred_kws={"label": labels[i]},
+    )
 
-        print(f"{s},{activation_energies[i]:.2f},{room_dcoeffs[i]:.3e}")
+ax.ticklabel_format(axis="x", style="sci", scilimits=(0, 0))
 
-        areg.plot.arrhenius(
-            temps,
-            dcoeffs,
-            ax=ax,
-            data_kws={"color": colors[i], "marker": markers[i], "label": ""},
-            pred_kws={"label": labels[i]},
-        )
+ax.set_xlabel("1 / T (1 / K)")
+secax = ax.secondary_xaxis("top", functions=(invert, invert))
+secax.set_xlabel("T (K)")
 
-    ax.ticklabel_format(axis="x", style="sci", scilimits=(0, 0))
+ax.set_ylabel(r"log (D / (cm$^2$/s))")
 
-    ax.set_xlabel("1 / T (1 / K)")
-    secax = ax.secondary_xaxis("top", functions=(invert, invert))
-    secax.set_xlabel("T (K)")
+ax.legend()
 
-    ax.set_ylabel(r"log (D / (cm$^2$/s))")
-
-    ax.legend()
-
-    fig.savefig("arrhenius.png", dpi=600)
-    plt.show()
+fig.savefig("arrhenius.png", dpi=600)
+plt.show()

@@ -1,0 +1,87 @@
+\section{Introducción}
+
+Desde mediados del siglo pasado, el estudio del coeficiente de difusión del litio
+en el silicio ha sido un tema de investigación relevante \cite{fuller1953, 
+pell1960}. Por ejemplo, para la aplicación de celdas solares de Si dopadas con Li 
+\cite{larue1971} y para baterías de Li \cite{wen1981}. Uno de los valores 
+más confiables de la difusión de Li en Si a concentraciones bajas fue medido por 
+Yoshimura \textit{et al.} \cite{yoshimura2007}, donde utilizaron una celda bipolar 
+con un cristal de silicio en el medio y midieron el tiempo que le toma al litio 
+atravesar dicho cristal. Para dos cristales de anchos de 1 $\mu$m y 2.4 $\mu$m el 
+valor obtenido para $D$ se encuentra dentro del orden de magnitud de 10$^{-9}$ 
+cm$^2$/s, mientras que para un cristal de 180 $\mu$m se tiene una medición dos 
+ódenes de magnitud menor. Con respecto a la difusión de litio a concentraciones 
+bajas en silicio amorfo, Strauss \textit{et al.} \cite{strauss2018} utilizaron
+SIMS (\textit{secondary ion mass spectrometry}) y midieron a altas temperaturas,
+de un ajuste tipo Arrhenius determinaron una energía de activación de (1.42 $\pm$
+0.03) eV. Por otro lado, Kulova \textit{et al.} \cite{kulova2007} utilizaron 
+distintas técnicas electroquímicas para estimar el coeficiente de difusión del 
+litio en láminas delgadas de silicio y obtuvieron valores en el órden de 
+10$^{-13}$ cm$^2$/s. Zhang \textit{et al.} \cite{zhang2008} también utilizaron 
+espectroscopia de impedancia electroquímica (EIS) para determinar $D$ en el 
+primero, en el décimo y en el vigésimo ciclo de litiación, para los que obtuvieron 
+valores de 6.69$\times 10^{-13}$ cm$^2$/s, 9.83$\times 10^{-12}$ cm$^2$/s y 
+7.02$\times 10^{-12}$ cm$^2$/s, respectivamente. El comportamiento de $D$ en 
+función de la concentración fue estudiado por primera vez por Ding \textit{et al.}
+\cite{ding2009} donde determinaron experimentalmente con EIS y GITT 
+(\textit{galvanostatic intermittent titration technique}) que el mismo exhibe un 
+comportamiento tipo \say{W} variando entre 10$^{-13}$ cm$^2$/s y 10$^{-10}$ 
+cm$^2$/s. Luego, Xie \textit{et al.} \cite{xie2010} utilizaron PITT 
+(\textit{potentiostatic intermittent titration technique}) para determinar dicho
+comportamiento utilizaron un electrolito líquido y otro polimérico, resultando $D$
+en un orden de magnitud menor para este último (10$^{-13}$ cm$^2$/s y 10$^{-14}$ 
+cm$^2$/s, respectivamente). Pan \textit{et al.} \cite{pan2019} también midieron
+con EIS y GITT el coeficiente de difusión en función de la concentración y
+obtuvieron un comportamiento tipo \say{W} en un intervalo desde 10$^{-12}$ 
+cm$^2$/s hasta 10$^{-8}$ cm$^2$/s. Los dos mínimos se corresponden con las fases
+a-LiSi y a-Li$_{13}$Si$_4$ y, además, se concluye que $D$ es menor en la litiación 
+que en la delitiación. De las mediciones revisadas puede resaltarse que el valor 
+del coeficiente de difusión de litio en silicio varía en órdenes de magnitud 
+según la técnica utilizada.
+
+Además de estas distintas determinaciones experimentales, en la literatura pueden
+encontrarse distintos cálculos computacionales, por ejemplo, Moon \textit{et al.}
+\cite{moon2014} utilizaron una estructura de 64 átomos de Si y colocaron un átomo
+de Li en una posición tetrahédrica para estudiar su difusión a concentraciones
+bajas. Con DFT encontraron barreras de activación de 0.6 eV y 0.4 eV para silicio
+cristalino y amorfo, respectivamente. Estas energías fueron utilizadas en 
+simulaciones de kMC y obtuvieron que el coeficiente de difusión del litio es un
+orden de magnitud menor en el c-Si que en el a-Si, 10$^{-12}$ cm$^2$/s y 
+10$^{-11}$ cm$^2$/s, respectivamente. En un trabajo posterior \cite{moon2016},
+obtuvieron las energías de activación entre 0.3 eV y 0.37 eV para las aleaciones 
+cristalinas de Li-Si y las utilizaron en simulaciones de kMC para obtener 
+coeficientes de difusión entre 10$^{-11}$ cm$^2$/s y 10$^{-10}$ cm$^2$/s.
+De manera similar, Chang \textit{et al.} \cite{chang2015} obtuvieron una variación
+de dos órdenes de magnitud entre el coeficiente de difusión de un átomo de Li en 
+Si y el de las aleaciones. Johari \textit{et al.} \cite{johari2011} realizaron 
+simulaciones de MD \textit{ab initio} (AIMD) de 15 ps a temperaturas altas, entre 
+900 K y 1500 K, con las cuales computaron los desplazamientos cuadráticos medios 
+en función del tiempo y los ajustaron con una función lineal para obtener el 
+coeficiente de difusión a cada temperatura. Con estos datos realizaron un ajuste 
+tipo Arrhenius y extrapolaron $D$ a temperatura ambiente, obteniendo valores de
+$D$ entre 10$^{-10}$ cm$^2$/s y 10$^{-8}$ cm$^2$/s. Pan \textit{et al.} 
+\cite{pan2015} también realizaron simulaciones AIMD para estudiar $D$ en función
+del estrés. Para estructuras amorfas de Li-Si obtenidas con un potencial MEAM, Cui 
+\textit{et al.} \cite{cui2012} encontraron un comportamiento asintótico del 
+coeficiente de difusión en función de la concentración, que comienza en 10$^{-11}$
+cm$^2$/s y tiende a 10$^{-7}$ cm$^2$/s. Utilizando este mismo potencial, Chang 
+\textit{et al.} \cite{chang2018} estudian con mayor detalle las variaciones de $D$ 
+a concentraciones bajas, observando que dentro de este orden de magnitud hay una 
+disminución inicial de $D$. Yan \textit{et al.} \cite{yan2015} utilizaron la 
+técnica ABC (\textit{Autonomous Basin Clambin}) para explorar la PES del MEAM en 
+una estructura de 1 átomo de Li y 64 de c-Si y a-Si y determinar que el 
+coeficiente de difusión de traza del Li es dos órdenes de magnitud menor en la
+estructura amorfa que en la cristalina. Al ReaxFF \cite{fan2013}, 
+caracterizado en el capítulo \ref{ch:caracterización}, también se lo utilizó en 
+la literatura para estimar el coeficiente de difusión: a distintas concentraciones 
+\cite{kim2015}, a concentraciones bajas \cite{trochet2017} y en función del 
+estrés \cite{ding2017}. También se aplicaron potenciales de redes neuronales para
+este tipo de estudios, Onat \textit{et al.} \cite{onat2018} encontraron una
+dependencia de $D$ con la concentración tipo asintótica, al igual que Cui 
+\textit{et al.} \cite{cui2012} con el potencial MEAM, y Li \textit{et al.} 
+\cite{li2020effect} obtuvieron valores del coeficiente de difusión de traza en 
+concordancia con los medidos por Strauss \textit{et al.} \cite{strauss2018}.
+
+En este capítulo se utiliza la parametrización DFTB desarrollada en el capítulo
+\ref{ch:modelo} para analizar el coeficiente de difusión de litio en silicio en 
+las estructuras obtenidas en el capítulo \ref{ch:prediccion}.
