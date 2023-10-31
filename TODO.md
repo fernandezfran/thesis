@@ -1,5 +1,7 @@
 # TODO
 
+* agregar LICENSE file y badge.
+
 * armar `requirements.sh` que instale los paquetes en linux para poder compilar
 la tesis.
 
