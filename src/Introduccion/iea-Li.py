@@ -10,6 +10,7 @@ df = pd.DataFrame(
     }
 )
 
+print((df["ev"] + df["es"] + df["ed"]).pct_change())
 
 categorias = [
     "Vehículos eléctricos",
