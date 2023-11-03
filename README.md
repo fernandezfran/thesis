@@ -1,7 +1,7 @@
-# PhD thesis
+# Computational modeling for the development of next-generation lithium-ion battery electrodes
 
-PhD at [FAMAF](https://www.famaf.unc.edu.ar/), working in the computational area 
-of [LAES](http://www.laesunc.com/laes/).
+PhD thesis done at [FAMAF](https://www.famaf.unc.edu.ar/), working in the 
+[LAES](http://www.laesunc.com/laes/) computational area.
 
 Advisors: [Prof. Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) & 
 [Prof. Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en)
