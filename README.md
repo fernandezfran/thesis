@@ -17,7 +17,8 @@ TODO
 
 ### Dissertation
 
-TODO
+Presented to the Faculty of Mathematics, Astronomy, Physics and Computer Science 
+of the NATIONAL UNIVERSITY OF CÓRDOBA on March dd, 2024.
 
 
 ### Postgraduate courses
