@@ -3,7 +3,7 @@
 A finales del año 2019, año en el que se comenzó esta tesis, la Real Academia 
 de Ciencias de Suecia le otorgó el Premio Nobel en Química a J. B. Goodenough, 
 M. S. Whittingham y A. Yoshino por sus contribuciones al desarrollo de la batería 
-de ion-litio. Esta batería recargable permitió los avances que se vieron en los 
+de ion-litio \cite{nobel}. Esta batería recargable permitió los avances que se vieron en los 
 teléfonos móviles y en las computadoras portátiles, entre otras aplicaciones.
 Además, permite un mundo libre de combustibles fósiles ya que se utiliza en 
 vehículos eléctricos y en almacenamientos estacionarios de energía para fuentes
@@ -12,8 +12,9 @@ moderna, como la investigación básica, la investigación la aplicada, la
 interdisciplina (JBG fue físico, MSW es un químico y AY un ingeniero) los 
 desarrollos tecnológicos y los problemas concretos de las sociedades.
 En la década del 1970, MSW desarrolló la primera batería utilizando un ánodo de
-litio metálico y un cátodo de disulfuro de titanio. En 1980, JBG duplicó el 
-voltaje original de dicha batería al introducir un cátodo de óxido de cobalto.
+litio metálico y un cátodo de disulfuro de titanio \cite{whittingham1976}. En 
+1980, JBG duplicó el voltaje original de dicha batería al introducir un cátodo 
+de óxido de cobalto \cite{mizushima1980}.
 La desventaja de ambas se encontraba en el ánodo de litio metálico, que en los 
 ciclos de carga y descarga se deposita preferentemente en sitios donde ya se 
 ha depositado, dando lugar a estructuras ramificadas, llamadas dendritas, que 
@@ -26,7 +27,10 @@ WeLion comercializa para los EVs de Nio una batería de ion-litio con una
 densidad de energía de 360 Wh/kg. En la Figura \ref{fig:whkg} se muestra la 
 evolución de la densidad de energía en baterías de ion-litio comercializadas 
 en los últimos 30 años. La importancia de esta característica para los EVs 
-radica en la relación autonomía/peso.
+radica en la relación autonomía/peso. Además de este, existen otros parámetros 
+que tienen que tenerse en cuenta, como la cantidad de ciclos que se pueden 
+realizar, el tiempo que toma realizar la carga, la razón de descarga y el 
+precio de producción.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.8\textwidth]{Introduccion/baterias/whkg.png}
@@ -35,7 +39,8 @@ radica en la relación autonomía/peso.
     \label{fig:whkg}
 \end{figure}
 
-Las baterías de ion-litio admiten una gran cantidad de recargas y las mismas están 
+Las baterías de ion-litio (LIBs, de sus siglas en inglés \textit{Lithium-Ion Batteries}) 
+admiten una gran cantidad de recargas y las mismas están 
 compuestas por celdas electroquímicas conectadas entre sí, las mismas son unidades 
 fundamentales que permiten transformar la energía química almacenada en energía
 eléctrica mediante una reacción redox (reducción-oxidación), en la cual uno de los 
@@ -58,6 +63,85 @@ reacción inversa (flechas verdes).
     ion-litio.}
     \label{fig:esquema-bateria}
 \end{figure}
+
+La tendencia obtenida en el aumento de densidad de energía, ya observada de la 
+Figura \ref{fig:whkg}, fue posible gracias a una mejor ingeniería en la celda. 
+Los próximos grandes desafíos en el área de estudio vienen en el desarrollo de 
+nuevos materiales en cada una de sus componentes en las baterías introducidas.
+Por ejemplo, la ya mencionada batería de WeLion introduce materiales distintos 
+a aquellos implementados originalmente por Sony. A continuación se mencionarán
+algunas variantes a las distintas partes de las baterías presentadas en la
+Figura \ref{fig:esquema_bateria} que se encuentran en etapas de investigación 
+y algunas de ellas ya comercializadas.
+
+Con respecto a los cátodos, idealmente deben ser estables a temperatura ambiente,
+tener un voltaje y una capacidad específica alta. Además, se busca que no sean 
+tóxicos y que sean amigables con el medioambiente. Los cátodos más utilizados 
+suelen ser metales de transición, como el ya mencionado óxido de cobalto 
+(LiCoO$_2$ o LCO), que posee una capacidad de 135 mAhg$^{-1}$, pero es un
+material caro y tóxico \cite{akhilash2021}. Una alternativa que aparece frente
+al mismo es el LiNiO$_2$ (LNO), que es isoestructural al LCO pero posee una
+capacidad teórica de 273 mAhg$^{-1}$ y tiene un menor costo. Sin embargo, es
+difícil de sintetizar y se ha observado la formación de una fase 
+electroquímicamente inactiva cuando la concentración de litio alcanza el 50\% 
+\cite{bianchini2019}. Otra de las variantes propuestas al LCO es la espinela
+LiMnO$_2$ (LMO), que presenta un voltaje alto, cercano a los 4 V vs Li/Li$^+$,
+es más barato que el LCO y no es tóxico. Sin embargo, el LMO presenta una 
+perdida de la capacidad con los ciclos \cite{bhandari2016}. Basándose en estos 
+tres metales de transición se han desarrollado compuesto de intercalación con 
+la fórmula general Li(Ni$_{1-x-y}$Co$_x$Mn$_y$)O$_2$ (NMC). Para conseguir un 
+material catódico viable, deben ser controladas las proporciones de cada uno de 
+los metales según los aspectos que se deseen de alta capacidad (más níquel), 
+mejor estabilidad de ciclado (más cobalto) o seguridad/costo (más manganeso). 
+Otra de las opciones es el dopaje con cationes de cobalto y aluminio de LiNiO$_2$, 
+Li(Ni$_{1-x-y}$Co$_x$Al$_y$)O$_2$ (NCA), que en la composición 
+Li(Ni$_{0.8}$Co$_{0.15}$Al$_{0.05}$)O$_2$ \cite{chen2004} es comercializada 
+dentro de algunos de los modelos de EVs de Tesla. Por otro lado, la olivina 
+LiFePO$_4$ (LFP) fue introducida como material catódico a fines de la década 
+de 1990 por el grupo de Goodenough \cite{padhi1997}, donde encontraron capacidades
+menores a los 120 mAhg$^{-1}$ y el ganó interés debido a su bajo costo y la 
+naturaleza benigna del fosfato-hierro. Los problemas asociados al LFP son la
+conductividad eléctrica y la difusividad del litio bajas, sin embargo, debido
+a su larga vida de ciclado, su estabilidad térmica, seguridad, costo e impacto 
+medioambiental son de gran interés en baterías grandes y ya ha sido exitosamente 
+comercializado, por ejemplo en los EVs TITO fabricados en la provincia de San Luis.
+
+Los electrolitos son sistemas conformados por una mezcla de disolventes, una 
+sal y aditivos. Las soluciones electrolíticas que se utilizan en las LIBs actuales 
+consisten disolventes de carbonato de etileno (EC) y carbonatos lineales, como
+el carbonato de etilo y metilo (EMC) o el carbonato de dimetilo (DMC), combinados 
+con LiPF$_6$ como sal de litio. Los aditivos que se utilizan en las soluciones 
+comerciales no suelen divulgarse ~\cite{schipper2016}. Algunas de las 
+investigaciones que se llevan a cabo en la actualidad incluyen solventes de
+baja viscosidad ~\cite{logan2020}, mejoras en su seguridad ~\cite{wang2019} 
+y en electrolitos de estado sólido ~\cite{zheng2018}.
+
+En lo que respecta al ánodo, en 1990 el grupo de J Dahn \cite{fong1990} propuso 
+la utilización de grafito, que ha dominado el mercado de las baterías debido a
+la estabilidad de los mismos, su expansión volumétrica leve del 10\% durante 
+la (de)intercalación de litio, su alta conductividad y buena eficiencia; además, 
+es un material abundante y no es tóxico. Otro material anódico de intercalación 
+es el titanato de litio Li$_4$Ti$_5$O$_{12}$ (LTO) que posee la ventaja de 
+no sufrir cambios estructurales durante el proceso de (de)intercalación de litio, 
+pero su densdad energética es baja comparada a otros ánodos. Otro proceso que
+puede darse en los ánodos durante su carga es la aleación de los iones de litio 
+con algún metal. Dentro de estos materiales se encuentran el silicio y el estaño
+que poseen capacidades teóricas de 3579 mAhg$^{-1}$ y 960 mAhg$^{-1}$, 
+respectivamente. Ambos materiales además cuentan con las ventajas de ser baratos,
+abundantes y amigables con el medio ambiente. Sin embargo, ambos presentan un 
+cambio de volumen durante la litiación y la delitación que ronda el 300\%, que 
+lleva asociado pérdidas en la capacidad irreversibles desde el primer ciclo.
+Algunas de las causantes de estas desventajas son: la pulverización de 
+partículas que provoca la desconexión con el colector de carga, la formación de 
+una SEI (\textit{solid-electrolyte interface}) distinta en cada ciclo y la 
+retención de iones de litio en las aleaciones debido a la cinética lenta o a la
+formación de aleaciones altamente estables. Para reducir estos problemas se 
+han desarrollado y se continúan estudiando distintas estrategias, entre ellas,
+por ejemplo, la utilización de nanoestructuras, matrices para disminuir la 
+tensión y construcción de compartimientos para acomodar la expansión 
+volumétrica \cite{zuo2016}. Sin embargo, algunas de ellas requieren de pasos 
+experimentales complicados que requieren mucho tiempo, son costosos y difíciles
+de escalar.
 
 En la Figura \ref{fig:scopus} se muestra el incremento en las últimas dos décadas
 de los artículos científicos publicados en el área de las baterías de litio y, en 
