@@ -14,7 +14,7 @@ print((df["ev"] + df["es"] + df["ed"]).pct_change())
 
 categorias = [
     "Vehículos eléctricos",
-    "Almacenamiento en baterías de red",
+    "Almacenamientos estacionarios",
     "Otras aplicaciones",
 ]
 heights = [df["ev"], df["es"], df["ed"]]
