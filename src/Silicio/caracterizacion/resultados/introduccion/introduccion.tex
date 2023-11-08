@@ -1,4 +1,11 @@
-\begin{table}[b]
+Las simulaciones aceleradas fueron llevadas a cabo en el ensamble NVT a 300.0 K
+con un termostato de Langevin ~\cite{schneider1978} utilizando una versión 
+modificada de \path{GEMS} ~\cite{gems}. A cada estructura se le realizó una 
+minimización de gradientes conjugados con el software \path{LAMMPS} 
+~\cite{lammps1, lammps2}. El tamaño de los sistemas y la cantidad de estructuras 
+utilizadas para obtener los siguiente resultados se presentan en la Tabla 
+\ref{t:siminfo}.
+\begin{table}[h!]
     \centering
     \caption{Conjunto de datos relevantes empleados en las simulaciones de dinámica acelerada.}
     \setlength\extrarowheight{2pt}\stackon{%
@@ -24,22 +31,7 @@
     }{}
     \label{t:siminfo}
 \end{table}
-Las simulaciones aceleradas fueron llevadas a cabo en el ensamble NVT a 300.0 K
-con un termostato de Langevin ~\cite{schneider1978} utilizando una versión 
-modificada de \path{GEMS} ~\cite{gems}. A cada estructura se le realizó una 
-minimización de gradientes conjugados con el software \path{LAMMPS} 
-~\cite{lammps1, lammps2}. El tamaño de los sistemas y la cantidad de estructuras 
-utilizadas para obtener los siguiente resultados se presentan en la Tabla 
-\ref{t:siminfo}.
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/introduccion/energias.png}
-    \caption{Histogramas correspondientes a la energía potencial de las 
-    estructuras obtenidas con el método AELM, con distintos valores de $\alpha$
-    en la ecuación \ref{eq:bias}, para cada composición de Li$_x$Si estudiada.}
-    \label{fig:energias}
-\end{figure}
 La Figura \ref{fig:energias} muestra los histogramas para las energías mínimas
 de las estructuras de Li$_x$Si obtenidas con el método AELM para los valores de
 $x$ estudiados y distintos valores de compresión $\alpha$. En cada fila hay un 
@@ -65,14 +57,15 @@ CG no son capaces de encontrar mínimos de menor energía. Por último, para la
 concentración más alta, correspondiente a un valor de $x = 4.2$, las simulaciones 
 de AELM con un valor de $\alpha = 0.2$ son capaces de encontrar estructuras que 
 reducen fuertemente la energía potencial del sistema. 
-
-\begin{figure}[t]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/introduccion/amorfas.png}
-    \caption{Configuración amorfa representativa de cada valor de $x$ empleado en la aleación de composición Li$_x$Si. Los átomos
-    de Si se muestran en azul mientras que los de Li en verde.}
-    \label{fig:amorfas}
+    \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/introduccion/energias.png}
+    \caption{Histogramas correspondientes a la energía potencial de las 
+    estructuras obtenidas con el método AELM, con distintos valores de $\alpha$
+    en la ecuación \ref{eq:bias}, para cada composición de Li$_x$Si estudiada.}
+    \label{fig:energias}
 \end{figure}
+
 De los histogramas de la Figura \ref{fig:energias} se seleccionan los factores 
 de aceleración óptimos, es decir que producen energías menores, para obtener
 las propiedades estructurales que se discuten a continuación. Para estos valores
@@ -85,3 +78,10 @@ concentraciones más altas de litio, se alcanzan estructuras que involucran
 cadenas unidimensionales periódicas de silicio. Una estructura similar ha sido 
 reportada por Ostadhossein \textit{et al.} ~\cite{ostadhossein2015}. En las 
 próximas secciones se caracterizan dichas estructuras.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Silicio/caracterizacion/resultados/introduccion/amorfas.png}
+    \caption{Configuración amorfa representativa de cada valor de $x$ empleado en la aleación de composición Li$_x$Si. Los átomos
+    de Si se muestran en azul mientras que los de Li en verde.}
+    \label{fig:amorfas}
+\end{figure}

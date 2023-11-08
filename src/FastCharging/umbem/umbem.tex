@@ -82,19 +82,6 @@ dentro del material ($D$), la constante cinética de transferencia de carga
 
 \section{Métodos computacionales}
 
-\begin{figure}[t!]
-    \centering
-    \includegraphics[width=\textwidth]{FastCharging/umbem/explicacion/explicacion.png}
-    \caption{Esquema del modelo utilizado para construir el diagrama y hacer 
-    las predicción de carga rápida. (a) Modelo de una sola partícula. (b) 
-    Parámetros adimensionales que se derivan de las condiciones del modelo 
-    en la sección \ref{s:derivparam}. (c) Diagrama universal construido con 
-    simulaciones galvanostáticas que representa el estado de carga alcanzado para 
-    un potencial de corte de 200 mV y una geometría esférica. (d) Ilustración
-    de la métrica UMBEM que se presenta en este capítulo.}
-    \label{fig:explicacion}
-\end{figure}
-
 El modelo utilizado ya fue explicado en la sección \ref{s:metodologia} del
 capítulo \ref{ch:un}, un resumen de la explicación del mismo se encuentra 
 en la Figura \ref{fig:explicacion}. En la Figura \ref{fig:explicacion}a se 
@@ -117,11 +104,33 @@ tiene por objetivo estandarizar las comparaciones entre el desempeño de distint
 materiales para considerarse en una aplicación de carga rápida de electrodos
 de baterías de ion-litio, también permite establecer una jerarquía de 
 materiales de acuerdo a su valor.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{FastCharging/umbem/explicacion/explicacion.png}
+    \caption{Esquema del modelo utilizado para construir el diagrama y hacer 
+    las predicción de carga rápida. (a) Modelo de una sola partícula. (b) 
+    Parámetros adimensionales que se derivan de las condiciones del modelo 
+    en la sección \ref{s:derivparam}. (c) Diagrama universal construido con 
+    simulaciones galvanostáticas que representa el estado de carga alcanzado para 
+    un potencial de corte de 200 mV y una geometría esférica. (d) Ilustración
+    de la métrica UMBEM que se presenta en este capítulo.}
+    \label{fig:explicacion}
+\end{figure}
 
 
 \section{Conjunto de datos}\label{s:dataset}
 
-\begin{table}[t!]
+La Tabla \ref{t:dataset} resume la información experimental ($d$, $D$) que se 
+requiere para evaluar con la métrica UMBEM los distintos sistemas, la misma fue 
+extraída de la referencia \cite{xia2022}. Sin embargo, como la discusión se 
+realizará en el contexto del modelo esquematizado en la Figura 
+\ref{fig:explicacion}, también se necesita considerar la constante cinética $k^0$.
+Valores experimentales típicos para este parámetro fundamental se encuentran en 
+un intervalo que va desde $10^{-5}$ hasta $10^{-9}$ cm/s \cite{gavilan2020kinetic}, 
+por lo cual se utiliza un valor intermedio de $10^{-7}$ cm/s para todos los 
+materiales. La C-rate fue fijada a 4 C, que se corresponde con 15 minutos, 
+de acuerdo a la propuesta del USABC. 
+\begin{table}[h!]
     \centering
     \caption{Datos experimentales de distintos sistemas requeridos para evaluar 
     la métrica UMBEM.}
@@ -176,17 +185,6 @@ materiales de acuerdo a su valor.
     \label{t:dataset}
 \end{table}
 
-La Tabla \ref{t:dataset} resume la información experimental ($d$, $D$) que se 
-requiere para evaluar con la métrica UMBEM los distintos sistemas, la misma fue 
-extraída de la referencia \cite{xia2022}. Sin embargo, como la discusión se 
-realizará en el contexto del modelo esquematizado en la Figura 
-\ref{fig:explicacion}, también se necesita considerar la constante cinética $k^0$.
-Valores experimentales típicos para este parámetro fundamental se encuentran en 
-un intervalo que va desde $10^{-5}$ hasta $10^{-9}$ cm/s \cite{gavilan2020kinetic}, 
-por lo cual se utiliza un valor intermedio de $10^{-7}$ cm/s para todos los 
-materiales. La C-rate fue fijada a 4 C, que se corresponde con 15 minutos, 
-de acuerdo a la propuesta del USABC. 
-
 
 \section{Resultados y discusiones}
 
@@ -209,7 +207,6 @@ en la región superior del mapa (UMBEM $\geq$ 0.8). Una mitad de los puntos del
 LTO y del LFP se encuentran en la zona de carga rápida y la otra mitad en la zona
 de no-carga rápida. Por último, con la excepción de un caso de grafito, el grafito
 y los materiales ternarios están fuera de la región de carga rápida.
-
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{FastCharging/umbem/UMBEM.png}
@@ -221,15 +218,6 @@ y los materiales ternarios están fuera de la región de carga rápida.
 \end{figure}
 
 \subsection{Comparación de UMBEM con la Figura de Mérito propuesta por Xia \textit{et al.}}
-
-\begin{figure}[b!]
-    \centering
-    \includegraphics[width=\textwidth]{FastCharging/umbem/xiacomp.png}
-    \caption{(a) Cuadro con los puntos de la Figura de Mérito (FOM) de Xia 
-    \textit{et al.} coloreados de acuerdo a los valores de la UMBEM. (b) UMBEM en 
-    función de FOM.}
-    \label{fig:xiacomp}
-\end{figure}
 
 Xia \textit{et al.} \cite{xia2022} utilizaron los datos experimentales de $d$ y $D$
 que se encuentran en la Tabla \ref{t:dataset} para calcular su FOM a cada uno 
@@ -245,6 +233,14 @@ los puntos que se encuentran sobre una dada línea, el valor de la UMBEM decrece
 de la partícula y el coeficiente de difusión. De
 este modo, para una relación constante de $d^2/D$, se espera un mejor desempeño 
 si tanto $d$ como $D$ son menores. 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{FastCharging/umbem/xiacomp.png}
+    \caption{(a) Cuadro con los puntos de la Figura de Mérito (FOM) de Xia 
+    \textit{et al.} coloreados de acuerdo a los valores de la UMBEM. (b) UMBEM en 
+    función de FOM.}
+    \label{fig:xiacomp}
+\end{figure}
 
 La Figura \ref{fig:xiacomp}b presenta la UMBEM en función de la FOM para la 
 presente elección de $k^0$. Se puede observar una correlación entre ambas métricas.
@@ -271,17 +267,6 @@ guiado por el mapa}
 
 La Figura \ref{fig:sizes}a muestra un diagrama de nivel, indicando la zona de 
 carga rápida y la de carga lenta separadas por una línea correspondiente a
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{FastCharging/umbem/sizes.png}
-    \caption{(a) Diagrama con las distintas maneras de optimizar el rendimiento 
-    de un material. (b) Relación entre el tamaño óptimo predicho 
-    ($d_{\text{opt}}$) y el experimental ($d_{\text{exp}}$) en escala logarítmica.
-    El tamaño óptimo predicho es el requerido para obtener un valor de UMBEM 
-    de 0.8. El color de cada barra está dado por su desempeño previo y están en 
-    el mismo orden que en la Figura \ref{fig:UMBEM}a.}
-    \label{fig:sizes}
-\end{figure}
 UMBEM$ = 0.8$. Como ya se ha dicho, este es el menor valor de carga rápida 
 propuesto por el USABC. Fuera de la región de carga rápida se encuentran dos 
 sistemas de ejemplo (cuadrado y círculo rojos) para dar una idea cualitativa de 
@@ -301,6 +286,17 @@ optimizar la carga retenida, ya que experimentalmente es posible controlar este
 parámetro regulando las condiciones de síntesis de los materiales. En el párrafo
 siguiente se analiza la optimización en $d$ para todos los experimentos 
 considerados.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{FastCharging/umbem/sizes.png}
+    \caption{(a) Diagrama con las distintas maneras de optimizar el rendimiento 
+    de un material. (b) Relación entre el tamaño óptimo predicho 
+    ($d_{\text{opt}}$) y el experimental ($d_{\text{exp}}$) en escala logarítmica.
+    El tamaño óptimo predicho es el requerido para obtener un valor de UMBEM 
+    de 0.8. El color de cada barra está dado por su desempeño previo y están en 
+    el mismo orden que en la Figura \ref{fig:UMBEM}a.}
+    \label{fig:sizes}
+\end{figure}
 
 Se realizaron las predicciones de los tamaños óptimos de partícula para que todos 
 los materiales alcancen un valor de UMBEM de 0.8, tanto para aquellos que excedían 

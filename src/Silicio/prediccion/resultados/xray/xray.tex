@@ -4,17 +4,7 @@ Se comienza caracterizando las estructuras amorfas obtenidas con el protocolo
 de litiación propuesto en la sección \ref{s:litpro} a través de las funciones 
 distribución radial (RDF) parciales, definidas en la ecuación \ref{eq:prdf}
 de la sección \ref{ss:rdf}. Las curvas correspondientes a la RDF parcial de 
-Li-Li, Si-Li y Si-Si se muestran en la Figura \ref{fig:prdfs}. 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{Silicio/prediccion/resultados/xray/prdfs.png}
-    \caption{Funciones distribución radial (RDF) parciales para Li-Li, Si-Li y Si-Si para los valores $x$ en 
-    Li$_x$Si optimizados (ver texto de sección \ref{s:litpro}). El color de la curva cambia de azul (predominio del Si)
-    a verde (predominio del Li). Las barras de error son menores que el ancho de 
-    las líneas.}
-    \label{fig:prdfs}
-\end{figure}
-Como puede observarse,
+Li-Li, Si-Li y Si-Si se muestran en la Figura \ref{fig:prdfs}. Como puede observarse,
 la naturaleza de las distribuciones calculadas es la típica de las estructuras
 amorfas, presentando un primer pico bien definido a distancias cortas y picos 
 decrecientes a medida que aumenta la distancia. Para el caso del Li-Li y del Si-Li
@@ -31,6 +21,15 @@ enlazado a otro Si, entonces este se encuentra a una distancia de 5.0 \AA\ del
 primero. Cabe señalar que el modelo DFTB desarrollado en el capítulo 
 \ref{ch:modelo} permite capturar estas características a un costo computacional
 considerablemente menor que el que se tendría con DFT.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Silicio/prediccion/resultados/xray/prdfs.png}
+    \caption{Funciones distribución radial (RDF) parciales para Li-Li, Si-Li y Si-Si para los valores $x$ en 
+    Li$_x$Si optimizados (ver texto de sección \ref{s:litpro}). El color de la curva cambia de azul (predominio del Si)
+    a verde (predominio del Li). Las barras de error son menores que el ancho de 
+    las líneas.}
+    \label{fig:prdfs}
+\end{figure}
 
 Utilizando ahora las curvas de la Figura \ref{fig:prdfs} para calcular la función
 distribución radial de a pares, $G(r)$, con la ecuación \ref{eq:gofr} definida 
@@ -102,8 +101,10 @@ medio y se obtuvieron los valores que se presentan en la Tabla
         \textbf{a-Si} & 
         \textbf{a-Li$_{15}$Si$_4$} \\ 
         \midrule
-        DFTB amorfo & 0.0 (0.0\%) & 0.036422 (9.78\%) & 0.187971 (50.48\%) & 0.147955 (39.74\%) \\
-        cristalino & 0.03358 (30.15\%) & 0.077784 (69.85\%) & -- & -- \\
+        DFTB amorfo & 0.0 & 0.036422 & 0.187971 & 0.147955 \\
+         & (0.0\%) & (9.78\%) & (50.48\%) & (39.74\%) \\
+        cristalino & 0.03358 & 0.077784 & -- & -- \\
+         & (30.15\%) & (69.85\%) & -- & -- \\
         \bottomrule
     \end{tabular}
     }{}

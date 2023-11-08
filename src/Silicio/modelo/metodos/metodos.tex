@@ -88,7 +88,6 @@ en la Tabla \ref{t:mincut}. Los parámetros $a_i$ se ajustan para reproducir las
 energías de DFT para cada estructura elegida para el entrenamiento utilizando el 
 algoritmo de Levenber-Marquardt. Se eligió el grado del polinomio $m = 8$ y 
 los coeficiente $c_i$ se optimizaron con un ajuste por cuadrados mínimos.
-
 \begin{table}[h!]
     \centering
     \caption{Valores de $r_{\min}$ y $r_{\text{cut}}$ utilizados en la ecuación
@@ -128,7 +127,7 @@ orbitales pseudoatómicos y de las densidades electrónicas consisten en optimiz
 los valores de $r_0$ y $\sigma$ en la ecuación \ref{eq:vconf} para ajustar la 
 estructura de bandas de referencia de DFT. La Tabla \ref{t:vconf_params} muestra
 los valores de los parámetros de confinamiento optimizados.
-\begin{table}[h]
+\begin{table}[h!]
     \centering
     \caption{Parámetros del potencial de confinamiento $r_0$ y $\sigma$ para 
     los orbitales atómicos $\phi$ y las densidades $\rho^0$ de Li y Si}
@@ -244,7 +243,6 @@ ecuación \ref{eq:e_res} se realiza con el código \path{TANGO} \cite{tango}. Pa
 minimizar la ecuación \ref{eq:fres}, se desarrolló un programa llamado 
 \path{Milonga} que ejecuta varias instancias de \path{TANGO}, una por cada
 evaluación de Res$_F(\boldsymbol{\xi})$ requerida por el proceso de minimización.
-
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Silicio/modelo/metodos/diagrama.png}

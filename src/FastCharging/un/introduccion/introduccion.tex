@@ -51,8 +51,7 @@ estado de carga máximo alcanzada en función de los dos parámetros adimensiona
 de capacidad se corresponden con los cortes con el eje de las abscisas de los perfiles galvanostáticos presentes en las
 Figuras \ref{fig:diagnostico}b y c (ejemplos para algunos valores en particular 
 de $\Xi$ y $\ell$) 150 mV debajo del potencial de equilibrio.
-
-\begin{figure}[t]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{FastCharging/un/introduccion/diagnosis-merged.png}
     \caption{(a) Diagrama de nivel para una geometría esférica con un voltaje de 
@@ -64,7 +63,6 @@ de $\Xi$ y $\ell$) 150 mV debajo del potencial de equilibrio.
     sobre el eje SOC indican los valores de SOC$_{\max}$ alcanzados.}
     \label{fig:diagnostico}
 \end{figure}
-
 
 Los parámetros $\Xi$ y $\ell$ introducidos en las ecuaciones \ref{eq:xi} y 
 \ref{eq:ele}, respectivamente, son relaciones de escaleo útiles para realizar una
@@ -96,15 +94,6 @@ Como no tenemos una expresión análitica para esta función $f$, la misma puede
 obtenida en un mapeo ($\Xi$, $\ell$) de simulaciones galvanostáticas, como se la 
 presenta en la Figura \ref{fig:diagnostico}a.
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=.7\textwidth]{FastCharging/un/introduccion/xiafom.png}
-    \caption{Figura de mérito definida como el tiempo característico de difusión, 
-    $\tau = d^2/D$, propuesta por Xia \textit{et al.} \cite{xia2022}. La líneas
-    grises discontinuas indican valores de $\tau$ constantes que dividen a los 
-    materiales en clases con diferentes capacidades de carga rápida.}
-    \label{fig:xiafom}
-\end{figure}
 En un trabajo reciente se ha propuesto una figura de mérito que permite establecer 
 una jerarquía entre distintos materiales de carga rápida \cite{xia2022}. 
 Esta consiste en combinar los efectos de los coeficientes de difusión y los 
@@ -113,6 +102,15 @@ $\tau = d^2 / D$, y es presentada en la Figura \ref{fig:xiafom}. Esta figura de
 mérito supone un sólido semi-infinito y una reacción interfacial ultrarrápida, 
 es decir que supone que el proceso limitante es la difusión de los iones dentro 
 del material.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.7\textwidth]{FastCharging/un/introduccion/xiafom.png}
+    \caption{Figura de mérito definida como el tiempo característico de difusión, 
+    $\tau = d^2/D$, propuesta por Xia \textit{et al.} \cite{xia2022}. La líneas
+    grises discontinuas indican valores de $\tau$ constantes que dividen a los 
+    materiales en clases con diferentes capacidades de carga rápida.}
+    \label{fig:xiafom}
+\end{figure}
 Desde
 este punto de vista, la ecuación \ref{eq:socmax} evaluada en el punto ($\Xi$, 
 $\ell$) también puede introducirse como una figura de mérito. Supongamos que 
@@ -125,7 +123,7 @@ Tabla \ref{t:ab}. Los puntos correspondientes a estos materiales se presentan en
 el mapa de la Figura \ref{fig:diagnostico}a. A partir de este, podemos ver que el 
 material A es un buen candidato para una carga en 15 minutos mientras que el 
 material B no lo es.
-\begin{table}[t]
+\begin{table}[h!]
     \centering
     \caption{Ejemplo de dos materiales, A y B, caracterizados por sus coeficientes 
     de difusión, sus constantes cinéticas y sus tamaños.}

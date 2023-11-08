@@ -9,20 +9,6 @@ curva de nivel con una línea roja correspondiente a SOC$_{\max} = 0.8$. Puede
 observarse que tres de los materiales ya se encuentran en la región de 
 SOC$_{\max}$ mayor a 0.8 (LCO, LMNO y LNMO), mientras que los otros se encuentran
 por debajo de este valor (NG, LTO y LFP).
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\textwidth]{FastCharging/un/resultados/prediccion/prediccion.png}
-    \caption{Diagrama de SOC$_{\max}$ mostrando la ubicación de los materiales 
-    usuales de LIBs a 4 C para las referencias consideradas \cite{mancini2022,
-    he2012, lei2015, wang2019high, bak2011, nishikawa2017}. En los casos en los 
-    que la curva de cargado a 4 C no estaba disponible, el valor del punto fue 
-    predicho con el modelo. La línea roja muestra la curva de nivel 
-    correspondiente al valor 0.8 de SOC$_{\max}$. Las flechas muestran el cambio
-    en el tamaño de la partícula que debería efectuarse para obtener dicho valor
-    a la C-rate dada. Las cruces sobre la línea muestran la posición de estos
-    tamaños de partícula nuevos.}
-    \label{fig:prediccion}
-\end{figure}
 Haciendo uso del diagrama se puede predecir de una forma simple y rápida el tamaño 
 de partícula requerido para satisfacer el criterio de carga rápida. Dado que los
 valores de $D$ y $k^0$ ya fueron ajustados
@@ -50,8 +36,36 @@ difusión $D$, al cual ya se le calculó su incerteza, se puede obtener que
 \begin{equation}
     \Delta d = \frac{1}{2} \sqrt{\frac{t_h z 10^{\ell_{\text{opt}}}}{C_r D}} \Delta D.
 \end{equation}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{FastCharging/un/resultados/prediccion/prediccion.png}
+    \caption{Diagrama de SOC$_{\max}$ mostrando la ubicación de los materiales 
+    usuales de LIBs a 4 C para las referencias consideradas \cite{mancini2022,
+    he2012, lei2015, wang2019high, bak2011, nishikawa2017}. En los casos en los 
+    que la curva de cargado a 4 C no estaba disponible, el valor del punto fue 
+    predicho con el modelo. La línea roja muestra la curva de nivel 
+    correspondiente al valor 0.8 de SOC$_{\max}$. Las flechas muestran el cambio
+    en el tamaño de la partícula que debería efectuarse para obtener dicho valor
+    a la C-rate dada. Las cruces sobre la línea muestran la posición de estos
+    tamaños de partícula nuevos.}
+    \label{fig:prediccion}
+\end{figure}
 
-\begin{table}[t]
+Al observarse un buen desempeño para la carga de 15 minutos, se puede exigir un 
+poco más que este criterio y predecir el tamaño de partícula requerido para una
+C-rate más alta, por ejemplo, 80\% de la carga en 5 minutos (12 C). Si bien este 
+criterio puede parecer sobredemandante a primera vista, reportes recientes consideran 
+protocolos de carga de 10 minutos \cite{mattis2021, attia2020}. Los resultados
+se muestran en la última columna de la Tabla \ref{t:prediccion}. Como puede 
+observarse, el comportamiento depende del sistema y del experimento en particular
+considerado. El único caso donde se cumple este último criterio de carga rápida 
+es el LMO, ya que el tamaño experimental sobrecumple el criterio. Aunque el LCO 
+y el LNMO no cumplen con esto último, las mejoras requeridas en sus tamaños son
+menores. En el resto de 
+los casos, para el LFP se necesitaría una disminución de un orden de magnitud 
+en su tamaño, mientras que para el NG o el LTO se requeriría una
+disminución de su tamaño en un factor de 3.
+\begin{table}[h!]
     \centering
     \caption{Tamaño de partícula experimental y valores predichos para cargar el 80\% del
     electrodo en 15 y 5 minutos.} 
@@ -78,18 +92,3 @@ difusión $D$, al cual ya se le calculó su incerteza, se puede obtener que
     }{}
     \label{t:prediccion}
 \end{table}
-
-Al observarse un buen desempeño para la carga de 15 minutos, se puede exigir un 
-poco más que este criterio y predecir el tamaño de partícula requerido para una
-C-rate más alta, por ejemplo, 80\% de la carga en 5 minutos (12 C). Si bien este 
-criterio puede parecer sobredemandante a primera vista, reportes recientes consideran 
-protocolos de carga de 10 minutos \cite{mattis2021, attia2020}. Los resultados
-se muestran en la última columna de la Tabla \ref{t:prediccion}. Como puede 
-observarse, el comportamiento depende del sistema y del experimento en particular
-considerado. El único caso donde se cumple este último criterio de carga rápida 
-es el LMO, ya que el tamaño experimental sobrecumple el criterio. Aunque el LCO 
-y el LNMO no cumplen con esto último, las mejoras requeridas en sus tamaños son
-menores. En el resto de 
-los casos, para el LFP se necesitaría una disminución de un orden de magnitud 
-en su tamaño, mientras que para el NG o el LTO se requeriría una
-disminución de su tamaño en un factor de 3.
