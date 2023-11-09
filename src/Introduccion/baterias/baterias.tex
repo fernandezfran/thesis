@@ -79,10 +79,10 @@ Con respecto a los cátodos, idealmente deben ser estables a temperatura ambient
 tener un voltaje y una capacidad específica alta. Además, se busca que no sean 
 tóxicos y que sean amigables con el medioambiente. Los cátodos más utilizados 
 suelen ser metales de transición, como el ya mencionado óxido de cobalto 
-(LiCoO$_2$ o LCO), que posee una capacidad de 135 mAhg$^{-1}$, pero es un
+(LiCoO$_2$ o LCO), que posee una capacidad teórica relativamente alta de 274 mAhg$^{-1}$ y un buen desempeño en su ciclabilidad, pero es un
 material caro y tóxico \cite{akhilash2021}. Una alternativa que aparece frente
 al mismo es el LiNiO$_2$ (LNO), que es isoestructural al LCO, posee una
-capacidad teórica mayor de 273 mAhg$^{-1}$ y tiene un menor costo. Sin embargo, es
+capacidad teórica similar de 273 mAhg$^{-1}$ y tiene un menor costo. Sin embargo, es
 difícil de sintetizar y se ha observado la formación de una fase 
 electroquímicamente inactiva cuando la concentración de litio alcanza el 50\% 
 \cite{bianchini2019}. Otra de las variantes propuestas al LCO es la espinela
@@ -94,13 +94,16 @@ la fórmula general Li(Ni$_{1-x-y}$Co$_x$Mn$_y$)O$_2$ (NMC). Para conseguir un
 material catódico viable, existen relaciones de compromiso entre las proporciones de cada uno de 
 los metales según los aspectos que se deseen: alta capacidad (más níquel), 
 mejor estabilidad de ciclado (más cobalto) o seguridad/costo (más manganeso). 
+También se han investigado los cátodos L(Ni$_{0.5}$Mn$_{1.5}$)O$_2$ (NMO) debido
+a su densidad de energía similar a la del LCO pero con una reducción en los costos.
+Además, se han obtenido capacidades cercanas a los 180 mAhg$^{-1}$ a una C-rate de 6 C.
 Otra de las opciones es el dopaje de LiNiO$_2$ con cationes de cobalto y aluminio, 
 Li(Ni$_{1-x-y}$Co$_x$Al$_y$)O$_2$ (NCA), que en la composición 
 Li(Ni$_{0.8}$Co$_{0.15}$Al$_{0.05}$)O$_2$ \cite{chen2004} es comercializada 
-dentro de algunos de los modelos de EVs de Tesla. Por otro lado, la olivina 
+dentro de algunos de los modelos de EVs de Tesla, ya que posee una capacidad alta ($\sim$ 200 mAhg$^{-1}$) y una gran vida útil comparada a la del LCO. Por otro lado, la olivina 
 LiFePO$_4$ (LFP) fue introducida como material catódico a fines de la década 
 de 1990 por el grupo de Goodenough \cite{padhi1997}, donde encontraron capacidades
-menores a los 120 mAhg$^{-1}$, pero ganó interés debido a su bajo costo y a la 
+menores a los 120 mAhg$^{-1}$, pero ganó interés debido a su estabilidad térmica, su bajo costo y a la 
 naturaleza ambiental benigna del fosfato de hierro. Los problemas asociados al LFP son la
 conductividad eléctrica y la difusividad del litio bajas, sin embargo, debido
 a sus ventajas ya ha sido exitosamente comercializado, por ejemplo en los EVs 
@@ -142,6 +145,14 @@ tensión y construcción de compartimentos para acomodar la expansión
 volumétrica \cite{zuo2016}. Sin embargo, para algunas de ellas son necesarios pasos 
 experimentales complicados que requieren mucho tiempo, son costosos y difíciles
 de escalar con fines de producción comercial.
+
+\todo{
+Otros materiales que experimentan procesos distintos también han llamado la 
+atención de la comunidad científica \cite{nitta2015}; entre ellos destacan el 
+azufre, debido a su capacidad teórica de 1675 mAhg$^{-1}$, su bajo costo y su 
+abundancia en la tierra. Otro caso llamativo es el del oxígeno para las baterías
+de litio/aire, que presenta distintos obstáculos tecnológicos al ser un gas.
+}
 
 En la Figura \ref{fig:scopus} se muestra el incremento en las últimas dos décadas
 de los artículos científicos publicados en el área de las baterías de litio y, en 
