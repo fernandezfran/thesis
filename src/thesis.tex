@@ -198,73 +198,63 @@
 
 \begin{document}
 
-% enumeración de las primeras páginas con números romanos
-\frontmatter
+\frontmatter % enumeración de las primeras páginas con números romanos
 
-% agregar hojas en blanco para imprimir
 % \blankpage
 % \blankpage
 % \blankpage
-% \blankpage
+% \blankpage % agregar hojas en blanco para imprimir
 
-% Carátula
 \input{Caratula/caratula.tex}
 
-% Resumen
 \input{Resumenes/resumen.tex}
 
-% Abstract
 \input{Resumenes/abstract.tex}
 
 % Dedicatoria
 
-% Índice
 \tableofcontents
-% \listoffigures
-% \listoftables
 
-% a partir de acá se cuentan los números de las páginas en formato arabico
-\mainmatter
+\mainmatter % a partir de acá se cuentan los números de las páginas en formato arabico
 
-% Capítulos
 
 \part{Motivación y fundamentos}
 
 \input{Introduccion/introduccion.tex}
 
-% \input{Metodos/metodos.tex}
+\input{Metodos/metodos.tex}
 
 
-% \part{Carga rápida de baterías de ion-litio}\label{p:fast-charging}
+\part{Carga rápida de baterías de ion-litio}\label{p:fast-charging}
 
-% \input{FastCharging/un/un.tex}
+\input{FastCharging/un/un.tex}
 
-% \input{FastCharging/umbem/umbem.tex}
+\input{FastCharging/umbem/umbem.tex}
 
 
-% \part{Silicio como ánodo de baterías de ion-litio de próxima generación: Estudio de sus aleaciones}\label{p:silicio}
+\part{Silicio como ánodo de baterías de ion-litio de próxima generación: Estudio de sus aleaciones}\label{p:silicio}
 
-% \input{Silicio/caracterizacion/caracterizacion.tex}
+\input{Silicio/caracterizacion/caracterizacion.tex}
 
-% \input{Silicio/modelo/modelo.tex}
+\input{Silicio/modelo/modelo.tex}
 
-% \input{Silicio/prediccion/prediccion.tex}
+\input{Silicio/prediccion/prediccion.tex}
 
 % \input{Silicio/comportamiento/comportamiento.tex}
 
 
-% \part{Comentarios finales}
+\part{Comentarios finales}
 
-% \input{Comentarios/comentarios.tex}
+\input{Comentarios/comentarios.tex}
 
 
 
-% Apéndices
 \part{Apéndices}
 
 \appendix
 \renewcommand\chaptername{Apéndice}
 \input{Apendices/software.tex}
+
 
 \bibliographystyle{apalike}
 \bibliography{citas}

@@ -1,3 +1,118 @@
 \chapter{Comentarios finales}\label{ch:comentarios}
 
-TODO
+Las baterías de ion-litio han permitido que se desarrollara una gran variedad de
+dispositivos electrónicos, por ejemplo los teléfonos inteligentes o las 
+computadoras portátiles. A su vez son utilizadas en vehículos eléctricos y en 
+sistemas de almacenamiento estacionarios de energía para fuentes
+renovables, lo cual las convierte en un actor crucial para la sustitución de 
+los combustibles fósiles en el consumo energético. En esta tesis doctoral se 
+realizaron distintos modelados computacionales para estudiar electrodos de 
+baterías de ion-litio de próxima generación, las técnicas utilizadas fueron 
+introducidas en el capítulo \ref{ch:metodos}. Los resultados obtenidos están 
+divididos en dos partes: \textbf{Carga rápida de baterías de ion-litio} (Parte 
+\ref{p:fast-charging}) \cite{fernandez2023towards} y \textbf{Silicio como ánodo
+de baterías de ion-litio de próxima generación: Estudio de sus aleaciones} (Parte 
+\ref{p:silicio}) \cite{fernandez2023nmr, oviedo2023, fernandez2021characterization}.
+
+En el capítulo \ref{ch:un} se desarrolló un modelo que permite predecir el tamaño
+óptimo que deberían tener las partículas de material activo en un electrodo para 
+alcanzar el 80\% del Estado de la Carga (SOC) en 15 minutos, que es el criterio
+establecido para considerar que la batería sea de carga rápida. Además, se 
+desarrolló un software en Python que cumple con los requisitos establecidos por 
+la comunidad, es de libre acceso y fácil de usar para realizar el preprocesamiento
+de datos experimentales y las estimaciones con el modelo. En esta oportunidad, se 
+utilizaron datos experimentales de literatura de distintos materiales de 
+relevancia en el área de estudio (NG, LTO, LFP, LCO, LMO, LNMO). Para todos ellos,
+en un preprocesamiento de los datos se obtuvo el SOC máximo en función de la 
+velocidad de carga galvanostática (C-rate) y se ajustó el modelo, de donde 
+se obtuvieron coeficientes de difusión y constantes cinéticas físicamente 
+correctas. Dicho ajuste se realiza de manera heurística sobre una superficie 
+obtenida mediante un método de simulación universal de una sola partícula en 
+condiciones de carga a corriente constante, que es capaz de reproducir la física 
+básica del proceso de intercalación de litio, regulado por la difusión de los 
+iones dentro de la partícula y la transferencia de carga en su interfase.
+Una vez ajustado el modelo a cada sistema, se lo utilizó para predecir el tamaño
+óptimo de partícula para cargas de 15 y 5 minutos y se discutió cada caso en 
+particular. Por último, se compararon los méritos de los materiales entre sí en 
+términos de sus propiedades intrínsecas y a igual tamaño de partícula.
+
+Dentro de la misma área de estudio, en el capítulo \ref{ch:umbem} se propuso, por 
+primera vez en la literatura, una métrica universal para comparar el desempeño de 
+carga rápida de materiales de electrodos (UMBEM, de sus siglas en inglés, 
+\textit{Universal Metric for Benchmarking fast-charging Electrode Materials}). 
+Esta se definió como el SOC alcanzado cuando el material se carga 
+en condiciones de corriente constante durante 15 minutos. La UMBEM puede ser 
+analizada con distintas técnicas experimentales o computacionales, en este caso 
+se la analizó utilizando el método empleado en el capítulo anterior. El mismo 
+presenta una mejora con respecto a una figura de mérito (FOM, de sus siglas en 
+inglés \textit{Figure of Merit}) publicada en un trabajo anterior de literatura,
+ya que, además de considerar el tamaño de la partícula y la difusión de los iones, 
+considera la transferencia de carga interfacial y la C-rate. Utilizando el mismo 
+conjunto de datos de caracterizaciones experimentales que el trabajo de la FOM, se
+obtuvo el valor de la UMBEM para cada sistema y se estableció una jerarquía de 
+materiales. También se compararon estos valores con los de la FOM. Además,
+basándose en un análisis guiado por la superficie del método computacional 
+empleado, se predijeron las mejoras necesarias para clasificarlos 
+como materiales de carga rápida.
+
+Como primera etapa en el estudio de las aleaciones de LiSi que se forman durante
+la litiación de los ánodos de silicio, en el capítulo \ref{ch:caracterizacion} se 
+obtuvieron estructuras amorfas de Li$_x$Si para distintos valores de $x$ que 
+cubren el intervalo experimental. Se realizaron simulaciones de 
+dinámica molecular con un campo de fuerzas reactivo y se encontraron estructuras
+cercanas al equilibrio con un método de exploración acelerada de mínimos locales.
+Para dichas estructuras se calculó el cambio volumétrico fraccional, que resultó 
+en concordancia con experimentos de microscopía de fuerza atómica. También se 
+obtuvo una buena representación del comportamiento electroquímico al reproducir 
+la curva de potencial en función de la concentración de Li a partir de las 
+energías de las estructuras obtenidas. Se analizaron las funciones distribución 
+radial (RDF) y los números de coordinación de los primeros y segundos vecinos. 
+Mediante análisis de formación e interconexión de clusters se caracterizaron las 
+estructuras a los distintos valores de $x$ y se dilucidó la estructura compleja 
+observada en el segundo pico de la RDF de Si-Li, respectivamente. Por último, se 
+definió un parámetro que permitió determinar el orden de corto alcance de 
+estructuras amorfas y los tipos de interacciones.
+
+En el capítulo \ref{ch:modelo} se parametrizó un modelo DFTB (\textit{Density 
+Functional Tight-Binding}) para LiSi, que tiene una complejidad intermedia entre 
+DFT (\textit{Density Functional Theory}) y los campos de fuerza clásicos. Para 
+obtener el conjunto de parámetros se introdujo un algoritmo de ajuste que pondera
+las distintas estequiometrías que se consideran en el conjunto de entrenamiento 
+para mejorar la predicción de algún observable. En este caso se consideró como 
+objetivo las energías de formación relativas de las estructuras cristalinas de 
+LiSi, cuyas configuraciones atómicas fueron extraídas del Materials Project.
+A este conjunto de estructuras se le agregaron las producidas por compresiones y 
+expansiones isotrópicas, a las cuales se les analizaron sus perfiles de energía 
+comparándolos con los calculados con DFT. Con el modelo obtenido se realizaron
+predicciones óptimas de las energías de formación en el conjunto de entrenamiento 
+cristalino y en el conjunto de evaluación amorfo para todo el intervalo de
+concentraciones de Li presentes en la litiación de los ánodos de Si. Se compararon 
+los residuos de dichas predicciones con las que se obtendrían si se obviara el 
+paso del algoritmo de ajuste de pesos para demostrar los beneficios del mismo.
+Como las mayores discrepancias con DFT se observaron para Si amorfo puro, se 
+amorfizó una estructura de Si mediante un templado simulado y se analizó la RDF 
+que resultó en una reproducción excelente del experimento. Como conclusión 
+general de este capítulo, el modelo DFTB mostró robustez en sus predicciones al
+obtenerse una gran concordancia con DFT y superarse el desempeño del potencial 
+reactivo del estado-del-arte para este sistema.
+
+Utilizando el modelo DFTB desarrollado en en capítulo \ref{ch:modelo}, se 
+obtuvieron configuraciones atómicas de estructuras amorfas Li$_x$Si siguiendo un 
+protocolo de litiación de literatura ligeramente modificado. Las estructuras 
+obtenidas fueron analizadas en base a modelos que consideran los vecinos más 
+cercanos para predecir los resultados de mediciones de rayos x, RMN y Mössbauer.
+Para el caso de rayos x se computaron las RDFs parciales, de las cuales se obtuvo
+la distribución radial de a pares, $G(r)$, y se la comparó con la PDF 
+(\textit{Pair Distribution Function}) de un experimento de Si amorfo y otro de Si
+completamente litiado. Para este último caso se hizo un ajuste de coeficientes de 
+una combinación lineal de las distintas estructuras que pueden aparecer, como 
+sugieren los experimentos. Por otro lado, en los espectros de RMN de corrimiento 
+químico de $^7$Li suelen asignarse picos según si los vecinos de Si de los átomos de Li están
+enlazados o aislados. Siguiendo el argumento experimental, se realizó una 
+formulación matemática de esta hipótesis y se propuso un modelo para emular e 
+interpretar dichas mediciones. Por último, se propuso una dependencia lineal 
+entre la separación de picos en espectroscopia de Mössbauer y el mínimo de 
+concentración entre Li y Si. Cuando se usan las concentraciones locales para 
+realizar los cálculos se nota una mejora con respecto a los valores globales y
+una mejor representación del experimento. Para todos los casos las predicciones
+presentaron una buena concordancia con los experimentos.
