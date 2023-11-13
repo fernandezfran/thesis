@@ -1,12 +1,18 @@
 \chapter{Comentarios finales}\label{ch:comentarios}
 
-Las baterías de ion-litio han permitido que se desarrollara una gran variedad de
+Las baterías de ion-litio han permitido que se desarrollaran una gran variedad de
 dispositivos electrónicos, por ejemplo los teléfonos inteligentes o las 
 computadoras portátiles. A su vez son utilizadas en vehículos eléctricos y en 
 sistemas de almacenamiento estacionarios de energía para fuentes
 renovables, lo cual las convierte en un actor crucial para la sustitución de 
-los combustibles fósiles en el consumo energético. En esta tesis doctoral se 
-realizaron distintos modelados computacionales para estudiar electrodos de 
+los combustibles fósiles en el consumo energético. En rasgos generales, se puede
+afirmar que los dos grandes avances logrados aquí se refieren al establecimiento
+de una métrica universal sin precedentes para predecir y evaluar el cargado rápido
+de materiales al nivel de una partícula, y a la predicción de las propiedades de 
+aleaciones amorfas de Li-Si, uno los materiales más promisorios para ser empleado 
+como ánodos de baterías de ion-Li de próxima generación. De este modo, en esta 
+tesis doctoral se 
+\change{aplicaron} distintos modelados computacionales para estudiar electrodos de 
 baterías de ion-litio de próxima generación, las técnicas utilizadas fueron 
 introducidas en el capítulo \ref{ch:metodos}. Los resultados obtenidos están 
 divididos en dos partes: \textbf{Carga rápida de baterías de ion-litio} (Parte 
@@ -20,7 +26,7 @@ alcanzar el 80\% del Estado de la Carga (SOC) en 15 minutos, que es el criterio
 establecido para considerar que la batería sea de carga rápida. Además, se 
 desarrolló un software en Python que cumple con los requisitos establecidos por 
 la comunidad, es de libre acceso y fácil de usar para realizar el preprocesamiento
-de datos experimentales y las estimaciones con el modelo. En esta oportunidad, se 
+de datos experimentales y las estimaciones de parámetros que emplea el modelo. En esta oportunidad, se 
 utilizaron datos experimentales de literatura de distintos materiales de 
 relevancia en el área de estudio (NG, LTO, LFP, LCO, LMO, LNMO). Para todos ellos,
 en un preprocesamiento de los datos se obtuvo el SOC máximo en función de la 
@@ -80,7 +86,7 @@ obtener el conjunto de parámetros se introdujo un algoritmo de ajuste que ponde
 las distintas estequiometrías que se consideran en el conjunto de entrenamiento 
 para mejorar la predicción de algún observable. En este caso se consideró como 
 objetivo las energías de formación relativas de las estructuras cristalinas de 
-LiSi, cuyas configuraciones atómicas fueron extraídas del Materials Project.
+LiSi, cuyas configuraciones atómicas fueron extraídas de la base de datos del Materials Project.
 A este conjunto de estructuras se le agregaron las producidas por compresiones y 
 expansiones isotrópicas, a las cuales se les analizaron sus perfiles de energía 
 comparándolos con los calculados con DFT. Con el modelo obtenido se realizaron
@@ -92,7 +98,7 @@ paso del algoritmo de ajuste de pesos para demostrar los beneficios del mismo.
 Como las mayores discrepancias con DFT se observaron para Si amorfo puro, se 
 amorfizó una estructura de Si mediante un templado simulado y se analizó la RDF 
 que resultó en una reproducción excelente del experimento. Como conclusión 
-general de este capítulo, el modelo DFTB mostró robustez en sus predicciones al
+general de este capítulo, se encontró que el modelo DFTB mostró robustez en sus predicciones al
 obtenerse una gran concordancia con DFT y superarse el desempeño del potencial 
 reactivo del estado-del-arte para este sistema.
 
@@ -107,9 +113,9 @@ la distribución radial de a pares, $G(r)$, y se la comparó con la PDF
 completamente litiado. Para este último caso se hizo un ajuste de coeficientes de 
 una combinación lineal de las distintas estructuras que pueden aparecer, como 
 sugieren los experimentos. Por otro lado, en los espectros de RMN de corrimiento 
-químico de $^7$Li suelen asignarse picos según si los vecinos de Si de los átomos de Li están
+químico de $^7$Li suelen asignarse picos según el criterio de si los vecinos de Si de los átomos de Li están
 enlazados o aislados. Siguiendo el argumento experimental, se realizó una 
-formulación matemática de esta hipótesis y se propuso un modelo para emular e 
+formulación matemática de esta hipótesis y se propuso un modelo para simular e 
 interpretar dichas mediciones. Por último, se propuso una dependencia lineal 
 entre la separación de picos en espectroscopia de Mössbauer y el mínimo de 
 concentración entre Li y Si. Cuando se usan las concentraciones locales para 
