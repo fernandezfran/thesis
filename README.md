@@ -140,7 +140,11 @@ semi-empirical force field".
 
 ## Instructions to generate the thesis
 
-The thesis is compiled using the Makefile:
+To install all the requirements needed for the compilation of the thesis, run:
+```
+sudo bash requirements.sh
+```
+Then, the thesis can be compiled using the Makefile:
 ```
 cd src/
 make clean && make
