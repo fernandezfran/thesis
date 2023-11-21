@@ -2,17 +2,17 @@
 
 \subsubsection{Cambio de volumen fraccionario}
 
-El cambio de volumen fraccionario calculado con la ecuación \ref{eq:fvc} de la 
-sección \ref{ss:electrochim} para las distintas estructuras de Li$_x$Si estudiadas 
+El cambio de volumen fraccionario, calculado con la ecuación \ref{eq:fvc} de la 
+sección \ref{ss:electrochim}, para las distintas estructuras de Li$_x$Si estudiadas 
 se lo presenta en la Figura \ref{fig:fvc}. En la misma se comparan los valores 
 obtenidos con datos experimentales de AFM (\textit{atomic force microscopy}) 
 medidos por Beaulieu \textit{et al.} \cite{beaulieu2003} y con valores de DFT 
-fijos de cambio volumétrico utilizado por Chevrier y Dahn \cite{chevrier2009}. 
+de cambio volumétrico fijo utilizado por Chevrier y Dahn \cite{chevrier2009}. 
 Los mismos muestran que el potencial ReaxFF proporciona una tendencia correcta, 
 tanto cualitativa como cuantitativamente.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{Silicio/caracterizacion/resultados/electroquimica/fvc.png}
+    \includegraphics[width=0.7\textwidth]{Silicio/caracterizacion/resultados/electroquimica/fvc.png}
     \caption{Cambio de volumen fraccionario en función de la composición de la 
     aleación. Los valores experimentales de AFM se muestran con cuadrados azules, 
     la línea recta se corresponde con cálculos de DFT y los círculos naranjas son 
@@ -29,7 +29,7 @@ con la ecuación \ref{eq:formacion} de la sección \ref{ss:electrochim}, que se 
 en la Tabla \ref{t:fe}. Estas se utilizan luego para calcular el potencial 
 \textit{versus} Li metálico de Li$_x$Si, para lo cual se realiza un \textit{spline} 
 a estos valores, mostrados en el recuadro de la Figura \ref{fig:voltaje}, se obtienen
-los valores de $V(x)$ a partir de la ecuación \ref{eq:voltaje}, que se grafican en 
+los valores de $V(x)$ a partir de la ecuación \ref{eq:potencial}, que se grafican en 
 función de la composición en la Figura \ref{fig:voltaje} con una línea naranja. Para 
 comparar, se incluyen en la misma Figura las curvas experimentales medidas para la
 litiación y la delitiación de silicio amorfo \cite{hatchard2004} y la curva teórica 
@@ -37,7 +37,7 @@ de cálculos de primeros principios \cite{chevrier2009}. Se puede afirmar que lo
 resultados obtenidos con el ReaxFF son satisfactorios.
 \begin{table}[h!]
     \centering
-    \caption{Energías de formación obtenidas a través de la ecuación \ref{eq:fe}}
+    \caption{Energías de formación obtenidas a través de la ecuación \ref{eq:formacion}}
     \setlength\extrarowheight{2pt}\stackon{%
     \begin{tabular}{c c}
         \toprule
@@ -48,11 +48,11 @@ resultados obtenidos con el ReaxFF son satisfactorios.
         0.62  &  0.121 $\pm$ 0.007 \\
         1.25  & -0.12 $\pm$ 0.01 \\
         1.71  & -0.236 $\pm$ 0.007 \\
-        2.17  & -0.355 $\pm$ 0.008 \\
+        2.17  & -0.355 $\pm$ 0.0.7 \\
         2.71  & -0.410 $\pm$ 0.007 \\
         3.25  & -0.52 $\pm$ 0.01 \\
         3.75  & -0.62 $\pm$ 0.01 \\
-        4.20  & -0.699 $\pm$ 0.008 \\
+        4.20  & -0.699 $\pm$ 0.0.7 \\
         \bottomrule
     \end{tabular}
     }{}
@@ -60,7 +60,7 @@ resultados obtenidos con el ReaxFF son satisfactorios.
 \end{table}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{Silicio/caracterizacion/resultados/electroquimica/voltaje.png}
+    \includegraphics[width=0.7\textwidth]{Silicio/caracterizacion/resultados/electroquimica/voltaje.png}
     \caption{Curvas potencial-concentración para la litiación de ánodos de Si.
     La línea negra corresponde a cálculos de DFT, las líneas azules a 
     curvas medidas experimentalmente en la litiación de Si amorfo y la línea 

@@ -31,7 +31,7 @@ electrónica de referencia, $\rho^0$, y está definido como
         0& \text{si no}
     \end{cases}
 \end{equation}
-donde $\rho_A^0$ es la densidad de referencia de un átomo neutro $A$ y 
+donde $\rho_X^0$ es la densidad de referencia de un átomo neutro $X$ y 
 $v_{\text{eff}}$ el potencial KS efectivo, construido a partir de la superposición
 de densidades centradas en átomos neutros. En particular, los elementos de la 
 matriz del Hamiltoniano dependen solo de los átomos $A$ y $B$, por lo tanto sólo
@@ -70,4 +70,6 @@ potenciales repulsivos $V_{\text{rep}}(r)$ de cada par de átomos
 donde $i$ y $j$ son los índices de los átomos en el sistema y $r_{ij}$ es la 
 distancia entre ellos. Generalmente se considera que $V_{\text{rep}}$ es una
 función empírica que se determina al ajustar datos de cálculos de estructura 
-electrónica de un nivel superior, como DFT.
+electrónica de un nivel superior, como DFT. También se han utilizado métodos de 
+aprendizaje automático para ajustar el potencial de repulsión, por ejemplo, en 
+grafito \cite{panosetti2021, annies2021}.

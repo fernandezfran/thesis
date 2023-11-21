@@ -16,8 +16,8 @@ for aleacion in aleaciones:
 
 ax.set_xlim((2, 5.5))
 ax.set_ylim((-4.9, 18))
-ax.set_xlabel(r"r [$\AA$]")
-ax.set_ylabel(r"G(r) [$\AA^{-2}$]")
+ax.set_xlabel(r"r ($\AA$)")
+ax.set_ylabel(r"G(r) ($\AA^{-2}$)")
 
 ax.legend()
 

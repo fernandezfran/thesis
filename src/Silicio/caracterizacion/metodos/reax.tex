@@ -1,0 +1,48 @@
+\subsection{Campo de fuerzas}
+
+El campo de fuerzas de Fan \textit{et al.} ha sido ampliamente utilizado en 
+simulaciones de MD para estudiar el proceso de litiación de distintas estructuras
+de silicio, desde estructuras periódicas a nanoestructuras. Previo a la 
+realización del trabajo de este capítulo, se consultó la bibliografía para 
+verificar esto y asegurar la transferibilidad del potencial. 
+
+Además de los resultados reportados por Fan \textit{et al.} \cite{fan2013}, 
+la estructura, el estrés y la difusividad fue estudiada durante la litiación de 
+Si amorfo (a-Si) y Si cristalino (c-Si) en diferentes orientaciones 
+cristalográficas \cite{chen2020, kim2015}. Ding \textit{et al.} \cite{ding2017} 
+reportaron la variación de la velocidad de migración en la frontera de fases y la 
+difusividad de Li en función del estrés externo aplicado, demostrando que la 
+tensión acelera la velocidad de litiación, mientras que la compresión la retarda. 
+Kim \textit{et al.} \cite{kim2014} realizaron simulaciones de MD para caracterizar 
+la evolución estructural de la frontera de fases entre c-Si, con diferentes planos 
+de orientación, con una fase amorfa de litiación máxima. Posteriormente, Fan 
+\textit{et al.} \cite{fan2018} estudiaron nanoestructuras, computando la respuesta
+mecánica de nanopilares de c-Si en la orientación (111) durante la litiación.
+Un trabajo similar, pero para la orientación (100), fue realizado por Cao 
+\textit{et al.} \cite{cao2019}. Tang \textit{et al.} \cite{tang2019} investigaron
+la evolución y la permanencia de la porosidad de nanocapas de Si durante los 
+procesos de litiación y delitiación. Ostadhossein \textit{et al.} 
+\cite{ostadhossein2015} caracterizaron la litiación de nanohilos de c-Si y mostraron
+que este potencial ReaxFF reproduce en forma precisa las barreras de energía de 
+la migración de Li obtenidas por DFT, tanto en c-Si como en a-Si.
+
+La aplicación de este potencial no estuvo sólo limitada a simulaciones de MD, 
+sino que fue empleado en otros métodos de simulación, por ejemplo, simulaciones 
+de Monte Carlo en el ensamble gran canónico, que fueron realizadas para estudiar 
+un ciclo de litiación y delitiación de un electrodo de a-Si \cite{basu2019}. 
+Trochet y Mousseau \cite{trochet2017} caracterizaron el paisaje energético a 
+concentraciones relativamente bajas de impurezas de Li en c-Si, usando una 
+técnica de activación-relajación cinética. Kim \textit{et al.} \cite{kim2017} 
+desarrollaron un algoritmo para investigar la respuesta a la delitiación de una 
+capa delgada de silicio recubierta de óxido de aluminio. El ReaxFF también fue 
+combinado con otros campos de fuerza, como los potenciales de Tersoff y 
+Lennard-Jones, para simular la litiación de nanopartículas de Si recubiertas con 
+carbono, que permitieron observar una correlación entre el crecimiento del 
+estrés y la densidad de carga \cite{zheng2019,zheng2020}. Propiedades mecánicas 
+de interfase Si/SiO$_2$ litiada fueron reportadas por Verners y 
+Simone \cite{verners2019}. 
+
+No es posible llevar a cabo un estudio sobre las propiedades electrónicas con el 
+uso del ReaxFF, ya que esta es una de sus limitaciones. Sin embargo, de la 
+discusión previa, puede observarse que ha sido capaz de predecir un número 
+importante de propiedades del sistema Li-Si.

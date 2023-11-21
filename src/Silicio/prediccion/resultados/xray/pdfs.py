@@ -27,8 +27,8 @@ for i, (experimento, m, l) in enumerate(
 
 ax.set_xlim((2.1, 5.5))
 
-ax.set_xlabel(r"r [$\AA$]")
-ax.set_ylabel(r"G(r) [$\AA^{-2}$]")
+ax.set_xlabel(r"r ($\AA$)")
+ax.set_ylabel(r"G(r) ($\AA^{-2}$)")
 
 ax.legend()
 

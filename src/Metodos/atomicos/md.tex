@@ -24,7 +24,7 @@ de ensambles representativo de un sistema termodinámico aislado, los sistemas d
 conjunto de ensambles se distribuyen uniformemente, es decir, con igual 
 probabilidad o frecuencia, sobre los posibles estados con los valores
 especificados de dicho sistema termodinámico aislado}. En otras palabras, cada 
-estado esta representado por la misma cantidad de sistemas en el ensamble.
+estado está representado por la misma cantidad de sistemas en el ensamble.
 
 Cuando las \textit{fluctuaciones} son pequeñas, la función de distribución de 
 probabilidad de la variable mecánica $M$ tiene una forma gaussiana en torno a su 
@@ -41,7 +41,7 @@ de forma proporcional a la inversa de su raíz,
 \end{equation}
 
 Las simulaciones de Dinámica Molecular (MD, de sus siglas en inglés, 
-\textit{Molecular Dynamics}) consideran un sistema de clásico de muchos cuerpos 
+\textit{Molecular Dynamics}) consideran un sistema clásico de muchos cuerpos 
 interactuantes bajo un campo de fuerzas newtoniano para estudiar propiedades de 
 equilibrio y transporte. Dada la configuración de $N$ partículas se tiene el 
 siguiente sistema de ecuaciones de Newton por resolver
@@ -59,6 +59,12 @@ representativas a distintos instantes de tiempo de la trayectoria
 En la Figura \ref{fig:esquema_md} se muestra un diagrama de flujo de un algoritmo
 típico de dinámica molecular para entender el funcionamiento de esta técnica de 
 simulación. El mismo está conformado por las siguientes partes:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Metodos/atomicos/esquema.png}
+    \caption{Esquema de un diagrama de flujo de una dinámica molecular usual.}
+    \label{fig:esquema_md}
+\end{figure}
 \begin{enumerate}
     \item \textbf{Inicialización del sistema}: se especifican las posiciones y
         velocidades iniciales de los átomos, el tamaño y la forma de la celda de 
@@ -81,14 +87,9 @@ simulación. El mismo está conformado por las siguientes partes:
 \end{enumerate}
 Luego de este proceso se tiene la evolución temporal de las distintas propiedades
 termodinámicas de interés y la trayectoria del sistema para ser analizada 
-posteriormente, por ejemplo con los observables que se definen en la sección 
-\ref{s:observables}. A continuación se dan más detalles sobre cada uno de estos pasos.
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{Metodos/atomicos/esquema.png}
-    \caption{Esquema de un diagrama de flujo de una dinámica molecular usual.}
-    \label{fig:esquema_md}
-\end{figure}
+posteriormente, por ejemplo con los observables que se definirán en la sección 
+\ref{s:observables}. A continuación se dan más detalles sobre cada uno de los 
+pasos mencionados.
 
 
 \subsubsection{Inicialización del sistema}
@@ -132,7 +133,7 @@ metales, por ejemplo. El potencial de Coulomb \cite{coulomb} considera las
 partículas como cargas puntuales que interactúan electrostáticamente. Los 
 potenciales de Tersoff \cite{tersoff} o de Stillinger-Weber 
 \cite{stillinger-weber} se desarrollaron especialmente para el modelado de 
-materiales con enlaces covalentes fuertes.%, como es el caso del carbono o del silicio. 
+materiales con enlaces covalentes fuertes. %, como es el caso del carbono o del silicio. 
 El método del átomo embebido (EAM, de sus siglas en inglés) \cite{eam} 
 y el EAM modificado (MEAM) \cite{meam} están diseñados para simular sistemas 
 metálicos. Otros potenciales con enfoques más avanzados permiten simular
@@ -140,7 +141,11 @@ reacciones químicas en algunos sistemas, como es el caso de el COMB
 (\textit{charge-optimized many-body}) \cite{comb}, que incorpora una 
 equilibración de las cargas en el modelo, o el del ReaxFF (\textit{reactive 
 force fields}) \cite{reaxff}, que combina en un solo modelo distintas 
-componentes de las que fueron mencionadas. 
+componentes de las que fueron mencionadas. En el último tiempo también se han 
+desarrollado potenciales interatómicos de aprendizaje automático 
+\cite{behler2016, behler2017, deringer2019}, que no tienen una forma funcional con
+una interpretación física, si no más bien un mapeo entre las posiciones y la 
+fuerza o la energía de un cálculo de un nivel más complejo, como puede ser DFT.
 
 Para calcular la fuerza que actúa sobre el átomo $i$ se utiliza el opuesto 
 de la derivada del potencial,
@@ -208,8 +213,6 @@ En los capítulos \ref{ch:modelo} y \ref{ch:prediccion} se utiliza un enfoque
 híbrido que consiste en considerar el hamiltoniano del método DFTB, introducido 
 en la sección \ref{s:dftb}, en la ecuación \ref{eq:fuerzas} para calcular las 
 fuerzas en una dinámica molecular.
-
-% En el último tiempo también se han desarrollado potenciales interatómicos de aprendizaje automático \cite{behler2016, behler2017, deringer2019}. En estos casos no se tiene una forma funcional con una interpretación física, si no más bien un mapeo entre las posiciones y la fuerza o la energía de un cálculo de un nivel más complejo, como puede ser DFT.
 
 
 \subsubsection{Cómputo de propiedades termodinámicas}

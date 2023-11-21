@@ -12,7 +12,8 @@ de materiales de baterías reales, lo que tiene numerosas aplicaciones posibles.
 utilizarse como herramientas de diseño para 
 %facilitar nuevas arquitecturas de electrodos, celdas y paquetes de baterías, y evaluar su rendimiento, lo cual reduce la necesidad de diseñar prototipos costosos. También pueden ser utilizadas para determinar cuál de los distintos tipos de baterías disponibles en el mercado se adapta mejor a un caso de uso particular.
 predecir qué tamaño de partícula debería ser necesario para obtener una dada 
-performance del material.
+performance del material, como se realiza en la parte \ref{p:fast-charging} de 
+esta tesis.
 
 En esta tesis se utiliza un modelo de una sola partícula recientemente propuesto 
 \cite{gavilan2023} para construir diagramas galvanostáticos de la capacidad máxima 
@@ -27,12 +28,13 @@ y el otro de difusión finita,
 \end{equation}
 donde $k^0$ es la constante cinética, $D$ el coeficiente de difusión, $V/A$ es la 
 proporción volumen/superficie, $d$ es el tamaño característico de la partícula, 
-$C_r$ denota la C-rate y $t_h$ el tiempo de una hora (en las unidades que
-corresponda). Los parámetros de todas las ecuaciones que siguen a continuación se
-presentan en la Tabla \ref{t:params}.
+$t_h$ el tiempo de una hora (en las unidades que corresponda) y $C_r$ denota la 
+velocidad de carga galvanostática (C-rate), que indica cuántas veces se puede 
+cargar o descargar una batería en una hora. Los parámetros de todas las ecuaciones 
+que siguen a continuación se presentan en la Tabla \ref{t:params}.
 \begin{table}[h!]
     \centering
-    \caption{Parámetros involucrados en las ecuaciones del modelo de una sola partícula}
+    \caption{Parámetros involucrados en las ecuaciones del modelo de una sola partícula.}
     \setlength\extrarowheight{2pt}\stackon{%
     \begin{tabular}{l l}
         \toprule
@@ -43,7 +45,7 @@ presentan en la Tabla \ref{t:params}.
         $\ell = d (V/A) (C_r / (D t_h))$ & Parámetro galvanostático de difusión finita \\
         $D$ & Coeficiente de difusión del Li$^+$ \\
         $t, t_h$ & Tiempo y tiempo para una hora \\
-        $C_r$ & C-rate \\
+        $C_r$ & velocidad de carga galvanostática (C-rate) \\
         $x, x_s$ & Grado de intercalación en el electrodo y en la interfase \\ 
                  & electrodo/electrolito \\
         $Q, Q_{\max}$ & Capacidad y capacidad máxima \\ 
