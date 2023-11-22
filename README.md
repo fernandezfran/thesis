@@ -158,12 +158,6 @@ xdg-open thesis.pdf
 ```
 
 
-## Disclaimer
-
-This repo may not faithfully reflect the final version of the PhD thesis in its 
-entirety.
-
-
 ## License
 
 Modelado computacional para el desarrollo de electrodos de baterías de ion-litio 
