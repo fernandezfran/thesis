@@ -140,9 +140,11 @@ semi-empirical force field".
 
 ## Instructions to generate the thesis
 
-To install all the requirements needed for the compilation of the thesis, run:
+To install all the requirements needed for the compilation of the thesis in 
+a minimal installation (i.e. not the full `texlive` installation), run:
 ```
-sudo bash requirements.sh
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y $(cat requirements.txt)
 ```
 Then, the thesis can be compiled using the Makefile:
 ```

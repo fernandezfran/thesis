@@ -1,0 +1,6 @@
+build-essential
+texlive-base
+texlive-xetex
+texlive-fonts-extra
+texlive-lang-spanish
+latexmk
