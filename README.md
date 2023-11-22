@@ -1,5 +1,7 @@
 # Computational modeling for the development of next-generation lithium-ion battery electrodes
 
+[![License](https://img.shields.io/badge/License-CC%20BY%20SA%204.0-08fc04)](https://creativecommons.org/licenses/by-sa/4.0/)
+
 PhD thesis done at [FAMAF (Universidad Nacional de Córdoba)](https://www.famaf.unc.edu.ar/), 
 working in the [LAES](http://www.laesunc.com/laes/) computational area.
 
@@ -160,3 +162,10 @@ xdg-open thesis.pdf
 
 This repo may not faithfully reflect the final version of the PhD thesis in its 
 entirety.
+
+
+## License
+
+Modelado computacional para el desarrollo de electrodos de baterías de ion-litio 
+de próxima generación © 2024 by Francisco Fernandez is licensed under 
+[Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/)
