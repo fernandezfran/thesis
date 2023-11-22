@@ -141,7 +141,8 @@ semi-empirical force field".
 ## Instructions to generate the thesis
 
 To install all the requirements needed for the compilation of the thesis in 
-a minimal installation (i.e. not the full `texlive` installation), run:
+a minimal installation (i.e. not the full `texlive` installation), run in a 
+Linux terminal the following commands:
 ```
 sudo apt update
 sudo apt upgrade
@@ -159,8 +160,3 @@ xdg-open thesis.pdf
 
 This repo may not faithfully reflect the final version of the PhD thesis in its 
 entirety.
-
-
-## LICENSE
-
-https://creativecommons.org/licenses/by-nc-nd/4.0/
