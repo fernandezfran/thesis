@@ -2,4 +2,4 @@ instructivos/
 bib/
 correcciones/
 src/thesis.*
-src/!thesis.tex
+!src/thesis.tex
