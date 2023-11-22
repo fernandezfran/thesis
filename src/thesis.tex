@@ -1,13 +1,10 @@
-% 202? - Francisco Fernandez tesis template
+% 2024 - Francisco Fernandez tesis template
 %
 % https://github.com/fernandezfran/thesis
-\documentclass[12pt,spanish,a4paper,twoside]{book}
-\usepackage[spanish,es-nodecimaldot]{babel}
+\documentclass[12pt, spanish, a4paper, twoside]{book}
+\usepackage[spanish, es-nodecimaldot]{babel}
 
-% colores nord blues
 \usepackage{xcolor}
-% \definecolor{mycolor}{RGB}{94, 129, 172} % nord blue
-% \definecolor{mylcolor}{RGB}{129, 161, 193} % nord lighter blue
 \definecolor{mycolor}{RGB}{31, 119, 180}
 
 % TODO color, \change para cambiar
@@ -16,7 +13,7 @@
 \newcommand{\change}[1]{\textcolor{black}{#1}}
 
 % estilo de pagina
-%
+
 %% margenes
 \usepackage{geometry}
 \geometry{
@@ -25,35 +22,31 @@
 	left=20mm,
 	top=20mm,
 }
-%
-%% Sangría
+
+%% sangría
 \setlength\parindent{12pt}
-%
-%% Interlineado
+
+%% interlineado
 \usepackage{setspace}
 \onehalfspacing
-%
-%% Palatino font type
+
+%% palatino font type
 \usepackage[T1]{fontenc}
 \usepackage{mathpazo}
-%
+
 %% poder definir margenes de un parrafo (adjustwidth)
 \usepackage{changepage}
+
 %% encabezados de las páginas
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-%
+
 %%% línea horizontal superior
 \let\oldheadrule\headrule
 \renewcommand{\headrule}{\color{mycolor}\oldheadrule}
 \renewcommand{\headrulewidth}{0.8pt}
-%
-%%% línea horizonal inferior
-%\let\oldfootrule\footrule
-%\renewcommand{\footrule}{\color{mycolor}\oldfootrule}
-%\renewcommand{\footrulewidth}{0.8pt}
-%
+
 %%% header
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}}
@@ -63,10 +56,10 @@
 \fancyhead[CO]{\footnotesize\color{mycolor}\normalfont\bfseries\itshape\nouppercase{
     \textsc{\rightmark}}
 }
-%
+
 %%% footer
 \fancyfoot[CE,CO]{\color{mycolor}\bfseries\thepage}
-%
+
 %% carátula de capítulo
 \usepackage{sectsty}
 \usepackage{titlesec}
@@ -76,7 +69,7 @@
     {\chaptername\ \thechapter}
     {0pt}
     {\huge}
-%
+
 %% color de las secciones
 \partfont{\color{mycolor}}
 \sectionfont{\color{mycolor}}
@@ -84,27 +77,27 @@
 \subsubsectionfont{\color{mycolor}}
 \let\oldtextbf\textbf
 \renewcommand{\textbf}[1]{\textcolor{mycolor}{\oldtextbf{#1}}}
-%
+
 %% línea horizontal debajo de las secciones
 \titleformat{\section}
   {\normalfont\Large\bfseries\color{mycolor}}
   {\thesection}{1em}{}[{\titlerule[0.8pt]}]
-%
+
 %% index
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
-%
+
 %% show subsubsections in TOC
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{4}
-%
+
 %% Bibliografía por capítulo
-\usepackage{tocbibind}
 % \usepackage[square,numbers,sort,sectionbib]{natbib}
 % \usepackage{chapterbib}
-%% para que las citas no rompan el renglón
 \usepackage[square]{natbib}
+\usepackage{tocbibind}
 \renewcommand{\cite}{\citep}
+
 %% defino pagina en blanco
 \newcommand\blankpage{%
     \null
@@ -123,21 +116,21 @@
 }
 
 % para, desde el índice, poder clickear a que página ir
-\usepackage[breaklinks=true,hidelinks]{hyperref} 
+\usepackage[breaklinks=true, hidelinks]{hyperref} 
 
 % \say para las comillas
 \usepackage{dirtytalk}
 
 % para agregar imagenes (includegraphics)
 \usepackage{graphicx}
-% espeficicando el path de las imagenes, que se repetiría en todas las entradas
-% especifico paths desde acá
 \graphicspath{{./}}
-% subfiguras, definidas en columnas, por ej
-\usepackage{subcaption}
+% \usepackage{subcaption}
+
+%% para acomodar mejor las posiciones de figuras/tablas
+\usepackage{float}
 
 % para algunos símbolos en las ecuaciones
-\usepackage[fleqn]{amsmath}  % fleqn = flush left equations
+\usepackage[fleqn]{amsmath} 
 \setlength{\mathindent}{24pt}
 \usepackage{mathabx}
 
@@ -147,26 +140,22 @@
     \def\listtablename{\'Indice de tablas}%
     \def\tablename{Tabla}
 }
-%
+
 %% para poder separar los títulos en dos renglones
-\usepackage{adjustbox}\usepackage{mathtools}
+\usepackage{adjustbox}
+\usepackage{mathtools}
 \usepackage{array}
 \usepackage{makecell,booktabs}
 \usepackage{stackengine}
 \setstackEOL{\cr} %EOL is abbreviation for "end of line."
-
-% para acomodar mejor las posiciones de figuras/tablas
-\usepackage{float}
 
 \usepackage{colortbl}
 \arrayrulecolor{mycolor}
 
 % para agregar código Python
 \usepackage{listings}
-
 \definecolor{code-green}{RGB}{44, 160, 44}
 \definecolor{code-magenta}{RGB}{227, 119, 194}
-
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{white},
     commentstyle=\color{code-magenta},
