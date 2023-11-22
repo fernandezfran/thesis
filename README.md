@@ -143,13 +143,14 @@ semi-empirical force field".
 To install all the requirements needed for the compilation of the thesis in 
 a minimal installation (i.e. not the full `texlive` installation), run:
 ```
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt upgrade
 sudo apt install -y $(cat requirements.txt)
 ```
 Then, the thesis can be compiled using the Makefile:
 ```
 cd src/
-make clean && make
+make
 xdg-open thesis.pdf
 ```
 
