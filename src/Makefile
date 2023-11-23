@@ -1,4 +1,6 @@
-# https://mg.readthedocs.io/latexmk.html
+# Copyright (c) 2024, Francisco Fernandez
+# License: CC BY-SA 4.0
+#   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 COMPILER = latexmk
 thesis_flags = -pdf -pdflatex="pdflatex" -use-make -quiet
 clean_flags = -c
