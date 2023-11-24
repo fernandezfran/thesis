@@ -1,0 +1,4 @@
+*.tex   linguist-language=TeX
+*.py    linguist-language=Python
+Makefile linguist-language=Makefile
+*.tcl   linguist-language=Tcl
