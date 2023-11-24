@@ -140,7 +140,7 @@ semi-empirical force field".
 + Workshop on scientific programming techniques. _Córdoba, Argentina_. Jul 15–26, 2019.
 
 
-## Instructions to generate the thesis
+## Instructions to compile the thesis
 
 To install all the requirements needed for the compilation of the thesis in 
 a minimal installation (i.e. not the full `texlive` installation), run in a 
