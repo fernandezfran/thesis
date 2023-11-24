@@ -1,3 +1,4 @@
+# vmd -e config.tcl x-Si.xyz
 display projection Orthographic
 
 axes location off

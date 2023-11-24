@@ -1,3 +1,4 @@
+# $ vmd -e config.tcl config.lammpstrj
 display projection Orthographic
 
 axes location off
