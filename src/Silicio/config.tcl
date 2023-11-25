@@ -1,4 +1,5 @@
-# $ vmd -e config.tcl config.lammpstrj
+# tcl script for configure LiSi systems in VMD, run the following command:
+#   $ vmd -e config.tcl config.lammpstrj
 display projection Orthographic
 
 axes location off
@@ -18,4 +19,13 @@ set litios [atomselect top "type == 2"]
 $silicios set radius 0.3
 $litios set radius 0.2
 
-mol representation VDW
+mol delrep 0 0
+
+mol representation VDW 1.0 32
+mol selection all
+mol addrep 0
+
+mol representation DynamicBonds 3.0 0.1 32
+# mol selection {Name Si}
+mol selection {type 1}
+mol addrep 0

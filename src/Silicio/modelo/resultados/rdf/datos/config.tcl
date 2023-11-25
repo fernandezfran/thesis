@@ -17,9 +17,11 @@ color change rgb blue 0.121569 0.466667 0.705882
 color Name S blue
 
 mol delrep 0 0
+
 mol representation VDW 0.2 32
 mol selection all
 mol addrep 0
+
 mol representation DynamicBonds 3.0 0.1 32
 mol selection all
 mol addrep 0
