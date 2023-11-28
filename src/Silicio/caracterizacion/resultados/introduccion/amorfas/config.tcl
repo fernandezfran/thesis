@@ -1,3 +1,7 @@
+# Copyright (c) 2024, Francisco Fernandez
+# License: CC BY-SA 4.0
+#   https://github.com/fernandezfran/thesis/blob/main/LICENSE
+#
 # tcl script for configure LiSi systems in VMD, run the following command:
 #   $ vmd -e config.tcl config.lammpstrj
 display projection Orthographic

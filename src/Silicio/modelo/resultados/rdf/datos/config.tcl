@@ -1,3 +1,7 @@
+# Copyright (c) 2024, Francisco Fernandez
+# License: CC BY-SA 4.0
+#   https://github.com/fernandezfran/thesis/blob/main/LICENSE
+#
 # tcl script for configure crystall and amorphous Si in VMD, it wraps the atom
 # position to the simulation cell using periodic boundary conditions, run the 
 # following command:
