@@ -111,12 +111,13 @@ Las velocidades de los átomos suelen ser generadas de manera aleatoria, a trav�
 de un generador de números pseudo-aleatorio, tomando como argumento una semilla 
 para la reproducibilidad de la simulación y una temperatura deseada para el
 sistema. Estos números son generados con una distribución gaussiana, donde el 
-centro se lo fija a cero para que no haya una velocidad en el centro de masa y 
+centro se fija a cero para que no haya una velocidad en el centro de masa y 
 el ancho está relacionado a la temperatura seleccionada.
 
 Además de dar la configuración inicial de los átomos, es necesario especificar si
-los mismos se encuentran dentro de una celda de simulación con un tamaño en
-particular para cada una de las direcciones del sistema o si no interactúan fuera
+los mismos se encuentran dentro de una celda de simulación, con un tamaño en
+particular para cada una de las direcciones del sistema, o si %no
+interactúan fuera
 del borde de la estructura que conforman los mismos. En el primero de los casos
 se tienen condiciones periódicas de contorno (PBC, por sus siglas en inglés, 
 \textit{periodic boundary conditions}), que busca reproducir un sistema infinito,
@@ -296,9 +297,9 @@ térmico lo suficientemente grande. En dicho caso la probabilidad de encontrar a
 sistema en un estado de energía viene dada por la distribución de 
 Maxwell-Boltzmann,
 \begin{equation}\label{eq:mb}
-    P(v) = \left( \frac{\beta}{2\pi m} \right)^{3/2} exp(-\beta v^2 / (2m)),
+    P(p) = \left( \frac{\beta}{2\pi m} \right)^{3/2} exp(-\beta p^2 / (2m)),
 \end{equation}
-donde $\beta$ es la energía térmica $k_B T$. Esto quiere decir que la velocidad 
+donde $\beta$ es la energía térmica $1 / (k_B T)$. Esto quiere decir que la velocidad 
 de un átomo no se mantiene constante cuando está en contacto con un baño térmico, 
 si no que la misma puede fluctuar y la fluctuación va a depender de dicha 
 temperatura de la siguiente forma

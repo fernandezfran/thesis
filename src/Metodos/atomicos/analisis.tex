@@ -17,7 +17,7 @@ distribution function}), usualmente referida como $g(r)$, permite caracterizar l
 estructura local de un fluido describiendo la probabilidad de encontrar un átomo
 en una cáscara a una distancia $r$ de un átomo de referencia,
 \begin{equation}\label{eq:rdf}
-    g(r) = \frac{V}{N^2} \sum_{i=1}^N \sum_{i \neq j} \delta(r - r_{ij}),
+    g(r) = \frac{V}{N} \sum_{i=1}^N \sum_{i \neq j} \delta(r - r_{ij}),
 \end{equation}
 donde $V$ es el volumen de la celda de simulación, $N$ el número de átomos y 
 $r_{ij}$ la distancia entre el átomo $i$ y el $j$. Esta cantidad también puede 
@@ -82,7 +82,7 @@ este caso se considera la $g_{\text{AB}}(r)$ correspondiente.
 
 La energía de formación $F(\mathbf{r})$ de un compuesto es la energía que se requiere para generar 
 una estructura a partir de los elementos puros de sus constituyentes. En particular, para un sistema binario A$_x$B (donde $x$ es la 
-cantidad de átomos de A en la estructura B) con la configuración atómica
+cantidad de átomos de A en el sistema donde hay una estructura B) con la configuración atómica
 $\mathbf{r}$, se la puede calcular de la siguiente manera
 \begin{equation}\label{eq:formacion}
     F(\mathbf{r}) = E_{\text{A}_x\text{B}}(\mathbf{r}) - \frac{x E_{\text{A}} + E_{\text{B}}}{x + 1},
