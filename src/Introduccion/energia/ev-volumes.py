@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Copyright (c) 2024, Francisco Fernandez
+# License: CC BY-SA 4.0
+#   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 import matplotlib.pyplot as plt
 import numpy as np
 

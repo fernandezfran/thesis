@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Copyright (c) 2024, Francisco Fernandez
+# License: CC BY-SA 4.0
+#   https://github.com/fernandezfran/thesis/blob/main/LICENSE
+
 """Todos los histogramas de energias potencial."""
 
 import matplotlib.pyplot as plt
