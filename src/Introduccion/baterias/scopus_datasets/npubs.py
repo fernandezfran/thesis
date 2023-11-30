@@ -17,11 +17,13 @@ markers = ["s", "^", "o"]
 labels = ["LIBs", "Carga rápida", "Ánodos de Si"]
 
 fig, ax = plt.subplots()
+
 for file, marker, label in zip(files, markers, labels):
-    df = pd.read_csv(file)
+    dataset = pd.read_csv(file)
+
     ax.plot(
-        df["year"],
-        df["npub"] / df["npub"].iloc[-1],
+        dataset["year"],
+        dataset["npub"] / dataset["npub"].iloc[-1],
         marker=marker,
         ls="--",
         label=label,
@@ -38,5 +40,3 @@ ax.set_yscale("log")
 
 fig.tight_layout()
 fig.savefig("../scopus.png", dpi=600)
-
-plt.show()

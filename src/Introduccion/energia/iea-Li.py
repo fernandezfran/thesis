@@ -16,7 +16,7 @@ df = pd.DataFrame(
     }
 )
 
-print((df["ev"] + df["es"] + df["ed"]).pct_change())
+print((df[["ev", "es", "ed"]]).pct_change())
 
 categorias = [
     "Vehículos eléctricos",
@@ -29,13 +29,20 @@ fig, ax = plt.subplots()
 
 ax.bar(df["year"], heights[0], label=categorias[0], width=1.5)
 for i in range(1, len(categorias)):
-    ax.bar(df["year"], heights[i], width=1.5, bottom=sum(heights[:i]), label=categorias[i])
+    ax.bar(
+        df["year"],
+        heights[i],
+        width=1.5,
+        bottom=sum(heights[:i]),
+        label=categorias[i],
+    )
 
 ax.set_xticks(df["year"])
 ax.set_xlabel("Año")
+
 ax.set_ylabel("Demanda total de litio (kt)")
+
 ax.legend()
 
 fig.tight_layout()
 fig.savefig("iea-Li.png", dpi=600)
-plt.show()

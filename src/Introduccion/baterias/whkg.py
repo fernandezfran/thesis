@@ -6,34 +6,21 @@
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 import matplotlib.pyplot as plt
 
-for year, whkg in [
-    (1992, 81),
-    (1995, 111),
-    (1996, 122),
-    (1998, 141),
-    (2000, 160),
-    (2001, 166),
-    (2002, 171),
-    (2005, 212),
-    (2008, 227),
-    (2012, 263),
-    (2015, 301),
-    (2023, 360),
-]:
-    if year == 1992:
-        x, y = 1992, 200
-        plt.text(x, y, "Sony")
-        plt.arrow(x + 1, y - 5, -0.85, -100, fc="k", head_width=0.5, head_length=5)
-    elif year == 2023:
-        x, y = 2019, 200
-        plt.text(2019, 200, "WeLion")
-        plt.arrow(x + 2, y + 15, 1.85, 130, fc="k", head_width=0.5, head_length=5)
+years = [1992, 1995, 1996, 1998, 2000, 2001, 2002, 2005, 2008, 2012, 2015, 2023]
+whkg = [81, 111, 122, 141, 160, 166, 171, 212, 227, 263, 301, 360]
 
-    plt.scatter(year, whkg, c="tab:blue")
+plt.scatter(years, whkg, c="tab:blue")
+
+plt.text(1992, 200, "Sony")
+plt.arrow(1993, 195, -0.85, -100, fc="k", head_width=0.5, head_length=5)
+
+plt.text(2019, 200, "WeLion")
+plt.arrow(2021, 215, 1.85, 130, fc="k", head_width=0.5, head_length=5)
 
 plt.xticks(range(1990, 2026, 5))
 plt.xlabel("Año")
 plt.ylabel("Densidad de energía (Wh/kg)")
 plt.ylim((0, 400))
 
+plt.tight_layout()
 plt.savefig("whkg.png", dpi=600)

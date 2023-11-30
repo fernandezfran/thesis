@@ -14,10 +14,7 @@ files = [
 
 print("archivo: % promedio de incremento anual")
 for file in files:
-    df = pd.read_csv(file)
+    dataset = pd.read_csv(file)
+    dataset = dataset.sort_values(by="year", ascending=True)
 
-    df = df.sort_values(by="year", ascending=True)
-
-    df["pct_change"] = df["npub"].pct_change()
-
-    print(f"{file}: {df['pct_change'][10:].mean():.2f}")
+    print(f"{file}: {dataset.npub.pct_change()[10:].mean():.2f}")
