@@ -4,8 +4,8 @@
 # Copyright (c) 2024, Francisco Fernandez
 # License: CC BY-SA 4.0
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
-import numpy as np
 import galpynostatic
+import numpy as np
 
 # datos del grafito
 C_rates = np.array([0.1, 0.2, 1 / 3, 0.5, 1, 3, 5, 7, 10]).reshape(-1, 1)
