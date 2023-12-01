@@ -35,9 +35,9 @@ pip install -r requirements_Python.txt
 ```
 
 The structures were inspected with VMD 1.9.4a57, Tcl configuration scripts are 
-provieded for the same purpose and can be run as
+provided for the same purpose and can be run as
 ```
-vmd -e config.tcl <input_structure>
+vmd -e src/Silicio/config.tcl <input_structure>
 ```
 
 

@@ -43,7 +43,7 @@ ax1.set_ylim((1e-15, 1e-6))
 ax1.set_ylabel(r"Tamaño geométrico al cuadrado $d^2$ [$m^2$]")
 ax1.set_yscale("log")
 
-cmap = cm.get_cmap("viridis")
+cmap = plt.colormaps["viridis"]
 sm = plt.cm.ScalarMappable(cmap=cmap)
 clb = fig.colorbar(sm, ax=ax1, location="right")
 clb.ax.set_ylabel("UMBEM")
@@ -86,5 +86,4 @@ ax2.set_xlabel("FOM")
 ax2.set_ylim((0, 1))
 ax2.set_ylabel("UMBEM")
 
-fig.tight_layout()
 plt.savefig("xiacomp.png", dpi=600)

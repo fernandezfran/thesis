@@ -6,13 +6,12 @@
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 import galpynostatic
 import matplotlib.pyplot as plt
-import matplotlib.cm as cm
 import numpy as np
 import pandas as pd
 import scipy.stats
 
 plt.rcParams.update({"font.size": 12})
-cmap = cm.get_cmap("viridis")
+cmap = plt.colormaps["viridis"]
 
 dataset = pd.read_csv("datasets/experimental_data.csv")
 

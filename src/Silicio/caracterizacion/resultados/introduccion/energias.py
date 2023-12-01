@@ -46,7 +46,6 @@ for i, (x, ancho) in enumerate(zip([0.21, 2.17, 4.2], [0.002, 0.0009, 0.0009])):
     dataset = pd.read_csv(
         f"datasets/md/{x}.dat", delimiter="\s+", comment="#", names=["bins", "freq"]
     )
-    print(dataset)
     axes[i][i].bar(
         dataset["bins"],
         dataset["freq"],

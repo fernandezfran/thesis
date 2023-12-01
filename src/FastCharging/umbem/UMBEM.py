@@ -62,5 +62,4 @@ ax2.set_xticklabels(socs.keys())
 ax2.set_ylim((0, 1))
 ax2.set_ylabel("UMBEM")
 
-fig.tight_layout()
 plt.savefig("UMBEM.png", dpi=600)

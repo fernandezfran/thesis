@@ -89,5 +89,4 @@ ax2.set_yscale("log")
 ax2.set_ylim((0.01, 30))
 ax2.set_ylabel(r"$\log{\left(d_{opt} / d_{exp}\right)}$")
 
-fig.tight_layout()
 fig.savefig("sizes.png", dpi=600)
