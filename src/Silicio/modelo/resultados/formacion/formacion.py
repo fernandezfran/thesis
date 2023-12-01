@@ -4,7 +4,6 @@
 # Copyright (c) 2024, Francisco Fernandez
 # License: CC BY-SA 4.0
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -12,7 +11,7 @@ plt.rcParams.update({"font.size": 16})
 
 fig, ax = plt.subplots(ncols=2, figsize=(13, 5))
 
-cristales = pd.read_csv("datos/cristales.csv")
+cristales = pd.read_csv("datasets/cristales.csv")
 
 ax[0].plot(cristales.x, cristales.dft, color="k", marker="o", ls="--", label="DFT")
 ax[0].plot(
@@ -37,6 +36,7 @@ ax[0].plot(
 
 ax[0].set_xlim((0, 1))
 ax[0].set_xlabel("Fracción molar de Si")
+
 ax[0].set_ylim((-0.32, 0.05))
 ax[0].set_ylabel("Energía de formación (eV)")
 
@@ -44,8 +44,9 @@ ax[0].text(0.0, 1.05, "(a)", transform=ax[0].transAxes)
 
 ax[0].legend(ncol=4, bbox_to_anchor=(2.1, 1.15))
 
+amorfos = pd.read_csv("datasets/amorfos.csv")
+
 ax[1].plot(cristales.x, cristales.dft, color="k", marker="o", ls="--", alpha=0.25)
-amorfos = pd.read_csv("datos/amorfos.csv")
 ax[1].plot(amorfos.x, amorfos.dft, color="k", marker="o", ls="--")
 ax[1].plot(amorfos.x, amorfos.reax, color="tab:orange", marker="x", ls="--")
 ax[1].plot(amorfos.x, amorfos.dftba, color="tab:blue", marker="^", ls="--")
@@ -53,6 +54,7 @@ ax[1].plot(amorfos.x, amorfos.dftbb, color="tab:green", marker="v", ls="--")
 
 ax[1].set_xlim((0, 1))
 ax[1].set_xlabel("Fracción molar de Si")
+
 ax[1].set_ylim((-0.37, 0.84))
 
 ax[1].text(0.92, 1.05, "(b)", transform=ax[1].transAxes)

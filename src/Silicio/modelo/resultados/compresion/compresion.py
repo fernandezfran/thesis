@@ -4,7 +4,6 @@
 # Copyright (c) 2024, Francisco Fernandez
 # License: CC BY-SA 4.0
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -24,14 +23,15 @@ cristales = ["Li", "Li15Si4", "Li13Si4", "Li7Si3", "Li12Si7", "LiSi", "Si"]
 fig, ax = plt.subplots()
 
 for color, cristal in zip(colores, cristales):
-    df = pd.read_csv(f"datos/{cristal}.csv")
+    dataset = pd.read_csv(f"datasets/{cristal}.csv")
 
-    ax.plot(df.cf, df.dft, color=color, label=cristal)
-    ax.scatter(df.cf, df.dftba, marker="^", color=color)
-    ax.scatter(df.cf, df.dftbb, marker="v", color=color)
+    ax.plot(dataset.cf, dataset.dft, color=color, label=cristal)
+    ax.scatter(dataset.cf, dataset.dftba, marker="^", color=color)
+    ax.scatter(dataset.cf, dataset.dftbb, marker="v", color=color)
 
 ax.set_xlim((0.68, 1.48))
 ax.set_xlabel("Factor de compresión")
+
 ax.set_ylim((-6, 2))
 ax.set_ylabel("Energía (eV)")
 
