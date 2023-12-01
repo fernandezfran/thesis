@@ -19,7 +19,7 @@ Linux terminal the following commands:
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install -y $(cat requirements.txt)
+sudo apt install -y $(cat requirements_TeX.txt)
 ```
 Then, the thesis can be compiled using the Makefile:
 ```
@@ -31,7 +31,7 @@ xdg-open thesis.pdf
 To run the Python scripts to generate the figures of the thesis, the required 
 libraries must be installed as follows:
 ```
-pip install -r src/requirements.txt
+pip install -r requirements_Python.txt
 ```
 
 
