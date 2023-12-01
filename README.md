@@ -28,14 +28,14 @@ make
 xdg-open thesis.pdf
 ```
 
-To run the Python scripts to generate the figures of the thesis, the required 
-libraries must be installed as follows:
+The figures of the thesis were generated using Python 3.11.6 with the specified
+versions of libraries that can be installed as follows:
 ```
 pip install -r requirements_Python.txt
 ```
 
-For the inspection of the structures VMD needs to be installed, Tcl 
-configuration scripts are provided and can be run as
+The structures were inspected with VMD 1.9.4a57, Tcl configuration scripts are 
+provieded for the same purpose and can be run as
 ```
 vmd -e config.tcl <input_structure>
 ```
