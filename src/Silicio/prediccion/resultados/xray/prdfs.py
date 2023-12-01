@@ -6,24 +6,24 @@
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 import matplotlib.colors
 import matplotlib.pyplot as plt
-
 import numpy as np
-
 import pandas as pd
 
+plt.rcParams.update({"font.size": 16})
+
+
 def _color_fader(mix, first_color="tab:blue", second_color="tab:green"):
-    """Color fader function."""
-    c1 = np.array(matplotlib.colors.to_rgb(first_color))
-    c2 = np.array(matplotlib.colors.to_rgb(second_color))
-    return matplotlib.colors.to_hex((1 - mix) * c1 + mix * c2)
+    return matplotlib.colors.to_hex(
+        (1 - mix) * np.array(matplotlib.colors.to_rgb(first_color))
+        + mix * np.array(matplotlib.colors.to_rgb(second_color))
+    )
 
 
 def _colormap():
-    """Color map function generated with color fader function."""
-    colors = [_color_fader(v) for v in np.linspace(0, 1, num=100)]
-    return matplotlib.colors.ListedColormap(colors)
+    return matplotlib.colors.ListedColormap(
+        [_color_fader(v) for v in np.linspace(0, 1, num=100)]
+    )
 
-plt.rcParams.update({"font.size": 16})
 
 fig, ax = plt.subplots(nrows=1, ncols=3, sharey=True, figsize=(12, 4))
 
@@ -35,17 +35,18 @@ clb.ax.set_ylabel(r"$x$ en Li$_x$Si")
 
 for k, (central, interact) in enumerate(zip(["Li", "Si", "Si"], ["Li", "Li", "Si"])):
 
-    xs = ["0.20", "0.56", "0.89", "1.50", "2.00", "2.50", "3.28", "3.75"]
+    xvals = ["0.20", "0.56", "0.89", "1.50", "2.00", "2.50", "3.28", "3.75"]
 
-    for x in xs:
-        df = pd.read_csv(f"datos/rdf-{x}-{central}-{interact}.csv")
-        ax[k].plot(df.r, df.rdf, color=cmap(float(x) / 3.75))
-
-    ax[k].set_xlabel(r"r [$\AA$]")
-    ax[k].set_ylabel("")
-    ax[k].set_title(f"{central}-{interact}")
+    for x in xvals:
+        dataset = pd.read_csv(f"datasets/rdf-{x}-{central}-{interact}.csv")
+        ax[k].plot(dataset.r, dataset.rdf, color=cmap(float(x) / 3.75))
 
     ax[k].set_xlim((1.5, 6))
+    ax[k].set_xlabel(r"r [$\AA$]")
+
+    ax[k].set_ylabel("")
+
+    ax[k].set_title(f"{central}-{interact}")
 
     ax[k].grid(linestyle=":")
 
