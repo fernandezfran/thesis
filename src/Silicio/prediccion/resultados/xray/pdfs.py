@@ -13,9 +13,7 @@ fig, ax = plt.subplots()
 
 for i, (experimento, m) in enumerate(zip(["litiad", "amorf"], ["^", "v"])):
     dataset = pd.read_csv(f"datasets/pdf-{experimento}a.csv")
-    ax.scatter(
-        dataset.r, dataset.gofr, color="k", marker=m, label=f"Si {experimento}o"
-    )
+    ax.scatter(dataset.r, dataset.gofr, color="k", marker=m, label=f"Si {experimento}o")
 
     for metodo, c, ls, l in zip(
         ["cristal", "DFTB"],
