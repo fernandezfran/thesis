@@ -28,6 +28,12 @@ make
 xdg-open thesis.pdf
 ```
 
+To run the Python scripts to generate the figures of the thesis, the required 
+libraries must be installed as follows:
+```
+pip install -r src/requirements.txt
+```
+
 
 ## PhD requirements fulfilled
 
