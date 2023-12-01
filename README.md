@@ -1,9 +1,8 @@
 # Computational modeling for the development of next-generation lithium-ion battery electrodes
 
-[![License](https://img.shields.io/badge/License-CC%20BY%20SA%204.0-08fc04)](https://creativecommons.org/licenses/by-sa/4.0/)
+> PhD thesis done at [FAMAF (Universidad Nacional de Córdoba)](https://www.famaf.unc.edu.ar/), working in the [LAES](http://www.laesunc.com/laes/) computational area.
 
-PhD thesis done at [FAMAF (Universidad Nacional de Córdoba)](https://www.famaf.unc.edu.ar/), 
-working in the [LAES](http://www.laesunc.com/laes/) computational area.
+[![License](https://img.shields.io/badge/License-CC%20BY%20SA%204.0-08fc04)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 **Advisors**: [Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) (FAMAF, Universidad Nacional de Córdoba) & [Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en) (FCQ, Universidad Nacional de Córdoba).
 
