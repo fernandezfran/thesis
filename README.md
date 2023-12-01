@@ -34,6 +34,12 @@ libraries must be installed as follows:
 pip install -r requirements_Python.txt
 ```
 
+For the inspection of the structures VMD needs to be installed, Tcl 
+configuration scripts are provided and can be run as
+```
+vmd -e config.tcl <input_structure>
+```
+
 
 ## PhD requirements fulfilled
 
