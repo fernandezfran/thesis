@@ -7,12 +7,13 @@
 import galpynostatic
 import matplotlib.pyplot as plt
 
-plt.rcParams.update({'font.size': 14})
+plt.rcParams.update({"font.size": 14})
+
+fig, ax = plt.subplots(figsize=(6, 5))
 
 greg = galpynostatic.model.GalvanostaticRegressor()
 greg.fit([[4.0], [5.0]], [0.8, 0.9])
 
-fig, ax = plt.subplots(figsize=(6, 5))
 ax = greg.plot.render_map(ax=ax, clb_label="valor máximo del SOC")
 
 ax.plot([-4, 1.75], [0, 0], ls="--", color="tab:gray")
@@ -29,4 +30,5 @@ ax.text(1.4, 0.67, "B", color="tab:red")
 
 ax.text(-4., 2.25, "(a)")
 
+fig.tight_layout()
 plt.savefig("diagnosis-map.png", dpi=600)
