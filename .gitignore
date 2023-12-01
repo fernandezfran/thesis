@@ -1,5 +1,6 @@
 instructivos/
 bib/
 correcciones/
+__pycache__/
 src/thesis.*
 !src/thesis.tex
