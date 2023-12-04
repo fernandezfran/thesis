@@ -8,6 +8,8 @@
 
 **Thesis committee**: [Dr. Roberto M. Torresi](https://scholar.google.com/citations?user=1EOqiw0AAAAJ&hl=en&oi=ao) (IQ, Universidade de São Paulo), [Dr. Alejandro A. Franco](https://scholar.google.com/citations?user=tzx61H8AAAAJ&hl=en&oi=ao) (LRCS, Université de Picardie Jules Verne), [Dr. Fabián Vaca Chávez](https://scholar.google.com/citations?user=XZEcNGQAAAAJ&hl=en&oi=ao) (FAMAF, Universidad Nacional de Córdoba), [Dra. Mariela G. Ortiz](https://scholar.google.com/citations?user=YlOo-_4AAAAJ&hl=en&oi=ao) (INIFTA, Universidad Nacional de La Plata) & [Dr. Andrés Ruderman](https://www.conicet.gov.ar/new_scp/detalle.php?id=43175&datos_academicos=yes) (FAMAF, Universidad Nacional de Córdoba).
 
+**Dissertation**: Presented to the Faculty of Mathematics, Astronomy, Physics and Computer Science of the NATIONAL UNIVERSITY OF CÓRDOBA on March dd, 2024.
+
 **Abstract**: TODO
 
 
@@ -42,12 +44,6 @@ vmd -e src/Silicio/config.tcl <input_structure>
 
 
 ## PhD requirements fulfilled
-
-### Dissertation
-
-Presented to the Faculty of Mathematics, Astronomy, Physics and Computer Science 
-of the NATIONAL UNIVERSITY OF CÓRDOBA on March dd, 2024.
-
 
 ### Postgraduate courses
 
