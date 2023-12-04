@@ -63,6 +63,9 @@ Además, \path{galpynostatic} está disponible para su instalación en el \path{
 %TODO
 %
 %
+%\section{lithiation code}
+%
+%
 %\section{macchiato}
 %
 %TODO
@@ -71,50 +74,3 @@ Además, \path{galpynostatic} está disponible para su instalación en el \path{
 %Li$_{13}$Si$_{4}$ mediante el uso del modelo a primeros vecinos introducido en 
 %el capítulo TODO:
 %\lstinputlisting[language=Python]{apendices/ejemplo_macchiato.py}
-%
-%
-%\section{Otros códigos}
-%
-%\subsection{sierras}
-%Con \path{sierras} se automatiza el proceso de ajustar la ecuación de Arrhenius 
-%(\ref{eq:arrhenius}) en procesos difusivos y la obtención de información a partir 
-%de la misma. Este código también se encuentra público 
-%(\url{https://github.com/fernandezfran/sierras}) y cada vez que se realiza un 
-%cambio se llevan a cabos tests unitarios sobre distintos datos extraídos de 
-%literatura. Un ejemplo simple de como se utiliza se presenta a continuación:
-%
-%\lstinputlisting[language=Python]{apendices/ejemplo_sierras.py}
-%
-%La versión inicial de este código fue presentada como trabajo final en la materia
-%\href{https://github.com/leliel12/diseno_sci_sfw}{\tt Diseño de software para 
-%cómputo científico.}
-%
-%\subsection{exma}
-%Para analizar trayectorias de dinámica molecular, dentro de la comunidad de Python
-%se encuentra la librería \path{MDAnalysis} \cite{mdanalysis1, mdanalysis2}. Sin
-%embargo, no todos los observables descriptos en la sección \ref{s:observables}
-%han sido implementados, por ejemplo, no se puede calcular directamente el número
-%de coordinación. Para ello se escribió \path{exma}
-%(\url{https://github.com/fernandezfran/exma}), que además de contar con esta
-%implementación presenta distintas facilidades para computar observables 
-%electroquímicos presentados en distintos capítulos de esta tesis. Algunas partes
-%de este software han sido escritas en \path{C}, para tener mayor velocidad de 
-%cálculo, y tienen una interfaz en Python para ser utilizadas.
-%
-%\subsection{aelm}
-%Para el método de exploración acelerada de mínimos locales, introducido en 
-%la sección \ref{s:aelm} del capítulo \ref{ch:caracterizacion}, se escribió un 
-%módulo de Python, \path{aelm} (\url{https://github.com/fernandezfran/aelm}), que 
-%toma una trayectoria de una dinámica molecular sesgada, minimiza cada uno de los 
-%frames con algún programa de dinámica molecular a elección (\path{LAMMPS} o 
-%\path{GEMS}, por ejemplo) y guarda las configuraciones atómicas y las energías 
-%para su posterior análisis, como se realizó en el capítulo 
-%\ref{ch:caracterizacion} ¿o TODO?
-%
-%\subsection{cluster-connections}
-%Se escribió un código en \path{C++}, 
-%\url{https://github.com/fernandezfran/cluster-connections}, con un algoritmo de
-%\textit{clustering} para deconvolucionar numéricamente el segundo pico de la RDF
-%según la cantidad de vecinos que interconectan a segundos vecinos, como se analizó
-%en la sección \ref{s:interconexion} del capítulo \ref{ch:caracterizacion}, 
-%en la figura \ref{fig:interconexiones}.

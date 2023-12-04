@@ -17,4 +17,4 @@ greg._map = galpynostatic.datasets.map.MapSpline(spherical)
 greg.plot.render_map(clb_label="UMBEM")
 
 plt.tight_layout()
-plt.savefig("_mapa.png", dpi=600)
+plt.savefig("mapa.png", dpi=600)

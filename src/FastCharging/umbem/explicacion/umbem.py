@@ -50,4 +50,4 @@ ax.set_ylabel(r"$E - E^0$ (V)")
 ax.set_ylim((-0.4, 0.2))
 
 fig.tight_layout()
-fig.savefig("_umbem.png", dpi=600)
+fig.savefig("umbem.png", dpi=600)
