@@ -84,19 +84,13 @@ batteries**. Apr 22, 2022. _Aula Magna, FAMAF._
 + **UMBEM: A Universal Metric for Benchmarking fast-charging Electrode Materials**.
 <ins>F. Fernandez</ins> _et al_. _Manuscript in preparation_, 2023.
 
-+ [![ELECTROCHIM](https://img.shields.io/badge/doi-10.1016/j.electacta.2023.142951-36abe8)](https://doi.org/10.1016/j.electacta.2023.142951) **Towards a fast-charging of LIBs electrode materials: a heuristic model based on galvanostatic simulations**. <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva. _Electrochimica Acta_, 2023. 
++ [![ELECTROCHIM](https://img.shields.io/badge/ElectrochimActa-j.electacta.2023.142951-36abe8)](https://doi.org/10.1016/j.electacta.2023.142951) **Towards a fast-charging of LIBs electrode materials: a heuristic model based on galvanostatic simulations**. <ins>F. Fernandez</ins>, E. M. Gavilán-Arriazu, D. E. Barraco, A. Visintín, Y. Ein-Eli, E. P. M. Leiva. _Electrochimica Acta_, 2023. 
 
 + [![PRB](https://img.shields.io/badge/PhysRevB-108.144201-b31033)](https://doi.org/10.1103/PhysRevB.108.144201) **NMR, x-ray and Mössbauer results for amorphous Li-Si alloys using density functional tight-binding method**. <ins>F. Fernandez</ins>, M. Otero, M. B. Oviedo, D. E. Barraco, S. A. Paz, E. P. M. Leiva. _Physical Review B_, 2023.
 
-+ **Density functional tight-binding model for Lithium-Silicon alloys**. B. 
-Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. [_The Journal of 
-Physical Chemistry A_](https://doi.org/10.1021/acs.jpca.3c00075), 2023. 
-([_preprint ChemRxiv_](https://doi.org/10.26434/chemrxiv-2022-5s955), 2022).
++ [![JPCA](https://img.shields.io/badge/JPhysChemA-acs.jpca.3c00075-103ba7)](https://doi.org/10.1021/acs.jpca.3c00075) **Density functional tight-binding model for Lithium-Silicon alloys**. B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. _The Journal of Physical Chemistry A_, 2022.
 
-+ **Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via
-accelerated exploration of local minima**. <ins>F. Fernandez</ins>, A. Paz, 
-M. Otero, D. Barraco, E. Leiva. [_Physical Chemistry Chemical 
-Physics_](https://doi.org/10.1039/D1CP02216D), 2021.
++ [![PCCP](https://img.shields.io/badge/PhysChemChemPhys-D1CP02216D-8b9fb1)](https://doi.org/10.1039/D1CP02216D) **Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via accelerated exploration of local minima**. <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. [_Physical Chemistry Chemical Physics_, 2021.
 
 
 ### Conference presentations
