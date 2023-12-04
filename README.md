@@ -47,9 +47,9 @@ vmd -e src/Silicio/config.tcl <input_structure>
 
 ### Postgraduate courses
 
-+ **Machine Learning School for Materials @ Ilum**, CNPEM. 20 hrs, Sep 5--7, 2022.
++ **Machine Learning School for Materials @ Ilum**, CNPEM. 20 hrs, Sep 5-7, 2022.
 
-+ **Machine learning for scarse data**, ECI, DC, UBA. 15 hrs, Jul 26--30, 2021.
++ **Machine learning for scarse data**, ECI, DC, UBA. 15 hrs, Jul 26-30, 2021.
 
 + **Software design for scientific computing**, FAMAF, UNC. 60 hrs, 2021. 
 [link](https://github.com/leliel12/diseno_sci_sfw).
@@ -69,6 +69,7 @@ vmd -e src/Silicio/config.tcl <input_structure>
 
 + **Electrochemistry**, FCQ, UNC. 80 hrs, 2019.
 
+
 ### Seminars talks
 
 + **Fast-charging lithium batteries: from designing materials to optimizing 
@@ -76,6 +77,7 @@ charging protocols**. Sep 14, 2023. _Aula Magna, FAMAF._
 
 + **Machine learning interatomic potentials and their application to lithium 
 batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
+
 
 ## Research activity
 
@@ -123,14 +125,14 @@ Plata, Argentina_. Mar 20-22, 2023.
     in LIBs", _co-author_.
 
 + 107th Argentine Physics Association Meeting. _Bariloche, Argentina_. 
-Sep 27--30, 2022.
+Sep 27-30, 2022.
     - Talk: "Development of lithium-ion battery materials: Computational physics 
     applied to the optimization of silicon anodes".
     - Poster: "DFT study of amorphous and crystalline structures of LiSi and 
     LiSn", _co-author_. 
 
 + XXI Meeting of surfaces and nanostructured materials. _Río Cuarto, Argentina_. 
-Aug 9--11, 2022. Poster Flash: "Short range order of amorphous structures in
+Aug 9-11, 2022. Poster Flash: "Short range order of amorphous structures in
 silicon anodes using a semiempirical reactive potential". (**Best poster flash 
 award**).
 
@@ -154,7 +156,7 @@ of Li batteries", _co-author_.
 towards reproducing chemical shifts spectra of c-LiSi alloys using a 
 semi-empirical force field".
 
-+ Workshop on scientific programming techniques. _Córdoba, Argentina_. Jul 15–26, 2019.
++ Workshop on scientific programming techniques. _Córdoba, Argentina_. Jul 15-26, 2019.
 
 
 ## License
