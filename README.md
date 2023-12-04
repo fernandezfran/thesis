@@ -3,10 +3,6 @@
 > PhD thesis done at [FAMAF (Universidad Nacional de Córdoba)](https://www.famaf.unc.edu.ar/), working in the [LAES](http://www.laesunc.com/laes/) computational area.
 
 [![License](https://img.shields.io/badge/License-CC%20BY%20SA%204.0-08fc04)](https://creativecommons.org/licenses/by-sa/4.0/)
-[![ELECTROCHIM](https://img.shields.io/badge/ElectrochimActa-j.electacta.2023.142951-36abe8)](https://doi.org/10.1016/j.electacta.2023.142951) 
-[![PRB](https://img.shields.io/badge/PhysRevB-108.144201-b31033)](https://doi.org/10.1103/PhysRevB.108.144201) 
-[![JPCA](https://img.shields.io/badge/JPhysChemA-acs.jpca.3c00075-103ba7)](https://doi.org/10.1021/acs.jpca.3c00075) 
-[![PCCP](https://img.shields.io/badge/PhysChemChemPhys-D1CP02216D-8b9fb1)](https://doi.org/10.1039/D1CP02216D) 
 
 **Advisors**: [Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) (FAMAF, Universidad Nacional de Córdoba) & [Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en) (FCQ, Universidad Nacional de Córdoba).
 
@@ -82,6 +78,11 @@ charging protocols**. Sep 14, 2023. _Aula Magna, FAMAF._
 batteries**. Apr 22, 2022. _Aula Magna, FAMAF._ 
 
 ## Research activity
+
+[![ELECTROCHIM](https://img.shields.io/badge/ElectrochimActa-j.electacta.2023.142951-36abe8)](https://doi.org/10.1016/j.electacta.2023.142951) 
+[![PRB](https://img.shields.io/badge/PhysRevB-108.144201-b31033)](https://doi.org/10.1103/PhysRevB.108.144201) 
+[![JPCA](https://img.shields.io/badge/JPhysChemA-acs.jpca.3c00075-103ba7)](https://doi.org/10.1021/acs.jpca.3c00075) 
+[![PCCP](https://img.shields.io/badge/PhysChemChemPhys-D1CP02216D-8b9fb1)](https://doi.org/10.1039/D1CP02216D) 
 
 ### Scientific articles
 
