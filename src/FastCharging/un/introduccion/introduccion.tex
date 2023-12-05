@@ -73,16 +73,19 @@ del material.
     materiales en clases con diferentes capacidades de carga rápida.}
     \label{fig:xiafom}
 \end{figure}
-Extendiendo estas consideraciones, el modelo de una sola partícula puede emplearse para construir
-diagramas galvanostáticos de la capacidad máxima alcanzada a un dado potencial
-de corte y a una dada C-rate, SOC$_{max}$, en función de dos parámetros 
-adimensionales: uno cinético $\Xi = k^0 \sqrt{\frac{t_h}{C_r D}}$ (ecuación \ref{eq:xi}),
+Extendiendo estas consideraciones, el modelo de una sola partícula que se utiliza 
+aquí además de considerar el coeficiente de difusión y el tamaño de la partícula,
+también tiene en cuenta la constante cinética en la interfase y la velocidad 
+de carga galvanostática (C-rate) en dos parámetros adimensionales: 
+uno cinético, $\Xi = k^0 \sqrt{\frac{t_h}{C_r D}}$ (ecuación \ref{eq:xi}), 
 y el otro de difusión finita, $\ell = d \frac{V}{A} \frac{C_r}{D t_h}$
-(ecuación \ref{eq:ele}). Ambos parámetros son relaciones de escaleo útiles
+(ecuación \ref{eq:ele}), que pueden emplearse para construir
+diagramas galvanostáticos de la capacidad máxima alcanzada a un dado potencial
+de corte, SOC$_{\max}$. Estos parámetros $\Xi$ y $\ell$ son relaciones de escaleo útiles
 para realizar una primera predicción cualitativa de la capacidad que un 
 material alcanzaría a una dada C-rate. Esto es relevante, ya que permite
 realizar la tarea no-trivial de clasificar distintos materiales, cada uno 
-caracterizado por los descriptores $D$, $k^0$ y $d$. Por lo que SOC$_{max}$
+caracterizado por los descriptores $D$, $k^0$ y $d$. Por lo que SOC$_{\max}$
 puede pensarse como una función universal de dichos parámetros de escaleo $\Xi$ y $\ell$,
 \begin{equation}\label{eq:socmax}
     \text{SOC}_{\max} = f(\Xi, \ell) = f(d, D, k^0, C_r).
