@@ -26,6 +26,8 @@ en los siguientes pasos:
 \end{enumerate}
 El paso (4) representa una modificación ligera que mejora la optimización a 
 cambio de volumen fijo como se realiza en la referencia \cite{chevrier2009}.
+Al código escrito para la utilización de este protocolo de litiación se lo 
+explica en el Apéndice \ref{software:lithiationprotocol}
 Partiendo de la estructura de silicio amorfo obtenida en la sección 
 \ref{s:rdfb} y siguiendo este protocolo de litiación, se obtienen estructuras
 amorfas para un rango amplio de concentraciones de Li en Li$_x$Si. Se comienza
@@ -35,7 +37,9 @@ se presentan a continuación para cada valor particular de $x$ se calcularon
 utilizando una trayectoria más larga de 0.5 ns. Los valores optimizados de $x$
 son $0.20, 0.56, 0.89, 1.50, 2.00, 2.50, 3.28, 3.75$. Estas estructuras se 
 muestran en la Figura \ref{fig:litiacion} y, además, fueron publicadas en un 
-repositorio de libre acceso \cite{dftb_lisi_amorphous}.
+repositorio de libre acceso \cite{dftb_lisi_amorphous}. Para el análisis de las 
+mismas se escribió una librería en Python, \path{macchiato}, que se presenta en 
+el Apéndice \ref{software:macchiato}.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{Silicio/prediccion/metodos/litiacion.png}

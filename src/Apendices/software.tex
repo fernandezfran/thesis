@@ -3,16 +3,16 @@
 %   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 \chapter{Software desarrollado}\label{a:software}
 
-En la última década, Python se ha convertido en un lenguaje de programación 
-importante dentro de la comunidad científica debido a su facilidad de uso y 
-versatilidad en la manipulación y visualización de datos ~\cite{millman2011}. 
+En la última década, Python se ha convertido en uno de los lenguajes de programación 
+más importante dentro de la comunidad científica debido a su facilidad de uso y 
+versatilidad en la manipulación y visualización de datos \cite{millman2011}. 
 Por lo tanto, los software diseñados en esta tesis han sido escritos en este
 lenguaje y construidos sobre las librerías usuales del cómputo científico como
-NumPy \cite{numpy}, SciPy \cite{scipy}, pandas \cite{pandas}, 
-matplotlib \cite{matplotlib} y scikit-learn \cite{sklearn1, sklearn2}. 
+\path{NumPy} \cite{numpy}, \path{SciPy} \cite{scipy}, \path{pandas} \cite{pandas}, 
+\path{matplotlib} \cite{matplotlib} y \path{scikit-learn} \cite{sklearn1, sklearn2}. 
 
 
-\section{Control de calidad de software}
+\section{Control de calidad de software}\label{software:control}
 
 El control de calidad del software hace referencia al conjunto de reglas y 
 procedimientos que deben utilizarse para verificar que el software cumple 
@@ -40,7 +40,7 @@ superficie y permite diferentes tipos de gráficos y estimaciones de parámetros
 
 A continuación se muestra un ejemplo de uso:
 
-\lstinputlisting[language=Python]{Apendices/ejemplo_galpynostatic.py}
+\lstinputlisting[language=Python]{Apendices/galpynostatic.py}
 
 A \path{galpynostatic} se le realizan múltiples pruebas unitarias sobre datos de
 de electrodos actuales y de materiales de investigación de próxima generación en 
@@ -57,20 +57,55 @@ servicio \path{read-the-docs} (\url{https://galpynostatic.readthedocs.io/en/late
 Además, \path{galpynostatic} está disponible para su instalación en el \path{Python}
 \path{Package-Index} (\url{https://pypi.org/project/galpynostatic/}).
 
-%
-%\section{galpynostatic.metric}
-%
-%TODO
-%
-%
-%\section{lithiation code}
-%
-%
-%\section{macchiato}
-%
-%TODO
-%
-%Ejemplo de cálculo del corrimiento químico de la estructura cristalina 
-%Li$_{13}$Si$_{4}$ mediante el uso del modelo a primeros vecinos introducido en 
-%el capítulo TODO:
-%\lstinputlisting[language=Python]{apendices/ejemplo_macchiato.py}
+
+\section{galpynostatic.metric}\label{software:metric}
+
+En el capítulo \ref{ch:umbem} se definió la métrica UMBEM, para la utilización de 
+la misma se extendió el software previo (\path{galpynostatic}) con un nuevo 
+modulo (\path{metric}) que tiene dos modos de uso, el primero especificando 
+los descriptores del material en un diccionario:
+\lstinputlisting[language=Python]{Apendices/metric1.py}
+y el segundo pasando un objeto \textit{galpynostatic.model.GalvanostaticRegressor}
+ya ajustado
+\lstinputlisting[language=Python]{Apendices/metric2.py}
+En ambos casos, según el valor de \path{full_output} se tiene como resultado
+sólo el valor de UMBEM o a su vez un booleano si se cumple el criterio de USABC 
+o no y un objeto que permite graficar el punto en el mapa simulado o hacer una
+predicción sobre el tamaño óptimo de partícula.
+
+
+\section{Código del protocolo de litiación}\label{software:lithiationprotocol}
+
+Para el protocolo de litiación propuesto en el capítulo \ref{ch:prediccion}
+se escribió un código utilizando la librería \path{MDAnalysis} 
+\cite{mdanalysis1, mdanalysis2} para leer las posiciones de los átomos y realizar 
+cálculos de distancias considerando condiciones periódicas de contorno. Dichas 
+distancias además de involucrar las posiciones de los átomos de Li y de Si, 
+también considera los vértices de un diagrama de Voronoi (calculado 
+utilizando \url{http://www.qhull.org/} en \path{SciPy} \cite{scipy}) para 
+encontrar la esfera vacía más grande e insertar el nuevo átomo de Li en el centro
+de la misma. Adicionalmente, mediante un script de \path{bash} se manejan las 
+ubicaciones en directorios de los archivos necesarios para correr con 
+\path{DFTB+} \cite{dftb+} las minimizaciones y las simulaciones de dinámica 
+molecular en el ensamble $NPT$ desde Python. Dicho código se encuentra disponible
+en el siguiente link: \url{https://github.com/fernandezfran/lithiation\_protocol}
+
+\section{macchiato}\label{software:macchiato}
+
+El paquete \path{macchiato} permite predecir resultados de mediciones de rayos x, 
+RMN y Mössbauer a partir de las configuraciones atómicas de estructuras de Li-Si
+mediante los modelos de vecinos más cercanos introducidos en el capítulo 
+\ref{ch:prediccion}. El modo de uso es similar para los distintos modulos
+desarrollados, a continuación se muestra un ejemplo de cálculo del corrimiento 
+químico de la estructura cristalina Li$_{13}$Si$_{4}$:
+
+\lstinputlisting[language=Python]{Apendices/macchiato.py}
+
+Al igual que \path{galpynostatic}, \path{macchiato} cumple con la calidad de 
+software descripta en el Apéndice \ref{software:control}. El código fuente está 
+disponible en un repositorio de GitHub público
+(\url{https://github.com/fernandezfran/macchiato}), su documentación se encuentra
+en el servicio \path{read-the-docs}
+(\url{https://macchiato.readthedocs.io/en/latest/}) y para su instalación se 
+distribuye en el \path{Python} \path{Package-Index} 
+(\url{https://pypi.org/project/macchiato/}).

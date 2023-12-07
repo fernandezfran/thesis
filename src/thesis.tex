@@ -157,6 +157,8 @@
 \definecolor{code-green}{RGB}{44, 160, 44}
 \definecolor{code-magenta}{RGB}{227, 119, 194}
 \lstdefinestyle{mystyle}{
+    xleftmargin=2cm,
+    xrightmargin=2cm,
     backgroundcolor=\color{white},
     commentstyle=\color{code-magenta},
     keywordstyle=\color{mycolor},
@@ -187,62 +189,62 @@
 
 \begin{document}
 
-% \frontmatter % enumeración de las primeras páginas con números romanos
+\frontmatter % enumeración de las primeras páginas con números romanos
 
 % \blankpage
 % \blankpage
 % \blankpage
 % \blankpage % agregar hojas en blanco para imprimir
 
-% \input{Caratula/caratula.tex}
+\input{Caratula/caratula.tex}
 
-% \input{Resumenes/resumen.tex}
+\input{Resumenes/resumen.tex}
 
-% \input{Resumenes/abstract.tex}
+\input{Resumenes/abstract.tex}
 
 % Dedicatoria
 
-% \tableofcontents
+\tableofcontents
 
-% \mainmatter % a partir de acá se cuentan los números de las páginas en formato arabico
-
-
-% \part{Motivación y fundamentos}
-
-% \input{Introduccion/introduccion.tex}
-
-% \input{Metodos/metodos.tex}
+\mainmatter % a partir de acá se cuentan los números de las páginas en formato arabico
 
 
-% \part{Carga rápida de baterías de ion-litio}\label{p:fast-charging}
+\part{Motivación y fundamentos}
+
+\input{Introduccion/introduccion.tex}
+
+\input{Metodos/metodos.tex}
+
+
+\part{Carga rápida de baterías de ion-litio}\label{p:fast-charging}
 
 \input{FastCharging/un/un.tex}
 
-% \input{FastCharging/umbem/umbem.tex}
+\input{FastCharging/umbem/umbem.tex}
 
 
-% \part{Silicio como ánodo de baterías de ion-litio de próxima generación: Estudio de sus aleaciones}\label{p:silicio}
+\part{Silicio como ánodo de baterías de ion-litio de próxima generación: Estudio de sus aleaciones}\label{p:silicio}
 
-% \input{Silicio/caracterizacion/caracterizacion.tex}
+\input{Silicio/caracterizacion/caracterizacion.tex}
 
-% \input{Silicio/modelo/modelo.tex}
+\input{Silicio/modelo/modelo.tex}
 
-% \input{Silicio/prediccion/prediccion.tex}
-
-
-% \part{Comentarios finales}
-
-% \input{Comentarios/comentarios.tex}
+\input{Silicio/prediccion/prediccion.tex}
 
 
-% \part{Apéndices}
+\part{Comentarios finales}
 
-% \appendix
-% \renewcommand\chaptername{Apéndice}
-% \input{Apendices/software.tex}
+\input{Comentarios/comentarios.tex}
 
 
-% \bibliographystyle{apalike}
-% \bibliography{citas}
+\part{Apéndices}
+
+\appendix
+\renewcommand\chaptername{Apéndice}
+\input{Apendices/software.tex}
+
+
+\bibliographystyle{apalike}
+\bibliography{citas}
 
 \end{document}
