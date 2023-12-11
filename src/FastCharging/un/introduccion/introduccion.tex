@@ -4,13 +4,13 @@
 \section{Introducción}
 
 Dentro de la industria de vehículos eléctricos, la carga rápida es una de las principales características a ser 
-mejorada. Para dar una idea del desafío con el cual nos encontramos, el tiempo 
+mejorada. Para dar una idea del desafío con el cual nos encontramos, cabe mencionar que el tiempo 
 de recarga de la batería de los autos eléctricos de Nivel 2 se encuentra entre 
 las 4 y las 10 horas \cite{evcs}. Este número es dos órdenes de magnitud 
 mayor que el tiempo que toma recargar un auto a combustión interna.
 
 Existen distintos criterios para definir que una carga sea rápida. Uno de ellos, 
-pensado para la aplicación de vehículos eléctricos, busca una autonomía de 30 km 
+pensado para la aplicación de vehículos eléctricos, aspira lograr una autonomía de 30 km 
 por minuto de carga \cite{dufek2022}. Otro criterio, definido por el USABC (de sus
 siglas en inglés, \textit{United States Advanced Battery Consortium}), tiene como
 objetivo obtener el 80\% del Estado de la Carga (SOC, \textit{State-of-Charge})
@@ -25,7 +25,7 @@ requieren de una comprensión desde el nivel atómico hasta el ingenieril. Dentr
 de lo que es la escala micrométrica, los procesos que determinan la velocidad de 
 carga al nivel de una sola partícula de los materiales de electrodos son la 
 difusión de iones de litio dentro de electrodos y la transferencia de carga en 
-las interfases electrodo/electrolito, por lo cual es necesario favorecer ambos
+la interfase electrodo/electrolito, por lo cual es necesario favorecer ambos
 procesos \cite{liu2019, tomaszewska2019, weiss2021}. También se ha estudiado la 
 importancia del rol del tamaño y la geometría de las partículas en el desempeño 
 electroquímico \cite{gavilan2020, gavilan2022}. Así, incluso descartando
@@ -85,11 +85,12 @@ de corte, SOC$_{\max}$. Estos parámetros $\Xi$ y $\ell$ son relaciones de escal
 para realizar una primera predicción cualitativa de la capacidad que un 
 material alcanzaría a una dada C-rate. Esto es relevante, ya que permite
 realizar la tarea no-trivial de clasificar distintos materiales, cada uno 
-caracterizado por los descriptores $D$, $k^0$ y $d$. Por lo que SOC$_{\max}$
-puede pensarse como una función universal de dichos parámetros de escaleo $\Xi$ y $\ell$,
+caracterizado por los descriptores $D$, $k^0$ y $d$. Se ha demostrado \cite{gavilan2022} que la capacidad de carga máxima que un material puede alcanzar en el cargado galvanostático hasta un dado sobrepotencial, SOC$_{\max}$, 
+puede expresarse como una función universal de dichos parámetros de escaleo $\Xi$ y $\ell$,
 \begin{equation}\label{eq:socmax}
     \text{SOC}_{\max} = f(\Xi, \ell) = f(d, D, k^0, C_r).
 \end{equation}
+Estos valores se ilustran en las Figuras \ref{fig:diagnostico}b y \ref{fig:diagnostico}c como triángulos marcados en las abcisas.
 Como no se tiene una expresión análitica para esta función $f$, la misma puede ser 
 obtenida en un mapeo ($\Xi$, $\ell$) de simulaciones galvanostáticas, como se la 
 presenta en la Figura \ref{fig:diagnostico}a en un gráfico de colores de dos 
