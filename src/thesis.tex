@@ -12,9 +12,8 @@
 \newcommand{\done}[1]{\textcolor{blue}{#1}}
 \newcommand{\change}[1]{\textcolor{black}{#1}}
 
-% estilo de pagina
+\usepackage[breaklinks=true, hidelinks]{hyperref} 
 
-%% margenes
 \usepackage{geometry}
 \geometry{
 	a4paper,
@@ -23,31 +22,22 @@
 	top=20mm,
 }
 
-%% sangría
 \setlength\parindent{12pt}
 
-%% interlineado
 \usepackage{setspace}
 \onehalfspacing
 
-%% palatino font type
 \usepackage[T1]{fontenc}
 \usepackage{mathpazo}
 
-%% poder definir margenes de un parrafo (adjustwidth)
-\usepackage{changepage}
+\usepackage{changepage} % adjustwidth
 
-%% encabezados de las páginas
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-
-%%% línea horizontal superior
 \let\oldheadrule\headrule
 \renewcommand{\headrule}{\color{mycolor}\oldheadrule}
 \renewcommand{\headrulewidth}{0.8pt}
-
-%%% header
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 \fancyhead[CE]{\footnotesize\color{mycolor}\normalfont\bfseries\itshape\nouppercase{
@@ -56,11 +46,26 @@
 \fancyhead[CO]{\footnotesize\color{mycolor}\normalfont\bfseries\itshape\nouppercase{
     \textsc{\rightmark}}
 }
-
-%%% footer
 \fancyfoot[CE,CO]{\color{mycolor}\bfseries\thepage}
 
-%% carátula de capítulo
+\renewenvironment{itemize}{
+\begin{list}{}{
+\setlength{\leftmargin}{1.5em}
+}
+}{
+\end{list}
+}
+
+\usepackage{adjustbox}
+\usepackage{makecell,booktabs}
+\usepackage{stackengine}
+\setstackEOL{\cr}
+
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{4}
+
 \usepackage{sectsty}
 \usepackage{titlesec}
 \titleformat{\chapter}
@@ -70,7 +75,6 @@
     {0pt}
     {\huge}
 
-%% color de las secciones
 \partfont{\color{mycolor}}
 \sectionfont{\color{mycolor}}
 \subsectionfont{\color{mycolor}}
@@ -78,81 +82,31 @@
 \let\oldtextbf\textbf
 \renewcommand{\textbf}[1]{\textcolor{mycolor}{\oldtextbf{#1}}}
 
-%% línea horizontal debajo de las secciones
 \titleformat{\section}
   {\normalfont\Large\bfseries\color{mycolor}}
   {\thesection}{1em}{}[{\titlerule[0.8pt]}]
 
-%% index
-\usepackage{imakeidx}
-\makeindex[columns=3, title=Alphabetical Index, intoc]
-
-%% show subsubsections in TOC
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{4}
-
-%% Bibliografía por capítulo
-% \usepackage[square,numbers,sort,sectionbib]{natbib}
-% \usepackage{chapterbib}
-\usepackage[square]{natbib}
-\usepackage{tocbibind}
-\renewcommand{\cite}{\citep}
-
-%% defino pagina en blanco
-\newcommand\blankpage{%
-    \null
-    \thispagestyle{empty}%
-    \addtocounter{page}{-1}%
-    \newpage
-}
-
-% para borrar los items de itemize
-\renewenvironment{itemize}{
-\begin{list}{}{
-\setlength{\leftmargin}{1.5em}
-}
-}{
-\end{list}
-}
-
-% para, desde el índice, poder clickear a que página ir
-\usepackage[breaklinks=true, hidelinks]{hyperref} 
-
-% \say para las comillas
 \usepackage{dirtytalk}
 
-% para agregar imagenes (includegraphics)
 \usepackage{graphicx}
 \graphicspath{{./}}
-% \usepackage{subcaption}
 
-%% para acomodar mejor las posiciones de figuras/tablas
 \usepackage{float}
 
-% para algunos símbolos en las ecuaciones
 \usepackage[fleqn]{amsmath} 
 \setlength{\mathindent}{24pt}
 \usepackage{mathabx}
+\usepackage{mathtools}
+\usepackage{array}
 
-% tabla en vez de cuadro
 \usepackage[tableposition=top, labelfont={color=mycolor,bf}]{caption}
 \addto\captionsspanish{
     \def\listtablename{\'Indice de tablas}%
     \def\tablename{Tabla}
 }
-
-%% para poder separar los títulos en dos renglones
-\usepackage{adjustbox}
-\usepackage{mathtools}
-\usepackage{array}
-\usepackage{makecell,booktabs}
-\usepackage{stackengine}
-\setstackEOL{\cr} %EOL is abbreviation for "end of line."
-
 \usepackage{colortbl}
 \arrayrulecolor{mycolor}
 
-% para agregar código Python
 \usepackage{listings}
 \definecolor{code-green}{RGB}{44, 160, 44}
 \definecolor{code-magenta}{RGB}{227, 119, 194}
@@ -175,7 +129,6 @@
     extendedchars=true,
     tabsize=4
 }
-
 \lstset{
     style=mystyle,
     literate=
@@ -186,15 +139,26 @@
     {ú}{{\'u}}1
 }
 
+\usepackage[square]{natbib} % [square,numbers,sort,sectionbib] natbib or chapterbib
+\usepackage{tocbibind}
+\renewcommand{\cite}{\citep}
+
+% \newcommand\blankpage{%
+%     \null
+%     \thispagestyle{empty}%
+%     \addtocounter{page}{-1}%
+%     \newpage
+% }
+
 
 \begin{document}
 
-\frontmatter % enumeración de las primeras páginas con números romanos
+\frontmatter
 
 % \blankpage
 % \blankpage
 % \blankpage
-% \blankpage % agregar hojas en blanco para imprimir
+% \blankpage
 
 \input{Caratula/caratula.tex}
 
@@ -206,7 +170,7 @@
 
 \tableofcontents
 
-\mainmatter % a partir de acá se cuentan los números de las páginas en formato arabico
+\mainmatter
 
 
 \part{Motivación y fundamentos}
