@@ -1,10 +1,7 @@
 # TODO
 
-* rm comentarios % de archivos .tex
-
 * Ver \change{}s
 
-* agregar thesis.pdf definitiva al root
+* ver src/Metodos/continuo/spm.tex 
 
-* hacer un update de las presentaciones a congresos y de los papers si se presenta 
-o publica algo que haya empezado en el período de la tesis.
+* agregar thesis.pdf definitiva al root
