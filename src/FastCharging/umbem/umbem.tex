@@ -34,10 +34,10 @@ ocurren distintos procesos que deben optimizarse \cite{franco2013}. En
 particular, en lo concerniente al tamaño del electrodo, se tiene que las dimensiones de las partículas se encuentran
 en el orden de los nano/micro-metros y que a dicho nivel la velocidad de carga 
 depende en gran medida de la difusión de iones dentro del material activo y del
-intercambio de los mismo en la interfase electrodo/electrolito \cite{weiss2021}.
+intercambio de los mismos en la interfase electrodo/electrolito \cite{weiss2021}.
 Mientras que el primero de los procesos mencionados puede considerarse como una 
 propiedad intrínseca del material, el segundo de ellos es menos específico y, 
-por lo tanto, más configurable ya que depende de muchos factores como el 
+por lo tanto, más modificable ya que depende de muchos factores como el 
 solvente \cite{levin2017}, la estructura cristalina \cite{li2022}, la
 orientación de los cristales \cite{mala2020}, modificaciones en la superficie o 
 distintas composiciones de electrodos \cite{kaur2022}. Con respecto al material
@@ -126,7 +126,8 @@ el Apéndice \ref{software:metric}.
 \section{Conjunto de datos}\label{s:dataset}
 
 La Tabla \ref{t:dataset} resume la información experimental ($d$, $D$) que se 
-requiere para evaluar con la métrica UMBEM los distintos sistemas, la misma fue 
+requiere para evaluar con la métrica UMBEM distintos sistemas de aplicación 
+frecuente como materiales de electrodo en LIBs, la misma fue 
 extraída de la referencia \cite{xia2022}. Sin embargo, como la discusión se 
 realizará en el contexto del modelo esquematizado en la Figura 
 \ref{fig:explicacion}, también se necesita considerar la constante cinética $k^0$.
@@ -195,7 +196,7 @@ de acuerdo a la propuesta del USABC.
 
 \subsection{Jerarquización de materiales con la métrica propuesta}
 
-Los cuatro valores presentados en la sección \ref{s:dataset} se utilizan para calcular los parámetros adimensionales 
+Los cuatro valores de parámetros ($d$, $D$, $k^0$, $C_r$) presentados en la sección \ref{s:dataset} se utilizan para calcular los parámetros adimensionales 
 $\Xi$ y $\ell$ y así ubicar cada experimento en el mapa ya simulado, como se muestra
 en la Figura \ref{fig:UMBEM}a. Como referencia para delimitar la región de carga
 rápida del resto, se grafica la línea discontinua gris a UMBEM = 0.8. Se puede
@@ -225,7 +226,7 @@ y los materiales ternarios están fuera de la región de carga rápida.
 \subsection{Comparación de UMBEM con la Figura de Mérito propuesta por Xia \textit{et al.}}
 
 Xia \textit{et al.} \cite{xia2022} utilizaron los datos experimentales de $d$ y $D$
-que se encuentran en la Tabla \ref{t:dataset} para calcular su FOM a cada uno 
+que se encuentran en la Tabla \ref{t:dataset} para calcular su FOM para cada uno 
 de ellos, como se muestra en los puntos de la Figura \ref{fig:xiacomp}a. Los 
 valores de la UMBEM obtenidos en la Figura \ref{fig:UMBEM} son utilizados para
 colorear cada uno de ellos con el propósito de comparar ambas métricas, como
@@ -316,7 +317,7 @@ La línea discontinua se corresponde al caso $d_{\text{opt}} = d_{\text{exp}}$.
 \section{Conclusiones del capítulo}
 
 En este capítulo se definió una métrica universal para comparar el desempeño
-de carga rápida de materiales de electrodos (UMBEM). Esta se definió como el estado de la carga 
+de carga rápida de diferentes materiales de electrodos (UMBEM). Esta se definió como el estado de la carga 
 alcanzado cuando el material se carga en condiciones de corriente constante 
 durante 15 minutos. Esta métrica presenta una mejora respecto de la definida en un trabajo anterior de literatura al
 considerar la difusión finita, la transferencia de carga, el tamaño de la 

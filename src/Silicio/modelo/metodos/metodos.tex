@@ -5,7 +5,7 @@
 
 \subsection{Cálculos DFT}\label{s:dftcalc}
 
-Los cálculos de DFT de las estructures cristalinas fueron obtenidos usando el 
+Los cálculos de DFT de las estructures cristalinas necesarias para parametrizar el DFTB fueron obtenidos usando el 
 paquete de simulación \path{GPAW} \cite{enkovaara2010, mortensen2005} del 
 Entorno de Simulación Atómica \cite{larsen2017}. El paquete \path{GPAW} provee un 
 algoritmo de grillado del espacio real basado en el método de la función de onda 
@@ -39,7 +39,7 @@ menor a 0.08 eV/\AA\ para cada estructura.
 
 El formalismo de DFTB ya fue introducido en el capítulo \ref{ch:metodos}, 
 sección \ref{s:dftb}. A la hora de elegir el potencial de confinamiento de la
-ecuación \ref{eq:dft} se mencionó que lo usual es elegir un parabólico, 
+ecuación \ref{eq:dft} se mencionó que lo usual es elegir uno parabólico, 
 cuadrático, o una función de ley de potencias, siendo esta última opción la 
 utilizada debido a que es la que está implementada en el código \path{Hotcent}
 \cite{hotcent},

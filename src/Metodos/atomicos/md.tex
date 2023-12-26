@@ -133,7 +133,7 @@ utilizan en las simulaciones de MD relacionan la fuerza sobre un átomo con el
 entorno del mismo a través de una forma funcional conocida. Existe una gran 
 variedad de estos potenciales y la elección de uno de ellos depende del sistema 
 de estudio, ya que algunos potenciales representan de mejor manera gases y otros 
-metales, por ejemplo. El potencial de Coulomb \cite{coulomb} considera las 
+metales. Por ejemplo, el potencial de Coulomb \cite{coulomb} considera las 
 partículas como cargas puntuales que interactúan electrostáticamente. Los 
 potenciales de Tersoff \cite{tersoff} o de Stillinger-Weber 
 \cite{stillinger-weber} se desarrollaron especialmente para el modelado de 
@@ -173,7 +173,7 @@ de corte, conocida como el \textit{radio de corte}, $r_{\text{cut}}$, a partir d
 la cual se considera que el potencial es nulo. Para evitar discontinuidades en 
 este punto se suelen utilizar distintas técnicas como el truncado y desplazado o 
 se multiplica al potencial alrededor de dicho punto por una función suave, que 
-hace que el potencial se iguale suavemente a cero.
+hace que el potencial se aproxime suavemente a cero.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{Metodos/atomicos/lj.png}
@@ -300,7 +300,7 @@ Maxwell-Boltzmann,
 \end{equation}
 donde $\beta$ es la energía térmica $1 / (k_B T)$. Esto quiere decir que la velocidad 
 de un átomo no se mantiene constante cuando está en contacto con un baño térmico, 
-si no que la misma puede fluctuar y la fluctuación va a depender de dicha 
+sino que la misma puede fluctuar y la fluctuación va a depender de dicha 
 temperatura de la siguiente forma
 \begin{equation}
     \sigma_T^2 = \frac{2}{3 N} \langle T \rangle_{NVT}^2,
