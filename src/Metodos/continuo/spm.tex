@@ -5,7 +5,7 @@
 
 Los modelos de orden reducido buscan simplificar modelos más complejos pero 
 conservar sus capacidades predictivas. Estos pueden mejorar la compresión física 
-y proporcionar soluciones precisas a un costo computacional significativamente menor.
+(y proporcionar soluciones precisas a un costo computacional significativamente menor.
 Este es el caso de los modelos de una sola partícula (SPM, \textit{single particle 
 model}), como el que se utiliza en esta tesis, se supone que todas las partículas
 dentro del electrodo se comportan de manera similar, lo que hace que todas puedan ser 
@@ -130,46 +130,145 @@ capacidad de la partícula se discuten en la referencia \cite{gavilan2023}.
 
 \subsubsection{Derivación de los parámetros adimensionales}\label{s:derivparam}
 
-En esta sección se derivan los parámetros adimensionales de la ecuación
-\ref{eq:bv} de Butler-Volmer en condiciones de corriente constante. Para ello se 
-define $\xi = (nF/RT)(E - E^0)$ y $u = D t / d^2$, la ecuación \ref{eq:bv} se 
-puede expresar de la siguiente forma integral \cite{aoki1984}
+En esta sección se derivan los parámetros adimensionales considerando una geometría
+plana ($z = 1$ en la ecuación \ref{eq:fick}) y las siguientes condiciones de 
+contorno para la ecuación de Fick,
+\begin{equation}\label{eq:condcort}
+    x(r, 0) = 0 \quad y \quad \left(\frac{\partial x(r, t)}{\partial r}\right)_{r=d} = 0,
+\end{equation}
+lo que significa que la perturbación a la concentración inicial es nula a tiempo
+0 y que no hay flujo de iones en el centro del material, respectivamente. Se 
+comienza aplicando una transformada de Laplace,
+\begin{equation}\label{eq:laplace}
+    \hat{f}(s) = \mathcal{L}[f] = \int_0^{\infty} f(t) e^{-s t} dt,
+\end{equation}
+al término de la izquierda de la ecuación \ref{eq:fick} de Fick 
+\todo{(¿acá faltaría aclarar algo?)}
+\begin{equation}
+    \mathcal{L}\left[\frac{\partial x(r, t)}{\partial t}\right] = s \hat{x}(r, s)
+\end{equation}
+y al derecho
+\begin{equation}
+    \mathcal{L}\left[D \frac{\partial^2 x(r, t)}{\partial r^2}\right] = D \frac{\partial^2 \hat{x}(r, s)}{\partial r^2}.
+\end{equation}
+Esto lleva a una ecuación diferencial ordinaria (ODE) de segundo orden
+\begin{equation}\label{eq:ode}
+    \frac{\partial^2 \hat{x}(r, s)}{\partial r^2} - \frac{s}{D} \hat{x}(r, s) = 0,
+\end{equation}
+donde a las condiciones de contorno de la ecuación \ref{eq:condcort} también es 
+necesario aplicarles la transformada de Laplace, pero al ser nula para ambos casos
+esto se mantiene. Como la ecuación \ref{eq:ode} es una ODE lineal homogénea con 
+coeficientes constantes, su solución general tiene la siguiente forma
+\begin{equation}
+    \hat{x}(r, s) = a(s) e^{-\sqrt{s/D}r} + b(s) e^{\sqrt{s/D}r}.
+\end{equation}
+donde $a(s)$ y $b(s)$ son constantes de integración independientes de $r$, para 
+la condición de contorno considerada y definiendo la transformada de Laplace del 
+flujo ($\hat{J}$) como la derivada de la concentración con respecto a la posición
+se puede encontrar que 
+\begin{equation}
+    b(s) = a(s) e^{-2 \sqrt{s/D} r},
+\end{equation}
+por lo cual 
+\begin{equation}
+    \hat{x}(r, s) = \frac{\hat{J}(r, s)}{\sqrt{D s}} \frac{\left\{ e^{-\sqrt{s/D}r} + e^{\sqrt{s/D}(r - 2d)} \right\}}{\left\{ e^{-\sqrt{s/D}r} - e^{\sqrt{s/D}(r - 2d)} \right\}}.
+\end{equation}
+Si se multiplica y divide por $e^{\sqrt{s/D}d}$ se tiene que
+\begin{equation}
+    \hat{x}(r, s) = \frac{\hat{J}(r, s)}{\sqrt{Ds}} \coth{[\sqrt{s/D} (d - r)]},
+\end{equation}
+de donde al aplicar el teorema de convolución 
+\footnote{Teorema de convolución:
+    \begin{equation}
+        \mathcal{L}^{-1} \{\hat{f}(s)\hat{g}(s)\} = \int_0^t f(t - \tau) g(\tau) d\tau
+    \end{equation}
+    con $f(t) = \mathcal{L}^{-1}\{\hat{f}(s)\}$ y $g(t) = \mathcal{L}^{-1}\{\hat{g(s)}\}$.
+    En este caso se consideró $g(\tau) = \mathcal{L}^{-1}\hat{J}(r, s)$
+    y $f(\tau) = (1/\sqrt{D}) \mathcal{L}^{-1} \left\{ 1/\sqrt{s} \coth{[\sqrt{s/D}(d-x)]}\right\}$.
+} 
+se obtiene que
+\begin{equation}
+    x(r, t) = \int_0^t \frac{1}{d - r} \Theta_3\left(0 \left|\frac{D}{(d-r)^2} (t - \tau)\right.\right) J(r, \tau) d\tau.
+\end{equation}
+donde $\Theta_3(\nu|x)$ es la función tita \cite{bieniasz2015} dada por la 
+siguiente expresión
+\begin{equation}
+    \Theta_3(\nu|x) = \frac{1}{\sqrt{\pi x}} \sum_{n=-\infty}^{\infty} e^{-\frac{1}{x}(\nu + n)^2}.
+\end{equation}
+En la frontera $r = 0$, donde la transferencia de carga ocurre se tiene
+\begin{equation}\label{eq:rel1}
+    x(0, t) = \int_0^t \frac{1}{d} \Theta_3\left(0 \left|\frac{D}{d^2} (t - \tau)\right.\right) J(0, \tau) d\tau,
+\end{equation}
+por lo que se concluye que la concentración está relacionada con la convolución 
+de la corriente en dicha frontera.
+
+Ahora, con el propósito de relacionar la concentración con la corriente ahí, se
+utiliza la ecuación de Butler-Volmer (ecuación \ref{eq:bv}) con la definición
+$\xi = (nF/RT)(E - E^0)$
+\begin{equation}
+    \frac{i}{nF} = k^0 \left\{ c_R e^{\alpha_a \xi} + c_O e^{-\alpha_c\xi} \right\},
+\end{equation}
+donde $c_R$ es la concentración de iones de Li insertados y $c_O$ es la 
+concentración de sitios disponibles. Como $c_O = c^0 - c_R$ y suponiendo que 
+$\alpha_a + \alpha_c = 1$
+\begin{equation}\label{eq:rel2}
+    \frac{i}{nF} = k^0 (e^{\alpha_a \xi} + e^{-\alpha_c \xi}) \left\{ c^0 \frac{1}{(1 + e^{-\xi})} - c_O \right\},
+\end{equation}
+Considerando la desviación de la concentración de la especie oxidada con respecto 
+a su valor inicial,
+\begin{equation}
+    x(r, t) = c(r, t) - c^0,
+\end{equation}
+se puede reescribir la ecuación \ref{eq:rel1} como
+\begin{equation}
+    c(0, t) = c^0 + \int_0^t \frac{1}{d} \Theta_3\left(0 \left|\frac{D}{d^2} (t - \tau)\right.\right) J(0, \tau) d\tau,
+\end{equation}
+que junto a la ecuación \ref{eq:rel2} se la puede utilizar para obtener que 
+\cite{aoki1984}
 \begin{equation}\label{eq:aoki}
-    \frac{i}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \int_0^u \frac{i}{n F c^0} \Theta_3(0|u - z) dz \right\},
+    \frac{i}{nFc^0} = k^0 (e^{\alpha_a \xi} + e^{-\alpha_c \xi}) \left\{ c^0 \frac{1}{(1 + e^{-\xi})} - \frac{d}{D} \int_0^{u=\frac{Dt}{d^2}} \Theta_3\left(0 \left| (u - z)\right.\right) \frac{i}{nFc^0} dz \right\},
 \end{equation}
-donde $c^0$ es la concentración máxima del ion en el material y $\Theta_3(\nu|x)$ 
-es la función tita \cite{bieniasz2015} dada por la siguiente expresión
+donde se realizó el cambio de variables $z = \frac{D}{d^2}\tau$ y se utilizó la 
+relación entre el flujo y la densidad de corriente $J(0, \tau) = \frac{i}{nF}$.
+
+Para demostrar la invariancia de la capacidad con los parámetros 
+$\Xi = k^0 \sqrt{t_h / (C_r D)}$ (ecuación \ref{eq:xi}) y 
+$\ell = d (V/A) (C_r / (D t_h))$ (ecuación \ref{eq:ele}) se necesita relacionar 
+la ocupación con el tiempo y la velocidad de carga galvanostática ($C_r$) con
+la corriente. Para esto último se tiene que
 \begin{equation}
-    \Theta_3(\nu|x) = \frac{1}{\sqrt{\pi x}} \sum_{n=-\infty}^{\infty} e^{-\frac{1}{x}(\nu + n)^2}
+    I_c = \frac{Q}{t_h} C_r
 \end{equation}
-Si se considera una corriente constantes $i_c$, la ecuación \ref{eq:aoki} da
-\begin{equation}\label{eq:aoki2}
-    \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{i_c}{n F c^0} \int_0^u \Theta_3(0|u - z) dz \right\}.
-\end{equation}
-Esta corriente constante se la puede expresar en términos de la C-rate como
+y a su vez
 \begin{equation}
-    I_c = \frac{C_r Q}{t_h}
+    x = \frac{t}{t_h} C_r,
 \end{equation}
-y usando que la capacidad del electrodo es
+por lo que en condiciones galvanostáticas el tiempo de carga y la ocupación 
+están linealmente relacionadas. A su vez, puede obtenerse que
 \begin{equation}
-    Q = V \left( \frac{\rho}{M} \right) F n
+    \frac{i_C}{nFc^0} = \frac{V}{A} \frac{C_r}{t_h}.
 \end{equation}
-y dividiendo por el área superficial y $n F c^0$ se obtiene que
-\begin{equation}\label{eq:i_c}
-    \frac{i_c}{n F c^0} = \frac{V C_r}{A t_h}.
+Si consideramos esta última ecuación y la corriente constante en la ecuación 
+\ref{eq:aoki}
+\begin{equation}
+    \frac{V}{A} \frac{C_r}{t_h} = k^0 (e^{\alpha_a \xi} + e^{-\alpha_c \xi}) \left\{ \frac{1}{(1 + e^{-\xi})} - \frac{V}{A}\frac{C_r}{t_h}\frac{d}{D} \int_0^{u=\frac{Dt}{d^2}} \Theta_3\left(0 \left| (u - z)\right.\right) dz \right\}.
 \end{equation}
-Reemplazando esta ecuación \ref{eq:i_c} en el lado derecho de la ecuación 
-\ref{eq:aoki2}, se tiene
-\begin{equation}\label{eq:aoki3}
-    \frac{i_c}{n F c^0} = k^0 \left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \frac{d}{D} \frac{V C_r}{A t_h} \int_0^u \Theta_3(0|u - z) dz \right\},
+Si se define ahora la ecuación \ref{eq:ele}, que para el caso de un plano se tiene
+$\ell = \frac{d^2}{D} \left(\frac{C_r}{t_h}\right)$, y se usa que
+\begin{equation}
+    \int_0^{z=u=\frac{Dt}{d^3}} \Theta_3(0|u-z)dz = \frac{D}{d^2} \frac{t_h}{C_r} \int_0^{x'=x} \Theta_3\left(0\left|\frac{D t_h x}{C_r d^2} - \frac{D t_h x'}{C_r d^2}\right.\right)
 \end{equation}
-de donde el factor $d (V/A) (C_r / (D t_h))$ se utiliza para definir el 
-parámetro de difusión finita presentado en la ecuación \ref{eq:ele}. Reemplazando 
-ahora la ecuación \ref{eq:ele} en \ref{eq:aoki3}, normalizando por la densidad 
-de corriente y multiplicando a ambos miembros de la igualdad por el término 
-$\sqrt{t_h / (C_r D)}$ se llega a que
-\begin{equation}\label{eq:aoki4}
-    \frac{i_c}{n F c^0} \sqrt{\frac{t_h}{C_r D}} = k^0 \sqrt{\frac{t_h}{C_r D}}\left(e^{\alpha_a \xi} + e^{-\alpha_c \xi}\right) \left\{ \frac{1}{1+e^{-\xi}} - \ell \int_0^u \Theta_3(0|u - z) dz \right\},
+se tiene
+\begin{equation}
+    d \frac{C_r}{t_h} = k^0 (e^{\alpha_a \xi} + e^{-\alpha_c \xi}) \left\{ \frac{1}{(1 + e^{-\xi})} - \int_0^{x'=x} \Theta_3\left(0 \left| \left(\frac{x}{\ell}- \frac{x}{\ell}\right)\right.\right) dx' \right\}.
 \end{equation}
-de donde emerge el parámetro $\Xi$ ya definido en la ecuación \ref{eq:xi} como 
-$\Xi = k^0 \sqrt{t_h / (C_r D)}$.
+Multiplicando ambos lados de la ecuación por el factor $\sqrt{\frac{t_h}{C_r D}}$
+\begin{equation}
+    d \frac{C_r}{t_h} \sqrt{\frac{t_h}{C_r D}} = k^0 \sqrt{\frac{t_h}{C_r D}} (e^{\alpha_a \xi} + e^{-\alpha_c \xi}) \left\{ \frac{1}{(1 + e^{-\xi})} - \int_0^{x'=x} \Theta_3\left(0 \left| \left(\frac{x}{\ell}- \frac{x}{\ell}\right)\right.\right) dx' \right\},
+\end{equation}
+de donde emerge la relación para $\Xi$ (ecuación \ref{eq:xi}) y resulta que las 
+soluciones de $x$ en función de $\xi$ sólo dependen de los parámetros $\ell$ y
+$\xi$:
+\begin{equation}
+    \sqrt{\ell} = \Xi (e^{\alpha_a \xi} + e^{-\alpha_c \xi}) \left\{ \frac{1}{(1 + e^{-\xi})} - \int_0^{x'=x} \Theta_3\left(0 \left| \left(\frac{x}{\ell}- \frac{x}{\ell}\right)\right.\right) dx' \right\}.
+\end{equation}
