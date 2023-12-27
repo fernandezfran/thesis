@@ -34,7 +34,9 @@ proporción volumen/superficie, $d$ es el tamaño característico de la partícu
 $t_h$ el tiempo de una hora (en las unidades que corresponda) y $C_r$ denota la 
 velocidad de carga galvanostática (C-rate), que indica cuántas veces se puede 
 cargar o descargar una batería en una hora. Los parámetros de todas las ecuaciones 
-que siguen a continuación se presentan en la Tabla \ref{t:params}.
+que siguen a continuación se presentan en la Tabla \ref{t:params}, y la forma en
+que emergen los parámetros $\Xi$ y $\ell$ se detalla en la Sección 
+\ref{s:derivparam}.
 \begin{table}[h!]
     \centering
     \caption{Parámetros involucrados en las ecuaciones del modelo de una sola partícula.}
@@ -78,7 +80,7 @@ que siguen a continuación se presentan en la Tabla \ref{t:params}.
     \label{t:params}
 \end{table}
 
-En este modelo, el grado de intercalación $x$ en el punto $r$ y a tiempo $t$ se 
+En este modelo, el grado de intercalación $x$ en el punto $r$ y al tiempo $t$ se 
 obtiene resolviendo numéricamente la ecuación diferencial 1D de Fick \cite{bard-electrochemistry}:
 \begin{equation}\label{eq:fick}
     \frac{\partial x}{\partial t} = D \left[ \frac{\partial^2 x}{\partial r^2} + \frac{(z - 1)}{r} \left(\frac{\partial x}{\partial r}\right) \right],
@@ -96,7 +98,9 @@ y al centro de la partícula ($r = d$),
     \left(\frac{\partial x}{\partial r}\right)_d = 0.
 \end{equation}
 
-La condición de corriente constante se fija con la ecuación de Butler-Volmer \cite{bard-electrochemistry}
+En el caso galvanostático, que es el considerado en esta tesis, la condición de
+corriente constante se fija con la ecuación de Butler-Volmer 
+\cite{bard-electrochemistry}
 \begin{equation}\label{eq:bv}
     I_c = F A \frac{\rho}{M_r} k^0 \left\{x_s \exp\left[ \frac{(1-\alpha)F(E-E^0)}{RT} \right] - (1 - x_s) \exp\left[ -\frac{\alpha F (E-E^0)}{RT} \right] \right\}
 \end{equation}
@@ -130,7 +134,9 @@ capacidad de la partícula se discuten en la referencia \cite{gavilan2023}.
 
 \subsubsection{Derivación de los parámetros adimensionales}\label{s:derivparam}
 
-En esta sección se derivan los parámetros adimensionales considerando una geometría
+En esta sección se derivan los parámetros adimensionales $\Xi$ y $\ell$ 
+introducidos en las ecuaciones \ref{eq:xi} y \ref{eq:ele}, respectivamente, considerando una 
+geometría
 plana ($z = 1$ en la ecuación \ref{eq:fick}) y las siguientes condiciones de 
 contorno para la ecuación de Fick,
 \begin{equation}\label{eq:condcort}
@@ -142,8 +148,7 @@ comienza aplicando una transformada de Laplace,
 \begin{equation}\label{eq:laplace}
     \hat{f}(s) = \mathcal{L}[f] = \int_0^{\infty} f(t) e^{-s t} dt,
 \end{equation}
-al término de la izquierda de la ecuación \ref{eq:fick} de Fick 
-\todo{(¿acá faltaría aclarar algo?)}
+término de la izquierda de la ecuación \ref{eq:fick} de Fick 
 \begin{equation}
     \mathcal{L}\left[\frac{\partial x(r, t)}{\partial t}\right] = s \hat{x}(r, s)
 \end{equation}
