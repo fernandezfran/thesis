@@ -5,7 +5,7 @@
 
 Los modelos de orden reducido buscan simplificar modelos más complejos pero 
 conservar sus capacidades predictivas. Estos pueden mejorar la compresión física 
-(y proporcionar soluciones precisas a un costo computacional significativamente menor.
+y proporcionar soluciones precisas a un costo computacional significativamente menor.
 Este es el caso de los modelos de una sola partícula (SPM, \textit{single particle 
 model}), como el que se utiliza en esta tesis, se supone que todas las partículas
 dentro del electrodo se comportan de manera similar, lo que hace que todas puedan ser 
@@ -87,13 +87,13 @@ donde $D$ es el coeficiente de difusión y $z$ depende del tipo de geometría de
 partícula \cite{vassiliev2016}. La ecuación \ref{eq:fick} puede resolverse 
 utilizando el método de Crank-Nicolson mediante diferencias finitas 
 \cite{crank-nicolson} con las siguientes condiciones de contorno en la superficie
-de la partícula ($r = d$),
+de la partícula ($r = 0$),
 \begin{equation}
-    \left(\frac{\partial x}{\partial r}\right)_d = - \frac{I_c}{F A \frac{\rho}{M_r}D},
+    \left(\frac{\partial x}{\partial r}\right)_0 = - \frac{I_c}{F A \frac{\rho}{M_r}D},
 \end{equation}
-y al centro de la partícula ($r = 0$),
+y al centro de la partícula ($r = d$),
 \begin{equation}
-    \left(\frac{\partial x}{\partial r}\right)_0 = 0.
+    \left(\frac{\partial x}{\partial r}\right)_d = 0.
 \end{equation}
 
 La condición de corriente constante se fija con la ecuación de Butler-Volmer \cite{bard-electrochemistry}
@@ -268,7 +268,7 @@ Multiplicando ambos lados de la ecuación por el factor $\sqrt{\frac{t_h}{C_r D}
 \end{equation}
 de donde emerge la relación para $\Xi$ (ecuación \ref{eq:xi}) y resulta que las 
 soluciones de $x$ en función de $\xi$ sólo dependen de los parámetros $\ell$ y
-$\xi$:
+$\Xi$:
 \begin{equation}
     \sqrt{\ell} = \Xi (e^{\alpha_a \xi} + e^{-\alpha_c \xi}) \left\{ \frac{1}{(1 + e^{-\xi})} - \int_0^{x'=x} \Theta_3\left(0 \left| \left(\frac{x}{\ell}- \frac{x}{\ell}\right)\right.\right) dx' \right\}.
 \end{equation}
