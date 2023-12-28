@@ -8,3 +8,5 @@
 * ver src/Metodos/continuo/spm.tex 
 
 * agregar thesis.pdf definitiva al root
+
+* en README borrar el `To be` antes del `presented` en **Dissertation** y reemplazar dd por el día que correponda.
