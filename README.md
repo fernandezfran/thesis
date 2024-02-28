@@ -16,25 +16,19 @@
 
 ## Instructions to compile the thesis
 
-To install all the requirements needed for the compilation of the thesis in 
-a minimal installation (i.e. not the full `texlive` installation), run in a 
-Linux terminal the following commands:
+A Dockerfile is provided to compile the thesis in any OS:
 ```
-sudo apt update
-sudo apt upgrade
-sudo apt install -y $(cat requirements_TeX.txt)
+docker build -t thesis-docker .
 ```
-Then, the thesis can be compiled using the Makefile:
+and you can get the pdf of the thesis by running this docker:
 ```
-cd src/
-make
-xdg-open thesis.pdf
+docker run thesis-docker
 ```
 
 The figures of the thesis were generated using Python 3.11.6 with the specified
 versions of libraries that can be installed as follows:
 ```
-pip install -r requirements_Python.txt
+pip install -r requirements.txt
 ```
 
 The structures were inspected with VMD 1.9.4a57, Tcl configuration scripts are 
@@ -93,7 +87,7 @@ batteries**. Apr 22, 2022. _Aula Magna, FAMAF._
 
 + **Density functional tight-binding model for Lithium-Silicon alloys**. B. Oviedo, <ins>F. Fernandez</ins>, M. Otero, E. Leiva, A. Paz. _The Journal of Physical Chemistry A_, 2022. https://doi.org/10.1021/acs.jpca.3c00075
 
-+ **Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via accelerated exploration of local minima**. <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. [_Physical Chemistry Chemical Physics_, 2021. https://doi.org/10.1039/D1CP02216D
++ **Characterization of amorphous Li<sub>x</sub>Si structures from ReaxFF via accelerated exploration of local minima**. <ins>F. Fernandez</ins>, A. Paz, M. Otero, D. Barraco, E. Leiva. _Physical Chemistry Chemical Physics_, 2021. https://doi.org/10.1039/D1CP02216D
 
 ### Conference presentations
 
