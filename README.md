@@ -23,7 +23,7 @@ docker run thesis-docker
 ```
 and you can get the pdf of the thesis by running:
 ```
-sudo docker cp <COMPILE ID>:/thesis/thesis.pdf .
+docker cp <CONTAINER ID>:/thesis/thesis.pdf .
 ```
 
 The figures of the thesis were generated using Python 3.11.6 with the specified

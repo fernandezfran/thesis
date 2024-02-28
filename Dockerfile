@@ -8,7 +8,7 @@
 #   $ docker run thesis-docker
 # to make the compilation of the thesis and then copying to the actual 
 # directory:
-#   $ docker cp <COMPILE ID>:/thesis/thesis.pdf .
+#   $ docker cp <CONTAINER ID>:/thesis/thesis.pdf .
 
 # use an ubuntu image base
 FROM ubuntu:22.04
