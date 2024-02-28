@@ -34,4 +34,4 @@ WORKDIR /thesis
 COPY src/ .
 
 # compile with Makefile and copy the thesis.pdf file here
-CMD ["sh", "-c", "make -C /thesis && cp /thesis/thesis.pdf ./"]
+CMD ["sh", "-c", "make -C /thesis"]
