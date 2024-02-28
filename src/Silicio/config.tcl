@@ -7,6 +7,11 @@
 #
 # Note: above each tcl command is the explanation of how it would be done in 
 # the VMD GUI.
+# Also note: you can copy this scripts to the following paths or open then 
+# from here
+#   prediccion/metodos/datasets/
+#   caracterizacion/resultados/introduccion/amorfas/
+#   caracterizacion/metodos/config/cristalinas/datasets/
 
 # Display > Ortographic 
 display projection orthographic
