@@ -7,7 +7,8 @@
 # and then run
 #   $ docker run thesis-docker
 # to make the compilation of the thesis and then copying to the actual 
-# directory.
+# directory:
+#   $ docker cp <COMPILE ID>:/thesis/thesis.pdf .
 
 # use an ubuntu image base
 FROM ubuntu:22.04
@@ -33,5 +34,5 @@ WORKDIR /thesis
 # copy the TeX files and the Makefile
 COPY src/ .
 
-# compile with Makefile and copy the thesis.pdf file here
+# compile with Makefile in the container
 CMD ["sh", "-c", "make -C /thesis"]
