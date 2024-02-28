@@ -1,2 +1,2 @@
-Dockerfile -linguist-detectable
-src/Makefile -linguist-detectable
+Dockerfile linguist-language=Dockerfile
+src/Makefile linguist-language=Makefile
