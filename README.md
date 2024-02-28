@@ -26,6 +26,9 @@ and you can get the pdf of the thesis by running:
 docker cp <CONTAINER ID>:/thesis/thesis.pdf .
 ```
 
+
+## Thesis figures comment
+
 The figures of the thesis were generated using Python 3.11.6 with the specified
 versions of libraries that can be installed as follows:
 ```
