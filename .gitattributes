@@ -2,3 +2,6 @@
 src/*/*.tex linguist-vendored
 src/*/*/*.tex linguist-vendored
 src/*/*/*/*.tex linguist-vendored
+src/*/*/*/*/*.tex linguist-vendored
+src/*/*py linguist-vendored
+src/*/*/*py linguist-vendored
