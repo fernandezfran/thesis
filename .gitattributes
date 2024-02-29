@@ -1,2 +1,3 @@
 # some .tex file vendored to display all languagues in GitHub repo
 src/*/*.tex linguist-vendored
+src/*/*/*.tex linguist-vendored
