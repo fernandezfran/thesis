@@ -18,8 +18,8 @@
 
 A Dockerfile is provided to compile the thesis in any OS. Linux example:
 ```
-docker build -t thesis-docker .
-docker run thesis-docker
+docker build -t <CONTAINER NAME> .
+docker run <CONTAINER NAME>
 ```
 and you can get the pdf of the thesis by running:
 ```
