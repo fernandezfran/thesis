@@ -3,9 +3,9 @@
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 
 # You can make the Docker image e.g. with the following command:
-#   $ docker build -t thesis-docker .
+#   $ docker build -t <CONTAINER NAME> .
 # and then run
-#   $ docker run thesis-docker
+#   $ docker run <CONTAINER NAME>
 # to make the compilation of the thesis and then copying to the actual 
 # directory:
 #   $ docker cp <CONTAINER ID>:/thesis/thesis.pdf .
