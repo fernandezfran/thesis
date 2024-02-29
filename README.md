@@ -16,7 +16,7 @@
 
 ## Instructions to compile the thesis
 
-A Dockerfile is provided to compile the thesis in any OS:
+A Dockerfile is provided to compile the thesis in any OS. Linux example:
 ```
 docker build -t thesis-docker .
 docker run thesis-docker
