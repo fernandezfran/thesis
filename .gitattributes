@@ -1,9 +1,8 @@
 # some files vendored to display all languagues in GitHub repo
-src/*.tex linguist-vendored
+src/*.bib linguist-vendored
 src/*/*/*.tex linguist-vendored
 src/*/*/*/*.tex linguist-vendored
 src/*/*/*/*/*.tex linguist-vendored
-src/*/*/*py linguist-vendored
 src/*/*/*/*py linguist-vendored
 src/*/*/*/*/*py linguist-vendored
 src/Silicio/modelo/resultados/rdf/datasets/config.tcl linguist-vendored
