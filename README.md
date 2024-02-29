@@ -38,7 +38,7 @@ pip install -r requirements.txt
 The structures were inspected with VMD 1.9.4a57, Tcl configuration scripts are 
 provided for the same purpose and can be run as
 ```
-vmd -e src/Silicio/config.tcl <input_structure>
+vmd -e src/Silicio/config.tcl <INPUT STRUCTURE>
 ```
 
 
