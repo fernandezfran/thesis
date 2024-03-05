@@ -10,5 +10,3 @@
 * en README borrar el `To be` antes del `presented` en **Dissertation** y reemplazar dd por el día que correponda.
 
 * en README modificar el link del badge de la tesis al RDU
-
-* hacer slides publicas y agregar badge al link de drive
