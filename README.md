@@ -2,9 +2,9 @@
 
 > PhD thesis done at [FAMAF (Universidad Nacional de Córdoba)](https://www.famaf.unc.edu.ar/), working in the [LAES](http://www.laesunc.com/laes/) computational area.
 
-[![Thesis](https://img.shields.io/badge/RDU-Thesis-e59b63)](https://rdu.unc.edu.ar/handle/11086/nid)
+[![thesis](https://img.shields.io/badge/rdu-thesis-e59b63)](https://rdu.unc.edu.ar/handle/11086/nid)
 [![slides](https://img.shields.io/badge/dissertation-slides-f6bc0d)](https://docs.google.com/presentation/d/1AJjBloOVPwDa9H68Ac1sZ8KyvpRNlKRnkjJMwA76x50/edit?usp=sharing)
-[![License](https://img.shields.io/badge/License-CC%20BY%20SA%204.0-15a300)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![license](https://img.shields.io/badge/license-cc%20by%20sa%204.0-15a300)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 **Advisors**: [Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en) (FCQ, Universidad Nacional de Córdoba) & [Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) (FAMAF, Universidad Nacional de Córdoba).
 
