@@ -1,3 +1,4 @@
+*.pdf
 src/thesis.*
 !src/thesis.tex
 __pycache__/
