@@ -12,4 +12,6 @@
 
 * en README borrar el `To be` antes del `presented` en **Dissertation** y reemplazar dd por el día que correponda.
 
+* borrar espacio en blanco de las figuras la última vez que se corran antes de la versión definitiva y a imprimir
+
 * en README modificar el link del badge de la tesis al RDU
