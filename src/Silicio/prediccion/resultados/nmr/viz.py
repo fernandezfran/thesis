@@ -13,7 +13,7 @@ plt.rcParams.update({"font.size": 12})
 pbc = list(it.product((-10, 0, 10), repeat=2))
 
 rsi = 0.25
-si_centros = [(0, 2.5), (2.7, 2.5), (0, -2), (-4, 4)]
+si_centros = [(0.35, 2.8), (3.05, 2.8), (-0.7, -2), (-3.8, 4.4)]
 
 silicons = (
     [plt.Circle(si_centros[0], rsi, color="tab:blue", label="Si")]
@@ -80,7 +80,7 @@ ax.hlines([-5, 5], [-5, -5], [5, 5], colors="k")
 for circ in silicons + litios + rcuts[:3]:
     ax.add_patch(circ)
 
-ax.plot([0, 2.7], [2.5, 2.5], color="tab:blue")
+ax.plot([0.35, 3.0], [2.8, 2.8], color="tab:blue")
 
 ax.plot([-10 + rsi, -7.3 - rsi], [2.5, 2.5], color="tab:blue", alpha=0.5)
 ax.plot([rsi, 2.7 - rsi], [-7.5, -7.5], color="tab:blue", alpha=0.5)
