@@ -9,7 +9,7 @@ import pandas as pd
 
 plt.rcParams.update({"font.size": 12})
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(7, 5))
 
 for i, xpeak in enumerate((2.37, 3.87, 4.53), start=1):
     ax.axvline(xpeak, color="tab:gray", linestyle="--", alpha=0.5 - 0.1 * i)
@@ -34,7 +34,9 @@ for color, label, param in zip(colores, labels, parametrizaciones):
 ax.set_xlim((1.5, 5))
 ax.set_xlabel(r"r [$\AA$]")
 
+ax.set_ylim((-0.25, 8.75))
+ax.set_yticks(range(0, 9, 2))
 ax.set_ylabel("RDF Si-Si")
 
-ax.legend()
+ax.legend(loc="upper right")
 fig.savefig("rdf-curva.png", dpi=600)
