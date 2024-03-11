@@ -82,9 +82,9 @@ for circ in silicons + litios + rcuts[:3]:
 
 ax.plot([0.35, 3.0], [2.8, 2.8], color="tab:blue")
 
-ax.plot([-10 + rsi, -7.3 - rsi], [2.5, 2.5], color="tab:blue", alpha=0.5)
-ax.plot([rsi, 2.7 - rsi], [-7.5, -7.5], color="tab:blue", alpha=0.5)
-ax.plot([-10 + rsi, -7.3 - rsi], [-7.5, -7.5], color="tab:blue", alpha=0.5)
+ax.plot([-9.65 + rsi, -7. - rsi], [2.8, 2.8], color="tab:blue", alpha=0.5)
+ax.plot([0.35 + rsi, 3.0 - rsi], [-7.2, -7.2], color="tab:blue", alpha=0.5)
+ax.plot([-9.65 + rsi, -7. - rsi], [-7.2, -7.2], color="tab:blue", alpha=0.5)
 
 ax.set_xlim((-10, 10))
 ax.set_ylim((-10, 10))
