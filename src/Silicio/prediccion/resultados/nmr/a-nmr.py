@@ -11,7 +11,7 @@ fig, ax = plt.subplots()
 
 plt.rcParams.update({"font.size": 12})
 
-xvals = [0.20, 0.56, 0.89, 2.00, 3.28, 3.75]
+xvals = [0.20, 0.56, 0.89, 2.00, 3.28, 3.75][::-1]
 voltajes = ["000", "050", "085", "095", "100", "105"]
 for x, volt in zip(xvals, voltajes):
     dataset = pd.read_csv(f"datasets/{volt}.csv")
