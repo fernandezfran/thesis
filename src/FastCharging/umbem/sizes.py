@@ -6,13 +6,13 @@
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 from shared import *
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 5))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
 
 ax1.text(-3.9, 1, "Zona de carga rápida")
 ax1.text(-1.5, -3, "Zona de carga lenta", color="white")
 
 greg = galpynostatic.model.GalvanostaticRegressor(spherical, 1, 1)
-greg._map = galpynostatic.datasets.map.MapSpline(spherical)
+greg._map = galpynostatic.base.MapSpline(spherical)
 ax1 = greg.plot.render_map(ax=ax1, clb_label="UMBEM")
 
 X, Y = np.linspace(-6, 6), np.linspace(-6, 6)
@@ -75,9 +75,7 @@ w = 0.02
 x = np.linspace(0, 1, num=len(socs.keys()))
 for i, (ops, soc) in enumerate(zip(opss.values(), socs.values())):
     colors = [cmap(v) for v in soc]
-    xs = np.linspace(
-        x[i] - (w / 2) * len(ops), x[i] + (w / 2) * len(ops), num=len(ops)
-    )
+    xs = np.linspace(x[i] - (w / 2) * len(ops), x[i] + (w / 2) * len(ops), num=len(ops))
     ax2.bar(xs, ops, width=w, color=colors)
 
 ax2.axhline(y=1, color="tab:gray", linestyle="dashed", linewidth=1)

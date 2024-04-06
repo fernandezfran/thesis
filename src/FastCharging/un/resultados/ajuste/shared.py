@@ -28,7 +28,7 @@ C_rates = [
     [1, 5, 10, 20, 50, 100],
     [2.5, 5.0, 7.5, 12.5, 25.0],
 ]
-lengths = [7.5e-4, 1.75e-4, 3.5e-5, 2e-3, 2.5e-6, np.sqrt(8.04e-6 / 4 /np.pi)]
+lengths = [7.5e-4, 1.75e-4, 3.5e-5, 2e-3, 2.5e-6, np.sqrt(8.04e-6 / 4 / np.pi)]
 
 X_data, y_data, models = [], [], []
 for exp, eq, maxdc, X, d in zip(experiments, eq_pot, xmaxs, C_rates, lengths):

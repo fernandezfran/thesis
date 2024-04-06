@@ -13,7 +13,7 @@ plt.rcParams.update({"font.size": 14})
 spherical = pd.read_csv("../datasets/simulated_spherical_map_200mV.csv")
 
 greg = galpynostatic.model.GalvanostaticRegressor(spherical, 1, 1)
-greg._map = galpynostatic.datasets.map.MapSpline(spherical)
+greg._map = galpynostatic.base.MapSpline(spherical)
 greg.plot.render_map(clb_label="UMBEM")
 
 plt.tight_layout()

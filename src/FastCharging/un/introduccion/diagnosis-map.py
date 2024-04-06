@@ -28,7 +28,7 @@ ax.text(-1.1, -0.9, "A", color="tab:blue")
 ax.scatter(1.5, 1, marker="v", color="tab:red")
 ax.text(1.4, 0.67, "B", color="tab:red")
 
-ax.text(-4., 2.25, "(a)")
+ax.text(-4.0, 2.25, "(a)")
 
 fig.tight_layout()
 plt.savefig("diagnosis-map.png", dpi=600)

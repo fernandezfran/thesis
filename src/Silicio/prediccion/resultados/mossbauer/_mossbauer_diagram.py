@@ -21,11 +21,18 @@ xvals = np.linspace(-2, 2, num=500)
 
 ax.plot(
     xvals,
-    0.75 * (absorption_peak(xvals, 0.3 - 0.01, 0.1) + absorption_peak(xvals, 0.3 + 0.01, 0.1)),
+    0.75
+    * (
+        absorption_peak(xvals, 0.3 - 0.01, 0.1)
+        + absorption_peak(xvals, 0.3 + 0.01, 0.1)
+    ),
 )
 ax.text(-1.4, 0.1, r"$\delta$: desplazamiento isomérico")
 
-ax.plot(xvals, absorption_peak(xvals, 0.3 - 0.2, 0.1) + absorption_peak(xvals, 0.3 + 0.2, 0.1) - 5)
+ax.plot(
+    xvals,
+    absorption_peak(xvals, 0.3 - 0.2, 0.1) + absorption_peak(xvals, 0.3 + 0.2, 0.1) - 5,
+)
 ax.text(-1.4, -4.95, r"$\Delta$: división cuadrupolar")
 
 ax.set_xlim((-1.5, 1.5))

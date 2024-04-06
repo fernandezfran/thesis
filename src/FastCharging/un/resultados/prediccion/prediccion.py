@@ -57,13 +57,26 @@ greg.plot.render_map(ax=ax, clb_label="valor máximo del SOC")
 cuatroc = np.array([4])
 
 arrow_from, crosses = [], []
-for greg in models:
+for sys, d, greg in zip(systems, lengths, models):
     ell = galpynostatic.utils.logell(cuatroc, greg.d, 3, greg.dcoeff_)
     xi = galpynostatic.utils.logxi(cuatroc, greg.dcoeff_, greg.k0_)
 
     arrow_from.append([ell[0], xi[0]])
 
-    greg.d, _ = galpynostatic.make_prediction.optimal_particle_size(greg, cm_to=1)
+    if sys not in ["LFP", "LMO"]:
+        greg.d, _ = galpynostatic.make_prediction.optimal_particle_size(
+            greg, d0=d, cm_to=1
+        )
+    else:
+        for d in [0.08e-4, 0.0743e-4]:
+            try:
+                greg.d = d
+                greg.d, _ = galpynostatic.make_prediction.optimal_particle_size(
+                    greg, d0=d, cm_to=1
+                )
+                break
+            except ValueError:
+                greg.d = d
     new_ell = galpynostatic.utils.logell(cuatroc, greg.d, 3, greg.dcoeff_)
 
     crosses.append([new_ell[0], xi[0]])

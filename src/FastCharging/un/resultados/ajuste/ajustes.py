@@ -9,8 +9,8 @@ from shared import *
 fig, ax = plt.subplots(nrows=3, ncols=2, sharey=True, figsize=(7, 7))
 ax = ax.ravel()
 
-data_kws={"linestyle": "", "label": "datos experimentales"}
-pred_kws={"label": "modelo"}
+data_kws = {"linestyle": "", "label": "datos experimentales"}
+pred_kws = {"label": "modelo"}
 for i, (sys, greg, X, y, let) in enumerate(
     zip(systems, models, X_data, y_data, abcdef)
 ):

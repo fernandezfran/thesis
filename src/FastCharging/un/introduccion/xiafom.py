@@ -12,18 +12,20 @@ plt.rcParams.update({"font.size": 12})
 
 dataset = pd.read_csv("datasets/experimental_data.csv")
 
-dataset["d_mean_micro"] = dataset["particle_size_micro"].str.split("-").apply(
-    lambda x: np.mean([float(i) for i in x])
-    if isinstance(x, list)
-    else np.nan
+dataset["d_mean_micro"] = (
+    dataset["particle_size_micro"]
+    .str.split("-")
+    .apply(lambda x: np.mean([float(i) for i in x]) if isinstance(x, list) else np.nan)
 )
 
-dataset["d_mean_micro"] = dataset.groupby(
-    "Material", group_keys=False
-)["d_mean_micro"].apply(lambda x: x.fillna(x.mean()))
+dataset["d_mean_micro"] = dataset.groupby("Material", group_keys=False)[
+    "d_mean_micro"
+].apply(lambda x: x.fillna(x.mean()))
 
-dataset["dcoeff_midpoint_cm2s"] = dataset["dcoeff_cm2s"].str.split(" to ").apply(
-    lambda x: np.mean([float(i) for i in x])
+dataset["dcoeff_midpoint_cm2s"] = (
+    dataset["dcoeff_cm2s"]
+    .str.split(" to ")
+    .apply(lambda x: np.mean([float(i) for i in x]))
 )
 
 systems = ("LCO", "LMO", "LTO", "LFP", "Ternarios", "Grafito")

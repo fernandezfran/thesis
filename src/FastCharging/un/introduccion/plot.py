@@ -28,7 +28,7 @@ for i, (file, (xi, ell)) in enumerate(zip(files, chill)):
     ax[j].plot(x, potential, label=f"{np.log10(ell)}", zorder=1)
     ax[j].scatter(x[-1], -0.15, s=150, marker="^", color="k", zorder=2)
 
-for a, chi, bc in zip(ax, xi_values[::-1], ["(b)", "(c)"]):
+for a, xi, bc in zip(ax, xi_values[::-1], ["(b)", "(c)"]):
     a.text(0.025, 0.12, bc)
     a.text(0.78, 0.11, rf"log($\Xi$) = {np.log10(xi)}")
     a.set_ylabel("Potencial (V)")

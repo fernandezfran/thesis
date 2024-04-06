@@ -13,14 +13,11 @@ plt.rcParams.update({"font.size": 12})
 fig, ax = plt.subplots()
 
 for file, label in zip(
-    ["ev-value.csv", "combustion-value.csv"],
-    ["eléctrico", "a combustión interna"]
+    ["ev-value.csv", "combustion-value.csv"], ["eléctrico", "a combustión interna"]
 ):
     dataset = pd.read_csv(file)
 
-    cheby = np.polynomial.chebyshev.Chebyshev.fit(
-        dataset.year, dataset.cost, deg=4
-    )
+    cheby = np.polynomial.chebyshev.Chebyshev.fit(dataset.year, dataset.cost, deg=4)
 
     ax.plot(dataset.year, cheby(dataset.year), lw=2, label=label)
 

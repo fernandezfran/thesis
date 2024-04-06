@@ -6,10 +6,10 @@
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 from shared import *
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 5))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
 
 greg = galpynostatic.model.GalvanostaticRegressor(spherical, 1, 1)
-greg._map = galpynostatic.datasets.map.MapSpline(spherical)
+greg._map = galpynostatic.base.MapSpline(spherical)
 ax1 = greg.plot.render_map(ax=ax1, clb_label="UMBEM")
 
 X, Y = np.linspace(-5, 6), np.linspace(-5, 6)

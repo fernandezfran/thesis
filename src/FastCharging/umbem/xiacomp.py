@@ -6,7 +6,7 @@
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 from shared import *
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 5))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
 
 xvalues = np.logspace(-20, -8)
 for tau, x, y in zip(

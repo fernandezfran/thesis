@@ -33,4 +33,3 @@ plt.ylabel(r"$SOC_{\max}$")
 plt.legend()
 
 plt.savefig("_socmax_vs_crate_plot.png", dpi=600)
-plt.show()

@@ -7,12 +7,13 @@
 import os
 
 import itertools as it
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import numpy as np
 
 plt.rcParams.update({"font.size": 16})
-cmap = cm.get_cmap("viridis")
+cmap = matplotlib.colormaps["viridis"]
 
 fig, ax = plt.subplots(figsize=(12, 5))
 
