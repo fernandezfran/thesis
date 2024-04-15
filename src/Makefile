@@ -2,7 +2,7 @@
 # License: CC BY-SA 4.0
 #   https://github.com/fernandezfran/thesis/blob/main/LICENSE
 COMPILER = latexmk
-thesis_flags = -pdf -pdflatex="pdflatex" -use-make -quiet
+thesis_flags = -pdf -pdflatex="pdflatex" -use-make -quiet -f
 clean_flags = -c
 
 TARGETS = thesis

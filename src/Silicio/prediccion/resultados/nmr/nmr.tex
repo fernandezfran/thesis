@@ -6,14 +6,24 @@
 La medición directa de la estructura atómica local es una tarea compleja. Sin
 embargo, algunas técnicas espectroscópicas permiten inferir la estructura local 
 debido a la gran dependencia de la propiedad medida con respecto al entorno local, 
-como lo es el caso de la Resonancia Magnética Nuclear (RMN). La señal de RMN está caracterizada por un pico 
+como lo es el caso de la Resonancia Magnética Nuclear (RMN)\todo{, resumida en la Figura \ref{fig:esquema-nmr}.}
+\todo{En este esquema puede observarse la aplicación de un campo magnético externo $B_0$ en una dirección determinada, y un ion de Li (en verde) que posee una nube electrónica (en azul), la cual provoca un apantallamiento del campo externo, haciendo que el ion de Li perciba un campo efectivo, $B_{\text{eff}}$.
+La señal de RMN está caracterizada por un pico 
 Voigt, que corresponde a una convolución de una función lorentziana, que 
 es intrínseca al fenómeno de RMN, y una función gaussiana, debida al detector
-\cite{higinbotham2001}. Cada núcleo en particular introduce un corrimiento a la 
-señal, corrimiento químico, que depende del apantallamiento electromagnético 
-producido por el entorno local y, por lo tanto, por la estructura local. Luego,
-el espectro total obtenido para una muestra es la suma de las contribuciones 
-procedentes de todos los átomos de $^7$Li de la estructura. Para utilizar esta 
+\cite{higinbotham2001}. 
+Cada ion en la estructura introduce un corrimiento a la señal, corrimiento químico ($\delta$), que puede definirse como la variación del apantallamiento respecto al apantallamiento de referencia (ver ecuaciones de la Figura \ref{fig:esquema-nmr}). 
+Este apantallamiento electromagnético es producido por el entorno local y, por lo tanto, por la estructura local.
+Luego, el espectro total medido para una muestra es la suma de las contribuciones de todos los átomos de $^7$Li en la estructura.
+En los espectros del ejemplo vemos la referencia en 0, mientras que para el lado derecho tenemos corrimientos negativos, para el lado izquierdo corrimientos positivos. En azul se muestra un espectro con menor corrimiento y en naranja uno con mayor corrimiento.}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Silicio/prediccion/resultados/nmr/esquema_nmr.png}
+    \caption{\todo{Esquema de la técnica de medición de Resonancia Magnética Nuclear (RMN) junto a sus ecuaciones y espectros típicos.}}
+    \label{fig:esquema-nmr}
+\end{figure}
+
+Para utilizar esta 
 técnica en Li-Si, Key \textit{et al.} \cite{key2009} prepararon estructuras
 a distintas concentraciones de litio y midieron los espectros de corrimiento 
 químico del $^7$Li. En estas mediciones, Key \textit{et al.} \cite{key2009} 

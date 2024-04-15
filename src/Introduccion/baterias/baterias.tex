@@ -50,22 +50,25 @@ eléctrica mediante una reacción redox (reducción-oxidación), en la cual uno 
 componentes pierde electrones (se oxida) y el otro gana electrones (se reduce).
 En la Figura \ref{fig:esquema-bateria} se muestra un esquema general con el 
 funcionamiento que presenta una celda electroquímica de ion-litio y se destacan 
-las componentes más relevantes: los electrodos positivo (cátodo) y negativo (ánodo) 
-donde ocurren las reacciones redox en la carga/descarga de la celda, el electrolito 
-por el cual difunden los iones de litio y el separador, que es un material 
+las componentes más relevantes: los electrodos positivo (cátodo\todo{, en naranja}) y 
+negativo (ánodo\todo{, en azul}) donde ocurren las reacciones redox en la carga/descarga de la celda, el electrolito 
+por el cual difunden los iones de litio y el separador \todo{(en violeta)}, que es un material 
 poroso permeable al electrolito que permite que los iones circulen dentro del 
 electrolito y evita que los electrodos se cortocircuiten.
-Durante la descarga, la reacción redox es espontánea y 
+\todo{En la Figura \ref{fig:esquema-bateria}a se presenta la batería completamente cargada, donde los iones de Li (en verde) junto a los electrones (en rojo) se encuentran en el ánodo.}
+Durante la descarga \todo{(ver Figura \ref{fig:esquema-bateria}b), en la cual se utiliza la energía almacenada}, la reacción redox es espontánea y 
 provoca la difusión de iones de litio por el electrolito desde el ánodo hacia el 
-cátodo, junto con una corriente eléctrica en un circuito externo (flechas rojas). 
+cátodo \todo{(flechas verdes)}, junto con una corriente eléctrica en un circuito externo (flechas rojas). 
+\todo{Cuando la batería se encuentra completamente descargada, los iones de Li y los electrones de encuentran en el cátodo, como se representa en la Figura \ref{fig:esquema-bateria}c.}
 Durante la carga se debe aplicar una corriente eléctrica externa para tener la 
-reacción inversa (flechas verdes).
+reacción inversa (Figura \ref{fig:esquema-bateria}d).
 Por el principio de electroneutralidad, la entrada (salida) a cada electrodo de una cierta cantidad de iones de litio, implica recíprocamente la entrada (salida) de un número equivalente de electrones.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=.8\textwidth]{Introduccion/baterias/esquema_bateria.png}
+    \includegraphics[width=.9\textwidth]{Introduccion/baterias/esquema_bateria.png}
     \caption{Esquema de las componentes y el funcionamiento de una batería de 
-    ion-litio.}
+    ion-litio\todo{: (a) Batería completamente cargada, (b) durante la descarga, (c) 
+    completamente descargada, y (d) durante la carga.}}
     \label{fig:esquema-bateria}
 \end{figure}
 
@@ -74,7 +77,7 @@ Figura \ref{fig:whkg}, fue posible gracias a una mejor ingeniería en la celda.
 Los próximos grandes desafíos en el área de estudio aparecen en el desarrollo de 
 nuevos materiales en cada uno de los componentes de las baterías.
 Por ejemplo, la ya mencionada batería de WeLion introduce materiales distintos 
-de aquellos implementados originalmente por Sony. A continuación se mencionan
+de aquellos implementados originalmente por Sony. \todo{En particular, el salto observado en el año 2005 se debe a la introducción de cátodos de LiFePO$_4$ (LFP).} A continuación se mencionan
 algunas variantes a las distintas partes de las baterías presentadas en la
 Figura \ref{fig:esquema-bateria} que se encuentran en etapas de investigación 
 y algunas de ellas ya comercializadas.
@@ -105,13 +108,12 @@ Otra de las opciones es el dopaje de LiNiO$_2$ con cationes de cobalto y alumini
 Li(Ni$_{1-x-y}$Co$_x$Al$_y$)O$_2$ (NCA), que en la composición 
 Li(Ni$_{0.8}$Co$_{0.15}$Al$_{0.05}$)O$_2$ \cite{chen2004} es comercializada 
 dentro de algunos de los modelos de EVs de Tesla, ya que posee una capacidad alta ($\sim$ 200 mAhg$^{-1}$) y una gran vida útil comparada a la del LCO. Por otro lado, la olivina 
-LiFePO$_4$ (LFP) fue introducida como material catódico a fines de la década 
+LFP fue introducida como material catódico a fines de la década 
 de 1990 por el grupo de Goodenough \cite{padhi1997}, donde encontraron capacidades
 menores a los 120 mAhg$^{-1}$, pero ganó interés debido a su estabilidad térmica, su bajo costo y a la 
 naturaleza ambiental benigna del fosfato de hierro. Los problemas asociados al LFP son la
 conductividad eléctrica y la difusividad del litio bajas, sin embargo, debido
-a sus ventajas ya ha sido exitosamente comercializado, por ejemplo en los EVs 
-TITO fabricados en la provincia de San Luis.
+a sus ventajas ya ha sido exitosamente comercializado en EVs.
 
 Los electrolitos son sistemas conformados por una mezcla de disolventes, una 
 sal y aditivos. Las soluciones electrolíticas que se utilizan en las LIBs actuales 

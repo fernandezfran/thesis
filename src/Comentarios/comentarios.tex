@@ -1,7 +1,9 @@
 % Copyright (c) 2024, Francisco Fernandez
 % License: CC BY-SA 4.0
 %   https://github.com/fernandezfran/thesis/blob/main/LICENSE
-\chapter{Comentarios finales}\label{ch:comentarios}
+\chapter{Comentarios finales y perspectivas futuras}\label{ch:comentarios}
+
+\section{\todo{Comentarios finales}}
 
 Las baterías de ion-litio han permitido que se desarrollaran una gran variedad de
 dispositivos electrónicos, por ejemplo los teléfonos inteligentes o las 
@@ -17,11 +19,17 @@ como ánodos de baterías de ion-Li de próxima generación. De este modo, en es
 tesis doctoral se 
 aplicaron distintos modelados computacionales para estudiar electrodos de 
 baterías de ion-litio de próxima generación, las técnicas utilizadas fueron 
-introducidas en el capítulo \ref{ch:metodos}. Los resultados obtenidos están 
+introducidas en el capítulo \ref{ch:metodos}. Los resultados obtenidos fueron 
 divididos en dos partes: \textbf{Carga rápida de baterías de ion-litio} (Parte 
-\ref{p:fast-charging}) publicado en \cite{fernandez2023towards} y \textbf{Silicio como ánodo
-de baterías de ion-litio de próxima generación: Estudio de sus aleaciones} (Parte 
-\ref{p:silicio}) publicado en \cite{fernandez2023nmr, oviedo2023, fernandez2021characterization}.
+\ref{p:fast-charging}) y \textbf{Silicio como ánodo de baterías de ion-litio de 
+próxima generación: Estudio de sus aleaciones} (Parte \ref{p:silicio})\todo{. Parte de los resultados obtenidos fueron publicados en revistas científicas de referencia en el área:}
+\begin{enumerate}
+    \item \todo{\underline{Fernandez, F.}, Otero, M., Oviedo, M. B., Barraco, D. E., Paz, S. A., \& Leiva, E. P. M. (2023). NMR, x-ray, and Mössbauer results for amorphous Li-Si alloys using density functional tight-binding method. \textit{Physical Review B, 108}(14), 144201.}
+    \item \todo{\underline{Fernandez, F.}, Gavilán-Arriazu, E. M., Barraco, D. E., Visintin, A., Ein-Eli, Y., \& Leiva, E. P. M. (2023). Towards a fast-charging of LIBs electrode materials: a heuristic model based on galvanostatic simulations. \textit{Electrochimica Acta, 464}, 142951.}
+    \item \todo{Oviedo, M. B., \underline{Fernandez, F.}, Otero, M., Leiva, E. P., \& Paz, S. A. (2023). Density Functional Tight-Binding Model for Lithium–Silicon Alloys. \textit{The Journal of Physical Chemistry A, 127}(11), 2637-2645.}
+    \item \todo{\underline{Fernandez, F.}, Paz, S. A., Otero, M., Barraco, D., \& Leiva, E. P. (2021). Characterization of amorphous Li x Si structures from ReaxFF via accelerated exploration of local minima. \textit{Physical Chemistry Chemical Physics, 23}(31), 16776-16784.}
+\end{enumerate}
+\todo{Se encuentran en redacción otros manuscrítos a ser publicados.}
 
 En el capítulo \ref{ch:un} se desarrolló un modelo que permite predecir el tamaño
 óptimo que deberían tener las partículas de material activo en un electrodo para 
@@ -125,3 +133,57 @@ concentración entre Li y Si. Cuando se usan las concentraciones locales para
 realizar los cálculos se nota una mejora con respecto a los valores globales y
 una mejor representación del experimento. Para todos los casos las predicciones
 presentaron una buena concordancia con los experimentos.
+
+\section{\todo{Perspectivas futuras}}
+
+\todo{
+A lo largo de esta tesis se han utilizado distintas técnicas de simulación que
+operan en diversas escalas temporales y espaciales. De ambas partes de la misma
+surgen distintas alternativas para trabajos futuros.
+}
+
+\todo{
+En el caso del modelo y la métrica propuestos en la parte de la tesis referida a 
+la carga rápida, estos podrían ser utilizados en baterías de 
+próxima generación además de las de ion-litio, que sigan los mismos fenómenos
+físicos, como pueden ser las baterías de sodio, que se presentan entre las 
+alternativas más prometedoras \cite{morais2021titanium, leite2020electrochemistry}.
+Por otro lado, podrían estudiarse los efectos que tienen las distintas 
+suposiciones del modelo para condiciones galvanostáticas. Por ejemplo, se podría utilizar 
+la base de datos SQL \path{LiionDB} \cite{wang2022review} o algún sistema de 
+extracción automático/semi-automático de datos de publicaciones, como \path{LIBAC}
+\cite{el2023libac}, para recopilar una gran cantidad de determinaciones 
+experimentales y a partir de ellas estudiar la influencia de la interacción entre los iones 
+intercalados a la hora de predecir distintos parámetros, como los coeficientes de 
+difusión. Esto sería posible si se modifica ligeramente el modelo para que, además
+de recibir los cuatro descriptores del sistema presentados, considere también
+la isoterma de inserción.
+}
+
+\todo{
+En lo que refiere a las aleaciones de Li-Si, las estructuras encontradas
+que predijeron resultados de mediciones de rayos x, RMN y Mössbauer podrían 
+usarse dentro de otros modelos, que podrían elaborarse para predecir otros 
+experimentos o utilizarlas en otras técnicas de simulación ya establecidas para 
+determinar, por ejemplo, el coeficiente de difusión de litio en silicio amorfo en 
+función de la concentración o el potencial aplicado.
+}
+
+\todo{
+Por último, se podría plantear el diseño de un modelo multiescala al estilo del 
+de Liu et al \cite{liu2021towards} para electrodos de compositos grafito/silicio,
+donde estructuras obtenidas con dinámicas moleculares de grano grueso sean 
+utilizadas como parámetros de entrada en un modelo 3D del continuo que acopla 
+simulaciones electroquímicas y mecánicas. En el caso del tema abordado en esta tesis podría 
+calcularse el coeficiente de difusión de Li en Si en función de la concentración 
+de Li, con las estructuras ya obtenidas como configuraciones iniciales, junto con
+su isoterma y el cambio volumétrico, e introducir estos parámetros en el modelo 
+de una sola partícula, modificando las ecuaciones para que considere 
+estos efectos relevantes en este sistema. Por otro lado, también podrían 
+aplicarse distintos modelos de aprendizaje automático utilizando los resultados 
+de esta tesis como base de datos para obtener un campo de fuerzas. Por ejemplo, se podrían considerar las estructuras amorfas 
+de LiSi para predecir resultados experimentales de manera similar al uso que hicimos de los modelos de
+vecinos más cercanos propuestos. Se podría también desarrollar un modelo de orden reducido que
+permita predecir el estado de carga máxima alcanzado entrenando dicho valor sobre 
+los descriptores que permiten obtener los perfiles galvanostáticos simulados.
+}
