@@ -8,7 +8,7 @@
 
 **Advisors**: 
 + [Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en) (FCQ, Universidad Nacional de Córdoba) 
-+ [Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) (FAMAF, Universidad Nacional de Córdoba).
++ [Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) (FAMAF, Universidad Nacional de Córdoba)
 
 **Thesis committee**: 
 + [Dr. Roberto M. Torresi](https://scholar.google.com/citations?user=1EOqiw0AAAAJ&hl=en&oi=ao) (IQ, Universidade de São Paulo)
