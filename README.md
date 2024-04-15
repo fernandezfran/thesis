@@ -6,9 +6,14 @@
 [![slides](https://img.shields.io/badge/dissertation-slides-f6bc0d)](https://docs.google.com/presentation/d/1AJjBloOVPwDa9H68Ac1sZ8KyvpRNlKRnkjJMwA76x50/edit?usp=sharing)
 [![license](https://img.shields.io/badge/license-cc%20by%20sa%204.0-15a300)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-**Advisors**: [Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en) (FCQ, Universidad Nacional de Córdoba) & [Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) (FAMAF, Universidad Nacional de Córdoba).
+**Advisors**: 
++ [Dr. Ezequiel Leiva](https://scholar.google.com/citations?user=Hi9f4aUAAAAJ&hl=en) (FCQ, Universidad Nacional de Córdoba) 
++ [Dr. Daniel Barraco](https://scholar.google.com/citations?user=DzOhPJMAAAAJ&hl=en) (FAMAF, Universidad Nacional de Córdoba).
 
-**Thesis committee**: [Dr. Roberto M. Torresi](https://scholar.google.com/citations?user=1EOqiw0AAAAJ&hl=en&oi=ao) (IQ, Universidade de São Paulo), [Dr. Alejandro A. Franco](https://scholar.google.com/citations?user=tzx61H8AAAAJ&hl=en&oi=ao) (LRCS, Université de Picardie Jules Verne), [Dr. Fabián Vaca Chávez](https://scholar.google.com/citations?user=XZEcNGQAAAAJ&hl=en&oi=ao) (FAMAF, Universidad Nacional de Córdoba).
+**Thesis committee**: 
++ [Dr. Roberto M. Torresi](https://scholar.google.com/citations?user=1EOqiw0AAAAJ&hl=en&oi=ao) (IQ, Universidade de São Paulo)
++ [Dr. Alejandro A. Franco](https://scholar.google.com/citations?user=tzx61H8AAAAJ&hl=en&oi=ao) (LRCS, Université de Picardie Jules Verne)
++ [Dr. Fabián Vaca Chávez](https://scholar.google.com/citations?user=XZEcNGQAAAAJ&hl=en&oi=ao) (FAMAF, Universidad Nacional de Córdoba)
 
 **Dissertation**: Presented to the Faculty of Mathematics, Astronomy, Physics and Computer Science of the Universidad Nacional de Córdoba on April 5, 2024.
 
