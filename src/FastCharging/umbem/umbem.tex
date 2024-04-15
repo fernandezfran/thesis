@@ -128,14 +128,7 @@ el Apéndice \ref{software:metric}.
 La Tabla \ref{t:dataset} resume la información experimental ($d$, $D$) que se 
 requiere para evaluar con la métrica UMBEM distintos sistemas de aplicación 
 frecuente como materiales de electrodo en LIBs, la misma fue 
-extraída de la referencia \cite{xia2022}. Sin embargo, como la discusión se 
-realizará en el contexto del modelo esquematizado en la Figura 
-\ref{fig:explicacion}, también se necesita considerar la constante cinética $k^0$.
-Valores experimentales típicos para este parámetro fundamental se encuentran en 
-un intervalo que va desde $10^{-5}$ hasta $10^{-9}$ cm/s \cite{gavilan2020kinetic}, 
-por lo cual se utiliza un valor intermedio de $10^{-7}$ cm/s para todos los 
-materiales. La C-rate fue fijada a 4 C, que se corresponde con 15 minutos, 
-de acuerdo a la propuesta del USABC. 
+extraída de la referencia \cite{xia2022}. 
 \begin{table}[h!]
     \centering
     \caption{Datos experimentales de distintos sistemas requeridos para evaluar 
@@ -190,6 +183,14 @@ de acuerdo a la propuesta del USABC.
     }{}
     \label{t:dataset}
 \end{table}
+Sin embargo, como la discusión se 
+realizará en el contexto del modelo esquematizado en la Figura 
+\ref{fig:explicacion}, también se necesita considerar la constante cinética $k^0$.
+Valores experimentales típicos para este parámetro fundamental se encuentran en 
+un intervalo que va desde $10^{-5}$ hasta $10^{-9}$ cm/s \cite{gavilan2020kinetic}, 
+por lo cual se utiliza un valor intermedio de $10^{-7}$ cm/s para todos los 
+materiales. La C-rate fue fijada a 4 C, que se corresponde con 15 minutos, 
+de acuerdo a la propuesta del USABC. 
 
 
 \section{Resultados y discusiones}
@@ -276,8 +277,20 @@ carga rápida y la de carga lenta separadas por una línea correspondiente a
 UMBEM = 0.8. Como ya se ha dicho, este es el menor valor de carga rápida 
 propuesto por el USABC. Fuera de la región de carga rápida se encuentran dos 
 sistemas de ejemplo (cuadrado y círculo rojos) para dar una idea cualitativa de 
-cómo un análisis guiado por el mapa puede ayudar a optimizar el desempeño de 
-estos sistemas. El cuadrado que se encuentra en la parte inferior izquierda del gráfico 
+cómo un análisis guiado por el mapa 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{FastCharging/umbem/sizes.png}
+    \caption{(a) Diagrama con las distintas maneras de optimizar el rendimiento 
+    de un material. (b) Relación entre el tamaño óptimo predicho 
+    ($d_{\text{opt}}$) y el experimental ($d_{\text{exp}}$) en escala logarítmica.
+    El tamaño óptimo predicho es el requerido para obtener un valor de UMBEM 
+    de 0.8. El color de cada barra está dado por su desempeño previo y están en 
+    el mismo orden que en la Figura \ref{fig:UMBEM}a.}
+    \label{fig:sizes}
+\end{figure}
+puede ayudar a optimizar el desempeño 
+de estos sistemas. El cuadrado que se encuentra en la parte inferior izquierda del gráfico 
 podría desplazarse verticalmente para alcanzar la línea divisoria. Para que 
 ese desplazamiento ocurra se necesitaría un aumento en $k^0$, como detalla la 
 flecha apuntando hacia arriba en la Figura \ref{fig:sizes}a. Con respecto al 
@@ -292,17 +305,6 @@ optimizar la carga retenida, ya que experimentalmente es posible controlar este
 parámetro regulando las condiciones de síntesis de los materiales. En el párrafo
 siguiente se analiza la optimización en $d$ para todos los experimentos 
 considerados.
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{FastCharging/umbem/sizes.png}
-    \caption{(a) Diagrama con las distintas maneras de optimizar el rendimiento 
-    de un material. (b) Relación entre el tamaño óptimo predicho 
-    ($d_{\text{opt}}$) y el experimental ($d_{\text{exp}}$) en escala logarítmica.
-    El tamaño óptimo predicho es el requerido para obtener un valor de UMBEM 
-    de 0.8. El color de cada barra está dado por su desempeño previo y están en 
-    el mismo orden que en la Figura \ref{fig:UMBEM}a.}
-    \label{fig:sizes}
-\end{figure}
 
 Se realizaron las predicciones de los tamaños óptimos de partícula para que todos 
 los materiales alcancen un valor de UMBEM de 0.8, tanto para aquellos que excedían 
