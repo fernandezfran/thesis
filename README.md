@@ -19,6 +19,8 @@
 
 **Abstract**: Lithium-ion batteries are uniquely positioned for the energy transition needed to reduce carbon emissions into the atmosphere, due to the intermittent nature of renewable energy sources. In addition, there will be a high demand for them in the transportation sector. In this work, next-generation electrodes have been studied using computational techniques to address several critical challenges of the growing electric vehicle industry. The first one is related to fast battery charging, where a model was developed to predict the optimal particle size to reach a state of charge of 80% in 15 minutes of constant current charging. It was also used to propose a universal metric to standardize comparative evaluations between different materials to be considered in fast charging applications. Another aspect of great relevance in current research is the consideration of materials that allow storing a greater amount of energy than the current ones, among which silicon anodes stand out. In this field, atomic configurations of LiSi alloys have been obtained by a lithiation protocol and analyzed with nearest neighbor models to predict X-ray diffraction, Nuclear magnetic resonance and Mössbauer spectroscopy measurements.
 
+**Keywords**: _Lithium-ion batteries, fast-charging, heuristic model, benchmarking metric, Silicon anodes, nearest neighbor models, predictions of experimental results_.
+
 
 ## Instructions to compile the thesis
 
