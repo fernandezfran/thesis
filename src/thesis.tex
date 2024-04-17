@@ -137,22 +137,22 @@
 \usepackage{tocbibind}
 \renewcommand{\cite}{\citep}
 
-% \newcommand\blankpage{%
-%     \null
-%     \thispagestyle{empty}%
-%     \addtocounter{page}{-1}%
-%     \newpage
-% }
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage
+}
 
 
 \begin{document}
 
 \frontmatter
 
-% \blankpage
-% \blankpage
-% \blankpage
-% \blankpage
+\blankpage
+\blankpage
+\blankpage
+\blankpage
 
 \input{Caratula/caratula.tex}
 
@@ -202,5 +202,10 @@
 
 \bibliographystyle{apalike}
 \bibliography{citas}
+
+\blankpage
+\blankpage
+\blankpage
+\blankpage
 
 \end{document}
